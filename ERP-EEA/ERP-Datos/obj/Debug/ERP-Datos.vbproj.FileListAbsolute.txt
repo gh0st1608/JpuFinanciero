@@ -1,0 +1,14 @@
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbprojAssemblyReference.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP_Datos.Resources.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.GenerateResource.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.CoreCompileInputs.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.dll
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.pdb
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.xml
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.dll
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.pdb
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.xml
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.CopyComplete
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.dll
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.xml
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.pdb

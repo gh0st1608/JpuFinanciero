@@ -48,6 +48,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PersControlLibrary, Version=1.0.5393.22114, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\POMICA\Prueba Visual 2019\Prueba Visual 2019\Libs\PersControlLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -80,6 +84,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Maestro\FormGrupoIngreso.Designer.vb">
+      <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormGrupoIngreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -95,8 +105,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
+      <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -114,7 +131,36 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ERP-EEA.vbproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ERP-EEA.vbprojAssemblyReference.cache" />
+    <None Include="obj\Debug\ERP-Interface.vbproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ERP-Interface.vbprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Librerias\NetBarControl.dll" />
+    <Content Include="Librerias\NumToWords.dll" />
+    <Content Include="Librerias\OutlookGridControl.dll" />
+    <Content Include="Librerias\PersControlLibrary.dll" />
+    <Content Include="obj\Debug\ERP-Interface.vbproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP-Entidad\ERP-Entidad.vbproj">
+      <Project>{f60dfc8a-075c-447f-9db2-e4410c0a2d2f}</Project>
+      <Name>ERP-Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERP-Negocio\ERP-Negocio.vbproj">
+      <Project>{8c0d0423-c165-4c28-ad5c-f5f0434ec668}</Project>
+      <Name>ERP-Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

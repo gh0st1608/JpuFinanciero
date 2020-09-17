@@ -64,7 +64,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntCliente.vb" />
+    <Compile Include="Auxiliares\Conexion.vb" />
+    <Compile Include="Maestro\EntCliente.vb" />
+    <Compile Include="Maestro\EntGrupoEgreso.vb" />
+    <Compile Include="Maestro\EntGrupoIngreso.vb" />
+    <Compile Include="Maestro\EntIngreso.vb" />
+    <Compile Include="Maestro\EntParametro.vb" />
+    <Compile Include="Maestro\EntProveedor.vb" />
+    <Compile Include="Maestro\EntSubGrupoEgreso.vb" />
+    <Compile Include="Maestro\EntTipoCliente.vb" />
+    <Compile Include="Maestro\EntUsuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -80,6 +89,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -99,6 +109,15 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ERP-Entidad.vbproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ERP-Entidad.vbprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Operaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

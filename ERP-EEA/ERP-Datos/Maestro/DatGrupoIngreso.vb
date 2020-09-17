@@ -5,13 +5,15 @@ Imports System.Collections.Generic
 Imports System.Text
 Imports System.Threading.Tasks
 
-'Enlazar la entidad GrupoIngreso
-Imports ERP_Entidad.EntGrupoIngreso
-
+Imports ERP_Entidad
 
 Public Class DatGrupoIngreso
-    Dim connection As SqlConnection
-    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As ERP_Entidad.EntGrupoIngreso, ByVal blnNuevo As Boolean) As Integer
+    Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
+
+    'SqlConnection conn = New SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
+
+
+    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
 
         Dim command As SqlCommand
 
@@ -20,29 +22,23 @@ Public Class DatGrupoIngreso
             command = New SqlCommand("CrearGrupoIngreso", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            'Crear
-            'If blnNuevo Then
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioId", SqlDbType.Int)
-            command.Parameters.Add("@ManOpcion", SqlDbType.Int)
+            command.Parameters.Add("@Descripcion", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
 
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
-            command.Parameters("@UsuarioId").Value = objGrupoIngreso.UsuarioModificacionId
-            command.Parameters("@ManOpcion").Value = blnNuevo
+            command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
+            command.Parameters("@UsuarioCreacionId").Value = objGrupoIngreso.UsuarioCreacionId
 
             command.ExecuteReader()
             connection.Close()
-            Return 0 'true
+            Return 1 'true
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
             connection.Close()
-            Return 1 'false
+            Return 0 'false
         End Try
-
     End Function
 
-
-    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As GrupoIngreso, ByVal blnNuevo As Boolean) As Integer
+    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
@@ -54,18 +50,18 @@ Public Class DatGrupoIngreso
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar)
             command.Parameters.Add("@Estado", SqlDbType.Int)
             command.Parameters.Add("@UsuarioId", SqlDbType.Int)
-            command.Parameters.Add("@ManOpcion", SqlDbType.Int)
 
             command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
             command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
             command.Parameters("@Estado").Value = objGrupoIngreso.EstadoActivo
             command.Parameters("@UsuarioId").Value = objGrupoIngreso.UsuarioCreacionId
-            command.Parameters("@ManOpcion").Value = blnNuevo
+
+            Return 1 'true
 
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
             connection.Close()
-            Return 1 'false
+            Return 0 'false
         End Try
 
     End Function
@@ -79,17 +75,17 @@ Public Class DatGrupoIngreso
 
             command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+
             command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
 
-
             command.ExecuteReader()
             connection.Close()
-            Return 0 'true
+            Return 1 'true
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
             connection.Close()
-            Return 1 'false
+            Return 0 'false
         End Try
     End Function
 
@@ -197,8 +193,6 @@ Public Class DatGrupoIngreso
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
-
-
 
         Try
             connection.Open()

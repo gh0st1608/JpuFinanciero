@@ -1,0 +1,10 @@
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbprojAssemblyReference.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP_Entidad.Resources.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.GenerateResource.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.CoreCompileInputs.cache
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.dll
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.pdb
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.xml
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.dll
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.xml
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.pdb

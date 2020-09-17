@@ -4,11 +4,11 @@ Imports System.IO
 
 'Enlazar la entidad GrupoIngreso
 
-Imports ERP_Entidad.EntGrupoIngreso
+Imports ERP_Entidad
 
 Module DatGrupoIngresoMod
     Dim connection As SqlConnection
-    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As ERP_Entidad.EntGrupoIngreso, ByVal blnNuevo As Boolean) As Integer
+    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso, ByVal blnNuevo As Boolean) As Integer
 
         Dim command As SqlCommand
 
@@ -39,7 +39,7 @@ Module DatGrupoIngresoMod
     End Function
 
 
-    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As GrupoIngreso, ByVal blnNuevo As Boolean) As Integer
+    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso, ByVal blnNuevo As Boolean) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
