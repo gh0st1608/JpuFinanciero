@@ -8,3 +8,13 @@ D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.xml
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.dll
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.xml
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.pdb
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbprojAssemblyReference.cache
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP_Entidad.Resources.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.GenerateResource.cache
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.CoreCompileInputs.cache
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.dll
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.xml
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.pdb
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.dll
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.pdb
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.xml

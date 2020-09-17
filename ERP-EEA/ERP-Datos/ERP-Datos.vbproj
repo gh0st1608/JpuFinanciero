@@ -65,8 +65,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maestro\DatGrupoEgreso.vb" />
     <Compile Include="Maestro\DatGrupoIngreso.vb" />
-    <Compile Include="Maestro\DatGrupoIngresoMod.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

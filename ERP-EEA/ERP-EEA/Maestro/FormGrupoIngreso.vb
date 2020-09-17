@@ -14,7 +14,7 @@ Public Class FormGrupoIngreso
             entGrupoIngreso.UsuarioCreacionId = 1
         End If
 
-        If txtIdGrupoIngreso.Text = 0 Then
+        If txtIdGrupoIngreso.Text = "0" Then
             operacion = negGrupoIngreso.Guardar(entGrupoIngreso)
         Else
             operacion = negGrupoIngreso.Actualizar(entGrupoIngreso)

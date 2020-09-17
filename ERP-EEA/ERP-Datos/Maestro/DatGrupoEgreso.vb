@@ -7,19 +7,19 @@ Imports System.Threading.Tasks
 
 Imports ERP_Entidad
 
-Public Class DatGrupoIngreso
+Public Class DatGrupoEgreso
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
 
     'SqlConnection conn = New SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
 
 
-    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function CrearGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Integer
 
         Dim command As SqlCommand
 
         Try
             connection.Open()
-            command = New SqlCommand("CrearGrupoIngreso", connection)
+            command = New SqlCommand("CrearGrupoEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
@@ -32,26 +32,26 @@ Public Class DatGrupoIngreso
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
             connection.Close()
             Return 0 'false
         End Try
     End Function
 
-    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function ActualizarGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("ActualizarGrupoIngreso", connection)
+            command = New SqlCommand("ActualizarGrupoEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
 
             'Actualizar
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+            command.Parameters.Add("@IdGrupoEgreso", SqlDbType.Int)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@Estado", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModficacionId", SqlDbType.Int)
 
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
+            command.Parameters("@IdGrupoEgreso").Value = objGrupoIngreso.IdGrupoEgreso
             command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
             command.Parameters("@Estado").Value = objGrupoIngreso.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
@@ -59,31 +59,31 @@ Public Class DatGrupoIngreso
             Return 1 'true
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
             connection.Close()
             Return 0 'false
         End Try
 
     End Function
 
-    Public Function EliminarGrupoIngreso(ByVal objGrupoIngreso) As Integer
+    Public Function EliminarGrupoEgreso(ByVal objGrupoIngreso) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("EliminarGrupoIngreso", connection)
+            command = New SqlCommand("EliminarGrupoEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+            command.Parameters.Add("@IdGrupoEgreso", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
 
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
+            command.Parameters("@IdGrupoEgreso").Value = objGrupoIngreso.IdGrupoIngreso
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
 
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
             connection.Close()
             Return 0 'false
         End Try
@@ -187,7 +187,7 @@ Public Class DatGrupoIngreso
     'End Function
 
 
-    Public Function LeerGrupoIngreso(ByVal IdProveedor As Integer, ByVal Descripcion As String) As DataTable
+    Public Function LeerGrupoEgreso(ByVal IdProveedor As Integer, ByVal Descripcion As String) As DataTable
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
@@ -196,7 +196,7 @@ Public Class DatGrupoIngreso
 
         Try
             connection.Open()
-            command = New SqlCommand("LeerGrupoIngreso", connection)
+            command = New SqlCommand("LeerGrupoEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
 
             adapter = New SqlDataAdapter(command)
@@ -208,7 +208,7 @@ Public Class DatGrupoIngreso
 
         Catch ex As Exception
 
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
             connection.Close()
             Return Nothing
 

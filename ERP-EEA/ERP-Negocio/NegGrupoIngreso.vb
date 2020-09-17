@@ -86,7 +86,7 @@ Public Class NegGrupoIngreso
 
     Public Function Guardar(ByVal ObjGrupoIngreso As EntGrupoIngreso) As Boolean
 
-        Return ObjGrupoIngresoDat.CrearGrupoIngreso(ObjGrupoIngresoEnt)
+        Return ObjGrupoIngresoDat.CrearGrupoIngreso(ObjGrupoIngreso)
 
     End Function
 
