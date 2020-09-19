@@ -57,10 +57,10 @@ Public Class DatPago
             'Actualizar
             command.Parameters.Add("@IdPago", SqlDbType.Int)
             command.Parameters.Add("@TipoOrigenId", SqlDbType.Int)
-            command.Parameters.Add("@EgresoId", SqlDbType.VarChar)
-            command.Parameters.Add("@ImporteCancelado", SqlDbType.VarChar)
-            command.Parameters.Add("@MetodoPagoId", SqlDbType.VarChar)
-            command.Parameters.Add("@FechaPago", SqlDbType.Float)
+            command.Parameters.Add("@EgresoId", SqlDbType.Int)
+            command.Parameters.Add("@ImporteCancelado", SqlDbType.Float)
+            command.Parameters.Add("@MetodoPagoId", SqlDbType.Int)
+            command.Parameters.Add("@FechaPago", SqlDbType.Date)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdPago").Value = objPago.IdPago

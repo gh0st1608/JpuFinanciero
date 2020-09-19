@@ -8,7 +8,7 @@ Imports ERP_Datos
 Public Class NegCliente
     Dim ObjClienteEnt = New EntCliente
     Dim ObjClienteDat As New DatCliente
-    Public Function ObtenerTabla(ByVal objGrupoIngreso As EntGrupoIngreso) As DataTable
+    Public Function ObtenerTabla(ByVal ObjClienteDat As DatCliente) As DataTable
 
         Return ObjClienteDat.LeerCliente(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 

@@ -359,7 +359,7 @@ Partial Class FormGrupoIngreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(438, 351)
+        Me.ClientSize = New System.Drawing.Size(437, 351)
         Me.Controls.Add(Me.dgvGrupoIngreso)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)

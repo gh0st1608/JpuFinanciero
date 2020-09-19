@@ -5,8 +5,6 @@
     Private VarTarifa As Decimal
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
-    Private VarFechaCreacion As Date
-    Private VarFechaModificacion As Date
     Private VarEstadoActivo As Byte
 
 
@@ -19,6 +17,14 @@
         End Set
     End Property
 
+    Public Property MedicionId As Integer
+        Get
+            Return VarMedicionId
+        End Get
+        Set(ByVal value As Integer)
+            VarMedicionId = value
+        End Set
+    End Property
     Public Property Descripcion As String
         Get
             Return VarDescripcion
@@ -53,24 +59,6 @@
         End Get
         Set(ByVal value As Integer)
             VarUsuarioModificacionId = value
-        End Set
-    End Property
-
-    Public Property FechaCreacion As Date
-        Get
-            Return VarFechaCreacion
-        End Get
-        Set(ByVal value As Date)
-            VarFechaCreacion = value
-        End Set
-    End Property
-
-    Public Property FechaModificacion As Date
-        Get
-            Return VarFechaModificacion
-        End Get
-        Set(ByVal value As Date)
-            VarFechaModificacion = value
         End Set
     End Property
 

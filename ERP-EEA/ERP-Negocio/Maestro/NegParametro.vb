@@ -8,7 +8,7 @@ Imports ERP_Datos
 Public Class NegParametro
     Dim ObjParametroEnt = New EntParametro
     Dim ObjParametroDat As New DatParametro
-    Public Function ObtenerTabla(ByVal ObjParametroEnt As EntParametro) As DataTable
+    Public Function ObtenerTabla(ByVal ObjParametroDat As DatParametro) As DataTable
 
         Return ObjParametroDat.LeerParametro(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 

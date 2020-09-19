@@ -64,7 +64,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maestro\Class1.vb" />
+    <Compile Include="Maestro\NegGrupoEgreso.vb" />
+    <Compile Include="Maestro\NegCliente.vb" />
+    <Compile Include="Maestro\NegParametro.vb" />
+    <Compile Include="Maestro\NegPago.vb" />
+    <Compile Include="Maestro\NegTipoCliente.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
