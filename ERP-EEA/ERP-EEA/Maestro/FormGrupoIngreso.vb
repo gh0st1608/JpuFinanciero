@@ -52,4 +52,8 @@ Public Class FormGrupoIngreso
         txtIdGrupoIngreso.Text = "0"
         txtNombre.Text = ""
     End Sub
+
+    Private Sub FormGrupoIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

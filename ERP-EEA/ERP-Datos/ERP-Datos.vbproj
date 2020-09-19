@@ -65,6 +65,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maestro\DatProveedor.vb" />
+    <Compile Include="Maestro\DatTipoCliente.vb" />
+    <Compile Include="Maestro\DatCliente.vb" />
     <Compile Include="Maestro\DatGrupoEgreso.vb" />
     <Compile Include="Maestro\DatGrupoIngreso.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

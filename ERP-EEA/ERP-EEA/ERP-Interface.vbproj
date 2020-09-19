@@ -90,6 +90,12 @@
     <Compile Include="Maestro\FormGrupoIngreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Maestro\Ingreso.Designer.vb">
+      <DependentUpon>Ingreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\Ingreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\Ingreso.resx">
+      <DependentUpon>Ingreso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

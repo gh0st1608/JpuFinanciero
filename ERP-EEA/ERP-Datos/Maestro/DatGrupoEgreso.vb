@@ -187,7 +187,7 @@ Public Class DatGrupoEgreso
     'End Function
 
 
-    Public Function LeerGrupoEgreso(ByVal IdProveedor As Integer, ByVal Descripcion As String) As DataTable
+    Public Function LeerGrupoEgreso(ByVal IdGrupoEgreso As Integer, ByVal Descripcion As String) As DataTable
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
         Dim resultadoDT As DataTable

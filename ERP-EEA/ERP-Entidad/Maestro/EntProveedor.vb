@@ -1,5 +1,6 @@
 ﻿Public Class EntProveedor
     Private VarIdProveedor As Integer
+    Private VarMedicionId As Integer
     Private VarDescripcion As String
     Private VarTarifa As Decimal
     Private VarUsuarioCreacionId As Integer

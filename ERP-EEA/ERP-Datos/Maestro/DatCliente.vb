@@ -4,88 +4,113 @@ Imports System.IO
 Imports System.Collections.Generic
 Imports System.Text
 Imports System.Threading.Tasks
-
 Imports ERP_Entidad
+Public Class DatCliente
 
-Public Class DatGrupoIngreso
+
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
 
     'SqlConnection conn = New SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
 
 
-    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function CrearCliente(ByVal objCliente As EntCliente) As Integer
 
         Dim command As SqlCommand
 
         Try
             connection.Open()
-            'Procedimiento almacenado 
-            command = New SqlCommand("CrearGrupoIngreso", connection)
+            command = New SqlCommand("CrearCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            'Dandole uhn tipo de dato a los parametros que van a ser vinculados a la bd
-            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters.Add("@TipoClienteId", SqlDbType.Int)
+            command.Parameters.Add("@RazonSocial", SqlDbType.VarChar)
+            command.Parameters.Add("@Documento", SqlDbType.VarChar)
+            command.Parameters.Add("@Descripcion", SqlDbType.VarChar)
+            command.Parameters.Add("@MetaEntidad", SqlDbType.Float)
+            command.Parameters.Add("@MetaEmpresa", SqlDbType.Float)
+            command.Parameters.Add("@Correo", SqlDbType.VarChar)
+            command.Parameters.Add("@NumeroContacto", SqlDbType.VarChar)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
+            'command.Parameters.Add("@FechaCreacionId", SqlDbType.Date)
 
-            command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
-            command.Parameters("@UsuarioCreacionId").Value = 1 'objGrupoIngreso.UsuarioCreacionId
+            command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
+            command.Parameters("@RazonSocial").Value = objCliente.RazonSocial
+            command.Parameters("@Documento").Value = objCliente.Documento
+            command.Parameters("@Descripcion").Value = objCliente.Descripcion
+            command.Parameters("@MetaEntidad").Value = objCliente.MetaEntidad
+            command.Parameters("@MetaEmpresa").Value = objCliente.MetaEmpresa
+            command.Parameters("@Correo").Value = objCliente.Correo
+            command.Parameters("@NumeroContacto").Value = objCliente.NumeroContacto
+            command.Parameters("@UsuarioCreacionId").Value = objCliente.UsuarioCreacionId
+            'command.Parameters("@FechaCreacionId").Value = objCliente.UsuarioCreacionId
 
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Cliente")
             connection.Close()
             Return 0 'false
         End Try
     End Function
 
-    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function ActualizarCliente(ByVal objCliente As EntCliente) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("ActualizarGrupoIngreso", connection)
+            command = New SqlCommand("ActualizarCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
             'Actualizar
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
-            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
-            command.Parameters.Add("@Estado", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModficacionId", SqlDbType.Int)
+            command.Parameters.Add("@IdCliente", SqlDbType.Int)
+            command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
+            command.Parameters.Add("@RazonSocial", SqlDbType.VarChar)
+            command.Parameters.Add("@Documento", SqlDbType.VarChar)
+            command.Parameters.Add("@Descripcion", SqlDbType.VarChar)
+            command.Parameters.Add("@MetaEntidad", SqlDbType.Float)
+            command.Parameters.Add("@MetaEmpresa", SqlDbType.Float)
+            command.Parameters.Add("@Correo", SqlDbType.VarChar)
+            command.Parameters.Add("@NumeroContacto", SqlDbType.VarChar)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
-            command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
-            command.Parameters("@Estado").Value = objGrupoIngreso.EstadoActivo
-            command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
-
+            command.Parameters("@IdCliente").Value = objCliente.TipoClienteId
+            command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
+            command.Parameters("@RazonSocial").Value = objCliente.RazonSocial
+            command.Parameters("@Documento").Value = objCliente.Documento
+            command.Parameters("@Descripcion").Value = objCliente.Descripcion
+            command.Parameters("@MetaEntidad").Value = objCliente.MetaEntidad
+            command.Parameters("@MetaEmpresa").Value = objCliente.MetaEmpresa
+            command.Parameters("@Correo").Value = objCliente.Correo
+            command.Parameters("@NumeroContacto").Value = objCliente.NumeroContacto
+            command.Parameters("@UsuarioModificacionId").Value = objCliente.UsuarioModificacionId
             Return 1 'true
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Cliente")
             connection.Close()
             Return 0 'false
         End Try
 
     End Function
 
-    Public Function EliminarGrupoIngreso(ByVal objGrupoIngreso) As Integer
+    Public Function EliminarCliente(ByVal objCliente As EntCliente) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("EliminarGrupoIngreso", connection)
+            command = New SqlCommand("EliminarCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+            command.Parameters.Add("@IdCliente", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
 
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
-            command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
+            command.Parameters("@IdCliente").Value = objCliente.IdCliente
+            command.Parameters("@UsuarioModificacionId").Value = objCliente.UsuarioModificacionId
 
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Cliente")
             connection.Close()
             Return 0 'false
         End Try
@@ -189,7 +214,7 @@ Public Class DatGrupoIngreso
     'End Function
 
 
-    Public Function LeerGrupoIngreso(ByVal IdGrupoIngreso As Integer, ByVal Descripcion As String) As DataTable
+    Public Function LeerCliente(ByVal IdCliente As Integer, ByVal Descripcion As String) As DataTable
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
@@ -198,19 +223,19 @@ Public Class DatGrupoIngreso
 
         Try
             connection.Open()
-            command = New SqlCommand("LeerGrupoIngreso", connection)
+            command = New SqlCommand("LeerCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
-            resultadoDT = resultadoDS.Tables(0) 'Asignar la consulta al datatable(La primera consulta "0")
+            resultadoDT = resultadoDS.Tables(0)
             connection.Close()
 
             Return resultadoDT
 
         Catch ex As Exception
 
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Cliente")
             connection.Close()
             Return Nothing
 
@@ -218,4 +243,5 @@ Public Class DatGrupoIngreso
 
 
     End Function
+
 End Class

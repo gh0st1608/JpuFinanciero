@@ -8,7 +8,7 @@
     Private VarFechaModificacion As Date
     Private VarEstadoActivo As Byte
 
-    Public Property IdCliente As Integer
+    Public Property IdTipoCliente As Integer
         Get
             Return VarIdTipoCliente
         End Get
