@@ -11,7 +11,7 @@ Public Class NegGrupoIngreso
 
     Dim ObjGrupoIngresoEnt = New EntGrupoIngreso
     Dim ObjGrupoIngresoDat As New DatGrupoIngreso
-    Public Function ObtenerTabla(ByVal objGrupoIngreso As DatGrupoIngreso) As DataTable
+    Public Function ObtenerTabla() As DataTable
 
         Return ObjGrupoIngresoDat.LeerGrupoIngreso(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 
@@ -78,9 +78,9 @@ Public Class NegGrupoIngreso
         Return result
     End Function
 
-    Public Function Eliminar(ByVal id As Integer) As Boolean
+    Public Function Eliminar(ByVal ObjGrupoIngreso As EntGrupoIngreso) As Boolean
 
-        Return ObjGrupoIngresoDat.EliminarGrupoIngreso(id)
+        Return ObjGrupoIngresoDat.EliminarGrupoIngreso(ObjGrupoIngreso)
 
     End Function
 
