@@ -22,13 +22,13 @@ Partial Class FormGrupoIngreso
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.item = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDMarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreMarca = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,6 +50,7 @@ Partial Class FormGrupoIngreso
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IDGrupoIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreGrupoIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvGrupoIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,8 +58,8 @@ Partial Class FormGrupoIngreso
         'item
         '
         Me.item.DataPropertyName = "item"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.item.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.item.DefaultCellStyle = DataGridViewCellStyle8
         Me.item.HeaderText = "N°"
         Me.item.Name = "item"
         Me.item.ReadOnly = True
@@ -90,9 +91,9 @@ Partial Class FormGrupoIngreso
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(309, 11)
+        Me.btnEliminar.Location = New System.Drawing.Point(327, 11)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(115, 26)
+        Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
         Me.btnEliminar.TabIndex = 456
         Me.btnEliminar.TabStop = False
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
@@ -107,9 +108,9 @@ Partial Class FormGrupoIngreso
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(188, 11)
+        Me.btnModificar.Location = New System.Drawing.Point(224, 11)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(115, 26)
+        Me.btnModificar.Size = New System.Drawing.Size(97, 26)
         Me.btnModificar.TabIndex = 454
         Me.btnModificar.TabStop = False
         Me.btnModificar.Text = "[F5] MODIFICAR"
@@ -124,9 +125,9 @@ Partial Class FormGrupoIngreso
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(90, 11)
+        Me.btnNuevo.Location = New System.Drawing.Point(143, 11)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(92, 26)
+        Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
         Me.btnNuevo.TabIndex = 453
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -135,13 +136,14 @@ Partial Class FormGrupoIngreso
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtNombre)
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdGrupoIngreso)
         Me.Panel1.Location = New System.Drawing.Point(11, 269)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(417, 72)
+        Me.Panel1.Size = New System.Drawing.Size(414, 73)
         Me.Panel1.TabIndex = 452
         '
         'txtNombre
@@ -172,9 +174,9 @@ Partial Class FormGrupoIngreso
         'btnGuardar
         '
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(222, 37)
+        Me.btnGuardar.Location = New System.Drawing.Point(257, 37)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(92, 26)
+        Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
         Me.btnGuardar.TabIndex = 410
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -188,9 +190,9 @@ Partial Class FormGrupoIngreso
         Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(320, 37)
+        Me.btnCancelar.Location = New System.Drawing.Point(336, 37)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(85, 26)
+        Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
         Me.btnCancelar.TabIndex = 409
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -208,7 +210,7 @@ Partial Class FormGrupoIngreso
         Me.txtIdGrupoIngreso.EnterIsTab = True
         Me.txtIdGrupoIngreso.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtIdGrupoIngreso.Label = "Descripción"
-        Me.txtIdGrupoIngreso.Location = New System.Drawing.Point(241, 40)
+        Me.txtIdGrupoIngreso.Location = New System.Drawing.Point(278, 41)
         Me.txtIdGrupoIngreso.Mandatory = False
         Me.txtIdGrupoIngreso.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIdGrupoIngreso.MaxLength = 100
@@ -224,8 +226,8 @@ Partial Class FormGrupoIngreso
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn1.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -252,8 +254,8 @@ Partial Class FormGrupoIngreso
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "item"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn4.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
@@ -285,39 +287,39 @@ Partial Class FormGrupoIngreso
         Me.dgvGrupoIngreso.AllowUserToResizeRows = False
         Me.dgvGrupoIngreso.BackgroundColor = System.Drawing.Color.White
         Me.dgvGrupoIngreso.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrupoIngreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvGrupoIngreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.dgvGrupoIngreso.ColumnHeadersHeight = 20
         Me.dgvGrupoIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvGrupoIngreso.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IDGrupoIngreso, Me.NombreGrupoIngreso})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGrupoIngreso.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGrupoIngreso.DefaultCellStyle = DataGridViewCellStyle13
         Me.dgvGrupoIngreso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvGrupoIngreso.EnableHeadersVisualStyles = False
         Me.dgvGrupoIngreso.Location = New System.Drawing.Point(11, 42)
         Me.dgvGrupoIngreso.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvGrupoIngreso.Name = "dgvGrupoIngreso"
         Me.dgvGrupoIngreso.ReadOnly = True
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrupoIngreso.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvGrupoIngreso.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgvGrupoIngreso.RowHeadersVisible = False
         Me.dgvGrupoIngreso.RowHeadersWidth = 22
         Me.dgvGrupoIngreso.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -330,8 +332,8 @@ Partial Class FormGrupoIngreso
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -355,11 +357,20 @@ Partial Class FormGrupoIngreso
         Me.NombreGrupoIngreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.NombreGrupoIngreso.Width = 373
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(14, 14)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.TabIndex = 461
+        Me.Label2.Text = "Descripción"
+        '
         'FormGrupoIngreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(437, 351)
+        Me.ClientSize = New System.Drawing.Size(437, 353)
         Me.Controls.Add(Me.dgvGrupoIngreso)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
@@ -397,4 +408,5 @@ Partial Class FormGrupoIngreso
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IDGrupoIngreso As DataGridViewTextBoxColumn
     Friend WithEvents NombreGrupoIngreso As DataGridViewTextBoxColumn
+    Friend WithEvents Label2 As Label
 End Class
