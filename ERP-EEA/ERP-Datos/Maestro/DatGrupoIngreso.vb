@@ -50,14 +50,15 @@ Public Class DatGrupoIngreso
             'Actualizar
             command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
-            command.Parameters.Add("@Estado", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModficacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
             command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
             command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
-            command.Parameters("@Estado").Value = objGrupoIngreso.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
-
+            command.Parameters("@EstadoActivo").Value = objGrupoIngreso.IdEstadoActivo
+            command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
@@ -76,7 +77,7 @@ Public Class DatGrupoIngreso
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
@@ -200,6 +201,12 @@ Public Class DatGrupoIngreso
             connection.Open()
             command = New SqlCommand("LeerGrupoIngreso", connection)
             command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+            command.Parameters("@IdGrupoIngreso").Value = IdGrupoIngreso
+
+            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters("@Descripcion").Value = Descripcion
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

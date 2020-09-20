@@ -17,15 +17,16 @@ Public Class NegGrupoIngreso
 
     End Function
 
-    Public Function ObtenerData(ByVal Id As Integer) As EntGrupoIngreso
+    Public Function ObtenerData(ByVal Id As Integer) As EntGrupoIngreso 'Detalle de un item
 
         Dim Dt As DataTable
 
         Dt = ObjGrupoIngresoDat.LeerGrupoIngreso(Id, "")
 
-        ObjGrupoIngresoEnt.Id = Convert.ToInt32(Dt.Rows(0).Item("IdGrupoIngreso"))
+        ObjGrupoIngresoEnt.IdGrupoIngreso = Convert.ToInt32(Dt.Rows(0).Item("IdGrupoIngreso"))
         ObjGrupoIngresoEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjGrupoIngresoEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjGrupoIngresoEnt.IdEstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
+        ObjGrupoIngresoEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))
 
         Return ObjGrupoIngresoEnt
 
@@ -84,9 +85,9 @@ Public Class NegGrupoIngreso
 
     End Function
 
-    Public Function Guardar(ByVal ObjGrupoIngreso As EntGrupoIngreso) As Boolean
+    Public Function Guardar(ByVal VarGrupoIngreso As EntGrupoIngreso) As Boolean
 
-        Return ObjGrupoIngresoDat.CrearGrupoIngreso(ObjGrupoIngreso)
+        Return ObjGrupoIngresoDat.CrearGrupoIngreso(VarGrupoIngreso)
 
     End Function
 

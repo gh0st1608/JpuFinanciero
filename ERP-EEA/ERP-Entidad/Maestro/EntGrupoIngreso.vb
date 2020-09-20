@@ -4,7 +4,8 @@
     Private VarDescripcion As String
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
-    Private VarEstadoActivo As Integer
+    Private VarIdEstadoActivo As Integer
+    Private VarEstadoActivo As String
 
     Public Property IdGrupoIngreso As Integer
         Get
@@ -42,11 +43,20 @@
         End Set
     End Property
 
-    Public Property EstadoActivo As Integer
+    Public Property IdEstadoActivo As Integer
+        Get
+            Return VarIdEstadoActivo
+        End Get
+        Set(ByVal value As Integer)
+            VarIdEstadoActivo = value
+        End Set
+    End Property
+
+    Public Property EstadoActivo As String
         Get
             Return VarEstadoActivo
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             VarEstadoActivo = value
         End Set
     End Property
