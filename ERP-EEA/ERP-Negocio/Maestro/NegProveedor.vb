@@ -11,7 +11,7 @@ Public Class NegProveedor
 
     Dim ObjProveedorEnt = New EntProveedor
     Dim ObjProveedorDat As New DatProveedor
-    Public Function ObtenerTabla(ByVal ObjProveedorDat As DatProveedor) As DataTable
+    Public Function ObtenerTabla() As DataTable
 
         Return ObjProveedorDat.LeerProveedor(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 

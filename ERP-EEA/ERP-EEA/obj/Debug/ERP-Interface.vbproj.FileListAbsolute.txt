@@ -46,3 +46,5 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\bin\Debug\ERP-Negocio.xm
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\bin\Debug\ERP-Datos.pdb
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\bin\Debug\ERP-Datos.xml
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbproj.CopyComplete
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormProveedor.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Ingreso.resources

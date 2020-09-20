@@ -11,7 +11,7 @@ Public Class NegPago
 
     Dim ObjPagoEnt = New EntPago
     Dim ObjPagoDat As New DatPago
-    Public Function ObtenerTabla(ByVal ObjPagoDat As DatPago) As DataTable
+    Public Function ObtenerTabla() As DataTable
 
         Return ObjPagoDat.LeerPago(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 
