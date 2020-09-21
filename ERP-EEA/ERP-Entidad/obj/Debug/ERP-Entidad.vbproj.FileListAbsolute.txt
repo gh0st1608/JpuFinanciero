@@ -18,3 +18,12 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entida
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.dll
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.pdb
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.dll
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.pdb
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\bin\Debug\ERP-Entidad.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP_Entidad.Resources.resources
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.GenerateResource.cache
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.vbproj.CoreCompileInputs.cache
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.dll
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Entidad\obj\Debug\ERP-Entidad.pdb

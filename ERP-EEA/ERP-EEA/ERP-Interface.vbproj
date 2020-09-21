@@ -84,6 +84,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Maestro\FormCliente.Designer.vb">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Maestro\FormGrupoIngreso.Designer.vb">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
     </Compile>
@@ -94,6 +100,12 @@
       <DependentUpon>FormProveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="Maestro\FormProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestro\FormTipoCliente.Designer.vb">
+      <DependentUpon>FormTipoCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormTipoCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Maestro\Ingreso.Designer.vb">
@@ -123,11 +135,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormCliente.resx">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormProveedor.resx">
       <DependentUpon>FormProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormTipoCliente.resx">
+      <DependentUpon>FormTipoCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\Ingreso.resx">
       <DependentUpon>Ingreso.vb</DependentUpon>

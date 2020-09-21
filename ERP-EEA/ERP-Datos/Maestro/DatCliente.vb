@@ -226,6 +226,9 @@ Public Class DatCliente
             command = New SqlCommand("LeerCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
+            command.Parameters.Add("@IdCliente", SqlDbType.Int)
+            command.Parameters("@IdCliente").Value = IdCliente
+
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)

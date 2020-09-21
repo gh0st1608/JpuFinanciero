@@ -1,13 +1,12 @@
-﻿
-Imports ERP_Negocio
+﻿Imports ERP_Negocio
 Imports ERP_Entidad
 
-Public Class FormGrupoIngreso
+Public Class FormTipoCliente
 
 #Region "Variables"
 
-    Dim negGrupoIngreso As New NegGrupoIngreso
-    Dim entGrupoIngreso As New EntGrupoIngreso
+    Dim negTipoCliente As New NegTipoCliente
+    Dim entTipoCliente As New EntTipoCliente
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
 
@@ -16,12 +15,13 @@ Public Class FormGrupoIngreso
 #Region "Modos de ventana"
     Private Sub ModoInicial()
         Me.Height = 307
-        txtIdGrupoIngreso.Text = "0"
+        txtIdTipoCliente.Text = "0"
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
         btnModificar.Enabled = True
         btnEliminar.Enabled = True
-        cboEstado.Visible = False
+        cboEstado.Visible = false
+
         CargarTabla()
     End Sub
 
@@ -37,25 +37,25 @@ Public Class FormGrupoIngreso
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negGrupoIngreso.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
-        dgvGrupoIngreso.DataSource = dataTable
+        dataTable = negTipoCliente.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dgvTipoCliente.DataSource = dataTable
     End Sub
 
 
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    Private Sub CrearGrupoIngreso()
+    Private Sub CrearTipoCliente()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entGrupoIngreso.Descripcion = txtDescripcion.Text
+            entTipoCliente.Descripcion = txtDescripcion.Text
         End If
 
-        entGrupoIngreso.UsuarioCreacionId = 1
+        entTipoCliente.UsuarioCreacionId = 1
 
-        operacion = negGrupoIngreso.Guardar(entGrupoIngreso)
+        operacion = negTipoCliente.Guardar(entTipoCliente)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -63,34 +63,34 @@ Public Class FormGrupoIngreso
             MsgBox("No guardo bien")
         End If
     End Sub
-    Private Sub LeerGrupoIngreso() 'Item
-        entGrupoIngreso = negGrupoIngreso.ObtenerData(dgvGrupoIngreso.CurrentRow.Cells("IdGrupoIngreso").Value)
+    Private Sub LeerTipoCliente() 'Item
+        entTipoCliente = negTipoCliente.ObtenerData(dgvTipoCliente.CurrentRow.Cells("IdTipoCliente").Value)
 
-        txtIdGrupoIngreso.Text = entGrupoIngreso.IdGrupoIngreso
-        txtDescripcion.Text = entGrupoIngreso.Descripcion
+        txtIdTipoCliente.Text = entTipoCliente.IdTipoCliente
+        txtDescripcion.Text = entTipoCliente.Descripcion
 
-        If (entGrupoIngreso.IdEstadoActivo = 0) Then
+        If (entTipoCliente.EstadoActivo = 0) Then
             cboEstado.Visible = True
             cboEstado.Text = "INACTIVO"
         End If
     End Sub
-    Private Sub ActualizarGrupoIngreso()
+    Private Sub ActualizarTipoCliente()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entGrupoIngreso.Descripcion = txtDescripcion.Text
+            entTipoCliente.Descripcion = txtDescripcion.Text
         End If
 
-        entGrupoIngreso.UsuarioModificacionId = 1
+        entTipoCliente.UsuarioModificacionId = 1
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
-            entGrupoIngreso.IdEstadoActivo = 1
+            entTipoCliente.EstadoActivo = 1
         Else
-            entGrupoIngreso.IdEstadoActivo = 0
+            entTipoCliente.EstadoActivo = 0
         End If
 
-        operacion = negGrupoIngreso.Actualizar(entGrupoIngreso)
+        operacion = negTipoCliente.Actualizar(entTipoCliente)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -98,11 +98,11 @@ Public Class FormGrupoIngreso
             MsgBox("No guardo bien")
         End If
     End Sub
-    Private Sub EliminarGrupoIngreso()
-        entGrupoIngreso.IdGrupoIngreso = Int(dgvGrupoIngreso.CurrentRow.Cells("IDGrupoIngreso").Value)
-        entGrupoIngreso.UsuarioModificacionId = 1
+    Private Sub EliminarTipoCliente()
+        entTipoCliente.IdTipoCliente = Int(dgvTipoCliente.CurrentRow.Cells("IdTipoCliente").Value)
+        entTipoCliente.UsuarioModificacionId = 1
 
-        operacion = negGrupoIngreso.Eliminar(entGrupoIngreso)
+        operacion = negTipoCliente.Eliminar(entTipoCliente)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -113,30 +113,30 @@ Public Class FormGrupoIngreso
 #End Region
 
 #Region "Funciones del formulario"
-    Private Sub FormGrupoIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormTipoCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ModoInicial()
     End Sub
 
-    Private Sub FormGrupoIngreso_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub FormTipoCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F2 Then
             ModoRegistro()
         End If
         If e.KeyCode = Keys.F5 Then
-            LeerGrupoIngreso()
+            LeerTipoCliente()
             ModoRegistro()
         End If
         If e.KeyCode = Keys.Delete Then
-            EliminarGrupoIngreso()
+            EliminarTipoCliente()
         End If
     End Sub
 #End Region
 
 #Region "Funciones de elementos del formulario"
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If txtIdGrupoIngreso.Text = "0" Then
-            CrearGrupoIngreso()
+        If txtIdTipoCliente.Text = "0" Then
+            CrearTipoCliente()
         Else
-            ActualizarGrupoIngreso()
+            ActualizarTipoCliente()
         End If
         ModoInicial()
     End Sub
@@ -146,24 +146,16 @@ Public Class FormGrupoIngreso
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        LeerGrupoIngreso()
+        LeerTipoCliente()
         ModoRegistro()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        EliminarGrupoIngreso()
+        EliminarTipoCliente()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         ModoInicial()
-    End Sub
-
-    Private Sub txtDescripcion_TextChanged(sender As Object, e As EventArgs) Handles txtDescripcion.TextChanged
-
-    End Sub
-
-    Private Sub cboEstado_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboEstado.SelectedIndexChanged
-
     End Sub
 #End Region
 

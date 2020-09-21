@@ -26,3 +26,17 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vb
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.dll
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.xml
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.pdb
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.dll
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.pdb
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Datos.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.dll
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.pdb
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\bin\Debug\ERP-Entidad.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbprojAssemblyReference.cache
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP_Datos.Resources.resources
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.GenerateResource.cache
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.CoreCompileInputs.cache
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.vbproj.CopyComplete
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.dll
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.xml
+D:\EXTRA\CODE\JpuFinanciero\ERP-EEA\ERP-Datos\obj\Debug\ERP-Datos.pdb

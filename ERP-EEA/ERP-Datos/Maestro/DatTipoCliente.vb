@@ -202,6 +202,9 @@ Public Class DatTipoCliente
             command = New SqlCommand("LeerTipoCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
+            command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
+            command.Parameters("@IdTipoCliente").Value = IdTipoCliente
+
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)
