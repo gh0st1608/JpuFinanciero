@@ -23,7 +23,6 @@ D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-EEA.xml
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-EEA.pdb
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Form1.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbprojAssemblyReference.cache
-C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Form1.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormGrupoIngreso.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Resources.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbproj.GenerateResource.cache
@@ -48,3 +47,5 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\bin\Debug\ERP-Datos.xml
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbproj.CopyComplete
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormProveedor.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Ingreso.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.btnParametr.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormParametro.resources

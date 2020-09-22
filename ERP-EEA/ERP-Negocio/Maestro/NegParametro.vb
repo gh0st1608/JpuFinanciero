@@ -2,8 +2,10 @@
 Imports System.Collections.Generic
 Imports System.Data
 
+
 Imports ERP_Entidad
 Imports ERP_Datos
+
 
 Public Class NegParametro
     Dim ObjParametroEnt = New EntParametro
@@ -14,37 +16,38 @@ Public Class NegParametro
 
     End Function
 
-    Public Function ObtenerData(ByVal Id As Integer) As EntPago 'Mostrar el detalle al hacer click en el dgv
+    Public Function ObtenerData(ByVal Id As Integer) As EntParametro 'Mostrar el detalle al hacer click en el dgv
 
         Dim Dt As DataTable
 
         Dt = ObjParametroDat.LeerParametro(Id, "")
 
-        ObjParametroEnt.Id = Convert.ToInt32(Dt.Rows(0).Item("IdPago"))
+        ObjParametroEnt.IdParametro = Convert.ToInt32(Dt.Rows(0).Item("IdParametro"))
+        ObjParametroEnt.TipoParametro = Convert.ToString(Dt.Rows(0).Item("TipoParametro"))
         ObjParametroEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjParametroEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjParametroEnt.IdEstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
+        ObjParametroEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))
 
         Return ObjParametroEnt
 
     End Function
 
 
+    Public Function Eliminar(ByVal VarParametroEnt As EntParametro) As Boolean
 
-    Public Function Eliminar(ByVal ObjParametroEnt As EntParametro) As Boolean
-
-        Return ObjParametroDat.EliminarParametro(ObjParametroEnt)
-
-    End Function
-
-    Public Function Guardar(ByVal ObjParametroEnt As EntParametro) As Boolean
-
-        Return ObjParametroDat.CrearParametro(ObjParametroEnt)
+        Return ObjParametroDat.EliminarParametro(VarParametroEnt)
 
     End Function
 
-    Public Function Actualizar(ByVal ObjParametroEnt As EntParametro) As Boolean
+    Public Function Guardar(ByVal VarParametroEnt As EntParametro) As Boolean
 
-        Return ObjParametroDat.ActualizarParametro(ObjParametroEnt)
+        Return ObjParametroDat.CrearParametro(VarParametroEnt)
+
+    End Function
+
+    Public Function Actualizar(ByVal VarParametroEnt As EntParametro) As Boolean
+
+        Return ObjParametroDat.ActualizarParametro(VarParametroEnt)
 
     End Function
 
