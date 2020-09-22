@@ -27,6 +27,7 @@ Public Class DatGrupoIngreso
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
 
+
             command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
             command.Parameters("@UsuarioCreacionId").Value = 1 'objGrupoIngreso.UsuarioCreacionId
 

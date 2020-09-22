@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class btnParametr
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnParametro = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -34,17 +35,28 @@ Partial Class Form1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Form1
+        'btnParametro
+        '
+        Me.btnParametro.Location = New System.Drawing.Point(375, 81)
+        Me.btnParametro.Name = "btnParametro"
+        Me.btnParametro.Size = New System.Drawing.Size(75, 23)
+        Me.btnParametro.TabIndex = 1
+        Me.btnParametro.Text = "Parametro"
+        Me.btnParametro.UseVisualStyleBackColor = True
+        '
+        'btnParametr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnParametro)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "Form1"
+        Me.Name = "btnParametr"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnParametro As Button
 End Class

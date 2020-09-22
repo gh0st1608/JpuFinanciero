@@ -56,16 +56,22 @@ Public Class DatParametro
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@ValorParametro", SqlDbType.Float)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
+
 
             command.Parameters("@IdParametro").Value = objParametro.IdParametro
             command.Parameters("@TipoParametro").Value = objParametro.TipoParametro
             command.Parameters("@Descripcion").Value = objParametro.Descripcion
             command.Parameters("@ValorParametro").Value = objParametro.ValorParametro
-            command.Parameters("@UsuarioModificacionId").Value = 1 'objPago.UsuarioModificacionId
+            command.Parameters("@UsuarioModificacionId").Value = objParametro.UsuarioModificacionId
+            command.Parameters("@EstadoActivo").Value = objParametro.IdEstadoActivo
+
+            command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Pago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
             connection.Close()
             Return 0 'false
         End Try
@@ -80,18 +86,20 @@ Public Class DatParametro
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdParametro", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdParametro").Value = objParametro.IdParametro
-            command.Parameters("@UsuarioModificacionId").Value = 2 'objParametro.UsuarioModificacionId
+            command.Parameters("@UsuarioModificacionId").Value = objParametro.UsuarioModificacionId
 
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
             connection.Close()
             Return 0 'false
+
         End Try
     End Function
 
@@ -194,6 +202,7 @@ Public Class DatParametro
 
 
     Public Function LeerParametro(ByVal IdParametro As Integer, ByVal Descripcion As String) As DataTable
+
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
@@ -201,15 +210,23 @@ Public Class DatParametro
         Dim adapter As SqlDataAdapter
 
         Try
+
             connection.Open()
+
             command = New SqlCommand("LeerParametro", connection)
             command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@IdParametro", SqlDbType.Int)
+            command.Parameters("@IdParametro").Value = IdParametro
+
+            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters("@Descripcion").Value = Descripcion
+
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)
             connection.Close()
-
             Return resultadoDT
 
         Catch ex As Exception
@@ -220,6 +237,7 @@ Public Class DatParametro
 
         End Try
 
-
     End Function
+
+
 End Class

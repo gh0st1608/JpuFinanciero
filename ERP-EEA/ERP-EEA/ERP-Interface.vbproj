@@ -90,6 +90,12 @@
     <Compile Include="Maestro\FormGrupoIngreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Maestro\FormParametro.Designer.vb">
+      <DependentUpon>FormParametro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormParametro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Maestro\FormProveedor.Designer.vb">
       <DependentUpon>FormProveedor.vb</DependentUpon>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormParametro.resx">
+      <DependentUpon>FormParametro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormProveedor.resx">
       <DependentUpon>FormProveedor.vb</DependentUpon>
