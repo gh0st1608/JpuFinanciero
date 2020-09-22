@@ -24,6 +24,8 @@ Partial Class btnParametr
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnParametro = New System.Windows.Forms.Button()
+        Me.btnCliente = New System.Windows.Forms.Button()
+        Me.btnTipoCliente = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -44,11 +46,31 @@ Partial Class btnParametr
         Me.btnParametro.Text = "Parametro"
         Me.btnParametro.UseVisualStyleBackColor = True
         '
+        'btnCliente
+        '
+        Me.btnCliente.Location = New System.Drawing.Point(472, 81)
+        Me.btnCliente.Name = "btnCliente"
+        Me.btnCliente.Size = New System.Drawing.Size(75, 23)
+        Me.btnCliente.TabIndex = 2
+        Me.btnCliente.Text = "Cliente"
+        Me.btnCliente.UseVisualStyleBackColor = True
+        '
+        'btnTipoCliente
+        '
+        Me.btnTipoCliente.Location = New System.Drawing.Point(375, 127)
+        Me.btnTipoCliente.Name = "btnTipoCliente"
+        Me.btnTipoCliente.Size = New System.Drawing.Size(75, 23)
+        Me.btnTipoCliente.TabIndex = 3
+        Me.btnTipoCliente.Text = "TipoCliente"
+        Me.btnTipoCliente.UseVisualStyleBackColor = True
+        '
         'btnParametr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnTipoCliente)
+        Me.Controls.Add(Me.btnCliente)
         Me.Controls.Add(Me.btnParametro)
         Me.Controls.Add(Me.Button1)
         Me.Name = "btnParametr"
@@ -59,4 +81,6 @@ Partial Class btnParametr
 
     Friend WithEvents Button1 As Button
     Friend WithEvents btnParametro As Button
+    Friend WithEvents btnCliente As Button
+    Friend WithEvents btnTipoCliente As Button
 End Class

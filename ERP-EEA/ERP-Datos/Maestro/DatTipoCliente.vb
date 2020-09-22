@@ -57,8 +57,9 @@ Public Class DatTipoCliente
 
             command.Parameters("@IdTipoCliente").Value = objTipoCliente.IdTipoCliente
             command.Parameters("@Descripcion").Value = objTipoCliente.Descripcion
-            command.Parameters("@Estado").Value = objTipoCliente.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objTipoCliente.UsuarioModificacionId
+            command.Parameters("@EstadoActivo").Value = objTipoCliente.IdEstadoActivo
+            command.ExecuteReader()
             Return 1 'true
 
         Catch ex As Exception
@@ -201,6 +202,10 @@ Public Class DatTipoCliente
             connection.Open()
             command = New SqlCommand("LeerTipoCliente", connection)
             command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
+            command.Parameters("@IdTipoCliente").Value = IdTipoCliente
+
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
