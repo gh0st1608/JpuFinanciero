@@ -1,5 +1,6 @@
 ﻿Public Class EntCliente
     Private VarIdCliente As Integer
+    Private VarTipoCliente As String
     Private VarTipoClienteId As Integer
     Private VarRazonSocial As String
     Private VarDocumento As String
@@ -23,6 +24,14 @@
         End Set
     End Property
 
+    Public Property TipoCliente As String
+        Get
+            Return VarTipoCliente
+        End Get
+        Set(ByVal value As String)
+            VarTipoCliente = value
+        End Set
+    End Property
     Public Property TipoClienteId As Integer
         Get
             Return VarTipoClienteId

@@ -3,16 +3,16 @@
     Private VarIdIngreso As Integer
     Private VarGrupoIngresoId As Integer
     Private VarClienteId As Integer
-    Private VarDescripcion As String
-    Private VarImporteIngresoProvision As Decimal
-    Private VarTipoPagoId As Integer
-    Private VarComprobanteURL As String
+    Private VarComentario As String
+    Private VarImporteProvision As Decimal
+    Private VarPeriodoId As Integer
+    Private VarCliente As String
     Private VarFechaIngresoProvision As Date
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
-    Private VarFechaCreacion As Date
-    Private VarFechaModificacion As Date
     Private VarEstadoActivo As Byte
+    Private VarDetraccion As Boolean
+    Private VarDeuda As Decimal
 
     Public Property IdIngreso As Integer
         Get
@@ -23,7 +23,7 @@
         End Set
     End Property
 
-    Public Property IdGrupoIngresoId As Integer
+    Public Property GrupoIngresoId As Integer
         Get
             Return VarGrupoIngresoId
         End Get
@@ -42,39 +42,39 @@
     End Property
 
 
-    Public Property Descripcion As String
+    Public Property Comentario As String
         Get
-            Return VarDescripcion
+            Return VarComentario
         End Get
         Set(ByVal value As String)
-            VarDescripcion = value
+            VarComentario = value
         End Set
     End Property
 
-    Public Property ImporteIngresoProvision As Decimal
+    Public Property ImporteProvision As Decimal
         Get
-            Return VarImporteIngresoProvision
+            Return VarImporteProvision
         End Get
         Set(ByVal value As Decimal)
-            VarImporteIngresoProvision = value
+            VarImporteProvision = value
         End Set
     End Property
 
-    Public Property TipoPagoId As Integer
+    Public Property PeriodoId As Integer
         Get
-            Return VarTipoPagoId
+            Return VarPeriodoId
         End Get
         Set(ByVal value As Integer)
-            VarTipoPagoId = value
+            VarPeriodoId = value
         End Set
     End Property
 
-    Public Property ComprobanteURL As String
+    Public Property Cliente As String
         Get
-            Return VarComprobanteURL
+            Return VarCliente
         End Get
         Set(ByVal value As String)
-            VarComprobanteURL = value
+            VarCliente = value
         End Set
     End Property
 
@@ -84,6 +84,15 @@
         End Get
         Set(ByVal value As Date)
             VarFechaIngresoProvision = value
+        End Set
+    End Property
+
+    Public Property Detraccion As Boolean
+        Get
+            Return VarDetraccion
+        End Get
+        Set(ByVal value As Boolean)
+            VarDetraccion = value
         End Set
     End Property
 
@@ -105,30 +114,21 @@
         End Set
     End Property
 
-    Public Property FechaCreacion As Date
-        Get
-            Return VarFechaCreacion
-        End Get
-        Set(ByVal value As Date)
-            VarFechaCreacion = value
-        End Set
-    End Property
-
-    Public Property FechaModificacion As Date
-        Get
-            Return VarFechaModificacion
-        End Get
-        Set(ByVal value As Date)
-            VarFechaModificacion = value
-        End Set
-    End Property
-
     Public Property EstadoActivo As Byte
         Get
             Return VarEstadoActivo
         End Get
         Set(ByVal value As Byte)
             VarEstadoActivo = value
+        End Set
+    End Property
+
+    Public Property Deuda As Decimal
+        Get
+            Return VarDeuda
+        End Get
+        Set(ByVal value As Decimal)
+            VarDeuda = value
         End Set
     End Property
 

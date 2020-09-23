@@ -12,7 +12,7 @@ Public Class DatParametro
     'SqlConnection conn = New SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
 
 
-    Public Function CrearParametro(ByVal objParamtro As EntParametro) As Integer
+    Public Function CrearParametro(ByVal objParametro As EntParametro) As Integer
 
         Dim command As SqlCommand
 
@@ -27,10 +27,10 @@ Public Class DatParametro
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
 
 
-            command.Parameters("@TipoParametro").Value = objParamtro.TipoParametro
-            command.Parameters("@Descripcion").Value = objParamtro.Descripcion
-            command.Parameters("@ValorParametro").Value = objParamtro.ValorParametro
-            command.Parameters("@UsuarioCreacionId").Value = 1 ' objParamtro.UsuarioCreacionId
+            command.Parameters("@TipoParametro").Value = objParametro.TipoParametro
+            command.Parameters("@Descripcion").Value = objParametro.Descripcion
+            command.Parameters("@ValorParametro").Value = objParametro.ValorParametro
+            command.Parameters("@UsuarioCreacionId").Value = objParametro.UsuarioCreacionId
 
 
             command.ExecuteReader()
@@ -52,7 +52,7 @@ Public Class DatParametro
 
             'Actualizar
             command.Parameters.Add("@IdParametro", SqlDbType.Int)
-            command.Parameters.Add("@TipoParametro", SqlDbType.VarChar, 20)
+            'command.Parameters.Add("@TipoParametro", SqlDbType.VarChar, 20)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@ValorParametro", SqlDbType.Float)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
@@ -60,7 +60,7 @@ Public Class DatParametro
 
 
             command.Parameters("@IdParametro").Value = objParametro.IdParametro
-            command.Parameters("@TipoParametro").Value = objParametro.TipoParametro
+            'command.Parameters("@TipoParametro").Value = objParametro.TipoParametro
             command.Parameters("@Descripcion").Value = objParametro.Descripcion
             command.Parameters("@ValorParametro").Value = objParametro.ValorParametro
             command.Parameters("@UsuarioModificacionId").Value = objParametro.UsuarioModificacionId

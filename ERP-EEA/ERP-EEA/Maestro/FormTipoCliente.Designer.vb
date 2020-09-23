@@ -27,6 +27,11 @@ Partial Class FormTipoCliente
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvTipoCliente = New PersControlLibrary.ExtendedDataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdTipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreTipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -38,11 +43,6 @@ Partial Class FormTipoCliente
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdTipoCliente = New PersControlLibrary.ExtendedTextBox()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdTipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreTipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvTipoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -96,6 +96,49 @@ Partial Class FormTipoCliente
         Me.dgvTipoCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvTipoCliente.Size = New System.Drawing.Size(414, 216)
         Me.dgvTipoCliente.TabIndex = 462
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
+        'IdTipoCliente
+        '
+        Me.IdTipoCliente.DataPropertyName = "IdTipoCliente"
+        Me.IdTipoCliente.HeaderText = "IdTipoCliente"
+        Me.IdTipoCliente.Name = "IdTipoCliente"
+        Me.IdTipoCliente.ReadOnly = True
+        Me.IdTipoCliente.Visible = False
+        '
+        'NombreTipoCliente
+        '
+        Me.NombreTipoCliente.DataPropertyName = "Descripcion"
+        Me.NombreTipoCliente.HeaderText = "DESCRIPCION"
+        Me.NombreTipoCliente.Name = "NombreTipoCliente"
+        Me.NombreTipoCliente.ReadOnly = True
+        Me.NombreTipoCliente.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NombreTipoCliente.Width = 320
+        '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
+        Me.EstadoActivo.Width = 80
         '
         'btnEliminar
         '
@@ -266,49 +309,6 @@ Partial Class FormTipoCliente
         Me.txtIdTipoCliente.TabIndex = 460
         Me.txtIdTipoCliente.Value = Nothing
         '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdTipoCliente
-        '
-        Me.IdTipoCliente.DataPropertyName = "IdTipoCliente"
-        Me.IdTipoCliente.HeaderText = "IdTipoCliente"
-        Me.IdTipoCliente.Name = "IdTipoCliente"
-        Me.IdTipoCliente.ReadOnly = True
-        Me.IdTipoCliente.Visible = False
-        '
-        'NombreTipoCliente
-        '
-        Me.NombreTipoCliente.DataPropertyName = "Descripcion"
-        Me.NombreTipoCliente.HeaderText = "DESCRIPCION"
-        Me.NombreTipoCliente.Name = "NombreTipoCliente"
-        Me.NombreTipoCliente.ReadOnly = True
-        Me.NombreTipoCliente.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreTipoCliente.Width = 320
-        '
-        'IdEstadoActivo
-        '
-        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
-        Me.IdEstadoActivo.Name = "IdEstadoActivo"
-        Me.IdEstadoActivo.ReadOnly = True
-        Me.IdEstadoActivo.Visible = False
-        '
-        'EstadoActivo
-        '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "ESTADO"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        Me.EstadoActivo.Width = 80
-        '
         'FormTipoCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -320,6 +320,7 @@ Partial Class FormTipoCliente
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormTipoCliente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormTipoCliente"
         CType(Me.dgvTipoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

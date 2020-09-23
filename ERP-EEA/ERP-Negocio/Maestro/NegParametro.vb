@@ -1,4 +1,4 @@
-﻿Imports System
+﻿Imports System.Globalization
 Imports System.Collections.Generic
 Imports System.Data
 
@@ -24,6 +24,7 @@ Public Class NegParametro
 
         ObjParametroEnt.IdParametro = Convert.ToInt32(Dt.Rows(0).Item("IdParametro"))
         ObjParametroEnt.TipoParametro = Convert.ToString(Dt.Rows(0).Item("TipoParametro"))
+        ObjParametroEnt.ValorParametro = Convert.ToDecimal(Dt.Rows(0).Item("ValorParametro"))
         ObjParametroEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
         ObjParametroEnt.IdEstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
         ObjParametroEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))

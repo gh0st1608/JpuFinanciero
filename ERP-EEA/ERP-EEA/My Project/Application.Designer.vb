@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.ERP_EEA.btnParametr
+            Me.MainForm = Global.ERP_EEA.FormMenu
         End Sub
     End Class
 End Namespace

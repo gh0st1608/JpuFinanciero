@@ -65,8 +65,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maestro\DatPago.vb" />
+    <Compile Include="Maestro\DatMetodoPago.vb" />
+    <Compile Include="Operacion\DatIngreso.vb" />
+    <Compile Include="Operacion\DatPago.vb" />
     <Compile Include="Maestro\DatParametro.vb" />
+    <Compile Include="Maestro\DatPeriodo.vb" />
     <Compile Include="Maestro\DatProveedor.vb" />
     <Compile Include="Maestro\DatTipoCliente.vb" />
     <Compile Include="Maestro\DatCliente.vb" />
@@ -115,7 +118,6 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Operaciones\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP-Entidad\ERP-Entidad.vbproj">

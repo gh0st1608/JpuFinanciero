@@ -65,12 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auxiliares\Conexion.vb" />
-    <Compile Include="Maestro\EntPago.vb" />
+    <Compile Include="Maestro\EntMetodoPago.vb" />
+    <Compile Include="Operacion\EntPago.vb" />
     <Compile Include="Maestro\EntCliente.vb" />
     <Compile Include="Maestro\EntGrupoEgreso.vb" />
     <Compile Include="Maestro\EntGrupoIngreso.vb" />
-    <Compile Include="Maestro\EntIngreso.vb" />
+    <Compile Include="Operacion\EntIngreso.vb" />
     <Compile Include="Maestro\EntParametro.vb" />
+    <Compile Include="Maestro\EntPeriodo.vb" />
     <Compile Include="Maestro\EntProveedor.vb" />
     <Compile Include="Maestro\EntSubGrupoEgreso.vb" />
     <Compile Include="Maestro\EntTipoCliente.vb" />
@@ -118,7 +120,6 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Operaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

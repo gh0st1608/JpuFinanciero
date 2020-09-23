@@ -19,9 +19,10 @@ Public Class NegCliente
         Dim Dt As DataTable
 
         Dt = ObjClienteDat.LeerCliente(Id, "")
-
+        'Traspasar los datos Del datagrid a la entidad
         ObjClienteEnt.IdCliente = Convert.ToInt32(Dt.Rows(0).Item("IdCliente"))
-        'ObjClienteEnt.TipoClienteId = Convert.ToString(Dt.Rows(0).Item("TipoCliente"))
+        ObjClienteEnt.TipoClienteId = Convert.ToInt32(Dt.Rows(0).Item("TipoClienteId"))
+        ObjClienteEnt.TipoCliente = Convert.ToString(Dt.Rows(0).Item("TipoCliente"))
         ObjClienteEnt.RazonSocial = Convert.ToString(Dt.Rows(0).Item("RazonSocial"))
         ObjClienteEnt.Documento = Convert.ToString(Dt.Rows(0).Item("Documento"))
         ObjClienteEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
@@ -36,14 +37,14 @@ Public Class NegCliente
 
     End Function
 
-    Public Function ObtenerLista(ByVal Id As Integer, ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntCliente)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntCliente)
 
         Dim result = New List(Of EntCliente)
         Dim resultadoElemento As EntCliente
         Dim Dt As DataTable
 
 
-        Dt = ObjClienteDat.LeerCliente(Id, "")
+        Dt = ObjClienteDat.LeerCliente(0, "")
 
         If (Dt.Rows.Count() > 0) Then
 
@@ -51,7 +52,7 @@ Public Class NegCliente
 
                 resultadoElemento = New EntCliente
                 resultadoElemento.IdCliente = 0
-                resultadoElemento.Descripcion = "Todos"
+                resultadoElemento.Descripcion = "Todos" 'le da el primer valor
                 result.Add(resultadoElemento)
 
             End If
@@ -60,15 +61,15 @@ Public Class NegCliente
 
                 resultadoElemento = New EntCliente
                 resultadoElemento.IdCliente = 0
-                resultadoElemento.Descripcion = "Seleccione"
+                resultadoElemento.Descripcion = "Seleccione" 'le da el primer valor
                 result.Add(resultadoElemento)
 
             End If
 
-            For i = 0 To Dt.Rows.Count Step 1
+            For i = 0 To Dt.Rows.Count - 1 Step 1
 
                 resultadoElemento = New EntCliente
-                resultadoElemento.IdCliente = Convert.ToInt16(Dt.Rows(i).Item("IdCliente"))
+                resultadoElemento.IdCliente = Convert.ToInt16(Dt.Rows(i).Item("IdTipoCliente"))
                 resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("Descripcion"))
                 result.Add(resultadoElemento)
 

@@ -1,4 +1,5 @@
-﻿Imports ERP_Negocio
+﻿Imports System.Globalization
+Imports ERP_Negocio
 Imports ERP_Entidad
 
 Public Class FormParametro
@@ -59,6 +60,7 @@ Public Class FormParametro
         End If
 
         entParametro.TipoParametro = cboTipoParametro.Text
+        entParametro.ValorParametro = Convert.ToDecimal(txtValorParametro.Text, New CultureInfo("en-US"))
         entParametro.UsuarioCreacionId = 1
 
         operacion = negParametro.Guardar(entParametro)
@@ -97,6 +99,7 @@ Public Class FormParametro
             entParametro.Descripcion = txtDescripcion.Text
         End If
 
+        entParametro.ValorParametro = txtValorParametro.Text
         entParametro.UsuarioModificacionId = 1
 
         If (cboEstado.SelectedItem = "ACTIVO") Then

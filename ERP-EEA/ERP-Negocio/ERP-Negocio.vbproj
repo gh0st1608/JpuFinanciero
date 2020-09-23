@@ -66,8 +66,10 @@
   <ItemGroup>
     <Compile Include="Maestro\NegGrupoEgreso.vb" />
     <Compile Include="Maestro\NegCliente.vb" />
+    <Compile Include="Maestro\NegMetodoPago.vb" />
     <Compile Include="Maestro\NegParametro.vb" />
-    <Compile Include="Maestro\NegPago.vb" />
+    <Compile Include="Operacion\NegPago.vb" />
+    <Compile Include="Maestro\NegPeriodo.vb" />
     <Compile Include="Maestro\NegProveedor.vb" />
     <Compile Include="Maestro\NegTipoCliente.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -87,6 +89,7 @@
     </Compile>
     <Compile Include="Maestro\NegGrupoIngreso.vb" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
+    <Compile Include="Operacion\NegIngreso.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

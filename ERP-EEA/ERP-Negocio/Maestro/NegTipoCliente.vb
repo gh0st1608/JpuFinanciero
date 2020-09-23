@@ -6,7 +6,7 @@ Imports ERP_Entidad
 Imports ERP_Datos
 
 Public Class NegTipoCliente
-    Dim ObjTipoClienteEnt = New EntTipoCliente
+    Dim ObjTipoClienteEnt As New EntTipoCliente
     Dim ObjTipoClienteDat As New DatTipoCliente
     Public Function ObtenerTabla() As DataTable
 
@@ -20,22 +20,23 @@ Public Class NegTipoCliente
 
         Dt = ObjTipoClienteDat.LeerTipoCliente(Id, "")
 
-        ObjTipoClienteEnt.IdCliente = Convert.ToInt32(Dt.Rows(0).Item("IdTipoCliente"))
+        ObjTipoClienteEnt.IdTipoCliente = Convert.ToInt32(Dt.Rows(0).Item("IdTipoCliente"))
         ObjTipoClienteEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjTipoClienteEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjTipoClienteEnt.IdEstadoActivo = Convert.ToString(Dt.Rows(0).Item("IdEstadoActivo"))
+        ObjTipoClienteEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))
 
         Return ObjTipoClienteEnt
 
     End Function
 
-    Public Function ObtenerLista(ByVal Id As Integer, ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntTipoCliente)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntTipoCliente)
 
         Dim result = New List(Of EntTipoCliente)
         Dim resultadoElemento As EntTipoCliente
         Dim Dt As DataTable
 
 
-        Dt = ObjTipoClienteDat.LeerTipoCliente(Id, "")
+        Dt = ObjTipoClienteDat.LeerTipoCliente(0, "")
 
         If (Dt.Rows.Count() > 0) Then
 
@@ -57,7 +58,7 @@ Public Class NegTipoCliente
 
             End If
 
-            For i = 0 To Dt.Rows.Count Step 1
+            For i = 0 To Dt.Rows.Count - 1 Step 1
 
                 resultadoElemento = New EntTipoCliente
                 resultadoElemento.IdTipoCliente = Convert.ToInt16(Dt.Rows(i).Item("IdTipoCliente"))

@@ -54,6 +54,7 @@ Partial Class FormCliente
         Me.txtIdCliente = New PersControlLibrary.ExtendedTextBox()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoClienteId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoCliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,7 +87,7 @@ Partial Class FormCliente
         Me.dgvCliente.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCliente.ColumnHeadersHeight = 20
         Me.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdCliente, Me.TipoCliente, Me.RazonSocial, Me.Documento, Me.Descripcion, Me.MetaEntidad, Me.MetaEmpresa, Me.Correo, Me.NumeroContacto, Me.IdEstadoActivo, Me.EstadoActivo})
+        Me.dgvCliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdCliente, Me.TipoClienteId, Me.TipoCliente, Me.RazonSocial, Me.Documento, Me.Descripcion, Me.MetaEntidad, Me.MetaEmpresa, Me.Correo, Me.NumeroContacto, Me.IdEstadoActivo, Me.EstadoActivo})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -539,6 +540,14 @@ Partial Class FormCliente
         Me.IdCliente.ReadOnly = True
         Me.IdCliente.Visible = False
         '
+        'TipoClienteId
+        '
+        Me.TipoClienteId.DataPropertyName = "TipoClienteId"
+        Me.TipoClienteId.HeaderText = "TipoClienteId"
+        Me.TipoClienteId.Name = "TipoClienteId"
+        Me.TipoClienteId.ReadOnly = True
+        Me.TipoClienteId.Visible = False
+        '
         'TipoCliente
         '
         Me.TipoCliente.DataPropertyName = "TipoCliente"
@@ -629,6 +638,7 @@ Partial Class FormCliente
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormCliente"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FormCliente"
         CType(Me.dgvCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -665,6 +675,7 @@ Partial Class FormCliente
     Friend WithEvents labelTipoCliente As Label
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IdCliente As DataGridViewTextBoxColumn
+    Friend WithEvents TipoClienteId As DataGridViewTextBoxColumn
     Friend WithEvents TipoCliente As DataGridViewTextBoxColumn
     Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
     Friend WithEvents Documento As DataGridViewTextBoxColumn

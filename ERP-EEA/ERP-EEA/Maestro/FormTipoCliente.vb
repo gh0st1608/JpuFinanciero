@@ -69,7 +69,7 @@ Public Class FormTipoCliente
         txtIdTipoCliente.Text = entTipoCliente.IdTipoCliente
         txtDescripcion.Text = entTipoCliente.Descripcion
 
-        If (entTipoCliente.EstadoActivo = 0) Then
+        If (entTipoCliente.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
             cboEstado.Text = "INACTIVO"
         End If
@@ -85,9 +85,10 @@ Public Class FormTipoCliente
         entTipoCliente.UsuarioModificacionId = 1
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
-            entTipoCliente.EstadoActivo = 1
+            entTipoCliente.IdEstadoActivo = 1
+
         Else
-            entTipoCliente.EstadoActivo = 0
+            entTipoCliente.IdEstadoActivo = 0
         End If
 
         operacion = negTipoCliente.Actualizar(entTipoCliente)
@@ -152,6 +153,7 @@ Public Class FormTipoCliente
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarTipoCliente()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click

@@ -77,11 +77,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FormMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormMenu.Designer.vb">
+      <DependentUpon>FormMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Maestro\FormCliente.Designer.vb">
@@ -94,6 +94,12 @@
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
     </Compile>
     <Compile Include="Maestro\FormGrupoIngreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestro\FormPago.Designer.vb">
+      <DependentUpon>FormPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormPago.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Maestro\FormParametro.Designer.vb">
@@ -117,9 +123,7 @@
     <Compile Include="Maestro\Ingreso.Designer.vb">
       <DependentUpon>Ingreso.vb</DependentUpon>
     </Compile>
-    <Compile Include="Maestro\Ingreso.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Maestro\Ingreso.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -136,16 +140,25 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
+    <Compile Include="Operacion\FormIngreso.Designer.vb">
+      <DependentUpon>FormIngreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FormIngreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormCliente.resx">
       <DependentUpon>FormCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormPago.resx">
+      <DependentUpon>FormPago.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormParametro.resx">
       <DependentUpon>FormParametro.vb</DependentUpon>
@@ -164,6 +177,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FormIngreso.resx">
+      <DependentUpon>FormIngreso.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

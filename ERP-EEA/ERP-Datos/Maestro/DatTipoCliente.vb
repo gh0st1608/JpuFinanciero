@@ -52,14 +52,15 @@ Public Class DatTipoCliente
             'Actualizar
             command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
-            command.Parameters.Add("@Estado", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModficacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
             command.Parameters("@IdTipoCliente").Value = objTipoCliente.IdTipoCliente
             command.Parameters("@Descripcion").Value = objTipoCliente.Descripcion
             command.Parameters("@UsuarioModificacionId").Value = objTipoCliente.UsuarioModificacionId
             command.Parameters("@EstadoActivo").Value = objTipoCliente.IdEstadoActivo
             command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
@@ -78,7 +79,7 @@ Public Class DatTipoCliente
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdTipoCliente").Value = objTipoCliente.IdTipoCliente
             command.Parameters("@UsuarioModificacionId").Value = objTipoCliente.UsuarioModificacionId

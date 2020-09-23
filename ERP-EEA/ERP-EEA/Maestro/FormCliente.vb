@@ -39,6 +39,7 @@ Public Class FormCliente
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+
     End Sub
 
 
@@ -47,12 +48,11 @@ Public Class FormCliente
 #Region "Funciones Auxiliares"
 
     Private Sub CargarCombo()
-        dataTableTipoCliente = negTipoCliente.ObtenerTabla()
-        With cboTipoCliente
-            .DisplayMember = "Descripcion"
-            .ValueMember = "IdTipoCliente"
-            .DataSource = dataTableTipoCliente
-        End With
+
+
+        cboTipoCliente.ValueMember = "IdTipoCliente" 'Lo que yo obtengo con el select value
+        cboTipoCliente.DisplayMember = "Descripcion" 'Lo que yo no puedo mandar a la bd 
+        cboTipoCliente.DataSource = negTipoCliente.ObtenerLista(False, True) ' Seleccion
 
     End Sub
 
@@ -115,6 +115,8 @@ Public Class FormCliente
             entCliente.NumeroContacto = txtNumeroContacto.Text
         End If
 
+        cboTipoCliente.Enabled = True
+
         entCliente.UsuarioCreacionId = 1
         entCliente.TipoClienteId = cboTipoCliente.SelectedValue
 
@@ -143,7 +145,7 @@ Public Class FormCliente
         If (entCliente.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
             lbEstado.Visible = True
-            cboTipoCliente.Enabled = False
+            cboTipoCliente.Enabled = True
             cboEstado.Text = "INACTIVO"
         End If
     End Sub
@@ -200,7 +202,7 @@ Public Class FormCliente
 
         entCliente.UsuarioModificacionId = 1
 
-        'cboTipoCliente.SelectedValue = cboTipoCliente.ValueMember
+        entCliente.TipoClienteId = cboTipoCliente.SelectedValue
         'entCliente.TipoClienteId = cboTipoCliente.SelectedIndex
         'entCliente.TipoClienteId = cboTipoCliente.ValueMember
 
