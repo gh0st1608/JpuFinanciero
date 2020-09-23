@@ -10,7 +10,8 @@
     Private VarNumeroContacto As String
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
-    Private VarEstadoActivo As Byte
+    Private VarIdEstadoActivo As Byte
+    Private VarEstadoActivo As String
 
 
     Public Property IdCliente As Integer
@@ -114,12 +115,22 @@
 
 
 
-    Public Property EstadoActivo As Byte
+    Public Property IdEstadoActivo As Byte
+        Get
+            Return VarIdEstadoActivo
+        End Get
+        Set(ByVal value As Byte)
+            VarIdEstadoActivo = value
+        End Set
+    End Property
+
+    Public Property EstadoActivo As String
         Get
             Return VarEstadoActivo
         End Get
-        Set(ByVal value As Byte)
+        Set(ByVal value As String)
             VarEstadoActivo = value
         End Set
     End Property
+
 End Class

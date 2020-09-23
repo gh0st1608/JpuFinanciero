@@ -21,8 +21,16 @@ Public Class NegCliente
         Dt = ObjClienteDat.LeerCliente(Id, "")
 
         ObjClienteEnt.IdCliente = Convert.ToInt32(Dt.Rows(0).Item("IdCliente"))
+        'ObjClienteEnt.TipoClienteId = Convert.ToString(Dt.Rows(0).Item("TipoCliente"))
+        ObjClienteEnt.RazonSocial = Convert.ToString(Dt.Rows(0).Item("RazonSocial"))
+        ObjClienteEnt.Documento = Convert.ToString(Dt.Rows(0).Item("Documento"))
         ObjClienteEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjClienteEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjClienteEnt.MetaEntidad = Convert.ToDouble(Dt.Rows(0).Item("MetaEntidad"))
+        ObjClienteEnt.MetaEmpresa = Convert.ToDouble(Dt.Rows(0).Item("MetaEmpresa"))
+        ObjClienteEnt.Correo = Convert.ToString(Dt.Rows(0).Item("Correo"))
+        ObjClienteEnt.NumeroContacto = Convert.ToString(Dt.Rows(0).Item("NumeroContacto"))
+        ObjClienteEnt.IdEstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
+        ObjClienteEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))
 
         Return ObjClienteEnt
 

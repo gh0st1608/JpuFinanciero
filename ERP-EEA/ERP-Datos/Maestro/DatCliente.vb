@@ -22,7 +22,7 @@ Public Class DatCliente
             command = New SqlCommand("CrearCliente", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            command.Parameters.Add("@TipoClienteId", SqlDbType.Int)
+            'command.Parameters.Add("@TipoClienteId", SqlDbType.Int)
             command.Parameters.Add("@RazonSocial", SqlDbType.VarChar)
             command.Parameters.Add("@Documento", SqlDbType.VarChar)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar)
@@ -33,7 +33,7 @@ Public Class DatCliente
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
             'command.Parameters.Add("@FechaCreacionId", SqlDbType.Date)
 
-            command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
+            'command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
             command.Parameters("@RazonSocial").Value = objCliente.RazonSocial
             command.Parameters("@Documento").Value = objCliente.Documento
             command.Parameters("@Descripcion").Value = objCliente.Descripcion
@@ -63,7 +63,7 @@ Public Class DatCliente
 
             'Actualizar
             command.Parameters.Add("@IdCliente", SqlDbType.Int)
-            command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
+            'command.Parameters.Add("@IdTipoCliente", SqlDbType.Int)
             command.Parameters.Add("@RazonSocial", SqlDbType.VarChar)
             command.Parameters.Add("@Documento", SqlDbType.VarChar)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar)
@@ -72,9 +72,10 @@ Public Class DatCliente
             command.Parameters.Add("@Correo", SqlDbType.VarChar)
             command.Parameters.Add("@NumeroContacto", SqlDbType.VarChar)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@IdEstadoActivo", SqlDbType.Int)
 
             command.Parameters("@IdCliente").Value = objCliente.TipoClienteId
-            command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
+            'command.Parameters("@TipoClienteId").Value = objCliente.TipoClienteId
             command.Parameters("@RazonSocial").Value = objCliente.RazonSocial
             command.Parameters("@Documento").Value = objCliente.Documento
             command.Parameters("@Descripcion").Value = objCliente.Descripcion
@@ -83,6 +84,10 @@ Public Class DatCliente
             command.Parameters("@Correo").Value = objCliente.Correo
             command.Parameters("@NumeroContacto").Value = objCliente.NumeroContacto
             command.Parameters("@UsuarioModificacionId").Value = objCliente.UsuarioModificacionId
+            command.Parameters("@IdEstadoActivo").Value = objCliente.IdEstadoActivo
+
+            command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
@@ -101,7 +106,7 @@ Public Class DatCliente
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdCliente", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdCliente").Value = objCliente.IdCliente
             command.Parameters("@UsuarioModificacionId").Value = objCliente.UsuarioModificacionId
@@ -225,6 +230,9 @@ Public Class DatCliente
             connection.Open()
             command = New SqlCommand("LeerCliente", connection)
             command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@IdCliente", SqlDbType.Int)
+            command.Parameters("@IdCliente").Value = IdCliente
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

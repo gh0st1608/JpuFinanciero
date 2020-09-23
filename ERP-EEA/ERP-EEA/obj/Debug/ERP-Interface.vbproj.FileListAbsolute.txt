@@ -49,3 +49,5 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormPr
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Ingreso.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.btnParametr.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormParametro.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormCliente.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormTipoCliente.resources
