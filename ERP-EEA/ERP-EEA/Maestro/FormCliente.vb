@@ -139,7 +139,7 @@ Public Class FormCliente
         txtMetaEmpresa.Text = entCliente.MetaEmpresa
         txtCorreo.Text = entCliente.Correo
         txtNumeroContacto.Text = entCliente.NumeroContacto
-
+        cboTipoCliente.SelectedValue = entCliente.TipoClienteId
 
 
         If (entCliente.IdEstadoActivo = 0) Then

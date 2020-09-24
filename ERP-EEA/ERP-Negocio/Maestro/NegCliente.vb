@@ -69,7 +69,7 @@ Public Class NegCliente
             For i = 0 To Dt.Rows.Count - 1 Step 1
 
                 resultadoElemento = New EntCliente
-                resultadoElemento.IdCliente = Convert.ToInt16(Dt.Rows(i).Item("IdTipoCliente"))
+                resultadoElemento.IdCliente = Convert.ToInt16(Dt.Rows(i).Item("IdCliente"))
                 resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("Descripcion"))
                 result.Add(resultadoElemento)
 

@@ -73,6 +73,8 @@ Public Class DatPago
             command.Parameters("@NumeroComprobante").Value = objPago.NumeroComprobante
             command.Parameters("@EstadoActivo").Value = objPago.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId
+            command.ExecuteReader()
+            connection.Close()
             Return 1
 
         Catch ex As Exception

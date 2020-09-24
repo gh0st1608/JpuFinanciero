@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Auxiliares\Conexion.vb" />
     <Compile Include="Maestro\EntMetodoPago.vb" />
+    <Compile Include="Maestro\VariableGlobal.vb" />
+    <Compile Include="Operacion\EntEgreso.vb" />
     <Compile Include="Operacion\EntPago.vb" />
     <Compile Include="Maestro\EntCliente.vb" />
     <Compile Include="Maestro\EntGrupoEgreso.vb" />

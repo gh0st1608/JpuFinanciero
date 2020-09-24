@@ -1,4 +1,6 @@
-﻿Imports ERP_Entidad
+﻿Imports System.IO
+Imports System.Globalization
+Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormIngreso
@@ -16,6 +18,8 @@ Public Class FormIngreso
     Dim entPago As New EntPago
     Dim negParametro As New NegParametro
     Dim entParametro As New EntParametro
+    Dim list As New List(Of String)
+    Dim vg As New VariableGlobal
 
 #End Region
 
@@ -54,6 +58,8 @@ Public Class FormIngreso
         txtIdPago.Text = "0"
         txtImporteCancelado.Text = ""
         txtNumeroComprobante.Text = "0"
+        txtComprobanteUbicacion.Text = ""
+        txtRespaldoImporte.Text = ""
         cbMetodoPago.SelectedValue = 0
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
@@ -112,6 +118,7 @@ Public Class FormIngreso
         cbMetodoPago.DisplayMember = "Descripcion"
         cbMetodoPago.DataSource = negMetodoPago.ObtenerLista(True, False)
     End Sub
+
 #End Region
 
 #Region "Funciones Principales (CRUD)"
@@ -136,7 +143,7 @@ Public Class FormIngreso
             MsgBox("Ingresar el importe")
             Exit Sub
         Else
-            entIngreso.ImporteProvision = txtImporteProvisional.Text
+            entIngreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text, New CultureInfo("en-US"))
         End If
         entIngreso.UsuarioCreacionId = 1
 
@@ -159,6 +166,12 @@ Public Class FormIngreso
         cbPeriodo.SelectedValue = entIngreso.PeriodoId
         dtpFechaIngreso.Value = entIngreso.FechaIngresoProvision
         txtImporteProvisional.Text = entIngreso.ImporteProvision
+        txtDeuda.Text = entIngreso.Deuda
+        If entIngreso.ImporteProvision = 0 Then 'Modifique entIngreso.ImporteProvision = ""
+            btnAbrir.Enabled = False
+        Else
+            btnAbrir.Enabled = True
+        End If
     End Sub
     Private Sub ActualizarIngreso()
         If cbCliente.SelectedValue = 0 Then
@@ -180,7 +193,7 @@ Public Class FormIngreso
             MsgBox("Ingresar el importe")
             Exit Sub
         Else
-            entIngreso.ImporteProvision = txtImporteProvisional.Text
+            entIngreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text, New CultureInfo("en-US"))
         End If
 
         entIngreso.UsuarioModificacionId = 1
@@ -216,14 +229,14 @@ Public Class FormIngreso
             entPago.MetodoPagoId = cbMetodoPago.SelectedValue
         End If
         entPago.NumeroComprobante = txtNumeroComprobante.Text
-        entPago.ComprobanteUbicacion = ""
+        entPago.ComprobanteUbicacion = txtComprobanteUbicacion.Text
 
         entPago.FechaPago = dtpFechaPago.Value
         If txtImporteCancelado.Text = "" Then
             MsgBox("Ingresar el importe")
             Exit Sub
         Else
-            entPago.ImporteCancelado = txtImporteCancelado.Text
+            entPago.ImporteCancelado = Convert.ToDecimal(txtImporteCancelado.Text)
         End If
         If entIngreso.Detraccion Then
             entParametro = negParametro.ObtenerData(1)
@@ -250,6 +263,9 @@ Public Class FormIngreso
         txtNumeroComprobante.Text = entPago.NumeroComprobante
         dtpFechaPago.Value = entPago.FechaPago
         txtImporteCancelado.Text = entPago.ImporteCancelado
+        txtComprobanteUbicacion.Text = entPago.ComprobanteUbicacion
+        txtRespaldoImporte.Text = Convert.ToDecimal(txtImporteCancelado.Text) + Convert.ToDecimal(txtDeuda.Text)
+
     End Sub
     Private Sub ActualizarPago()
         If cbMetodoPago.SelectedValue = 0 Then
@@ -259,6 +275,7 @@ Public Class FormIngreso
             entPago.MetodoPagoId = cbMetodoPago.SelectedValue
         End If
         entPago.NumeroComprobante = txtNumeroComprobante.Text
+        entPago.ComprobanteUbicacion = txtComprobanteUbicacion.Text
 
         entPago.FechaPago = dtpFechaPago.Value
         If txtImporteCancelado.Text = "" Then
@@ -377,6 +394,24 @@ Public Class FormIngreso
         Else
             ActualizarPago()
         End If
+    End Sub
+
+    Private Sub btnAdjuntarArchivo_Click(sender As Object, e As EventArgs) Handles btnAdjuntarArchivo.Click
+        Dim Abrir As New OpenFileDialog()
+        Abrir.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
+        If (Abrir.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
+            txtComprobanteUbicacion.Text = Abrir.FileName
+            btnAbrir.Enabled = True
+        End If
+    End Sub
+
+    Private Sub btnAbrir_Click(sender As Object, e As EventArgs) Handles btnAbrir.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = entPago.ComprobanteUbicacion
+        myProcess.StartInfo.UseShellExecute = True
+        myProcess.StartInfo.RedirectStandardOutput = False
+        myProcess.Start()
+        myProcess.Dispose()
     End Sub
 #End Region
 End Class

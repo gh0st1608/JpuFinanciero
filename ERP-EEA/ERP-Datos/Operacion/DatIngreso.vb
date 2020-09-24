@@ -61,8 +61,8 @@ Public Class DatIngreso
             command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
             command.Parameters.Add("@FechaIngresoProvision", SqlDbType.Date)
             command.Parameters.Add("@Deuda", SqlDbType.Money)
-            command.Parameters.Add("@Estado", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModficacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
             command.Parameters("@IdIngreso").Value = objIngreso.IdIngreso
             command.Parameters("@GrupoIngresoId").Value = objIngreso.GrupoIngresoId
@@ -73,9 +73,11 @@ Public Class DatIngreso
             command.Parameters("@PeriodoId").Value = objIngreso.PeriodoId
             command.Parameters("@Comentario").Value = objIngreso.Comentario
             command.Parameters("@FechaIngresoProvision").Value = objIngreso.FechaIngresoProvision
-            command.Parameters("@Estado").Value = objIngreso.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objIngreso.UsuarioModificacionId
+            command.Parameters("@EstadoActivo").Value = objIngreso.EstadoActivo
 
+            command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
