@@ -24,8 +24,13 @@ Public Class NegProveedor
         Dt = ObjProveedorDat.LeerProveedor(Id, "")
 
         ObjProveedorEnt.Id = Convert.ToInt32(Dt.Rows(0).Item("IdProveedor"))
-        ObjProveedorEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjProveedorEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjProveedorEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("NombreComercial"))
+        ObjProveedorEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("RazonSocial"))
+        ObjProveedorEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("NumeroContacto"))
+        ObjProveedorEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("TipoMedicion"))
+        'ObjProveedorEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdTipoMedicion"))
+        ObjProveedorEnt.IdEstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
+        ObjProveedorEnt.EstadoActivo = Convert.ToString(Dt.Rows(0).Item("EstadoActivo"))
         'agrego algo màs  :?
         Return ObjProveedorEnt
 
@@ -45,7 +50,7 @@ Public Class NegProveedor
 
                 resultadoElemento = New EntProveedor
                 resultadoElemento.IdProveedor = 0
-                resultadoElemento.Descripcion = "Todos"
+                resultadoElemento.NombreComercial = "Todos"
                 result.Add(resultadoElemento)
 
             End If
@@ -54,7 +59,7 @@ Public Class NegProveedor
 
                 resultadoElemento = New EntProveedor
                 resultadoElemento.IdProveedor = 0
-                resultadoElemento.Descripcion = "Seleccione"
+                resultadoElemento.NombreComercial = "Seleccione"
                 result.Add(resultadoElemento)
 
             End If
@@ -62,8 +67,8 @@ Public Class NegProveedor
             For i = 0 To Dt.Rows.Count Step 1
 
                 resultadoElemento = New EntProveedor
-                resultadoElemento.IdProveedor = Convert.ToInt16(Dt.Rows(i).Item("IDEmpresa"))
-                resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("NombreEmpresa"))
+                resultadoElemento.IdProveedor = Convert.ToInt16(Dt.Rows(i).Item("IdProveedor"))
+                resultadoElemento.NombreComercial = Convert.ToString(Dt.Rows(i)("NombreComercial"))
                 'agrego algo màs  :?
                 result.Add(resultadoElemento)
 
@@ -78,21 +83,21 @@ Public Class NegProveedor
         Return result
     End Function
 
-    Public Function Eliminar(ByVal ObjProveedorEnt As EntProveedor) As Boolean
+    Public Function Eliminar(ByVal VarProveedorEnt As EntProveedor) As Boolean
 
-        Return ObjProveedorDat.EliminarProveedor(ObjProveedorEnt)
-
-    End Function
-
-    Public Function Guardar(ByVal ObjProveedor As EntProveedor) As Boolean
-
-        Return ObjProveedorDat.CrearProveedor(ObjProveedor)
+        Return ObjProveedorDat.EliminarProveedor(VarProveedorEnt)
 
     End Function
 
-    Public Function Actualizar(ByVal ObjProveedor As EntProveedor) As Boolean
+    Public Function Guardar(ByVal VarProveedorEnt As EntProveedor) As Boolean
 
-        Return ObjProveedorDat.ActualizarProveedor(ObjProveedorEnt)
+        Return ObjProveedorDat.CrearProveedor(VarProveedorEnt)
+
+    End Function
+
+    Public Function Actualizar(ByVal VarProveedorEnt As EntProveedor) As Boolean
+
+        Return ObjProveedorDat.ActualizarProveedor(VarProveedorEnt)
 
     End Function
 

@@ -1,11 +1,14 @@
 ﻿Public Class EntProveedor
     Private VarIdProveedor As Integer
     Private VarMedicionId As Integer
-    Private VarDescripcion As String
+    Private VarNombreComercial As String
+    Private VarRazonSocial As String
+    Private VarNumeroContacto As String
     Private VarTarifa As Decimal
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
-    Private VarEstadoActivo As Byte
+    Private VarIdEstadoActivo As Byte
+    Private VarEstadoActivo As String
 
 
     Public Property IdProveedor As Integer
@@ -25,15 +28,32 @@
             VarMedicionId = value
         End Set
     End Property
-    Public Property Descripcion As String
+    Public Property NombreComercial As String
         Get
-            Return VarDescripcion
+            Return VarNombreComercial
         End Get
         Set(ByVal value As String)
-            VarDescripcion = value
+            VarNombreComercial = value
         End Set
     End Property
 
+    Public Property RazonSocial As String
+        Get
+            Return VarRazonSocial
+        End Get
+        Set(ByVal value As String)
+            VarRazonSocial = value
+        End Set
+    End Property
+
+    Public Property NumeroContacto As String
+        Get
+            Return VarNumeroContacto
+        End Get
+        Set(ByVal value As String)
+            VarNumeroContacto = value
+        End Set
+    End Property
     Public Property Tarifa As Decimal
         Get
             Return VarTarifa
@@ -42,8 +62,6 @@
             VarTarifa = value
         End Set
     End Property
-
-
     Public Property UsuarioCreacionId As Integer
         Get
             Return VarUsuarioCreacionId
@@ -61,12 +79,20 @@
             VarUsuarioModificacionId = value
         End Set
     End Property
+    Public Property IdEstadoActivo As Byte
+        Get
+            Return VarIdEstadoActivo
+        End Get
+        Set(ByVal value As Byte)
+            VarIdEstadoActivo = value
+        End Set
+    End Property
 
-    Public Property EstadoActivo As Byte
+    Public Property EstadoActivo As String
         Get
             Return VarEstadoActivo
         End Get
-        Set(ByVal value As Byte)
+        Set(ByVal value As String)
             VarEstadoActivo = value
         End Set
     End Property

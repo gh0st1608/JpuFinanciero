@@ -36,6 +36,7 @@
         End Set
     End Property
 
+
     Public Property ValorParametro As Decimal
         Get
             Return VarValorParametro

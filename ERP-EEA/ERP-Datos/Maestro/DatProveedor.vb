@@ -24,14 +24,14 @@ Public Class DatProveedor
             command.CommandType = CommandType.StoredProcedure
 
             'Dandole uhn tipo de dato a los parametros que van a ser vinculados a la bd
-            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters.Add("@NombreComercial", SqlDbType.VarChar, 50)
             command.Parameters.Add("@MedicionId", SqlDbType.Int)
             command.Parameters.Add("@Tarifa", SqlDbType.Float)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
 
 
             'Preguntar si solo van estos 2 !!
-            command.Parameters("@Descripcion").Value = objProveedor.Descripcion
+            command.Parameters("@NombreComercial").Value = objProveedor.NombreComercial
             command.Parameters("@MedicionId").Value = objProveedor.MedicionId
             command.Parameters("@Tarifa").Value = objProveedor.Tarifa
             command.Parameters("@UsuarioCreacionId").Value = 1 'objGrupoIngreso.UsuarioCreacionId
@@ -55,23 +55,23 @@ Public Class DatProveedor
 
             'Actualizar
             command.Parameters.Add("@IdProveedor", SqlDbType.Int)
-            command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters.Add("@NombreComercial", SqlDbType.VarChar, 50)
             command.Parameters.Add("@MediconId", SqlDbType.Int)
             command.Parameters.Add("@Tarifa", SqlDbType.Float)
-            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
             'supuse q la fecha Creacion no era aqui
 
             command.Parameters("@IdProveedor").Value = objProveedor.IdProveedor
-            command.Parameters("@Descripcion").Value = objProveedor.Descripcion
+            command.Parameters("@NombreComercial").Value = objProveedor.NombreComercial
             command.Parameters("@MedicionId").Value = objProveedor.MedicionId
             command.Parameters("@Tarifa").Value = objProveedor.Tarifa
-            command.Parameters("@EstadoActivo").Value = objProveedor.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objProveedor.UsuarioModificacionId
+            command.Parameters("@EstadoActivo").Value = objProveedor.EstadoActivo
 
-
-
+            command.ExecuteReader()
+            connection.Close()
             Return 1 'true
 
         Catch ex As Exception
@@ -86,7 +86,7 @@ Public Class DatProveedor
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("EliminarGrupoIngreso", connection)
+            command = New SqlCommand("EliminarProveedor", connection)
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdProveedor", SqlDbType.Int)
@@ -214,6 +214,9 @@ Public Class DatProveedor
             connection.Open()
             command = New SqlCommand("LeerProveedor", connection)
             command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@IdProveedor", SqlDbType.Int)
+            command.Parameters("@IdProveedor").Value = IdProveedor
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

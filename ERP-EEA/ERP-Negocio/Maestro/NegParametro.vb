@@ -34,6 +34,53 @@ Public Class NegParametro
     End Function
 
 
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntParametro)
+
+        Dim result = New List(Of EntParametro)
+        Dim resultadoElemento As EntParametro
+        Dim Dt As DataTable
+
+
+        Dt = ObjParametroDat.LeerParametro(0, "")
+
+        If (Dt.Rows.Count() > 0) Then
+
+            If (Filtro) Then
+
+                resultadoElemento = New EntParametro
+                resultadoElemento.IdParametro = 0
+                resultadoElemento.Descripcion = "Todos" 'le da el primer valor
+                result.Add(resultadoElemento)
+
+            End If
+
+            If (Seleccion) Then
+
+                resultadoElemento = New EntParametro
+                resultadoElemento.IdParametro = 0
+                resultadoElemento.Descripcion = "Seleccione" 'le da el primer valor
+                result.Add(resultadoElemento)
+
+            End If
+
+            For i = 0 To Dt.Rows.Count - 1 Step 1
+
+                resultadoElemento = New EntParametro
+                resultadoElemento.IdParametro = Convert.ToInt16(Dt.Rows(i).Item("IdParametro"))
+                resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("Descripcion"))
+                result.Add(resultadoElemento)
+
+            Next i
+        Else
+
+            Return Nothing
+
+        End If
+
+
+        Return result
+    End Function
+
     Public Function Eliminar(ByVal VarParametroEnt As EntParametro) As Boolean
 
         Return ObjParametroDat.EliminarParametro(VarParametroEnt)

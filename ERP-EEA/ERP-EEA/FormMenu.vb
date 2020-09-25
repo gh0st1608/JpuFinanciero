@@ -3,9 +3,7 @@
         FormIngreso.Show()
     End Sub
 
-
-
-    Private Sub ParámetroToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ParametroToolStripMenuItem.Click
+    Private Sub ParámetroToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ParametroToolStripMenuItem.Click
         FormParametro.Show()
     End Sub
 

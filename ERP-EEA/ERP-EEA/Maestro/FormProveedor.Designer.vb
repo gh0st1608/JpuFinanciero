@@ -26,43 +26,48 @@ Partial Class FormProveedor
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.dgvGrupoIngreso = New PersControlLibrary.ExtendedDataGridView()
+        Me.dgvProveedor = New PersControlLibrary.ExtendedDataGridView()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lbEstado = New System.Windows.Forms.Label()
+        Me.cboEstado = New System.Windows.Forms.ComboBox()
+        Me.cboMedicionId = New System.Windows.Forms.ComboBox()
+        Me.lblTarifa = New System.Windows.Forms.Label()
+        Me.lblRazonSocial = New System.Windows.Forms.Label()
+        Me.txtRazonSocial = New PersControlLibrary.ExtendedTextBox()
+        Me.lblMedicion = New System.Windows.Forms.Label()
+        Me.txtTarifa = New PersControlLibrary.ExtendedTextBox()
+        Me.lblNumeroContacto = New System.Windows.Forms.Label()
+        Me.txtNumeroContacto = New PersControlLibrary.ExtendedTextBox()
+        Me.lblNombreComercial = New System.Windows.Forms.Label()
+        Me.txtNombreComercial = New PersControlLibrary.ExtendedTextBox()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.txtIdProveedor = New PersControlLibrary.ExtendedTextBox()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdProveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MedicionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoMedicion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.cbMedicionId = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtRazonSocial = New PersControlLibrary.ExtendedTextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtTarifa = New PersControlLibrary.ExtendedTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtNumeroContacto = New PersControlLibrary.ExtendedTextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtNombreComercial = New PersControlLibrary.ExtendedTextBox()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.txtIdGrupoIngreso = New PersControlLibrary.ExtendedTextBox()
-        CType(Me.dgvGrupoIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.dgvProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'dgvGrupoIngreso
+        'dgvProveedor
         '
-        Me.dgvGrupoIngreso.AllowUserToAddRows = False
-        Me.dgvGrupoIngreso.AllowUserToDeleteRows = False
-        Me.dgvGrupoIngreso.AllowUserToResizeColumns = False
-        Me.dgvGrupoIngreso.AllowUserToResizeRows = False
-        Me.dgvGrupoIngreso.BackgroundColor = System.Drawing.Color.White
-        Me.dgvGrupoIngreso.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvProveedor.AllowUserToAddRows = False
+        Me.dgvProveedor.AllowUserToDeleteRows = False
+        Me.dgvProveedor.AllowUserToResizeColumns = False
+        Me.dgvProveedor.AllowUserToResizeRows = False
+        Me.dgvProveedor.BackgroundColor = System.Drawing.Color.White
+        Me.dgvProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -70,10 +75,10 @@ Partial Class FormProveedor
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrupoIngreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvGrupoIngreso.ColumnHeadersHeight = 32
-        Me.dgvGrupoIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvGrupoIngreso.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdProveedor, Me.NombreComercial, Me.RazonSocial, Me.NumeroContacto, Me.MedicionId, Me.Tarifa})
+        Me.dgvProveedor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvProveedor.ColumnHeadersHeight = 32
+        Me.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvProveedor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdProveedor, Me.NombreComercial, Me.RazonSocial, Me.NumeroContacto, Me.MedicionId, Me.TipoMedicion, Me.Tarifa, Me.IdEstadoActivo, Me.EstadoActivo})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -81,13 +86,13 @@ Partial Class FormProveedor
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGrupoIngreso.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvGrupoIngreso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.dgvGrupoIngreso.EnableHeadersVisualStyles = False
-        Me.dgvGrupoIngreso.Location = New System.Drawing.Point(14, 47)
-        Me.dgvGrupoIngreso.Margin = New System.Windows.Forms.Padding(2)
-        Me.dgvGrupoIngreso.Name = "dgvGrupoIngreso"
-        Me.dgvGrupoIngreso.ReadOnly = True
+        Me.dgvProveedor.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvProveedor.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.dgvProveedor.EnableHeadersVisualStyles = False
+        Me.dgvProveedor.Location = New System.Drawing.Point(14, 47)
+        Me.dgvProveedor.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgvProveedor.Name = "dgvProveedor"
+        Me.dgvProveedor.ReadOnly = True
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -95,75 +100,15 @@ Partial Class FormProveedor
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MintCream
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrupoIngreso.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.dgvGrupoIngreso.RowHeadersVisible = False
-        Me.dgvGrupoIngreso.RowHeadersWidth = 22
-        Me.dgvGrupoIngreso.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvGrupoIngreso.RowTemplate.Height = 18
-        Me.dgvGrupoIngreso.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvGrupoIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrupoIngreso.Size = New System.Drawing.Size(536, 216)
-        Me.dgvGrupoIngreso.TabIndex = 462
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdProveedor
-        '
-        Me.IdProveedor.DataPropertyName = "IdProveedor"
-        Me.IdProveedor.HeaderText = "IdProveedor"
-        Me.IdProveedor.Name = "IdProveedor"
-        Me.IdProveedor.ReadOnly = True
-        Me.IdProveedor.Visible = False
-        '
-        'NombreComercial
-        '
-        Me.NombreComercial.DataPropertyName = "NombreComercial"
-        Me.NombreComercial.HeaderText = "NOMBRE COMERCIAL"
-        Me.NombreComercial.Name = "NombreComercial"
-        Me.NombreComercial.ReadOnly = True
-        Me.NombreComercial.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreComercial.Width = 373
-        '
-        'RazonSocial
-        '
-        Me.RazonSocial.DataPropertyName = "RazonSocial"
-        Me.RazonSocial.HeaderText = "RazonSocial"
-        Me.RazonSocial.Name = "RazonSocial"
-        Me.RazonSocial.ReadOnly = True
-        Me.RazonSocial.Visible = False
-        '
-        'NumeroContacto
-        '
-        Me.NumeroContacto.DataPropertyName = "NumeroContacto"
-        Me.NumeroContacto.HeaderText = "NUMERO DE CONTACTO"
-        Me.NumeroContacto.Name = "NumeroContacto"
-        Me.NumeroContacto.ReadOnly = True
-        Me.NumeroContacto.Width = 120
-        '
-        'MedicionId
-        '
-        Me.MedicionId.DataPropertyName = "MedicionId"
-        Me.MedicionId.HeaderText = "MedicionId"
-        Me.MedicionId.Name = "MedicionId"
-        Me.MedicionId.ReadOnly = True
-        Me.MedicionId.Visible = False
-        '
-        'Tarifa
-        '
-        Me.Tarifa.DataPropertyName = "Tarifa"
-        Me.Tarifa.HeaderText = "Tarifa"
-        Me.Tarifa.Name = "Tarifa"
-        Me.Tarifa.ReadOnly = True
-        Me.Tarifa.Visible = False
+        Me.dgvProveedor.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvProveedor.RowHeadersVisible = False
+        Me.dgvProveedor.RowHeadersWidth = 22
+        Me.dgvProveedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvProveedor.RowTemplate.Height = 18
+        Me.dgvProveedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.dgvProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvProveedor.Size = New System.Drawing.Size(536, 216)
+        Me.dgvProveedor.TabIndex = 462
         '
         'btnEliminar
         '
@@ -218,49 +163,69 @@ Partial Class FormProveedor
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.cbMedicionId)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.lbEstado)
+        Me.Panel1.Controls.Add(Me.cboEstado)
+        Me.Panel1.Controls.Add(Me.cboMedicionId)
+        Me.Panel1.Controls.Add(Me.lblTarifa)
+        Me.Panel1.Controls.Add(Me.lblRazonSocial)
         Me.Panel1.Controls.Add(Me.txtRazonSocial)
-        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.lblMedicion)
         Me.Panel1.Controls.Add(Me.txtTarifa)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lblNumeroContacto)
         Me.Panel1.Controls.Add(Me.txtNumeroContacto)
-        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.lblNombreComercial)
         Me.Panel1.Controls.Add(Me.txtNombreComercial)
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
-        Me.Panel1.Controls.Add(Me.txtIdGrupoIngreso)
+        Me.Panel1.Controls.Add(Me.txtIdProveedor)
         Me.Panel1.Location = New System.Drawing.Point(14, 274)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(536, 169)
         Me.Panel1.TabIndex = 458
         '
-        'cbMedicionId
+        'lbEstado
         '
-        Me.cbMedicionId.FormattingEnabled = True
-        Me.cbMedicionId.Location = New System.Drawing.Point(123, 83)
-        Me.cbMedicionId.Name = "cbMedicionId"
-        Me.cbMedicionId.Size = New System.Drawing.Size(397, 21)
-        Me.cbMedicionId.TabIndex = 469
+        Me.lbEstado.AutoSize = True
+        Me.lbEstado.Location = New System.Drawing.Point(14, 140)
+        Me.lbEstado.Name = "lbEstado"
+        Me.lbEstado.Size = New System.Drawing.Size(40, 13)
+        Me.lbEstado.TabIndex = 471
+        Me.lbEstado.Text = "Estado"
         '
-        'Label5
+        'cboEstado
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 111)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(36, 13)
-        Me.Label5.TabIndex = 468
-        Me.Label5.Text = "Tarífa"
+        Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
+        Me.cboEstado.Location = New System.Drawing.Point(123, 133)
+        Me.cboEstado.Name = "cboEstado"
+        Me.cboEstado.Size = New System.Drawing.Size(121, 21)
+        Me.cboEstado.TabIndex = 470
         '
-        'Label4
+        'cboMedicionId
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 38)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 13)
-        Me.Label4.TabIndex = 467
-        Me.Label4.Text = "Razón Social"
+        Me.cboMedicionId.FormattingEnabled = True
+        Me.cboMedicionId.Location = New System.Drawing.Point(123, 83)
+        Me.cboMedicionId.Name = "cboMedicionId"
+        Me.cboMedicionId.Size = New System.Drawing.Size(397, 21)
+        Me.cboMedicionId.TabIndex = 469
+        '
+        'lblTarifa
+        '
+        Me.lblTarifa.AutoSize = True
+        Me.lblTarifa.Location = New System.Drawing.Point(14, 111)
+        Me.lblTarifa.Name = "lblTarifa"
+        Me.lblTarifa.Size = New System.Drawing.Size(36, 13)
+        Me.lblTarifa.TabIndex = 468
+        Me.lblTarifa.Text = "Tarífa"
+        '
+        'lblRazonSocial
+        '
+        Me.lblRazonSocial.AutoSize = True
+        Me.lblRazonSocial.Location = New System.Drawing.Point(14, 38)
+        Me.lblRazonSocial.Name = "lblRazonSocial"
+        Me.lblRazonSocial.Size = New System.Drawing.Size(70, 13)
+        Me.lblRazonSocial.TabIndex = 467
+        Me.lblRazonSocial.Text = "Razón Social"
         '
         'txtRazonSocial
         '
@@ -287,14 +252,14 @@ Partial Class FormProveedor
         Me.txtRazonSocial.TabIndex = 466
         Me.txtRazonSocial.Value = Nothing
         '
-        'Label3
+        'lblMedicion
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 86)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
-        Me.Label3.TabIndex = 465
-        Me.Label3.Text = "Medición"
+        Me.lblMedicion.AutoSize = True
+        Me.lblMedicion.Location = New System.Drawing.Point(14, 86)
+        Me.lblMedicion.Name = "lblMedicion"
+        Me.lblMedicion.Size = New System.Drawing.Size(50, 13)
+        Me.lblMedicion.TabIndex = 465
+        Me.lblMedicion.Text = "Medición"
         '
         'txtTarifa
         '
@@ -321,14 +286,14 @@ Partial Class FormProveedor
         Me.txtTarifa.TabIndex = 464
         Me.txtTarifa.Value = Nothing
         '
-        'Label1
+        'lblNumeroContacto
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 62)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 13)
-        Me.Label1.TabIndex = 463
-        Me.Label1.Text = "Número de contacto"
+        Me.lblNumeroContacto.AutoSize = True
+        Me.lblNumeroContacto.Location = New System.Drawing.Point(14, 62)
+        Me.lblNumeroContacto.Name = "lblNumeroContacto"
+        Me.lblNumeroContacto.Size = New System.Drawing.Size(104, 13)
+        Me.lblNumeroContacto.TabIndex = 463
+        Me.lblNumeroContacto.Text = "Número de contacto"
         '
         'txtNumeroContacto
         '
@@ -355,14 +320,14 @@ Partial Class FormProveedor
         Me.txtNumeroContacto.TabIndex = 462
         Me.txtNumeroContacto.Value = Nothing
         '
-        'Label2
+        'lblNombreComercial
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 14)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 13)
-        Me.Label2.TabIndex = 461
-        Me.Label2.Text = "Nombre Comercial"
+        Me.lblNombreComercial.AutoSize = True
+        Me.lblNombreComercial.Location = New System.Drawing.Point(14, 14)
+        Me.lblNombreComercial.Name = "lblNombreComercial"
+        Me.lblNombreComercial.Size = New System.Drawing.Size(93, 13)
+        Me.lblNombreComercial.TabIndex = 461
+        Me.lblNombreComercial.Text = "Nombre Comercial"
         '
         'txtNombreComercial
         '
@@ -416,73 +381,160 @@ Partial Class FormProveedor
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
-        'txtIdGrupoIngreso
+        'txtIdProveedor
         '
-        Me.txtIdGrupoIngreso.AllowClear = True
-        Me.txtIdGrupoIngreso.AllowNegatives = False
-        Me.txtIdGrupoIngreso.AllowWhiteSpaces = True
-        Me.txtIdGrupoIngreso.BackColorFocused = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtIdGrupoIngreso.BackColorIdle = System.Drawing.Color.Empty
-        Me.txtIdGrupoIngreso.BackColorMandatory = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.txtIdGrupoIngreso.Capitalization = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxCapitalizations.Ignore
-        Me.txtIdGrupoIngreso.EnterIsTab = True
-        Me.txtIdGrupoIngreso.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
-        Me.txtIdGrupoIngreso.Label = "Descripción"
-        Me.txtIdGrupoIngreso.Location = New System.Drawing.Point(401, 137)
-        Me.txtIdGrupoIngreso.Mandatory = False
-        Me.txtIdGrupoIngreso.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtIdGrupoIngreso.MaxLength = 100
-        Me.txtIdGrupoIngreso.MinLength = 0
-        Me.txtIdGrupoIngreso.Name = "txtIdGrupoIngreso"
-        Me.txtIdGrupoIngreso.Precision = 0
-        Me.txtIdGrupoIngreso.SelectOnFocus = True
-        Me.txtIdGrupoIngreso.Size = New System.Drawing.Size(26, 20)
-        Me.txtIdGrupoIngreso.Symbol = Nothing
-        Me.txtIdGrupoIngreso.TabIndex = 460
-        Me.txtIdGrupoIngreso.Value = Nothing
+        Me.txtIdProveedor.AllowClear = True
+        Me.txtIdProveedor.AllowNegatives = False
+        Me.txtIdProveedor.AllowWhiteSpaces = True
+        Me.txtIdProveedor.BackColorFocused = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtIdProveedor.BackColorIdle = System.Drawing.Color.Empty
+        Me.txtIdProveedor.BackColorMandatory = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.txtIdProveedor.Capitalization = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxCapitalizations.Ignore
+        Me.txtIdProveedor.EnterIsTab = True
+        Me.txtIdProveedor.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
+        Me.txtIdProveedor.Label = "Descripción"
+        Me.txtIdProveedor.Location = New System.Drawing.Point(401, 137)
+        Me.txtIdProveedor.Mandatory = False
+        Me.txtIdProveedor.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtIdProveedor.MaxLength = 100
+        Me.txtIdProveedor.MinLength = 0
+        Me.txtIdProveedor.Name = "txtIdProveedor"
+        Me.txtIdProveedor.Precision = 0
+        Me.txtIdProveedor.SelectOnFocus = True
+        Me.txtIdProveedor.Size = New System.Drawing.Size(26, 20)
+        Me.txtIdProveedor.Symbol = Nothing
+        Me.txtIdProveedor.TabIndex = 460
+        Me.txtIdProveedor.Value = Nothing
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
+        'IdProveedor
+        '
+        Me.IdProveedor.DataPropertyName = "IdProveedor"
+        Me.IdProveedor.HeaderText = "IdProveedor"
+        Me.IdProveedor.Name = "IdProveedor"
+        Me.IdProveedor.ReadOnly = True
+        Me.IdProveedor.Visible = False
+        '
+        'NombreComercial
+        '
+        Me.NombreComercial.DataPropertyName = "NombreComercial"
+        Me.NombreComercial.HeaderText = "NOMBRE COMERCIAL"
+        Me.NombreComercial.Name = "NombreComercial"
+        Me.NombreComercial.ReadOnly = True
+        Me.NombreComercial.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NombreComercial.Width = 320
+        '
+        'RazonSocial
+        '
+        Me.RazonSocial.DataPropertyName = "RazonSocial"
+        Me.RazonSocial.HeaderText = "RazonSocial"
+        Me.RazonSocial.Name = "RazonSocial"
+        Me.RazonSocial.ReadOnly = True
+        Me.RazonSocial.Visible = False
+        '
+        'NumeroContacto
+        '
+        Me.NumeroContacto.DataPropertyName = "NumeroContacto"
+        Me.NumeroContacto.HeaderText = "NUMERO DE CONTACTO"
+        Me.NumeroContacto.Name = "NumeroContacto"
+        Me.NumeroContacto.ReadOnly = True
+        Me.NumeroContacto.Width = 120
+        '
+        'MedicionId
+        '
+        Me.MedicionId.DataPropertyName = "MedicionId"
+        Me.MedicionId.HeaderText = "MedicionId"
+        Me.MedicionId.Name = "MedicionId"
+        Me.MedicionId.ReadOnly = True
+        Me.MedicionId.Visible = False
+        '
+        'TipoMedicion
+        '
+        Me.TipoMedicion.DataPropertyName = "TipoMedicion"
+        Me.TipoMedicion.HeaderText = "MEDICION"
+        Me.TipoMedicion.Name = "TipoMedicion"
+        Me.TipoMedicion.ReadOnly = True
+        '
+        'Tarifa
+        '
+        Me.Tarifa.DataPropertyName = "Tarifa"
+        Me.Tarifa.HeaderText = "Tarifa"
+        Me.Tarifa.Name = "Tarifa"
+        Me.Tarifa.ReadOnly = True
+        Me.Tarifa.Visible = False
+        '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
         '
         'FormProveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(563, 453)
-        Me.Controls.Add(Me.dgvGrupoIngreso)
+        Me.Controls.Add(Me.dgvProveedor)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormProveedor"
         Me.Text = "FormProveedor"
-        CType(Me.dgvGrupoIngreso, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents dgvGrupoIngreso As PersControlLibrary.ExtendedDataGridView
+    Friend WithEvents dgvProveedor As PersControlLibrary.ExtendedDataGridView
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnNuevo As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents cboMedicionId As ComboBox
+    Friend WithEvents lblTarifa As Label
+    Friend WithEvents lblRazonSocial As Label
+    Friend WithEvents txtRazonSocial As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents lblMedicion As Label
+    Friend WithEvents txtTarifa As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents lblNumeroContacto As Label
+    Friend WithEvents txtNumeroContacto As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents lblNombreComercial As Label
+    Friend WithEvents txtNombreComercial As PersControlLibrary.ExtendedTextBox
+    Private WithEvents btnGuardar As Button
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents txtIdProveedor As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents lbEstado As Label
+    Friend WithEvents cboEstado As ComboBox
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IdProveedor As DataGridViewTextBoxColumn
     Friend WithEvents NombreComercial As DataGridViewTextBoxColumn
     Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
     Friend WithEvents NumeroContacto As DataGridViewTextBoxColumn
     Friend WithEvents MedicionId As DataGridViewTextBoxColumn
+    Friend WithEvents TipoMedicion As DataGridViewTextBoxColumn
     Friend WithEvents Tarifa As DataGridViewTextBoxColumn
-    Friend WithEvents btnEliminar As Button
-    Friend WithEvents btnModificar As Button
-    Friend WithEvents btnNuevo As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents cbMedicionId As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents txtRazonSocial As PersControlLibrary.ExtendedTextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtTarifa As PersControlLibrary.ExtendedTextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents txtNumeroContacto As PersControlLibrary.ExtendedTextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtNombreComercial As PersControlLibrary.ExtendedTextBox
-    Private WithEvents btnGuardar As Button
-    Friend WithEvents btnCancelar As Button
-    Friend WithEvents txtIdGrupoIngreso As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents IdEstadoActivo As DataGridViewTextBoxColumn
+    Friend WithEvents EstadoActivo As DataGridViewTextBoxColumn
 End Class
