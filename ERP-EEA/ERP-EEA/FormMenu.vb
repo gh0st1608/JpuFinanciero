@@ -14,4 +14,14 @@
     Private Sub ClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClienteToolStripMenuItem.Click
         FormCliente.Show()
     End Sub
+
+    Private Sub FormMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim r As New Globalization.CultureInfo("es-ES")
+
+        r.NumberFormat.NumberGroupSeparator = ","
+        r.NumberFormat.NumberDecimalSeparator = "."
+
+        System.Threading.Thread.CurrentThread.CurrentCulture = r
+
+    End Sub
 End Class

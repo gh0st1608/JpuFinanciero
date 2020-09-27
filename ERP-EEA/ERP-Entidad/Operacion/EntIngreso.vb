@@ -5,14 +5,19 @@
     Private VarClienteId As Integer
     Private VarComentario As String
     Private VarImporteProvision As Decimal
+    Private VarDeuda As Decimal
     Private VarPeriodoId As Integer
     Private VarCliente As String
     Private VarFechaIngresoProvision As Date
+    Private VarComprobanteUbicacion As String
+    Private VarNumeroComprobanteIngreso As String
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
     Private VarEstadoActivo As Byte
     Private VarDetraccion As Boolean
-    Private VarDeuda As Decimal
+    Private VarIGV As Boolean
+
+    'Private VarSubTotal As Decimal
 
     Public Property IdIngreso As Integer
         Get
@@ -60,6 +65,15 @@
         End Set
     End Property
 
+    Public Property Deuda As Decimal
+        Get
+            Return VarDeuda
+        End Get
+        Set(ByVal value As Decimal)
+            VarDeuda = value
+        End Set
+    End Property
+
     Public Property PeriodoId As Integer
         Get
             Return VarPeriodoId
@@ -87,12 +101,40 @@
         End Set
     End Property
 
+    Public Property ComprobanteUbicacion As String
+        Get
+            Return VarComprobanteUbicacion
+        End Get
+        Set(ByVal value As String)
+            VarComprobanteUbicacion = value
+        End Set
+    End Property
+
+    Public Property NumeroComprobanteIngreso As String
+        Get
+            Return VarNumeroComprobanteIngreso
+        End Get
+        Set(ByVal value As String)
+            VarNumeroComprobanteIngreso = value
+        End Set
+    End Property
+
+
     Public Property Detraccion As Boolean
         Get
             Return VarDetraccion
         End Get
         Set(ByVal value As Boolean)
             VarDetraccion = value
+        End Set
+    End Property
+
+    Public Property IGV As Boolean
+        Get
+            Return VarIGV
+        End Get
+        Set(ByVal value As Boolean)
+            VarIGV = value
         End Set
     End Property
 
@@ -123,13 +165,5 @@
         End Set
     End Property
 
-    Public Property Deuda As Decimal
-        Get
-            Return VarDeuda
-        End Get
-        Set(ByVal value As Decimal)
-            VarDeuda = value
-        End Set
-    End Property
 
 End Class

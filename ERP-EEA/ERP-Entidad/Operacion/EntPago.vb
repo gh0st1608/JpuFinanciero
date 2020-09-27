@@ -3,12 +3,13 @@
     Private VarTipoOrigenId As Integer
     Private VarOrigenId As Integer
     Private VarImporteCancelado As Decimal
+    Private VarImporteIGV As Decimal
+    Private VarImporteDetraccion As Decimal
     Private VarMetodoPagoId As Integer
     Private VarFechaPago As Date
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
     Private VarEstadoActivo As Byte
-    Private VarComprobanteUbicacion As String
     Private varNumeroComprobante As String
     Private VarImporteTotal As Decimal
 
@@ -46,6 +47,24 @@
         End Get
         Set(ByVal value As Decimal)
             VarImporteCancelado = value
+        End Set
+    End Property
+
+    Public Property ImporteIGV As Decimal
+        Get
+            Return VarImporteIGV
+        End Get
+        Set(ByVal value As Decimal)
+            VarImporteIGV = value
+        End Set
+    End Property
+
+    Public Property ImporteDetraccion As Decimal
+        Get
+            Return VarImporteDetraccion
+        End Get
+        Set(ByVal value As Decimal)
+            VarImporteDetraccion = value
         End Set
     End Property
 
@@ -94,23 +113,7 @@
         End Set
     End Property
 
-    Public Property EstadoActivo As Byte
-        Get
-            Return VarEstadoActivo
-        End Get
-        Set(ByVal value As Byte)
-            VarEstadoActivo = value
-        End Set
-    End Property
 
-    Public Property ComprobanteUbicacion As String
-        Get
-            Return VarComprobanteUbicacion
-        End Get
-        Set(ByVal value As String)
-            VarComprobanteUbicacion = value
-        End Set
-    End Property
 
     Public Property NumeroComprobante As String
         Get
@@ -120,4 +123,17 @@
             varNumeroComprobante = value
         End Set
     End Property
+
+
+
+    Public Property EstadoActivo As Byte
+        Get
+            Return VarEstadoActivo
+        End Get
+        Set(ByVal value As Byte)
+            VarEstadoActivo = value
+        End Set
+    End Property
+
+
 End Class

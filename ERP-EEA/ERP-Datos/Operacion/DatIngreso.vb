@@ -20,7 +20,10 @@ Public Class DatIngreso
             command.Parameters.Add("@GrupoIngresoId", SqlDbType.Int)
             command.Parameters.Add("@ClienteId", SqlDbType.Int)
             command.Parameters.Add("@Detraccion", SqlDbType.Bit)
+            command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            command.Parameters.Add("@NumeroComprobanteIngreso", SqlDbType.VarChar, 20)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
             command.Parameters.Add("@FechaIngresoProvision", SqlDbType.Date)
@@ -29,9 +32,12 @@ Public Class DatIngreso
             command.Parameters("@GrupoIngresoId").Value = objIngreso.GrupoIngresoId
             command.Parameters("@ClienteId").Value = objIngreso.ClienteId
             command.Parameters("@Detraccion").Value = objIngreso.Detraccion
+            command.Parameters("@IGV").Value = objIngreso.IGV
             command.Parameters("@ImporteProvision").Value = objIngreso.ImporteProvision
             command.Parameters("@PeriodoId").Value = objIngreso.PeriodoId
             command.Parameters("@FechaIngresoProvision").Value = objIngreso.FechaIngresoProvision
+            command.Parameters("@ComprobanteUbicacion").Value = objIngreso.ComprobanteUbicacion
+            command.Parameters("@NumeroComprobanteIngreso").Value = objIngreso.NumeroComprobanteIngreso
             command.Parameters("@UsuarioCreacionId").Value = objIngreso.UsuarioCreacionId
 
             command.ExecuteReader()
@@ -56,11 +62,14 @@ Public Class DatIngreso
             command.Parameters.Add("@GrupoIngresoId", SqlDbType.Int)
             command.Parameters.Add("@ClienteId", SqlDbType.Int)
             command.Parameters.Add("@Detraccion", SqlDbType.Bit)
+            command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
             command.Parameters.Add("@FechaIngresoProvision", SqlDbType.Date)
-            command.Parameters.Add("@Deuda", SqlDbType.Money)
+            command.Parameters.Add("@Deuda", SqlDbType.Float)
+            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            command.Parameters.Add("@NumeroComprobanteIngreso", SqlDbType.VarChar, 20)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
             command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
@@ -68,11 +77,14 @@ Public Class DatIngreso
             command.Parameters("@GrupoIngresoId").Value = objIngreso.GrupoIngresoId
             command.Parameters("@ClienteId").Value = objIngreso.ClienteId
             command.Parameters("@Detraccion").Value = objIngreso.Detraccion
+            command.Parameters("@IGV").Value = objIngreso.IGV
             command.Parameters("@ImporteProvision").Value = objIngreso.ImporteProvision
             command.Parameters("@Deuda").Value = objIngreso.Deuda
             command.Parameters("@PeriodoId").Value = objIngreso.PeriodoId
             command.Parameters("@Comentario").Value = objIngreso.Comentario
             command.Parameters("@FechaIngresoProvision").Value = objIngreso.FechaIngresoProvision
+            command.Parameters("@ComprobanteUbicacion").Value = objIngreso.ComprobanteUbicacion
+            command.Parameters("@NumeroComprobanteIngreso").Value = objIngreso.NumeroComprobanteIngreso
             command.Parameters("@UsuarioModificacionId").Value = objIngreso.UsuarioModificacionId
             command.Parameters("@EstadoActivo").Value = objIngreso.EstadoActivo
 
@@ -111,7 +123,7 @@ Public Class DatIngreso
         End Try
     End Function
 
-    Public Function LeerIngreso(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer) As DataTable
+    Public Function LeerIngreso(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer, ByVal EstadoActivo As Integer) As DataTable
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
@@ -129,6 +141,8 @@ Public Class DatIngreso
             command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters.Add("@ClienteId", SqlDbType.Int)
             command.Parameters("@ClienteId").Value = ClienteId
+            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
+            command.Parameters("@EstadoActivo").Value = EstadoActivo
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

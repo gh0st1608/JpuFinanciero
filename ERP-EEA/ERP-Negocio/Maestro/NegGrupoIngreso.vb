@@ -32,14 +32,14 @@ Public Class NegGrupoIngreso
 
     End Function
 
-    Public Function ObtenerLista(ByVal Id As Integer, ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntGrupoIngreso)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntGrupoIngreso)
 
         Dim result = New List(Of EntGrupoIngreso)
         Dim resultadoElemento As EntGrupoIngreso
         Dim Dt As DataTable
 
 
-        Dt = ObjGrupoIngresoDat.LeerGrupoIngreso(Id, "")
+        Dt = ObjGrupoIngresoDat.LeerGrupoIngreso(0, "")
 
         If (Dt.Rows.Count() > 0) Then
 
@@ -61,11 +61,11 @@ Public Class NegGrupoIngreso
 
             End If
 
-            For i = 0 To Dt.Rows.Count Step 1
+            For i = 0 To Dt.Rows.Count - 1 Step 1
 
                 resultadoElemento = New EntGrupoIngreso
-                resultadoElemento.IdGrupoIngreso = Convert.ToInt16(Dt.Rows(i).Item("IDEmpresa"))
-                resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("NombreEmpresa"))
+                resultadoElemento.IdGrupoIngreso = Convert.ToInt32(Dt.Rows(i).Item("IdGrupoIngreso"))
+                resultadoElemento.Descripcion = Convert.ToString(Dt.Rows(i)("Descripcion"))
                 result.Add(resultadoElemento)
 
             Next i

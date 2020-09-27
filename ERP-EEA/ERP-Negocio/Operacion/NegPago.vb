@@ -23,7 +23,7 @@ Public Class NegPago
         ObjPagoEnt.ImporteCancelado = Convert.ToInt32(Dt.Rows(0).Item("ImporteCancelado"))
         ObjPagoEnt.MetodoPagoId = Convert.ToInt32(Dt.Rows(0).Item("MetodoPagoId"))
         ObjPagoEnt.FechaPago = Convert.ToDateTime(Dt.Rows(0).Item("FechaPago"))
-        ObjPagoEnt.ComprobanteUbicacion = Convert.ToString(Dt.Rows(0).Item("ComprobanteUbicacion"))
+        'ObjPagoEnt.ComprobanteUbicacion = Convert.ToString(Dt.Rows(0).Item("ComprobanteUbicacion"))
         ObjPagoEnt.NumeroComprobante = Convert.ToString(Dt.Rows(0).Item("NumeroComprobante"))
         ObjPagoEnt.ImporteTotal = Convert.ToInt32(Dt.Rows(0).Item("ImporteTotal"))
 

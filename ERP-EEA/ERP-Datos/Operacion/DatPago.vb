@@ -16,9 +16,11 @@ Public Class DatPago
             command.Parameters.Add("@TipoOrigenId", SqlDbType.Int)
             command.Parameters.Add("@OrigenId", SqlDbType.Int)
             command.Parameters.Add("@ImporteCancelado", SqlDbType.Float)
+            command.Parameters.Add("@ImporteIGV", SqlDbType.Float)
+            command.Parameters.Add("@ImporteDetraccion", SqlDbType.Float)
             command.Parameters.Add("@ImporteTotal", SqlDbType.Float)
             command.Parameters.Add("@MetodoPagoId", SqlDbType.Int)
-            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            'command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobante", SqlDbType.VarChar, 20)
             command.Parameters.Add("@FechaPago", SqlDbType.Date)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
@@ -26,9 +28,11 @@ Public Class DatPago
             command.Parameters("@TipoOrigenId").Value = objPago.TipoOrigenId
             command.Parameters("@OrigenId").Value = objPago.OrigenId
             command.Parameters("@ImporteCancelado").Value = objPago.ImporteCancelado
+            command.Parameters("@ImporteIGV").Value = objPago.ImporteIGV
+            command.Parameters("@ImporteDetraccion").Value = objPago.ImporteDetraccion
             command.Parameters("@ImporteTotal").Value = objPago.ImporteTotal
             command.Parameters("@MetodoPagoId").Value = objPago.MetodoPagoId
-            command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
+            'command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
             command.Parameters("@NumeroComprobante").Value = objPago.NumeroComprobante
             command.Parameters("@FechaPago").Value = objPago.FechaPago
             command.Parameters("@UsuarioCreacionId").Value = objPago.UsuarioCreacionId
@@ -54,10 +58,12 @@ Public Class DatPago
             command.Parameters.Add("@TipoOrigenId", SqlDbType.Int)
             command.Parameters.Add("@OrigenId", SqlDbType.Int)
             command.Parameters.Add("@ImporteCancelado", SqlDbType.Float)
+            command.Parameters.Add("@ImporteIGV", SqlDbType.Float)
+            command.Parameters.Add("@ImporteDetraccion", SqlDbType.Float)
             command.Parameters.Add("@ImporteTotal", SqlDbType.Float)
             command.Parameters.Add("@MetodoPagoId", SqlDbType.Int)
             command.Parameters.Add("@FechaPago", SqlDbType.Date)
-            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            'command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobante", SqlDbType.VarChar, 20)
             command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
@@ -66,10 +72,12 @@ Public Class DatPago
             command.Parameters("@TipoOrigenId").Value = objPago.TipoOrigenId
             command.Parameters("@OrigenId").Value = objPago.OrigenId
             command.Parameters("@ImporteCancelado").Value = objPago.ImporteCancelado
+            command.Parameters("@ImporteIGV").Value = objPago.ImporteIGV
+            command.Parameters("@ImporteDetraccion").Value = objPago.ImporteDetraccion
             command.Parameters("@ImporteTotal").Value = objPago.ImporteTotal
             command.Parameters("@MetodoPagoId").Value = objPago.MetodoPagoId
             command.Parameters("@FechaPago").Value = objPago.FechaPago
-            command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
+            'command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
             command.Parameters("@NumeroComprobante").Value = objPago.NumeroComprobante
             command.Parameters("@EstadoActivo").Value = objPago.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId
@@ -91,7 +99,7 @@ Public Class DatPago
             command.CommandType = CommandType.StoredProcedure
 
             command.Parameters.Add("@IdPago", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioModiciacionId", SqlDbType.Int)
+            command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdPago").Value = objPago.IdPago
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId

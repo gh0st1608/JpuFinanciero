@@ -5,9 +5,9 @@ Public Class NegIngreso
     Dim ObjIngresoEnt As New EntIngreso
     Dim ObjIngresoDat As New DatIngreso
 
-    Public Function ObtenerTabla(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer) As DataTable
+    Public Function ObtenerTabla(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer, ByVal EstadoActivo As Integer) As DataTable
 
-        Return ObjIngresoDat.LeerIngreso(IdIngreso, PeriodoId, ClienteId)
+        Return ObjIngresoDat.LeerIngreso(IdIngreso, PeriodoId, ClienteId, EstadoActivo)
 
     End Function
 
@@ -15,17 +15,20 @@ Public Class NegIngreso
 
         Dim Dt As DataTable
 
-        Dt = ObjIngresoDat.LeerIngreso(Id, 0, 0)
+        Dt = ObjIngresoDat.LeerIngreso(Id, 0, 0, 1)
 
         ObjIngresoEnt.IdIngreso = Convert.ToInt32(Dt.Rows(0).Item("IdIngreso"))
         ObjIngresoEnt.GrupoIngresoId = Convert.ToInt32(Dt.Rows(0).Item("GrupoIngresoId"))
         ObjIngresoEnt.ClienteId = Convert.ToInt32(Dt.Rows(0).Item("ClienteId"))
         ObjIngresoEnt.Cliente = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
         ObjIngresoEnt.Detraccion = Convert.ToBoolean(Dt.Rows(0).Item("Detraccion"))
+        ObjIngresoEnt.IGV = Convert.ToBoolean(Dt.Rows(0).Item("IGV"))
         ObjIngresoEnt.ImporteProvision = Convert.ToDecimal(Dt.Rows(0).Item("ImporteProvision"))
         ObjIngresoEnt.PeriodoId = Convert.ToInt32(Dt.Rows(0).Item("PeriodoId"))
         ObjIngresoEnt.FechaIngresoProvision = Convert.ToDateTime(Dt.Rows(0).Item("FechaIngresoProvision"))
+        ObjIngresoEnt.ComprobanteUbicacion = Convert.ToString(Dt.Rows(0).Item("ComprobanteUbicacion"))
         ObjIngresoEnt.Deuda = Convert.ToDecimal(Dt.Rows(0).Item("Deuda"))
+        ObjIngresoEnt.NumeroComprobanteIngreso = Convert.ToString(Dt.Rows(0).Item("NumeroComprobanteIngreso"))
         ObjIngresoEnt.Comentario = Convert.ToString(Dt.Rows(0).Item("Comentario"))
 
         Return ObjIngresoEnt

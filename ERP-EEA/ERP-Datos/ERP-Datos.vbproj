@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Maestro\DatMetodoPago.vb" />
+    <Compile Include="Maestro\DatSubGrupoEgreso.vb" />
+    <Compile Include="Operacion\DatEgreso.vb" />
     <Compile Include="Operacion\DatIngreso.vb" />
     <Compile Include="Operacion\DatPago.vb" />
     <Compile Include="Maestro\DatParametro.vb" />
