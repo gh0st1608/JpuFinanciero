@@ -6,7 +6,7 @@ Imports ERP_Entidad
 Imports ERP_Datos
 
 Public Class NegCliente
-    Dim ObjClienteEnt = New EntCliente
+    Dim ObjClienteEnt As New EntCliente
     Dim ObjClienteDat As New DatCliente
     Public Function ObtenerTabla() As DataTable
 
@@ -21,8 +21,8 @@ Public Class NegCliente
         Dt = ObjClienteDat.LeerCliente(Id, "")
         'Traspasar los datos Del datagrid a la entidad
         ObjClienteEnt.IdCliente = Convert.ToInt32(Dt.Rows(0).Item("IdCliente"))
-        ObjClienteEnt.TipoClienteId = Convert.ToInt32(Dt.Rows(0).Item("TipoClienteId"))
-        ObjClienteEnt.TipoCliente = Convert.ToString(Dt.Rows(0).Item("TipoCliente"))
+        'ObjClienteEnt.TipoClienteId = Convert.ToInt32(Dt.Rows(0).Item("TipoClienteId"))
+        'ObjClienteEnt.TipoCliente = Convert.ToString(Dt.Rows(0).Item("TipoCliente"))
         ObjClienteEnt.RazonSocial = Convert.ToString(Dt.Rows(0).Item("RazonSocial"))
         ObjClienteEnt.Documento = Convert.ToString(Dt.Rows(0).Item("Documento"))
         ObjClienteEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))

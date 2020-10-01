@@ -6,6 +6,7 @@
     Private VarImporteIGV As Decimal
     Private VarImporteDetraccion As Decimal
     Private VarMetodoPagoId As Integer
+    Private VarNroOperacion As String
     Private VarFechaPago As Date
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
@@ -83,6 +84,15 @@
         End Get
         Set(ByVal value As Integer)
             VarMetodoPagoId = value
+        End Set
+    End Property
+
+    Public Property NroOperacion As String
+        Get
+            Return VarNroOperacion
+        End Get
+        Set(value As String)
+            VarNroOperacion = value
         End Set
     End Property
 

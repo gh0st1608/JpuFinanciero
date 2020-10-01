@@ -7,7 +7,7 @@ Public Class NegIngreso
 
     Public Function ObtenerTabla(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer, ByVal EstadoActivo As Integer) As DataTable
 
-        Return ObjIngresoDat.LeerIngreso(IdIngreso, PeriodoId, ClienteId, EstadoActivo)
+        Return ObjIngresoDat.LeerIngreso(IdIngreso, PeriodoId, ClienteId)
 
     End Function
 
@@ -15,7 +15,7 @@ Public Class NegIngreso
 
         Dim Dt As DataTable
 
-        Dt = ObjIngresoDat.LeerIngreso(Id, 0, 0, 1)
+        Dt = ObjIngresoDat.LeerIngreso(Id, 0, 0)
 
         ObjIngresoEnt.IdIngreso = Convert.ToInt32(Dt.Rows(0).Item("IdIngreso"))
         ObjIngresoEnt.GrupoIngresoId = Convert.ToInt32(Dt.Rows(0).Item("GrupoIngresoId"))

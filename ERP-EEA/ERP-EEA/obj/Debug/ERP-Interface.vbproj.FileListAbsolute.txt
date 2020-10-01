@@ -21,7 +21,6 @@ D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbproj
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-EEA.exe
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-EEA.xml
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP-EEA.pdb
-D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Form1.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP-Interface.vbprojAssemblyReference.cache
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormGrupoIngreso.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.Resources.resources
@@ -82,3 +81,12 @@ C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormCl
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormPago.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormTipoCliente.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormIngreso.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormMenu.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormCliente.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormContacto.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormPago.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormParametro.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormProveedor.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormTipoCliente.resources
+D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormIngreso.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormContacto.resources

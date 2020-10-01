@@ -20,6 +20,7 @@ Public Class DatPago
             command.Parameters.Add("@ImporteDetraccion", SqlDbType.Float)
             command.Parameters.Add("@ImporteTotal", SqlDbType.Float)
             command.Parameters.Add("@MetodoPagoId", SqlDbType.Int)
+            command.Parameters.Add("@NroOperacion", SqlDbType.VarChar, 20)
             'command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobante", SqlDbType.VarChar, 20)
             command.Parameters.Add("@FechaPago", SqlDbType.Date)
@@ -32,6 +33,7 @@ Public Class DatPago
             command.Parameters("@ImporteDetraccion").Value = objPago.ImporteDetraccion
             command.Parameters("@ImporteTotal").Value = objPago.ImporteTotal
             command.Parameters("@MetodoPagoId").Value = objPago.MetodoPagoId
+            command.Parameters("@NroOperacion").Value = objPago.NroOperacion
             'command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
             command.Parameters("@NumeroComprobante").Value = objPago.NumeroComprobante
             command.Parameters("@FechaPago").Value = objPago.FechaPago
@@ -62,10 +64,11 @@ Public Class DatPago
             command.Parameters.Add("@ImporteDetraccion", SqlDbType.Float)
             command.Parameters.Add("@ImporteTotal", SqlDbType.Float)
             command.Parameters.Add("@MetodoPagoId", SqlDbType.Int)
+            command.Parameters.Add("@NroOperacion", SqlDbType.VarChar, 20)
             command.Parameters.Add("@FechaPago", SqlDbType.Date)
             'command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobante", SqlDbType.VarChar, 20)
-            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
+            'command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
 
             command.Parameters("@IdPago").Value = objPago.IdPago
@@ -76,10 +79,11 @@ Public Class DatPago
             command.Parameters("@ImporteDetraccion").Value = objPago.ImporteDetraccion
             command.Parameters("@ImporteTotal").Value = objPago.ImporteTotal
             command.Parameters("@MetodoPagoId").Value = objPago.MetodoPagoId
+            command.Parameters("@NroOperacion").Value = objPago.NroOperacion
             command.Parameters("@FechaPago").Value = objPago.FechaPago
             'command.Parameters("@ComprobanteUbicacion").Value = objPago.ComprobanteUbicacion
             command.Parameters("@NumeroComprobante").Value = objPago.NumeroComprobante
-            command.Parameters("@EstadoActivo").Value = objPago.EstadoActivo
+            'command.Parameters("@EstadoActivo").Value = objPago.EstadoActivo
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()

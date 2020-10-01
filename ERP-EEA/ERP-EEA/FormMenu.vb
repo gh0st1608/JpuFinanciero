@@ -15,6 +15,10 @@
         FormCliente.Show()
     End Sub
 
+    Private Sub ProveedorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProveedorToolStripMenuItem.Click
+        FormProveedor.Show()
+    End Sub
+
     Private Sub FormMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim r As New Globalization.CultureInfo("es-ES")
 

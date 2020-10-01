@@ -22,28 +22,40 @@ Public Class FormIngreso
     Dim entParametro As New EntParametro
     Dim list As New List(Of String)
     Dim respaldo As Decimal
+    Dim cantIngresos As Integer
+    Dim cantPagos As Integer
+    Dim blnActualizar As Boolean = False
     Dim vg As New VariableGlobal
 
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
+        CargarTablaIngreso()
+        dgvIngreso.Enabled = True
         Me.Height = 273
         txtIdIngreso.Text = "0"
         txtComentario.Text = ""
+        txtNumeroComprobanteIngreso.Text = ""
         txtImporteProvisional.Text = ""
         cbCliente.SelectedValue = 0
         cbPeriodo.SelectedValue = 0
         chkDetraccion.Checked = False
         chkIGV.Checked = False
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
-        btnPagar.Enabled = True
+        If cantIngresos = 0 Then
+            btnModificar.Enabled = False
+            btnEliminar.Enabled = False
+            btnPagar.Enabled = False
+        Else
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+            btnPagar.Enabled = True
+        End If
         dgvIngreso.Enabled = True
         PanelIngreso.Visible = True
         PanelPago.Visible = False
-        CargarTablaIngreso()
+
     End Sub
 
     Private Sub ModoRegistro()
@@ -58,6 +70,8 @@ Public Class FormIngreso
     End Sub
 
     Private Sub ModoPago()
+        CargarTablaPago()
+        dgvIngreso.Enabled = False
         Me.Height = 450
         txtIdPago.Text = "0"
         txtTotal.Text = ""
@@ -67,17 +81,21 @@ Public Class FormIngreso
         'txtSubTotal.Text = "0"
         cbMetodoPago.SelectedValue = 0
         btnNuevo.Enabled = False
+        If cantPagos = 0 Then
+            btnModificarPago.Enabled = False
+            btnEliminarPago.Enabled = False
+        Else
+            btnModificarPago.Enabled = True
+            btnEliminarPago.Enabled = True
+            btnNuevoPago.Enabled = True
+        End If
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
         btnPagar.Enabled = False
-        btnNuevoPago.Enabled = True
-        btnModificarPago.Enabled = True
-        btnEliminarPago.Enabled = True
         btnVolver.Enabled = True
         dgvPago.Enabled = True
         PanelIngreso.Visible = False
         PanelPago.Visible = True
-        CargarTablaPago()
     End Sub
 
     Private Sub ModoRegistrarPago()
@@ -85,12 +103,10 @@ Public Class FormIngreso
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
-        'btnNuevoPago.Enabled = False
         btnModificarPago.Enabled = False
         btnEliminarPago.Enabled = False
         btnVolver.Enabled = False
         dgvPago.Enabled = False
-        'txtSubTotal.Text = entIngreso.Deuda
         txtDetraccion.Enabled = False
         txtIGV.Enabled = False
         txtSubTotal.Enabled = True
@@ -100,22 +116,25 @@ Public Class FormIngreso
     End Sub
 #End Region
 
+
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaIngreso()
         dataTable = negIngreso.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue, 0, 1)
         dgvIngreso.DataSource = dataTable
+        cantIngresos = dgvIngreso.Rows.Count
     End Sub
 
     Private Sub CargarTablaPago()
         dataTable = negPago.ObtenerTabla(0, 1, Int(txtIdIngreso.Text), cbPeriodoFiltro.SelectedValue, 0, 0)
         dgvPago.DataSource = dataTable
+        cantPagos = dgvPago.Rows.Count
     End Sub
 
     Private Sub CargarCombo()
 
         cboTipoIngreso.ValueMember = "IdGrupoIngreso"
         cboTipoIngreso.DisplayMember = "Descripcion"
-        cboTipoIngreso.DataSource = NegGrupoIngreso.ObtenerLista(False, True)
+        cboTipoIngreso.DataSource = negGrupoIngreso.ObtenerLista(False, True)
 
         cbCliente.ValueMember = "IdCliente"
         cbCliente.DisplayMember = "Descripcion"
@@ -145,17 +164,18 @@ Public Class FormIngreso
         If entIngreso.IGV Then
             entParametro = negParametro.ObtenerData(2)
             entPago.ImporteIGV = entPago.ImporteCancelado * entParametro.ValorParametro
-            txtIGV.Text = entPago.ImporteIGV
+            txtIGV.Text = entPago.ImporteIGV.ToString(“##,##0.00”)
             'entIngreso.IGV = entPago.
         End If
 
         If entIngreso.Detraccion Then
             entParametro = negParametro.ObtenerData(1)
             entPago.ImporteDetraccion = (entPago.ImporteCancelado + entPago.ImporteIGV) * entParametro.ValorParametro
-            txtDetraccion.Text = entPago.ImporteDetraccion
+            txtDetraccion.Text = entPago.ImporteDetraccion.ToString(“##,##0.00”)
         End If
 
-        txtTotal.Text = entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion
+        entPago.ImporteTotal = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion).ToString(“##,##0.00”)
+        txtTotal.Text = entPago.ImporteTotal.ToString(“##,##0.00”)
     End Sub
 
 
@@ -164,6 +184,13 @@ Public Class FormIngreso
 #Region "Funciones Principales (CRUD)"
     'INGRESO
     Private Sub CrearIngreso()
+        If cboTipoIngreso.SelectedValue = 0 Then
+            MsgBox("Escoger Origen de Ingresos")
+            Exit Sub
+        Else
+            entIngreso.GrupoIngresoId = cboTipoIngreso.SelectedValue
+        End If
+
         If cbCliente.SelectedValue = 0 Then
             MsgBox("Escoger un cliente")
             Exit Sub
@@ -181,6 +208,7 @@ Public Class FormIngreso
         End If
         entIngreso.FechaIngresoProvision = dtpFechaIngreso.Value
         entIngreso.ComprobanteUbicacion = txtComprobanteUbicacion.Text
+        entIngreso.NumeroComprobanteIngreso = txtNumeroComprobanteIngreso.Text
         If txtImporteProvisional.Text = "" Then
             MsgBox("Ingresar el importe")
             Exit Sub
@@ -201,8 +229,8 @@ Public Class FormIngreso
         End If
     End Sub
     Private Sub LeerIngreso()
-        entIngreso = negIngreso.ObtenerData(dgvIngreso.CurrentRow.Cells("IdIngreso").Value)
 
+        entIngreso = negIngreso.ObtenerData(dgvIngreso.CurrentRow.Cells("IdIngreso").Value)
         txtIdIngreso.Text = entIngreso.IdIngreso
         cbCliente.SelectedValue = entIngreso.ClienteId
         txtComentario.Text = entIngreso.Comentario
@@ -211,8 +239,11 @@ Public Class FormIngreso
         cbPeriodo.SelectedValue = entIngreso.PeriodoId
         dtpFechaIngreso.Value = entIngreso.FechaIngresoProvision
         txtComprobanteUbicacion.Text = entIngreso.ComprobanteUbicacion
+        txtNumeroComprobanteIngreso.Text = entIngreso.NumeroComprobanteIngreso
         txtImporteProvisional.Text = entIngreso.ImporteProvision.ToString(“##,##0.00”)
-        txtSubTotal.Text = entIngreso.ImporteProvision
+
+        txtSubTotal.Text = entIngreso.Deuda.ToString(“##,##0.00”)
+        txtTotal.Text = (Convert.ToDecimal(txtIGV.Text) + Convert.ToDecimal(txtSubTotal.Text) - Convert.ToDecimal(txtDetraccion.Text)).ToString(“##,##0.00”)
 
 
 
@@ -222,7 +253,7 @@ Public Class FormIngreso
             btnAbrir.Enabled = True
         End If
     End Sub
-    Private Sub ActualizarIngreso()
+    Private Sub ActualizarIngreso(ByVal bln As Boolean)
         If cbCliente.SelectedValue = 0 Then
             MsgBox("Escoger un cliente")
             Exit Sub
@@ -240,6 +271,7 @@ Public Class FormIngreso
         End If
         entIngreso.FechaIngresoProvision = dtpFechaIngreso.Value
         entIngreso.ComprobanteUbicacion = txtComprobanteUbicacion.Text
+        entIngreso.NumeroComprobanteIngreso = txtNumeroComprobanteIngreso.Text
         If txtImporteProvisional.Text = "" Then
             MsgBox("Ingresar el importe")
             Exit Sub
@@ -247,16 +279,22 @@ Public Class FormIngreso
             entIngreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text, New CultureInfo("en-US"))
         End If
 
+        entIngreso.Deuda = respaldo
 
         entIngreso.UsuarioModificacionId = 1
 
         operacion = negIngreso.Actualizar(entIngreso)
 
         If operacion Then
-            MsgBox("Actualizo con exito")
-            ModoInicial()
+            If (blnActualizar = False) Then
+                MsgBox("Guardo con exito")
+                ModoInicial()
+            Else
+                ModoPago()
+            End If
+
         Else
-            MsgBox("No se actualizó bien")
+            MsgBox("No se guardo bien")
         End If
     End Sub
     Private Sub EliminarIngreso()
@@ -285,33 +323,18 @@ Public Class FormIngreso
         entPago.TipoOrigenId = 1
         entPago.OrigenId = Int(txtIdIngreso.Text)
         entPago.FechaPago = dtpFechaPago.Value
+        entPago.NroOperacion = txtNroOperacion.Text
 
         If txtSubTotal.Text = "" Then
             MsgBox("Ingresar el Importe Cancelado")
             Exit Sub
         Else
-            entPago.ImporteCancelado = Convert.ToDecimal(txtSubTotal.Text)
+            entPago.ImporteCancelado = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US")).ToString(“##,##0.00”)
         End If
 
-        entIngreso.Deuda = entIngreso.Deuda - entPago.ImporteCancelado
+        entIngreso.Deuda = (entIngreso.Deuda - entPago.ImporteCancelado).ToString(“##,##0.00”)
 
-
-        'Calculo de impuestos
-        'If entIngreso.IGV Then
-        'entParametro = negParametro.ObtenerData(2)
-        'entPago.ImporteIGV = entPago.ImporteCancelado * entParametro.ValorParametro
-        'txtIGV.Text = entPago.ImporteIGV
-        ''entIngreso.IGV = entPago.
-        'End If
-
-        'If entIngreso.Detraccion Then
-        'entParametro = negParametro.ObtenerData(1)
-        'entPago.ImporteDetraccion = (entPago.ImporteCancelado + entPago.ImporteIGV) * entParametro.ValorParametro
-        'txtDetraccion.Text = entPago.ImporteDetraccion
-        'End If
-
-        'txtSubTotal.Text = entIngreso.ImporteProvision
-        'txtTotal.Text = entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion
+        respaldo = Convert.ToDecimal(entIngreso.Deuda)
 
         entIngreso.UsuarioCreacionId = 1
 
@@ -332,11 +355,12 @@ Public Class FormIngreso
         cbMetodoPago.SelectedValue = entPago.MetodoPagoId
         txtNumeroComprobante.Text = entPago.NumeroComprobante
         dtpFechaPago.Value = entPago.FechaPago
-        txtSubTotal.Text = entPago.ImporteCancelado
+        txtSubTotal.Text = entPago.ImporteCancelado.ToString(“##,##0.00”)
+        txtTotal.Text = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion).ToString(“##,##0.00”)
 
 
 
-        txtRespaldoImporte.Text = Convert.ToDecimal(txtTotal.Text) + Convert.ToDecimal(txtSubTotal.Text)
+        txtRespaldoImporte.Text = (entPago.ImporteCancelado + entIngreso.Deuda).ToString(“##,##0.00”)
 
     End Sub
     Private Sub ActualizarPago()
@@ -362,18 +386,25 @@ Public Class FormIngreso
             entParametro = negParametro.ObtenerData(2)
             entPago.ImporteIGV = entPago.ImporteCancelado * entParametro.ValorParametro
             txtIGV.Text = entPago.ImporteIGV
-        Else
-            entPago.ImporteTotal = entPago.ImporteCancelado
         End If
 
         If entIngreso.Detraccion Then
             entParametro = negParametro.ObtenerData(1)
             entPago.ImporteDetraccion = entPago.ImporteIGV * entParametro.ValorParametro
             txtDetraccion.Text = entPago.ImporteDetraccion
+        End If
+
+        If entIngreso.IGV Then
+            entPago.ImporteTotal = entPago.ImporteCancelado + entPago.ImporteIGV
+            If entIngreso.Detraccion Then
+                entPago.ImporteTotal = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion)
+            End If
         Else
             entPago.ImporteTotal = entPago.ImporteCancelado
         End If
+        entPago.ImporteTotal = entPago.ImporteCancelado
 
+        entPago.NroOperacion = txtNroOperacion.Text
         respaldo = entIngreso.Deuda - entPago.ImporteCancelado
 
         entPago.UsuarioModificacionId = 1
@@ -388,7 +419,7 @@ Public Class FormIngreso
         End If
     End Sub
     Private Sub EliminarPago()
-        entPago.IdPago = dgvIngreso.CurrentRow.Cells("IdIngreso").Value
+        entPago.IdPago = dgvPago.CurrentRow.Cells("IdPago").Value
         entPago.UsuarioModificacionId = 1
         operacion = negPago.Eliminar(entPago)
 
@@ -427,7 +458,7 @@ Public Class FormIngreso
         If txtIdIngreso.Text = "0" Then
             CrearIngreso()
         Else
-            ActualizarIngreso()
+            ActualizarIngreso(blnActualizar)
         End If
     End Sub
 
@@ -449,6 +480,7 @@ Public Class FormIngreso
     End Sub
 
     Private Sub btnNuevoPago_Click(sender As Object, e As EventArgs) Handles btnNuevoPago.Click
+        LeerIngreso()
         ModoRegistrarPago()
     End Sub
 
@@ -475,13 +507,13 @@ Public Class FormIngreso
     End Sub
 
     Private Sub btnGuardarPago_Click(sender As Object, e As EventArgs) Handles btnGuardarPago.Click
+        blnActualizar = True
         If txtIdPago.Text = "0" Then
             CrearPago()
         Else
             ActualizarPago()
         End If
-
-        'ActualizarIngreso()
+        ActualizarIngreso(blnActualizar)
     End Sub
 
     Private Sub btnAdjuntarArchivo_Click(sender As Object, e As EventArgs) Handles btnAdjuntarArchivo.Click
@@ -504,6 +536,10 @@ Public Class FormIngreso
 
     Private Sub txtSubTotal_TextChanged(sender As Object, e As EventArgs) Handles txtSubTotal.TextChanged
         CalculoImpuestos()
+    End Sub
+
+    Private Sub cbPeriodoFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.SelectedIndexChanged
+        CargarTablaIngreso()
     End Sub
 
 

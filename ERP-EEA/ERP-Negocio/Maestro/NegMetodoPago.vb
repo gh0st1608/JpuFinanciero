@@ -12,7 +12,7 @@ Public Class NegMetodoPago
         Dt = ObjMetodoPagoDat.LeerMetodoPago(Id)
 
         ObjMetodoPagoEnt.IdMetodoPago = Convert.ToInt32(Dt.Rows(0).Item("IdMetodoPago"))
-        ObjMetodoPagoEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("DescripcionMetodoPago"))
+        ObjMetodoPagoEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
 
         Return ObjMetodoPagoEnt
 

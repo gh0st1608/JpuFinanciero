@@ -64,6 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maestro\NegContacto.vb" />
     <Compile Include="Maestro\NegGrupoEgreso.vb" />
     <Compile Include="Maestro\NegCliente.vb" />
     <Compile Include="Maestro\NegMetodoPago.vb" />

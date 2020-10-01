@@ -75,8 +75,8 @@ Partial Class FormMenu
         'IngresoToolStripMenuItem
         '
         Me.IngresoToolStripMenuItem.Name = "IngresoToolStripMenuItem"
-        Me.IngresoToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
-        Me.IngresoToolStripMenuItem.Text = "Ingreso"
+        Me.IngresoToolStripMenuItem.Size = New System.Drawing.Size(120, 20)
+        Me.IngresoToolStripMenuItem.Text = "Registro de Ingreso"
         '
         'FormMenu
         '
