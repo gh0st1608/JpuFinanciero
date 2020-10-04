@@ -28,4 +28,8 @@
         System.Threading.Thread.CurrentThread.CurrentCulture = r
 
     End Sub
+
+    Private Sub RegistroDeEgresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeEgresoToolStripMenuItem.Click
+        FormEgreso.Show()
+    End Sub
 End Class

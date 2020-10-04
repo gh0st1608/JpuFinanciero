@@ -54,6 +54,7 @@ Partial Class FormGrupoIngreso
         Me.IDGrupoIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreGrupoIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvGrupoIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -329,7 +330,7 @@ Partial Class FormGrupoIngreso
         Me.dgvGrupoIngreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvGrupoIngreso.ColumnHeadersHeight = 20
         Me.dgvGrupoIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvGrupoIngreso.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IDGrupoIngreso, Me.NombreGrupoIngreso, Me.EstadoActivo})
+        Me.dgvGrupoIngreso.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IDGrupoIngreso, Me.NombreGrupoIngreso, Me.EstadoActivo, Me.IdEstadoActivo})
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -397,6 +398,14 @@ Partial Class FormGrupoIngreso
         Me.EstadoActivo.ReadOnly = True
         Me.EstadoActivo.Width = 130
         '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
+        '
         'FormGrupoIngreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -408,7 +417,7 @@ Partial Class FormGrupoIngreso
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormGrupoIngreso"
-        Me.Text = "GrupoIngreso"
+        Me.Text = "Grupo Ingreso"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dgvGrupoIngreso, System.ComponentModel.ISupportInitialize).EndInit()
@@ -443,4 +452,5 @@ Partial Class FormGrupoIngreso
     Friend WithEvents IDGrupoIngreso As DataGridViewTextBoxColumn
     Friend WithEvents NombreGrupoIngreso As DataGridViewTextBoxColumn
     Friend WithEvents EstadoActivo As DataGridViewTextBoxColumn
+    Friend WithEvents IdEstadoActivo As DataGridViewTextBoxColumn
 End Class

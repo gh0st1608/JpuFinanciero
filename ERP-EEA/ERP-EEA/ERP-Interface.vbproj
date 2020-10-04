@@ -96,6 +96,12 @@
     <Compile Include="Maestro\FormContacto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Maestro\FormGrupoEgreso.Designer.vb">
+      <DependentUpon>FormGrupoEgreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormGrupoEgreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Maestro\FormGrupoIngreso.Designer.vb">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
     </Compile>
@@ -118,6 +124,12 @@
       <DependentUpon>FormProveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="Maestro\FormProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestro\FormSubGrupoEgreso.Designer.vb">
+      <DependentUpon>FormSubGrupoEgreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maestro\FormSubGrupoEgreso.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Maestro\FormTipoCliente.Designer.vb">
@@ -143,6 +155,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
+    <Compile Include="Operacion\FormEgreso.Designer.vb">
+      <DependentUpon>FormEgreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FormEgreso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Operacion\FormIngreso.Designer.vb">
       <DependentUpon>FormIngreso.vb</DependentUpon>
     </Compile>
@@ -160,6 +178,9 @@
     <EmbeddedResource Include="Maestro\FormContacto.resx">
       <DependentUpon>FormContacto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormGrupoEgreso.resx">
+      <DependentUpon>FormGrupoEgreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormGrupoIngreso.resx">
       <DependentUpon>FormGrupoIngreso.vb</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +193,9 @@
     <EmbeddedResource Include="Maestro\FormProveedor.resx">
       <DependentUpon>FormProveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maestro\FormSubGrupoEgreso.resx">
+      <DependentUpon>FormSubGrupoEgreso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestro\FormTipoCliente.resx">
       <DependentUpon>FormTipoCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +204,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FormEgreso.resx">
+      <DependentUpon>FormEgreso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion\FormIngreso.resx">
       <DependentUpon>FormIngreso.vb</DependentUpon>

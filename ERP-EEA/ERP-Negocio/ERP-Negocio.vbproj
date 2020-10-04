@@ -69,6 +69,8 @@
     <Compile Include="Maestro\NegCliente.vb" />
     <Compile Include="Maestro\NegMetodoPago.vb" />
     <Compile Include="Maestro\NegParametro.vb" />
+    <Compile Include="Maestro\NegSubGrupoEgreso.vb" />
+    <Compile Include="Operacion\NegEgreso.vb" />
     <Compile Include="Operacion\NegPago.vb" />
     <Compile Include="Maestro\NegPeriodo.vb" />
     <Compile Include="Maestro\NegProveedor.vb" />

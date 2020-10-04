@@ -29,12 +29,13 @@ Partial Class FormMenu
         Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.IngresoToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.IngresoToolStripMenuItem, Me.RegistroDeEgresoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -51,25 +52,25 @@ Partial Class FormMenu
         'ParametroToolStripMenuItem
         '
         Me.ParametroToolStripMenuItem.Name = "ParametroToolStripMenuItem"
-        Me.ParametroToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ParametroToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ParametroToolStripMenuItem.Text = "Parámetro"
         '
         'TipoClienteToolStripMenuItem
         '
         Me.TipoClienteToolStripMenuItem.Name = "TipoClienteToolStripMenuItem"
-        Me.TipoClienteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.TipoClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TipoClienteToolStripMenuItem.Text = "Tipo Cliente"
         '
         'ClienteToolStripMenuItem
         '
         Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
-        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ClienteToolStripMenuItem.Text = "Cliente"
         '
         'ProveedorToolStripMenuItem
         '
         Me.ProveedorToolStripMenuItem.Name = "ProveedorToolStripMenuItem"
-        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProveedorToolStripMenuItem.Text = "Proveedor"
         '
         'IngresoToolStripMenuItem
@@ -77,6 +78,12 @@ Partial Class FormMenu
         Me.IngresoToolStripMenuItem.Name = "IngresoToolStripMenuItem"
         Me.IngresoToolStripMenuItem.Size = New System.Drawing.Size(120, 20)
         Me.IngresoToolStripMenuItem.Text = "Registro de Ingreso"
+        '
+        'RegistroDeEgresoToolStripMenuItem
+        '
+        Me.RegistroDeEgresoToolStripMenuItem.Name = "RegistroDeEgresoToolStripMenuItem"
+        Me.RegistroDeEgresoToolStripMenuItem.Size = New System.Drawing.Size(116, 20)
+        Me.RegistroDeEgresoToolStripMenuItem.Text = "Registro de Egreso"
         '
         'FormMenu
         '
@@ -102,4 +109,5 @@ Partial Class FormMenu
     Friend WithEvents TipoClienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClienteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProveedorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistroDeEgresoToolStripMenuItem As ToolStripMenuItem
 End Class

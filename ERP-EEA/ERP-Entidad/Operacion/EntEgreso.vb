@@ -1,16 +1,22 @@
 ﻿Public Class EntEgreso
 
     Private VarIdEgreso As Integer
+    Private VarGrupoEgresoId As Integer
     Private VarSubGrupoEgresoId As Integer
+    Private VarSubGrupoEgresoDescripcion As String
     Private VarProveedorId As Integer
+    Private VarProveedorDescripcion As String
     Private VarImporteProvision As Decimal
     Private VarPeriodoId As Integer
+    Private VarIGV As Byte
     Private VarComentario As String
+    Private VarComprobanteUbicacion As String
+    Private VarNumeroComprobanteEgreso As String
     Private VarFechaEgresoProvision As Date
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
     Private VarEstadoActivo As Byte
-    Private VarSubTotal As Decimal
+    Private VarDeuda As Decimal
 
     Public Property IdEgreso As Integer
         Get
@@ -21,6 +27,17 @@
         End Set
     End Property
 
+    Public Property GrupoEgresoId As Integer
+        Get
+            Return VarGrupoEgresoId
+        End Get
+        Set(value As Integer)
+            VarGrupoEgresoId = value
+        End Set
+    End Property
+
+
+
     Public Property SubGrupoEgresoId As Integer
         Get
             Return VarSubGrupoEgresoId
@@ -30,12 +47,31 @@
         End Set
     End Property
 
+    Public Property SubGrupoEgresoDescripcion As String
+        Get
+            Return VarSubGrupoEgresoDescripcion
+        End Get
+        Set(value As String)
+            VarSubGrupoEgresoDescripcion = value
+        End Set
+    End Property
+
     Public Property ProveedorId As Integer
         Get
             Return VarProveedorId
         End Get
         Set(value As Integer)
             VarProveedorId = value
+        End Set
+    End Property
+
+
+    Public Property ProveedorDescripcion As String
+        Get
+            Return VarProveedorDescripcion
+        End Get
+        Set(value As String)
+            VarProveedorDescripcion = value
         End Set
     End Property
 
@@ -57,6 +93,17 @@
         End Set
     End Property
 
+    Public Property IGV As Byte
+
+        Get
+            Return VarIGV
+        End Get
+        Set(ByVal value As Byte)
+            VarIGV = value
+        End Set
+
+    End Property
+
     Public Property Comentario As String
         Get
             Return VarComentario
@@ -66,7 +113,27 @@
         End Set
     End Property
 
+    Public Property ComprobanteUbicacion As String
 
+        Get
+            Return VarComprobanteUbicacion
+        End Get
+        Set(value As String)
+            VarComprobanteUbicacion = value
+        End Set
+
+    End Property
+
+    Public Property NumeroComprobanteEgreso As String
+
+        Get
+            Return VarNumeroComprobanteEgreso
+        End Get
+        Set(value As String)
+            VarNumeroComprobanteEgreso = value
+        End Set
+
+    End Property
 
     Public Property FechaEgresoProvision As Date
         Get
@@ -105,12 +172,12 @@
         End Set
     End Property
 
-    Public Property SubTotal As Decimal
+    Public Property Deuda As Decimal
         Get
-            Return VarSubTotal
+            Return VarDeuda
         End Get
         Set(ByVal value As Decimal)
-            VarSubTotal = value
+            VarDeuda = value
         End Set
     End Property
 

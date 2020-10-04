@@ -201,7 +201,7 @@ Public Class DatParametro
     'End Function
 
 
-    Public Function LeerParametro(ByVal IdParametro As Integer, ByVal Descripcion As String) As DataTable
+    Public Function LeerParametro(ByVal IdParametro As Integer, ByVal Descripcion As String, ByVal TipoParametro As String) As DataTable
 
         'Dim reader As SqlDataReader
         Dim command As SqlCommand
@@ -222,6 +222,8 @@ Public Class DatParametro
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters("@Descripcion").Value = Descripcion
 
+            command.Parameters.Add("@TipoParametro", SqlDbType.VarChar, 50)
+            command.Parameters("@TipoParametro").Value = TipoParametro
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

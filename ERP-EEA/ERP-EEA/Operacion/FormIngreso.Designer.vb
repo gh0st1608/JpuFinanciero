@@ -25,14 +25,28 @@ Partial Class FormIngreso
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvIngreso = New PersControlLibrary.ExtendedDataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoIngresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClienteId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroComprobanteIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Detraccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IGV = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Comentario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaIngresoProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImporteProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ComprobanteUbicacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Deuda = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -63,6 +77,8 @@ Partial Class FormIngreso
         Me.cbPeriodoFiltro = New System.Windows.Forms.ComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.lbNroOperacion = New System.Windows.Forms.Label()
+        Me.txtNroOperacion = New System.Windows.Forms.TextBox()
         Me.txtSubTotal = New System.Windows.Forms.TextBox()
         Me.txtDetraccion = New System.Windows.Forms.TextBox()
         Me.txtIGV = New System.Windows.Forms.TextBox()
@@ -84,14 +100,6 @@ Partial Class FormIngreso
         Me.txtRespaldoImporte = New System.Windows.Forms.TextBox()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.dgvPago = New PersControlLibrary.ExtendedDataGridView()
-        Me.PanelPago = New System.Windows.Forms.Panel()
-        Me.btnVolver = New System.Windows.Forms.Button()
-        Me.btnNuevoPago = New System.Windows.Forms.Button()
-        Me.btnEliminarPago = New System.Windows.Forms.Button()
-        Me.btnModificarPago = New System.Windows.Forms.Button()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.txtNroOperacion = New System.Windows.Forms.TextBox()
-        Me.lbNroOperacion = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OrigenId = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -102,20 +110,12 @@ Partial Class FormIngreso
         Me.FechaPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ImporteTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ImporteCancelado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoIngresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClienteId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroComprobanteIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Detraccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IGV = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Comentario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaIngresoProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImporteProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ComprobanteUbicacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Deuda = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PanelPago = New System.Windows.Forms.Panel()
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.btnNuevoPago = New System.Windows.Forms.Button()
+        Me.btnEliminarPago = New System.Windows.Forms.Button()
+        Me.btnModificarPago = New System.Windows.Forms.Button()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         CType(Me.dgvIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelIngreso.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -172,6 +172,124 @@ Partial Class FormIngreso
         Me.dgvIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvIngreso.Size = New System.Drawing.Size(585, 190)
         Me.dgvIngreso.TabIndex = 462
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
+        'IdIngreso
+        '
+        Me.IdIngreso.DataPropertyName = "IdIngreso"
+        Me.IdIngreso.HeaderText = "IdIngreso"
+        Me.IdIngreso.Name = "IdIngreso"
+        Me.IdIngreso.ReadOnly = True
+        Me.IdIngreso.Visible = False
+        '
+        'GrupoIngresoId
+        '
+        Me.GrupoIngresoId.DataPropertyName = "GrupoIngresoId"
+        Me.GrupoIngresoId.HeaderText = "GrupoIngresoId"
+        Me.GrupoIngresoId.Name = "GrupoIngresoId"
+        Me.GrupoIngresoId.ReadOnly = True
+        Me.GrupoIngresoId.Visible = False
+        '
+        'ClienteId
+        '
+        Me.ClienteId.DataPropertyName = "ClienteId"
+        Me.ClienteId.HeaderText = "ClienteId"
+        Me.ClienteId.Name = "ClienteId"
+        Me.ClienteId.ReadOnly = True
+        Me.ClienteId.Visible = False
+        '
+        'Descripcion
+        '
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "CLIENTE"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Width = 265
+        '
+        'NumeroComprobanteIngreso
+        '
+        Me.NumeroComprobanteIngreso.DataPropertyName = "NumeroComprobanteIngreso"
+        Me.NumeroComprobanteIngreso.HeaderText = "NUMERO FACTURA"
+        Me.NumeroComprobanteIngreso.Name = "NumeroComprobanteIngreso"
+        Me.NumeroComprobanteIngreso.ReadOnly = True
+        Me.NumeroComprobanteIngreso.Width = 125
+        '
+        'Detraccion
+        '
+        Me.Detraccion.DataPropertyName = "Detraccion"
+        Me.Detraccion.HeaderText = "Detraccion"
+        Me.Detraccion.Name = "Detraccion"
+        Me.Detraccion.ReadOnly = True
+        Me.Detraccion.Visible = False
+        '
+        'IGV
+        '
+        Me.IGV.DataPropertyName = "IGV"
+        Me.IGV.HeaderText = "Igv"
+        Me.IGV.Name = "IGV"
+        Me.IGV.ReadOnly = True
+        Me.IGV.Visible = False
+        '
+        'PeriodoId
+        '
+        Me.PeriodoId.DataPropertyName = "PeriodoId"
+        Me.PeriodoId.HeaderText = "PeriodoId"
+        Me.PeriodoId.Name = "PeriodoId"
+        Me.PeriodoId.ReadOnly = True
+        Me.PeriodoId.Visible = False
+        '
+        'Comentario
+        '
+        Me.Comentario.DataPropertyName = "Comentario"
+        Me.Comentario.HeaderText = "Comentario"
+        Me.Comentario.Name = "Comentario"
+        Me.Comentario.ReadOnly = True
+        Me.Comentario.Visible = False
+        '
+        'FechaIngresoProvision
+        '
+        Me.FechaIngresoProvision.DataPropertyName = "FechaIngresoProvision"
+        Me.FechaIngresoProvision.HeaderText = "FECHA EMISION"
+        Me.FechaIngresoProvision.Name = "FechaIngresoProvision"
+        Me.FechaIngresoProvision.ReadOnly = True
+        '
+        'ImporteProvision
+        '
+        Me.ImporteProvision.DataPropertyName = "ImporteProvision"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ImporteProvision.HeaderText = "SUBTOTAL"
+        Me.ImporteProvision.Name = "ImporteProvision"
+        Me.ImporteProvision.ReadOnly = True
+        Me.ImporteProvision.Width = 70
+        '
+        'ComprobanteUbicacion
+        '
+        Me.ComprobanteUbicacion.DataPropertyName = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.HeaderText = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.Name = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.ReadOnly = True
+        Me.ComprobanteUbicacion.Visible = False
+        '
+        'Deuda
+        '
+        Me.Deuda.DataPropertyName = "Deuda"
+        Me.Deuda.HeaderText = "Deuda"
+        Me.Deuda.Name = "Deuda"
+        Me.Deuda.ReadOnly = True
+        Me.Deuda.Visible = False
         '
         'btnEliminar
         '
@@ -547,6 +665,22 @@ Partial Class FormIngreso
         Me.Panel2.Size = New System.Drawing.Size(585, 143)
         Me.Panel2.TabIndex = 467
         '
+        'lbNroOperacion
+        '
+        Me.lbNroOperacion.AutoSize = True
+        Me.lbNroOperacion.Location = New System.Drawing.Point(13, 62)
+        Me.lbNroOperacion.Name = "lbNroOperacion"
+        Me.lbNroOperacion.Size = New System.Drawing.Size(76, 13)
+        Me.lbNroOperacion.TabIndex = 491
+        Me.lbNroOperacion.Text = "Nro Operacion"
+        '
+        'txtNroOperacion
+        '
+        Me.txtNroOperacion.Location = New System.Drawing.Point(120, 61)
+        Me.txtNroOperacion.Name = "txtNroOperacion"
+        Me.txtNroOperacion.Size = New System.Drawing.Size(162, 20)
+        Me.txtNroOperacion.TabIndex = 490
+        '
         'txtSubTotal
         '
         Me.txtSubTotal.Location = New System.Drawing.Point(476, 10)
@@ -815,98 +949,6 @@ Partial Class FormIngreso
         Me.dgvPago.Size = New System.Drawing.Size(451, 135)
         Me.dgvPago.TabIndex = 470
         '
-        'PanelPago
-        '
-        Me.PanelPago.Controls.Add(Me.btnVolver)
-        Me.PanelPago.Controls.Add(Me.btnNuevoPago)
-        Me.PanelPago.Controls.Add(Me.btnEliminarPago)
-        Me.PanelPago.Controls.Add(Me.btnModificarPago)
-        Me.PanelPago.Controls.Add(Me.dgvPago)
-        Me.PanelPago.Location = New System.Drawing.Point(10, 268)
-        Me.PanelPago.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelPago.Name = "PanelPago"
-        Me.PanelPago.Size = New System.Drawing.Size(586, 152)
-        Me.PanelPago.TabIndex = 471
-        '
-        'btnVolver
-        '
-        Me.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnVolver.FlatAppearance.BorderSize = 0
-        Me.btnVolver.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVolver.ForeColor = System.Drawing.Color.Black
-        Me.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnVolver.Location = New System.Drawing.Point(510, 103)
-        Me.btnVolver.Name = "btnVolver"
-        Me.btnVolver.Size = New System.Drawing.Size(69, 26)
-        Me.btnVolver.TabIndex = 473
-        Me.btnVolver.TabStop = False
-        Me.btnVolver.Text = "VOLVER"
-        Me.btnVolver.UseVisualStyleBackColor = True
-        '
-        'btnNuevoPago
-        '
-        Me.btnNuevoPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnNuevoPago.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNuevoPago.FlatAppearance.BorderSize = 0
-        Me.btnNuevoPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevoPago.ForeColor = System.Drawing.Color.Black
-        Me.btnNuevoPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevoPago.Location = New System.Drawing.Point(510, 5)
-        Me.btnNuevoPago.Name = "btnNuevoPago"
-        Me.btnNuevoPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnNuevoPago.TabIndex = 472
-        Me.btnNuevoPago.Text = "NUEVO"
-        Me.btnNuevoPago.UseVisualStyleBackColor = True
-        '
-        'btnEliminarPago
-        '
-        Me.btnEliminarPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarPago.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnEliminarPago.FlatAppearance.BorderSize = 0
-        Me.btnEliminarPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarPago.ForeColor = System.Drawing.Color.Black
-        Me.btnEliminarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarPago.Location = New System.Drawing.Point(510, 71)
-        Me.btnEliminarPago.Name = "btnEliminarPago"
-        Me.btnEliminarPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnEliminarPago.TabIndex = 461
-        Me.btnEliminarPago.TabStop = False
-        Me.btnEliminarPago.Text = "ELIMINAR"
-        Me.btnEliminarPago.UseVisualStyleBackColor = True
-        '
-        'btnModificarPago
-        '
-        Me.btnModificarPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnModificarPago.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnModificarPago.FlatAppearance.BorderSize = 0
-        Me.btnModificarPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModificarPago.ForeColor = System.Drawing.Color.Black
-        Me.btnModificarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificarPago.Location = New System.Drawing.Point(510, 39)
-        Me.btnModificarPago.Name = "btnModificarPago"
-        Me.btnModificarPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnModificarPago.TabIndex = 460
-        Me.btnModificarPago.TabStop = False
-        Me.btnModificarPago.Text = "MODIFICAR"
-        Me.btnModificarPago.UseVisualStyleBackColor = True
-        '
-        'txtNroOperacion
-        '
-        Me.txtNroOperacion.Location = New System.Drawing.Point(120, 61)
-        Me.txtNroOperacion.Name = "txtNroOperacion"
-        Me.txtNroOperacion.Size = New System.Drawing.Size(162, 20)
-        Me.txtNroOperacion.TabIndex = 490
-        '
-        'lbNroOperacion
-        '
-        Me.lbNroOperacion.AutoSize = True
-        Me.lbNroOperacion.Location = New System.Drawing.Point(13, 62)
-        Me.lbNroOperacion.Name = "lbNroOperacion"
-        Me.lbNroOperacion.Size = New System.Drawing.Size(76, 13)
-        Me.lbNroOperacion.TabIndex = 491
-        Me.lbNroOperacion.Text = "Nro Operacion"
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "item"
@@ -994,129 +1036,87 @@ Partial Class FormIngreso
         Me.ImporteCancelado.Name = "ImporteCancelado"
         Me.ImporteCancelado.ReadOnly = True
         '
-        'DataGridViewTextBoxColumn7
+        'PanelPago
         '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
+        Me.PanelPago.Controls.Add(Me.btnVolver)
+        Me.PanelPago.Controls.Add(Me.btnNuevoPago)
+        Me.PanelPago.Controls.Add(Me.btnEliminarPago)
+        Me.PanelPago.Controls.Add(Me.btnModificarPago)
+        Me.PanelPago.Controls.Add(Me.dgvPago)
+        Me.PanelPago.Location = New System.Drawing.Point(10, 268)
+        Me.PanelPago.Margin = New System.Windows.Forms.Padding(2)
+        Me.PanelPago.Name = "PanelPago"
+        Me.PanelPago.Size = New System.Drawing.Size(586, 152)
+        Me.PanelPago.TabIndex = 471
         '
-        'IdIngreso
+        'btnVolver
         '
-        Me.IdIngreso.DataPropertyName = "IdIngreso"
-        Me.IdIngreso.HeaderText = "IdIngreso"
-        Me.IdIngreso.Name = "IdIngreso"
-        Me.IdIngreso.ReadOnly = True
-        Me.IdIngreso.Visible = False
+        Me.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnVolver.FlatAppearance.BorderSize = 0
+        Me.btnVolver.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVolver.ForeColor = System.Drawing.Color.Black
+        Me.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnVolver.Location = New System.Drawing.Point(510, 103)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(69, 26)
+        Me.btnVolver.TabIndex = 473
+        Me.btnVolver.TabStop = False
+        Me.btnVolver.Text = "VOLVER"
+        Me.btnVolver.UseVisualStyleBackColor = True
         '
-        'GrupoIngresoId
+        'btnNuevoPago
         '
-        Me.GrupoIngresoId.DataPropertyName = "GrupoIngresoId"
-        Me.GrupoIngresoId.HeaderText = "GrupoIngresoId"
-        Me.GrupoIngresoId.Name = "GrupoIngresoId"
-        Me.GrupoIngresoId.ReadOnly = True
-        Me.GrupoIngresoId.Visible = False
+        Me.btnNuevoPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnNuevoPago.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNuevoPago.FlatAppearance.BorderSize = 0
+        Me.btnNuevoPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoPago.ForeColor = System.Drawing.Color.Black
+        Me.btnNuevoPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevoPago.Location = New System.Drawing.Point(510, 5)
+        Me.btnNuevoPago.Name = "btnNuevoPago"
+        Me.btnNuevoPago.Size = New System.Drawing.Size(69, 26)
+        Me.btnNuevoPago.TabIndex = 472
+        Me.btnNuevoPago.Text = "NUEVO"
+        Me.btnNuevoPago.UseVisualStyleBackColor = True
         '
-        'ClienteId
+        'btnEliminarPago
         '
-        Me.ClienteId.DataPropertyName = "ClienteId"
-        Me.ClienteId.HeaderText = "ClienteId"
-        Me.ClienteId.Name = "ClienteId"
-        Me.ClienteId.ReadOnly = True
-        Me.ClienteId.Visible = False
+        Me.btnEliminarPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEliminarPago.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEliminarPago.FlatAppearance.BorderSize = 0
+        Me.btnEliminarPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPago.ForeColor = System.Drawing.Color.Black
+        Me.btnEliminarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminarPago.Location = New System.Drawing.Point(510, 71)
+        Me.btnEliminarPago.Name = "btnEliminarPago"
+        Me.btnEliminarPago.Size = New System.Drawing.Size(69, 26)
+        Me.btnEliminarPago.TabIndex = 461
+        Me.btnEliminarPago.TabStop = False
+        Me.btnEliminarPago.Text = "ELIMINAR"
+        Me.btnEliminarPago.UseVisualStyleBackColor = True
         '
-        'Descripcion
+        'btnModificarPago
         '
-        Me.Descripcion.DataPropertyName = "Descripcion"
-        Me.Descripcion.HeaderText = "CLIENTE"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Width = 265
-        '
-        'NumeroComprobanteIngreso
-        '
-        Me.NumeroComprobanteIngreso.DataPropertyName = "NumeroComprobanteIngreso"
-        Me.NumeroComprobanteIngreso.HeaderText = "NUMERO FACTURA"
-        Me.NumeroComprobanteIngreso.Name = "NumeroComprobanteIngreso"
-        Me.NumeroComprobanteIngreso.ReadOnly = True
-        Me.NumeroComprobanteIngreso.Width = 125
-        '
-        'Detraccion
-        '
-        Me.Detraccion.DataPropertyName = "Detraccion"
-        Me.Detraccion.HeaderText = "Detraccion"
-        Me.Detraccion.Name = "Detraccion"
-        Me.Detraccion.ReadOnly = True
-        Me.Detraccion.Visible = False
-        '
-        'IGV
-        '
-        Me.IGV.DataPropertyName = "IGV"
-        Me.IGV.HeaderText = "Igv"
-        Me.IGV.Name = "IGV"
-        Me.IGV.ReadOnly = True
-        Me.IGV.Visible = False
-        '
-        'PeriodoId
-        '
-        Me.PeriodoId.DataPropertyName = "PeriodoId"
-        Me.PeriodoId.HeaderText = "PeriodoId"
-        Me.PeriodoId.Name = "PeriodoId"
-        Me.PeriodoId.ReadOnly = True
-        Me.PeriodoId.Visible = False
-        '
-        'Comentario
-        '
-        Me.Comentario.DataPropertyName = "Comentario"
-        Me.Comentario.HeaderText = "Comentario"
-        Me.Comentario.Name = "Comentario"
-        Me.Comentario.ReadOnly = True
-        Me.Comentario.Visible = False
-        '
-        'FechaIngresoProvision
-        '
-        Me.FechaIngresoProvision.DataPropertyName = "FechaIngresoProvision"
-        Me.FechaIngresoProvision.HeaderText = "FECHA EMISION"
-        Me.FechaIngresoProvision.Name = "FechaIngresoProvision"
-        Me.FechaIngresoProvision.ReadOnly = True
-        '
-        'ImporteProvision
-        '
-        Me.ImporteProvision.DataPropertyName = "ImporteProvision"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
-        Me.ImporteProvision.HeaderText = "SUBTOTAL"
-        Me.ImporteProvision.Name = "ImporteProvision"
-        Me.ImporteProvision.ReadOnly = True
-        Me.ImporteProvision.Width = 70
-        '
-        'ComprobanteUbicacion
-        '
-        Me.ComprobanteUbicacion.DataPropertyName = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.HeaderText = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.Name = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.ReadOnly = True
-        Me.ComprobanteUbicacion.Visible = False
-        '
-        'Deuda
-        '
-        Me.Deuda.DataPropertyName = "Deuda"
-        Me.Deuda.HeaderText = "Deuda"
-        Me.Deuda.Name = "Deuda"
-        Me.Deuda.ReadOnly = True
-        Me.Deuda.Visible = False
+        Me.btnModificarPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnModificarPago.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnModificarPago.FlatAppearance.BorderSize = 0
+        Me.btnModificarPago.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarPago.ForeColor = System.Drawing.Color.Black
+        Me.btnModificarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificarPago.Location = New System.Drawing.Point(510, 39)
+        Me.btnModificarPago.Name = "btnModificarPago"
+        Me.btnModificarPago.Size = New System.Drawing.Size(69, 26)
+        Me.btnModificarPago.TabIndex = 460
+        Me.btnModificarPago.TabStop = False
+        Me.btnModificarPago.Text = "MODIFICAR"
+        Me.btnModificarPago.UseVisualStyleBackColor = True
         '
         'FormIngreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(690, 571)
+        Me.ClientSize = New System.Drawing.Size(602, 571)
         Me.Controls.Add(Me.btnPagar)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.cbPeriodoFiltro)
@@ -1125,8 +1125,8 @@ Partial Class FormIngreso
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
-        Me.Controls.Add(Me.PanelPago)
         Me.Controls.Add(Me.PanelIngreso)
+        Me.Controls.Add(Me.PanelPago)
         Me.Name = "FormIngreso"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de Ingreso"

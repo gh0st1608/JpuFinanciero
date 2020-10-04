@@ -71,7 +71,7 @@ Public Class DatIngreso
             command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobanteIngreso", SqlDbType.VarChar, 20)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
-            'command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
+
 
             command.Parameters("@IdIngreso").Value = objIngreso.IdIngreso
             command.Parameters("@GrupoIngresoId").Value = objIngreso.GrupoIngresoId
@@ -86,7 +86,7 @@ Public Class DatIngreso
             command.Parameters("@ComprobanteUbicacion").Value = objIngreso.ComprobanteUbicacion
             command.Parameters("@NumeroComprobanteIngreso").Value = objIngreso.NumeroComprobanteIngreso
             command.Parameters("@UsuarioModificacionId").Value = objIngreso.UsuarioModificacionId
-            'command.Parameters("@EstadoActivo").Value = objIngreso.EstadoActivo
+
 
             command.ExecuteReader()
             connection.Close()

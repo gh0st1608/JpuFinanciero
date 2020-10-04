@@ -9,36 +9,36 @@ Imports ERP_Datos
 
 Public Class NegGrupoEgreso
 
-    Dim ObjGrupoEgresoEnt = New EntGrupoEgreso
+    Dim ObjGrupoEgresoEnt As New EntGrupoEgreso
     Dim ObjGrupoEgresoDat As New DatGrupoEgreso
     Public Function ObtenerTabla() As DataTable
 
-        Return ObjGrupoEgresoDat.LeerGrupoEgreso(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
+        Return ObjGrupoEgresoDat.LeerGrupoEgreso(0) '0 entra como IdProveedor = 0 pero en el proc lo filtra
 
     End Function
 
-    Public Function ObtenerData(ByVal Id As Integer) As EntGrupoIngreso
+    Public Function ObtenerData(ByVal Id As Integer) As EntGrupoEgreso
 
         Dim Dt As DataTable
 
-        Dt = ObjGrupoEgresoDat.LeerGrupoEgreso(Id, "")
+        Dt = ObjGrupoEgresoDat.LeerGrupoEgreso(Id)
 
-        ObjGrupoEgresoEnt.Id = Convert.ToInt32(Dt.Rows(0).Item("IdGrupoEgreso"))
+        ObjGrupoEgresoEnt.IdGrupoEgreso = Convert.ToInt32(Dt.Rows(0).Item("IdGrupoEgreso"))
         ObjGrupoEgresoEnt.Descripcion = Convert.ToString(Dt.Rows(0).Item("Descripcion"))
-        ObjGrupoEgresoEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("EstadoActivo"))
+        ObjGrupoEgresoEnt.EstadoActivo = Convert.ToInt32(Dt.Rows(0).Item("IdEstadoActivo"))
 
         Return ObjGrupoEgresoEnt
 
     End Function
 
-    Public Function ObtenerLista(ByVal Id As Integer, ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntGrupoEgreso)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntGrupoEgreso)
 
         Dim result = New List(Of EntGrupoEgreso)
         Dim resultadoElemento As EntGrupoEgreso
         Dim Dt As DataTable
 
 
-        Dt = ObjGrupoEgresoDat.LeerGrupoEgreso(Id, "")
+        Dt = ObjGrupoEgresoDat.LeerGrupoEgreso(0)
 
         If (Dt.Rows.Count() > 0) Then
 
@@ -60,7 +60,7 @@ Public Class NegGrupoEgreso
 
             End If
 
-            For i = 0 To Dt.Rows.Count Step 1
+            For i = 0 To Dt.Rows.Count - 1 Step 1
 
                 resultadoElemento = New EntGrupoEgreso
                 resultadoElemento.IdGrupoEgreso = Convert.ToInt16(Dt.Rows(i).Item("IdGrupoEgreso"))
@@ -95,12 +95,5 @@ Public Class NegGrupoEgreso
         Return ObjGrupoEgresoDat.ActualizarGrupoEgreso(ObjGrupoEgresoEnt)
 
     End Function
-
-    Public Function ObtenerTablaConFiltro(ByVal Descripcion As String) As DataTable
-
-        Return ObjGrupoEgresoDat.LeerGrupoEgreso(0, Descripcion)
-
-    End Function
-
 End Class
 

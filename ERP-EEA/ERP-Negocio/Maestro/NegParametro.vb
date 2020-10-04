@@ -12,7 +12,7 @@ Public Class NegParametro
     Dim ObjParametroDat As New DatParametro
     Public Function ObtenerTabla() As DataTable
 
-        Return ObjParametroDat.LeerParametro(0, "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
+        Return ObjParametroDat.LeerParametro(0, "", "") '0 entra como IdProveedor = 0 pero en el proc lo filtra
 
     End Function
 
@@ -20,7 +20,7 @@ Public Class NegParametro
 
         Dim Dt As DataTable
 
-        Dt = ObjParametroDat.LeerParametro(Id, "")
+        Dt = ObjParametroDat.LeerParametro(Id, "", "")
 
         ObjParametroEnt.IdParametro = Convert.ToInt32(Dt.Rows(0).Item("IdParametro"))
         ObjParametroEnt.TipoParametro = Convert.ToString(Dt.Rows(0).Item("TipoParametro"))
@@ -34,14 +34,14 @@ Public Class NegParametro
     End Function
 
 
-    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntParametro)
+    Public Function ObtenerLista(ByVal TipoParametro As String, ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntParametro)
 
         Dim result = New List(Of EntParametro)
         Dim resultadoElemento As EntParametro
         Dim Dt As DataTable
 
 
-        Dt = ObjParametroDat.LeerParametro(0, "")
+        Dt = ObjParametroDat.LeerParametro(0, "", TipoParametro)
 
         If (Dt.Rows.Count() > 0) Then
 

@@ -90,3 +90,6 @@ D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormProveedo
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormTipoCliente.resources
 D:\Proyectos\JpuFinanciero-master\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormIngreso.resources
 C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormContacto.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormGrupoEgreso.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormSubGrupoEgreso.resources
+C:\Users\RikSo\source\repos\JpuFinanzas\ERP-EEA\ERP-EEA\obj\Debug\ERP_EEA.FormEgreso.resources

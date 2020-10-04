@@ -16,19 +16,31 @@ Public Class DatEgreso
             command.CommandType = CommandType.StoredProcedure
 
             'Dandole uhn tipo de dato a los parametros que van a ser vinculados a la bd
-            command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
+
+            command.Parameters.Add("@GrupoEgresoId", SqlDbType.VarChar, 200)
             command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@Deuda", SqlDbType.Float)
+            command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
+            command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
+            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            command.Parameters.Add("@NumeroComprobanteEgreso", SqlDbType.VarChar, 20)
             command.Parameters.Add("@FechaEgresoProvision", SqlDbType.Date)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
 
-            command.Parameters("@Comentario").Value = objEgreso.Comentario
+
+            command.Parameters("@GrupoEgresoId").Value = objEgreso.GrupoEgresoId
             command.Parameters("@SubGrupoEgresoId").Value = objEgreso.SubGrupoEgresoId
             command.Parameters("@ProveedorId").Value = objEgreso.ProveedorId
             command.Parameters("@ImporteProvision").Value = objEgreso.ImporteProvision
+            command.Parameters("@Deuda").Value = objEgreso.Deuda
+            command.Parameters("@IGV").Value = objEgreso.IGV
             command.Parameters("@PeriodoId").Value = objEgreso.PeriodoId
+            command.Parameters("@Comentario").Value = objEgreso.Comentario
+            command.Parameters("@ComprobanteUbicacion").Value = objEgreso.ComprobanteUbicacion
+            command.Parameters("@NumeroComprobanteEgreso").Value = objEgreso.NumeroComprobanteEgreso
             command.Parameters("@FechaEgresoProvision").Value = objEgreso.FechaEgresoProvision
             command.Parameters("@UsuarioCreacionId").Value = objEgreso.UsuarioCreacionId
 
@@ -50,27 +62,34 @@ Public Class DatEgreso
             command.CommandType = CommandType.StoredProcedure
 
             'Actualizar
-            command.Parameters.Add("@IdIngreso", SqlDbType.Int)
+            command.Parameters.Add("@IdEgreso", SqlDbType.Int)
+            command.Parameters.Add("@GrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
             command.Parameters.Add("@FechaEgresoProvision", SqlDbType.Date)
-            command.Parameters.Add("@Deuda", SqlDbType.Money)
+            command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
+            command.Parameters.Add("@NumeroComprobanteEgreso", SqlDbType.VarChar, 20)
+            command.Parameters.Add("@Deuda", SqlDbType.Float)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
-            command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
 
-            command.Parameters("@IdIngreso").Value = objEgreso.IdEgreso
+
+            command.Parameters("@IdEgreso").Value = objEgreso.IdEgreso
+            command.Parameters("@GrupoEgresoId").Value = objEgreso.GrupoEgresoId
             command.Parameters("@SubGrupoEgresoId").Value = objEgreso.SubGrupoEgresoId
             command.Parameters("@ProveedorId").Value = objEgreso.ProveedorId
             command.Parameters("@ImporteProvision").Value = objEgreso.ImporteProvision
-            command.Parameters("@Deuda").Value = objEgreso.SubTotal
+            command.Parameters("@IGV").Value = objEgreso.IGV
             command.Parameters("@PeriodoId").Value = objEgreso.PeriodoId
             command.Parameters("@Comentario").Value = objEgreso.Comentario
             command.Parameters("@FechaEgresoProvision").Value = objEgreso.FechaEgresoProvision
+            command.Parameters("@ComprobanteUbicacion").Value = objEgreso.ComprobanteUbicacion
+            command.Parameters("@NumeroComprobanteEgreso").Value = objEgreso.NumeroComprobanteEgreso
+            command.Parameters("@Deuda").Value = objEgreso.Deuda
             command.Parameters("@UsuarioModificacionId").Value = objEgreso.UsuarioModificacionId
-            command.Parameters("@EstadoActivo").Value = objEgreso.EstadoActivo
 
             command.ExecuteReader()
             connection.Close()

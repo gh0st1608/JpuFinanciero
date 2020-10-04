@@ -22,24 +22,28 @@ Partial Class FormProveedor
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvProveedor = New PersControlLibrary.ExtendedDataGridView()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtDocumento = New PersControlLibrary.ExtendedTextBox()
+        Me.labelDocumento = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.labelCorreo = New System.Windows.Forms.Label()
+        Me.txtCorreo = New PersControlLibrary.ExtendedTextBox()
         Me.lbEstado = New System.Windows.Forms.Label()
         Me.cboEstado = New System.Windows.Forms.ComboBox()
-        Me.cboMedicionId = New System.Windows.Forms.ComboBox()
+        Me.cboMedicion = New System.Windows.Forms.ComboBox()
         Me.lblTarifa = New System.Windows.Forms.Label()
         Me.lblRazonSocial = New System.Windows.Forms.Label()
         Me.txtRazonSocial = New PersControlLibrary.ExtendedTextBox()
         Me.lblMedicion = New System.Windows.Forms.Label()
         Me.txtTarifa = New PersControlLibrary.ExtendedTextBox()
-        Me.lblNumeroContacto = New System.Windows.Forms.Label()
         Me.txtNumeroContacto = New PersControlLibrary.ExtendedTextBox()
         Me.lblNombreComercial = New System.Windows.Forms.Label()
         Me.txtNombreComercial = New PersControlLibrary.ExtendedTextBox()
@@ -48,14 +52,16 @@ Partial Class FormProveedor
         Me.txtIdProveedor = New PersControlLibrary.ExtendedTextBox()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdProveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Correo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MedicionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoMedicion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -68,47 +74,48 @@ Partial Class FormProveedor
         Me.dgvProveedor.AllowUserToResizeRows = False
         Me.dgvProveedor.BackgroundColor = System.Drawing.Color.White
         Me.dgvProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProveedor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvProveedor.ColumnHeadersHeight = 32
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProveedor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.dgvProveedor.ColumnHeadersHeight = 20
         Me.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvProveedor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdProveedor, Me.NombreComercial, Me.RazonSocial, Me.NumeroContacto, Me.MedicionId, Me.TipoMedicion, Me.Tarifa, Me.IdEstadoActivo, Me.EstadoActivo})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProveedor.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvProveedor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdProveedor, Me.Documento, Me.NombreComercial, Me.RazonSocial, Me.NumeroContacto, Me.Correo, Me.MedicionId, Me.TipoMedicion, Me.Tarifa, Me.EstadoActivo, Me.IdEstadoActivo})
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProveedor.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgvProveedor.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvProveedor.EnableHeadersVisualStyles = False
-        Me.dgvProveedor.Location = New System.Drawing.Point(14, 47)
+        Me.dgvProveedor.Location = New System.Drawing.Point(11, 46)
         Me.dgvProveedor.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvProveedor.Name = "dgvProveedor"
         Me.dgvProveedor.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProveedor.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProveedor.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvProveedor.RowHeadersVisible = False
         Me.dgvProveedor.RowHeadersWidth = 22
         Me.dgvProveedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvProveedor.RowTemplate.Height = 18
         Me.dgvProveedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvProveedor.Size = New System.Drawing.Size(536, 216)
-        Me.dgvProveedor.TabIndex = 462
+        Me.dgvProveedor.Size = New System.Drawing.Size(813, 216)
+        Me.dgvProveedor.TabIndex = 467
+        Me.dgvProveedor.TabStop = False
         '
         'btnEliminar
         '
@@ -118,10 +125,10 @@ Partial Class FormProveedor
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(453, 12)
+        Me.btnEliminar.Location = New System.Drawing.Point(718, 11)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 461
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.TabStop = False
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -135,10 +142,10 @@ Partial Class FormProveedor
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(350, 12)
+        Me.btnModificar.Location = New System.Drawing.Point(615, 11)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 460
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.TabStop = False
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -152,10 +159,10 @@ Partial Class FormProveedor
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(269, 12)
+        Me.btnNuevo.Location = New System.Drawing.Point(534, 11)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 459
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -163,30 +170,112 @@ Partial Class FormProveedor
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.txtDocumento)
+        Me.Panel1.Controls.Add(Me.labelDocumento)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.labelCorreo)
+        Me.Panel1.Controls.Add(Me.txtCorreo)
         Me.Panel1.Controls.Add(Me.lbEstado)
         Me.Panel1.Controls.Add(Me.cboEstado)
-        Me.Panel1.Controls.Add(Me.cboMedicionId)
+        Me.Panel1.Controls.Add(Me.cboMedicion)
         Me.Panel1.Controls.Add(Me.lblTarifa)
         Me.Panel1.Controls.Add(Me.lblRazonSocial)
         Me.Panel1.Controls.Add(Me.txtRazonSocial)
         Me.Panel1.Controls.Add(Me.lblMedicion)
         Me.Panel1.Controls.Add(Me.txtTarifa)
-        Me.Panel1.Controls.Add(Me.lblNumeroContacto)
         Me.Panel1.Controls.Add(Me.txtNumeroContacto)
         Me.Panel1.Controls.Add(Me.lblNombreComercial)
         Me.Panel1.Controls.Add(Me.txtNombreComercial)
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdProveedor)
-        Me.Panel1.Location = New System.Drawing.Point(14, 274)
+        Me.Panel1.Location = New System.Drawing.Point(11, 273)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(536, 169)
-        Me.Panel1.TabIndex = 458
+        Me.Panel1.Size = New System.Drawing.Size(813, 122)
+        Me.Panel1.TabIndex = 463
+        '
+        'txtDocumento
+        '
+        Me.txtDocumento.AllowClear = True
+        Me.txtDocumento.AllowNegatives = False
+        Me.txtDocumento.AllowWhiteSpaces = True
+        Me.txtDocumento.BackColorFocused = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtDocumento.BackColorIdle = System.Drawing.Color.Empty
+        Me.txtDocumento.BackColorMandatory = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.txtDocumento.Capitalization = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxCapitalizations.Ignore
+        Me.txtDocumento.EnterIsTab = True
+        Me.txtDocumento.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
+        Me.txtDocumento.Label = "Descripción"
+        Me.txtDocumento.Location = New System.Drawing.Point(121, 9)
+        Me.txtDocumento.Mandatory = False
+        Me.txtDocumento.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtDocumento.MaxLength = 100
+        Me.txtDocumento.MinLength = 0
+        Me.txtDocumento.Name = "txtDocumento"
+        Me.txtDocumento.Precision = 0
+        Me.txtDocumento.SelectOnFocus = True
+        Me.txtDocumento.Size = New System.Drawing.Size(233, 20)
+        Me.txtDocumento.Symbol = Nothing
+        Me.txtDocumento.TabIndex = 10
+        Me.txtDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtDocumento.Value = Nothing
+        '
+        'labelDocumento
+        '
+        Me.labelDocumento.AutoSize = True
+        Me.labelDocumento.Location = New System.Drawing.Point(12, 13)
+        Me.labelDocumento.Name = "labelDocumento"
+        Me.labelDocumento.Size = New System.Drawing.Size(30, 13)
+        Me.labelDocumento.TabIndex = 481
+        Me.labelDocumento.Text = "RUC"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(373, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(92, 13)
+        Me.Label1.TabIndex = 479
+        Me.Label1.Text = "Telefono / Celular"
+        '
+        'labelCorreo
+        '
+        Me.labelCorreo.AutoSize = True
+        Me.labelCorreo.Location = New System.Drawing.Point(373, 12)
+        Me.labelCorreo.Name = "labelCorreo"
+        Me.labelCorreo.Size = New System.Drawing.Size(38, 13)
+        Me.labelCorreo.TabIndex = 473
+        Me.labelCorreo.Text = "Correo"
+        '
+        'txtCorreo
+        '
+        Me.txtCorreo.AllowClear = True
+        Me.txtCorreo.AllowNegatives = False
+        Me.txtCorreo.AllowWhiteSpaces = True
+        Me.txtCorreo.BackColorFocused = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtCorreo.BackColorIdle = System.Drawing.Color.Empty
+        Me.txtCorreo.BackColorMandatory = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.txtCorreo.Capitalization = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxCapitalizations.Ignore
+        Me.txtCorreo.EnterIsTab = True
+        Me.txtCorreo.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
+        Me.txtCorreo.Label = "Descripción"
+        Me.txtCorreo.Location = New System.Drawing.Point(470, 9)
+        Me.txtCorreo.Mandatory = False
+        Me.txtCorreo.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCorreo.MaxLength = 100
+        Me.txtCorreo.MinLength = 0
+        Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.Precision = 0
+        Me.txtCorreo.SelectOnFocus = True
+        Me.txtCorreo.Size = New System.Drawing.Size(155, 20)
+        Me.txtCorreo.Symbol = Nothing
+        Me.txtCorreo.TabIndex = 13
+        Me.txtCorreo.Value = Nothing
         '
         'lbEstado
         '
         Me.lbEstado.AutoSize = True
-        Me.lbEstado.Location = New System.Drawing.Point(14, 140)
+        Me.lbEstado.Location = New System.Drawing.Point(643, 63)
         Me.lbEstado.Name = "lbEstado"
         Me.lbEstado.Size = New System.Drawing.Size(40, 13)
         Me.lbEstado.TabIndex = 471
@@ -196,23 +285,23 @@ Partial Class FormProveedor
         '
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
-        Me.cboEstado.Location = New System.Drawing.Point(123, 133)
+        Me.cboEstado.Location = New System.Drawing.Point(699, 60)
         Me.cboEstado.Name = "cboEstado"
-        Me.cboEstado.Size = New System.Drawing.Size(121, 21)
-        Me.cboEstado.TabIndex = 470
+        Me.cboEstado.Size = New System.Drawing.Size(105, 21)
+        Me.cboEstado.TabIndex = 17
         '
-        'cboMedicionId
+        'cboMedicion
         '
-        Me.cboMedicionId.FormattingEnabled = True
-        Me.cboMedicionId.Location = New System.Drawing.Point(123, 83)
-        Me.cboMedicionId.Name = "cboMedicionId"
-        Me.cboMedicionId.Size = New System.Drawing.Size(397, 21)
-        Me.cboMedicionId.TabIndex = 469
+        Me.cboMedicion.FormattingEnabled = True
+        Me.cboMedicion.Location = New System.Drawing.Point(699, 9)
+        Me.cboMedicion.Name = "cboMedicion"
+        Me.cboMedicion.Size = New System.Drawing.Size(105, 21)
+        Me.cboMedicion.TabIndex = 15
         '
         'lblTarifa
         '
         Me.lblTarifa.AutoSize = True
-        Me.lblTarifa.Location = New System.Drawing.Point(14, 111)
+        Me.lblTarifa.Location = New System.Drawing.Point(643, 36)
         Me.lblTarifa.Name = "lblTarifa"
         Me.lblTarifa.Size = New System.Drawing.Size(36, 13)
         Me.lblTarifa.TabIndex = 468
@@ -221,7 +310,7 @@ Partial Class FormProveedor
         'lblRazonSocial
         '
         Me.lblRazonSocial.AutoSize = True
-        Me.lblRazonSocial.Location = New System.Drawing.Point(14, 38)
+        Me.lblRazonSocial.Location = New System.Drawing.Point(12, 38)
         Me.lblRazonSocial.Name = "lblRazonSocial"
         Me.lblRazonSocial.Size = New System.Drawing.Size(70, 13)
         Me.lblRazonSocial.TabIndex = 467
@@ -239,23 +328,24 @@ Partial Class FormProveedor
         Me.txtRazonSocial.EnterIsTab = True
         Me.txtRazonSocial.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtRazonSocial.Label = "Descripción"
-        Me.txtRazonSocial.Location = New System.Drawing.Point(123, 34)
+        Me.txtRazonSocial.Location = New System.Drawing.Point(121, 34)
         Me.txtRazonSocial.Mandatory = False
         Me.txtRazonSocial.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRazonSocial.MaxLength = 100
         Me.txtRazonSocial.MinLength = 0
+        Me.txtRazonSocial.Multiline = True
         Me.txtRazonSocial.Name = "txtRazonSocial"
         Me.txtRazonSocial.Precision = 0
         Me.txtRazonSocial.SelectOnFocus = True
-        Me.txtRazonSocial.Size = New System.Drawing.Size(397, 20)
+        Me.txtRazonSocial.Size = New System.Drawing.Size(233, 32)
         Me.txtRazonSocial.Symbol = Nothing
-        Me.txtRazonSocial.TabIndex = 466
+        Me.txtRazonSocial.TabIndex = 11
         Me.txtRazonSocial.Value = Nothing
         '
         'lblMedicion
         '
         Me.lblMedicion.AutoSize = True
-        Me.lblMedicion.Location = New System.Drawing.Point(14, 86)
+        Me.lblMedicion.Location = New System.Drawing.Point(643, 12)
         Me.lblMedicion.Name = "lblMedicion"
         Me.lblMedicion.Size = New System.Drawing.Size(50, 13)
         Me.lblMedicion.TabIndex = 465
@@ -273,7 +363,7 @@ Partial Class FormProveedor
         Me.txtTarifa.EnterIsTab = True
         Me.txtTarifa.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtTarifa.Label = "Descripción"
-        Me.txtTarifa.Location = New System.Drawing.Point(123, 108)
+        Me.txtTarifa.Location = New System.Drawing.Point(699, 35)
         Me.txtTarifa.Mandatory = False
         Me.txtTarifa.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTarifa.MaxLength = 100
@@ -281,19 +371,11 @@ Partial Class FormProveedor
         Me.txtTarifa.Name = "txtTarifa"
         Me.txtTarifa.Precision = 0
         Me.txtTarifa.SelectOnFocus = True
-        Me.txtTarifa.Size = New System.Drawing.Size(397, 20)
+        Me.txtTarifa.Size = New System.Drawing.Size(105, 20)
         Me.txtTarifa.Symbol = Nothing
-        Me.txtTarifa.TabIndex = 464
+        Me.txtTarifa.TabIndex = 16
+        Me.txtTarifa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.txtTarifa.Value = Nothing
-        '
-        'lblNumeroContacto
-        '
-        Me.lblNumeroContacto.AutoSize = True
-        Me.lblNumeroContacto.Location = New System.Drawing.Point(14, 62)
-        Me.lblNumeroContacto.Name = "lblNumeroContacto"
-        Me.lblNumeroContacto.Size = New System.Drawing.Size(104, 13)
-        Me.lblNumeroContacto.TabIndex = 463
-        Me.lblNumeroContacto.Text = "Número de contacto"
         '
         'txtNumeroContacto
         '
@@ -307,7 +389,7 @@ Partial Class FormProveedor
         Me.txtNumeroContacto.EnterIsTab = True
         Me.txtNumeroContacto.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtNumeroContacto.Label = "Descripción"
-        Me.txtNumeroContacto.Location = New System.Drawing.Point(123, 58)
+        Me.txtNumeroContacto.Location = New System.Drawing.Point(470, 34)
         Me.txtNumeroContacto.Mandatory = False
         Me.txtNumeroContacto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNumeroContacto.MaxLength = 100
@@ -315,15 +397,15 @@ Partial Class FormProveedor
         Me.txtNumeroContacto.Name = "txtNumeroContacto"
         Me.txtNumeroContacto.Precision = 0
         Me.txtNumeroContacto.SelectOnFocus = True
-        Me.txtNumeroContacto.Size = New System.Drawing.Size(397, 20)
+        Me.txtNumeroContacto.Size = New System.Drawing.Size(155, 20)
         Me.txtNumeroContacto.Symbol = Nothing
-        Me.txtNumeroContacto.TabIndex = 462
+        Me.txtNumeroContacto.TabIndex = 14
         Me.txtNumeroContacto.Value = Nothing
         '
         'lblNombreComercial
         '
         Me.lblNombreComercial.AutoSize = True
-        Me.lblNombreComercial.Location = New System.Drawing.Point(14, 14)
+        Me.lblNombreComercial.Location = New System.Drawing.Point(12, 75)
         Me.lblNombreComercial.Name = "lblNombreComercial"
         Me.lblNombreComercial.Size = New System.Drawing.Size(93, 13)
         Me.lblNombreComercial.TabIndex = 461
@@ -341,7 +423,7 @@ Partial Class FormProveedor
         Me.txtNombreComercial.EnterIsTab = True
         Me.txtNombreComercial.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtNombreComercial.Label = "Descripción"
-        Me.txtNombreComercial.Location = New System.Drawing.Point(123, 10)
+        Me.txtNombreComercial.Location = New System.Drawing.Point(121, 71)
         Me.txtNombreComercial.Mandatory = False
         Me.txtNombreComercial.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombreComercial.MaxLength = 100
@@ -349,18 +431,18 @@ Partial Class FormProveedor
         Me.txtNombreComercial.Name = "txtNombreComercial"
         Me.txtNombreComercial.Precision = 0
         Me.txtNombreComercial.SelectOnFocus = True
-        Me.txtNombreComercial.Size = New System.Drawing.Size(397, 20)
+        Me.txtNombreComercial.Size = New System.Drawing.Size(233, 20)
         Me.txtNombreComercial.Symbol = Nothing
-        Me.txtNombreComercial.TabIndex = 458
+        Me.txtNombreComercial.TabIndex = 12
         Me.txtNombreComercial.Value = Nothing
         '
         'btnGuardar
         '
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(372, 133)
+        Me.btnGuardar.Location = New System.Drawing.Point(656, 87)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 30
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -373,10 +455,10 @@ Partial Class FormProveedor
         Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(451, 133)
+        Me.btnCancelar.Location = New System.Drawing.Point(735, 87)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 31
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -393,7 +475,7 @@ Partial Class FormProveedor
         Me.txtIdProveedor.EnterIsTab = True
         Me.txtIdProveedor.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtIdProveedor.Label = "Descripción"
-        Me.txtIdProveedor.Location = New System.Drawing.Point(401, 137)
+        Me.txtIdProveedor.Location = New System.Drawing.Point(685, 91)
         Me.txtIdProveedor.Mandatory = False
         Me.txtIdProveedor.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIdProveedor.MaxLength = 100
@@ -409,8 +491,8 @@ Partial Class FormProveedor
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -424,6 +506,14 @@ Partial Class FormProveedor
         Me.IdProveedor.Name = "IdProveedor"
         Me.IdProveedor.ReadOnly = True
         Me.IdProveedor.Visible = False
+        '
+        'Documento
+        '
+        Me.Documento.DataPropertyName = "Documento"
+        Me.Documento.HeaderText = "Documento"
+        Me.Documento.Name = "Documento"
+        Me.Documento.ReadOnly = True
+        Me.Documento.Visible = False
         '
         'NombreComercial
         '
@@ -445,10 +535,18 @@ Partial Class FormProveedor
         'NumeroContacto
         '
         Me.NumeroContacto.DataPropertyName = "NumeroContacto"
-        Me.NumeroContacto.HeaderText = "NUMERO DE CONTACTO"
+        Me.NumeroContacto.HeaderText = "TELEFONO/CELULAR"
         Me.NumeroContacto.Name = "NumeroContacto"
         Me.NumeroContacto.ReadOnly = True
         Me.NumeroContacto.Width = 120
+        '
+        'Correo
+        '
+        Me.Correo.DataPropertyName = "Correo"
+        Me.Correo.HeaderText = "Correo"
+        Me.Correo.Name = "Correo"
+        Me.Correo.ReadOnly = True
+        Me.Correo.Visible = False
         '
         'MedicionId
         '
@@ -464,14 +562,21 @@ Partial Class FormProveedor
         Me.TipoMedicion.HeaderText = "MEDICION"
         Me.TipoMedicion.Name = "TipoMedicion"
         Me.TipoMedicion.ReadOnly = True
+        Me.TipoMedicion.Width = 120
         '
         'Tarifa
         '
         Me.Tarifa.DataPropertyName = "Tarifa"
-        Me.Tarifa.HeaderText = "Tarifa"
+        Me.Tarifa.HeaderText = "TARIFA"
         Me.Tarifa.Name = "Tarifa"
         Me.Tarifa.ReadOnly = True
-        Me.Tarifa.Visible = False
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
         '
         'IdEstadoActivo
         '
@@ -481,25 +586,19 @@ Partial Class FormProveedor
         Me.IdEstadoActivo.ReadOnly = True
         Me.IdEstadoActivo.Visible = False
         '
-        'EstadoActivo
-        '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "ESTADO"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        '
         'FormProveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(563, 453)
+        Me.ClientSize = New System.Drawing.Size(836, 406)
         Me.Controls.Add(Me.dgvProveedor)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormProveedor"
-        Me.Text = "FormProveedor"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Proveedor"
         CType(Me.dgvProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -512,29 +611,35 @@ Partial Class FormProveedor
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnNuevo As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents cboMedicionId As ComboBox
+    Friend WithEvents txtDocumento As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents labelDocumento As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents labelCorreo As Label
+    Friend WithEvents txtCorreo As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents lbEstado As Label
+    Friend WithEvents cboEstado As ComboBox
+    Friend WithEvents cboMedicion As ComboBox
     Friend WithEvents lblTarifa As Label
     Friend WithEvents lblRazonSocial As Label
     Friend WithEvents txtRazonSocial As PersControlLibrary.ExtendedTextBox
     Friend WithEvents lblMedicion As Label
     Friend WithEvents txtTarifa As PersControlLibrary.ExtendedTextBox
-    Friend WithEvents lblNumeroContacto As Label
     Friend WithEvents txtNumeroContacto As PersControlLibrary.ExtendedTextBox
     Friend WithEvents lblNombreComercial As Label
     Friend WithEvents txtNombreComercial As PersControlLibrary.ExtendedTextBox
     Private WithEvents btnGuardar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents txtIdProveedor As PersControlLibrary.ExtendedTextBox
-    Friend WithEvents lbEstado As Label
-    Friend WithEvents cboEstado As ComboBox
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IdProveedor As DataGridViewTextBoxColumn
+    Friend WithEvents Documento As DataGridViewTextBoxColumn
     Friend WithEvents NombreComercial As DataGridViewTextBoxColumn
     Friend WithEvents RazonSocial As DataGridViewTextBoxColumn
     Friend WithEvents NumeroContacto As DataGridViewTextBoxColumn
+    Friend WithEvents Correo As DataGridViewTextBoxColumn
     Friend WithEvents MedicionId As DataGridViewTextBoxColumn
     Friend WithEvents TipoMedicion As DataGridViewTextBoxColumn
     Friend WithEvents Tarifa As DataGridViewTextBoxColumn
-    Friend WithEvents IdEstadoActivo As DataGridViewTextBoxColumn
     Friend WithEvents EstadoActivo As DataGridViewTextBoxColumn
+    Friend WithEvents IdEstadoActivo As DataGridViewTextBoxColumn
 End Class
