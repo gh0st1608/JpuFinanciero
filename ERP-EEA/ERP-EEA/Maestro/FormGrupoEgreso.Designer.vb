@@ -27,6 +27,11 @@ Partial Class FormGrupoEgreso
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvGrupoEgreso = New PersControlLibrary.ExtendedDataGridView()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDGrupoEgreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -38,11 +43,6 @@ Partial Class FormGrupoEgreso
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdGrupoEgreso = New PersControlLibrary.ExtendedTextBox()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDGrupoEgreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvGrupoEgreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -96,6 +96,50 @@ Partial Class FormGrupoEgreso
         Me.dgvGrupoEgreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvGrupoEgreso.Size = New System.Drawing.Size(415, 216)
         Me.dgvGrupoEgreso.TabIndex = 462
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
+        'IDGrupoEgreso
+        '
+        Me.IDGrupoEgreso.DataPropertyName = "IdGrupoEgreso"
+        Me.IDGrupoEgreso.HeaderText = "IdGrupoEgreso"
+        Me.IDGrupoEgreso.Name = "IDGrupoEgreso"
+        Me.IDGrupoEgreso.ReadOnly = True
+        Me.IDGrupoEgreso.Visible = False
+        '
+        'Descripcion
+        '
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "NOMBRE"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Descripcion.Width = 280
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
+        Me.EstadoActivo.Width = 130
+        '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
         '
         'btnEliminar
         '
@@ -266,50 +310,6 @@ Partial Class FormGrupoEgreso
         Me.txtIdGrupoEgreso.TabIndex = 460
         Me.txtIdGrupoEgreso.Value = Nothing
         '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IDGrupoEgreso
-        '
-        Me.IDGrupoEgreso.DataPropertyName = "IdGrupoEgreso"
-        Me.IDGrupoEgreso.HeaderText = "IdGrupoEgreso"
-        Me.IDGrupoEgreso.Name = "IDGrupoEgreso"
-        Me.IDGrupoEgreso.ReadOnly = True
-        Me.IDGrupoEgreso.Visible = False
-        '
-        'Descripcion
-        '
-        Me.Descripcion.DataPropertyName = "Descripcion"
-        Me.Descripcion.HeaderText = "NOMBRE"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Descripcion.Width = 280
-        '
-        'EstadoActivo
-        '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "ESTADO"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        Me.EstadoActivo.Width = 130
-        '
-        'IdEstadoActivo
-        '
-        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
-        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
-        Me.IdEstadoActivo.Name = "IdEstadoActivo"
-        Me.IdEstadoActivo.ReadOnly = True
-        Me.IdEstadoActivo.Visible = False
-        '
         'FormGrupoEgreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -321,6 +321,7 @@ Partial Class FormGrupoEgreso
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormGrupoEgreso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Grupo Egreso"
         CType(Me.dgvGrupoEgreso, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

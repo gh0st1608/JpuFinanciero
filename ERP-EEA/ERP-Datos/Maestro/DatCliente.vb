@@ -1,17 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
-Imports System.IO
-Imports System.Collections.Generic
-Imports System.Text
-Imports System.Threading.Tasks
 Imports ERP_Entidad
 Public Class DatCliente
-
-
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    'SqlConnection conn = New SqlConnection(ConfigurationManager.ConnectionStrings["conexion"].ConnectionString);
-
 
     Public Function CrearCliente(ByVal objCliente As EntCliente) As Integer
 
@@ -121,106 +112,8 @@ Public Class DatCliente
         End Try
     End Function
 
-    'Public Function ObtenerItem(ByVal id As Integer) As Area
-    '    Dim command As SqlCommand
-    '    Dim reader As SqlDataReader
-    '    Dim result As Area
-    '    Try
-    '        connection.Open()
-    '        command = New SqlCommand("up_sel_maeArea", connection)
-    '        command.CommandType = CommandType.StoredProcedure
-
-    '        command.Parameters.Add("@idArea", SqlDbType.Int)
-    '        command.Parameters("@idArea").Value = id
-    '        reader = command.ExecuteReader()
-
-    '        If reader.HasRows() Then
-    '            If reader.Read() Then
-    '                result = New Area()
-    '                result.idArea = reader.GetInt32(0)
-    '                result.Descripcion = IIf(IsDBNull(reader.GetString(1)), "", reader.GetString(1))
-    '                result.idEstado = reader.GetInt32(2)
-    '            Else
-    '                result = Nothing
-    '            End If
-    '        Else
-    '            result = Nothing
-    '        End If
-    '        connection.Close()
-    '        Return result
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Area")
-    '        connection.Close()
-    '        Return Nothing
-    '    End Try
-
-    'End Function
-
-    'Public Function ObtenerItemNombre(ByVal Nombre As String) As Area
-    '    Dim command As SqlCommand
-    '    Dim reader As SqlDataReader
-    '    Dim result As Area
-    '    Try
-    '        connection.Open()
-    '        command = New SqlCommand("up_sel_maeAreaNombre", connection)
-    '        command.CommandType = CommandType.StoredProcedure
-
-    '        command.Parameters.Add("@Nombre", SqlDbType.VarChar, 150)
-    '        command.Parameters("@Nombre").Value = Nombre
-    '        reader = command.ExecuteReader()
-
-    '        If reader.HasRows() Then
-    '            If reader.Read() Then
-    '                result = New Area()
-    '                result.idArea = reader.GetInt32(0)
-    '                result.Descripcion = reader.GetString(1)
-    '                result.idEstado = reader.GetInt32(2)
-    '            Else
-    '                result = Nothing
-    '            End If
-    '        Else
-    '            result = Nothing
-    '        End If
-    '        connection.Close()
-    '        Return result
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Area")
-    '        connection.Close()
-    '        Return Nothing
-    '    End Try
-
-    'End Function
-
-    'Public Function LeerGrupoIngresoPorId(ByVal estado As Integer) As DataSet
-    '    Dim command As SqlCommand
-    '    Dim adapter As SqlDataAdapter
-    '    Dim objResult As DataSet
-
-    '    Try
-    '        connection.Open()
-    '        command = New SqlCommand("Sel_MaeGrupoIngreso", connection)
-    '        command.CommandType = CommandType.StoredProcedure
-
-    '        command.Parameters.Add("@Estado", SqlDbType.Int)
-    '        command.Parameters("@Estado").Value = estado
-
-    '        objResult = New DataSet
-    '        adapter = New SqlDataAdapter(command)
-    '        adapter.Fill(objResult)
-
-    '        connection.Close()
-    '        Return objResult
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
-    '        connection.Close()
-    '        Return Nothing
-    '    End Try
-
-    'End Function
-
-
     Public Function LeerCliente(ByVal IdCliente As Integer, ByVal Descripcion As String) As DataTable
-        'Dim reader As SqlDataReader
+
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet

@@ -44,7 +44,6 @@ Public Class FormEgreso
         cboSubGrupoEgreso.SelectedValue = 0
         cboProveedor.SelectedValue = 0
         cboPeriodo.SelectedValue = 0
-        'chkDetraccion.Checked = False
         chkIGV.Checked = False
         btnNuevo.Enabled = True
         If cantEgresos = 0 Then
@@ -170,16 +169,12 @@ Public Class FormEgreso
             entParametro = negParametro.ObtenerData(2)
             entPago.ImporteIGV = entPago.ImporteCancelado * entParametro.ValorParametro
             txtIGV.Text = entPago.ImporteIGV.ToString(“##,##0.00”)
-            'entIngreso.IGV = entPago.
+            entPago.ImporteTotal = (entPago.ImporteCancelado)
+        Else
+            entPago.ImporteTotal = (entPago.ImporteIGV + entPago.ImporteCancelado)
         End If
 
-        'If entEgreso.Detraccion Then
-        'entParametro = negParametro.ObtenerData(1)
-        'entPago.ImporteDetraccion = (entPago.ImporteCancelado + entPago.ImporteIGV) * entParametro.ValorParametro
-        'txtDetraccion.Text = entPago.ImporteDetraccion.ToString(“##,##0.00”)
-        'End If
 
-        entPago.ImporteTotal = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion).ToString(“##,##0.00”)
         txtTotal.Text = entPago.ImporteTotal.ToString(“##,##0.00”)
     End Sub
 
@@ -210,7 +205,6 @@ Public Class FormEgreso
             entEgreso.ProveedorId = cboProveedor.SelectedValue
         End If
         entEgreso.Comentario = txtComentario.Text
-        'entEgreso.Detraccion = chkDetraccion.Checked
         entEgreso.IGV = chkIGV.Checked
         If cboPeriodo.SelectedValue = 0 Then
             MsgBox("Escoger un periodo")
@@ -240,6 +234,7 @@ Public Class FormEgreso
             MsgBox("No guardo bien")
         End If
     End Sub
+
     Private Sub LeerEgreso()
 
         entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value)
@@ -248,7 +243,6 @@ Public Class FormEgreso
         txtIdEgreso.Text = entEgreso.IdEgreso
         cboProveedor.SelectedValue = entEgreso.ProveedorId
         txtComentario.Text = entEgreso.Comentario
-        'chkDetraccion.Checked = entEgreso.Detraccion
         chkIGV.Checked = entEgreso.IGV
         cboPeriodo.SelectedValue = entEgreso.PeriodoId
         dtpFechaIngreso.Value = entEgreso.FechaEgresoProvision
@@ -259,14 +253,13 @@ Public Class FormEgreso
         txtSubTotal.Text = entEgreso.Deuda.ToString(“##,##0.00”)
         txtTotal.Text = (Convert.ToDecimal(txtIGV.Text) + Convert.ToDecimal(txtSubTotal.Text)).ToString(“##,##0.00”)
 
-
-
         If entEgreso.ImporteProvision = 0 Then 'Modifique entIngreso.ImporteProvision = ""
             btnAbrir.Enabled = False
         Else
             btnAbrir.Enabled = True
         End If
     End Sub
+
     Private Sub ActualizarEgreso(ByVal bln As Boolean)
         If cboGrupoEgreso.SelectedValue = 0 Then
             MsgBox("Escoger Tipo Egreso")
@@ -325,6 +318,7 @@ Public Class FormEgreso
             MsgBox("No se guardo bien")
         End If
     End Sub
+
     Private Sub EliminarEgreso()
         entEgreso.IdEgreso = dgvEgreso.CurrentRow.Cells("IdEgreso").Value
         entEgreso.UsuarioModificacionId = 1
@@ -357,10 +351,10 @@ Public Class FormEgreso
             MsgBox("Ingresar el Importe Cancelado")
             Exit Sub
         Else
-            entPago.ImporteCancelado = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US")).ToString(“##,##0.00”)
+            entPago.ImporteCancelado = Convert.ToDecimal(txtSubTotal.Text)
         End If
 
-        entEgreso.Deuda = (entEgreso.Deuda - entPago.ImporteCancelado).ToString(“##,##0.00”)
+        entEgreso.Deuda = entEgreso.Deuda - entPago.ImporteCancelado
 
         respaldo = Convert.ToDecimal(entEgreso.Deuda)
 
@@ -376,20 +370,16 @@ Public Class FormEgreso
             MsgBox("No guardo bien")
         End If
     End Sub
+
     Private Sub LeerPago()
         entPago = negPago.ObtenerData(dgvPago.CurrentRow.Cells("IdPago").Value, 1)
-
         txtIdPago.Text = entPago.IdPago
         cbMetodoPago.SelectedValue = entPago.MetodoPagoId
         txtNumeroComprobante.Text = entPago.NumeroComprobante
         dtpFechaPago.Value = entPago.FechaPago
         txtSubTotal.Text = entPago.ImporteCancelado.ToString(“##,##0.00”)
         txtTotal.Text = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion).ToString(“##,##0.00”)
-
-
-
         txtRespaldoImporte.Text = (entPago.ImporteCancelado + entEgreso.Deuda).ToString(“##,##0.00”)
-
     End Sub
     Private Sub ActualizarPago()
         If cbMetodoPago.SelectedValue = 0 Then
@@ -398,17 +388,19 @@ Public Class FormEgreso
         Else
             entPago.MetodoPagoId = cbMetodoPago.SelectedValue
         End If
+
         entPago.NumeroComprobante = txtNumeroComprobante.Text
-
-
+        entPago.TipoOrigenId = 1
+        entPago.OrigenId = Int(txtIdEgreso.Text)
         entPago.FechaPago = dtpFechaPago.Value
+        entPago.NroOperacion = txtNroOperacion.Text
+
         If txtSubTotal.Text = "" Then
             MsgBox("Ingresar el Importe Cancelado")
             Exit Sub
         Else
-            entPago.ImporteCancelado = txtSubTotal.Text
+            entPago.ImporteCancelado = Convert.ToDecimal(txtSubTotal.Text)
         End If
-
 
         If entEgreso.IGV Then
             entParametro = negParametro.ObtenerData(2)
@@ -416,22 +408,15 @@ Public Class FormEgreso
             txtIGV.Text = entPago.ImporteIGV
         End If
 
-
         If entEgreso.IGV Then
             entPago.ImporteTotal = entPago.ImporteCancelado + entPago.ImporteIGV
-            'If entEgreso.Detraccion Then
-            'entPago.ImporteTotal = (entPago.ImporteIGV + entPago.ImporteCancelado - entPago.ImporteDetraccion)
-            'End If
+
         Else
             entPago.ImporteTotal = entPago.ImporteCancelado
         End If
         entPago.ImporteTotal = entPago.ImporteCancelado
-
-        entPago.NroOperacion = txtNroOperacion.Text
         respaldo = entEgreso.Deuda - entPago.ImporteCancelado
-
         entPago.UsuarioModificacionId = 1
-
         operacion = negPago.Actualizar(entPago)
 
         If operacion Then

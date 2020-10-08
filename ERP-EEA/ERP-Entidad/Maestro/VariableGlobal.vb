@@ -1,9 +1,9 @@
 ﻿Public Class VariableGlobal
-    Public VGIDUsuario As Int32 = 0
-    Public VGIDTipoUsuario As Int32 = 0
-    Public VGCuentaUsuario As String = ""
-    Public VGIDEmpresa As Int32 = 0
-    Public VGEmpresa As String = ""
-    Public VGRutaComprobantesIngresos As String = "D:\Proyectos\ERP-EEA\Ingresos"
-    Public VGRutaComprobantesEgresos As String = "D:\Proyectos\ERP-EEA\Egresos"
+    Public Shared VGIDUsuario As Int32 = 0
+    Public Shared VGIDTipoUsuario As Int32 = 0
+    Public Shared VGCuentaUsuario As String = ""
+    Public Shared VGIDEmpresa As Int32 = 0
+    Public Shared VGEmpresa As String = ""
+    Public Shared VGRutaComprobantesIngresos As String = "D:\Proyectos\ERP-EEA\Ingresos"
+    Public Shared VGRutaComprobantesEgresos As String = "D:\Proyectos\ERP-EEA\Egresos"
 End Class

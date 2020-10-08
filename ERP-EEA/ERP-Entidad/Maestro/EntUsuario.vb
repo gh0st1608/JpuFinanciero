@@ -1,11 +1,13 @@
 ﻿Public Class EntUsuario
 
     Private VarIdUsuario As Integer
+    Private VarNombreCompleto As String
     Private VarNombreUsuario As String
     Private VarContraseña As String
     Private VarFechaCreacion As Date
     Private VarFechaModificacion As Date
-    Private VarEstadoActivo As Byte
+    Private VarEstadoActivo As String
+    Private VarEstadoId As Byte
 
     Public Property IdUsuario As Integer
         Get
@@ -13,6 +15,15 @@
         End Get
         Set(value As Integer)
             VarIdUsuario = value
+        End Set
+    End Property
+
+    Public Property NombreCompleto As String
+        Get
+            Return VarNombreCompleto
+        End Get
+        Set(value As String)
+            VarNombreCompleto = value
         End Set
     End Property
 
@@ -52,12 +63,21 @@
         End Set
     End Property
 
-    Public Property EstadoActivo As Byte
+    Public Property EstadoActivo As String
         Get
             Return VarEstadoActivo
         End Get
-        Set(ByVal value As Byte)
+        Set(ByVal value As String)
             VarEstadoActivo = value
+        End Set
+    End Property
+
+    Public Property EstadoId As Byte
+        Get
+            Return VarEstadoId
+        End Get
+        Set(ByVal value As Byte)
+            VarEstadoId = value
         End Set
     End Property
 End Class

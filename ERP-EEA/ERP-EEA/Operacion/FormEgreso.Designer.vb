@@ -22,16 +22,16 @@ Partial Class FormEgreso
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.dgvEgreso = New PersControlLibrary.ExtendedDataGridView()
@@ -132,11 +132,11 @@ Partial Class FormEgreso
         Me.btnPagar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagar.ForeColor = System.Drawing.Color.Black
         Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPagar.Location = New System.Drawing.Point(507, 6)
+        Me.btnPagar.Location = New System.Drawing.Point(505, 5)
         Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(83, 26)
-        Me.btnPagar.TabIndex = 480
-        Me.btnPagar.Text = "[F4] COBRAR"
+        Me.btnPagar.Size = New System.Drawing.Size(75, 26)
+        Me.btnPagar.TabIndex = 5
+        Me.btnPagar.Text = "[F4] PAGAR"
         Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnPagar.UseVisualStyleBackColor = True
         '
@@ -148,39 +148,39 @@ Partial Class FormEgreso
         Me.dgvEgreso.AllowUserToResizeRows = False
         Me.dgvEgreso.BackgroundColor = System.Drawing.Color.White
         Me.dgvEgreso.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEgreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEgreso.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEgreso.ColumnHeadersHeight = 20
         Me.dgvEgreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvEgreso.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdEgreso, Me.GrupoEgresoId, Me.GrupoEgresoDescripcion, Me.SubGrupoEgresoId, Me.SubGrupoEgresoDescripcion, Me.ProveedorId, Me.NombreComercial, Me.NumeroComprobanteIngreso, Me.IGV, Me.PeriodoId, Me.Comentario, Me.FechaIngresoProvision, Me.ImporteProvision, Me.ComprobanteUbicacion, Me.Deuda})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEgreso.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEgreso.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvEgreso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvEgreso.EnableHeadersVisualStyles = False
         Me.dgvEgreso.Location = New System.Drawing.Point(4, 37)
         Me.dgvEgreso.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvEgreso.Name = "dgvEgreso"
         Me.dgvEgreso.ReadOnly = True
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEgreso.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEgreso.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvEgreso.RowHeadersVisible = False
         Me.dgvEgreso.RowHeadersWidth = 22
         Me.dgvEgreso.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -189,6 +189,7 @@ Partial Class FormEgreso
         Me.dgvEgreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEgreso.Size = New System.Drawing.Size(585, 190)
         Me.dgvEgreso.TabIndex = 476
+        Me.dgvEgreso.TabStop = False
         '
         'btnModificar
         '
@@ -198,10 +199,10 @@ Partial Class FormEgreso
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(302, 6)
+        Me.btnModificar.Location = New System.Drawing.Point(299, 6)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 474
+        Me.btnModificar.TabIndex = 3
         Me.btnModificar.TabStop = False
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -215,10 +216,10 @@ Partial Class FormEgreso
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(221, 6)
+        Me.btnNuevo.Location = New System.Drawing.Point(218, 6)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 473
+        Me.btnNuevo.TabIndex = 2
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -229,7 +230,7 @@ Partial Class FormEgreso
         Me.cbPeriodoFiltro.Location = New System.Drawing.Point(52, 10)
         Me.cbPeriodoFiltro.Name = "cbPeriodoFiltro"
         Me.cbPeriodoFiltro.Size = New System.Drawing.Size(75, 21)
-        Me.cbPeriodoFiltro.TabIndex = 478
+        Me.cbPeriodoFiltro.TabIndex = 1
         '
         'Label23
         '
@@ -248,10 +249,10 @@ Partial Class FormEgreso
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(405, 6)
+        Me.btnEliminar.Location = New System.Drawing.Point(402, 6)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 475
+        Me.btnEliminar.TabIndex = 4
         Me.btnEliminar.TabStop = False
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -298,14 +299,14 @@ Partial Class FormEgreso
         Me.txtNroOperacion.Location = New System.Drawing.Point(120, 61)
         Me.txtNroOperacion.Name = "txtNroOperacion"
         Me.txtNroOperacion.Size = New System.Drawing.Size(162, 20)
-        Me.txtNroOperacion.TabIndex = 490
+        Me.txtNroOperacion.TabIndex = 52
         '
         'txtSubTotal
         '
         Me.txtSubTotal.Location = New System.Drawing.Point(476, 10)
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(95, 20)
-        Me.txtSubTotal.TabIndex = 484
+        Me.txtSubTotal.TabIndex = 54
         Me.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtIGV
@@ -314,6 +315,7 @@ Partial Class FormEgreso
         Me.txtIGV.Name = "txtIGV"
         Me.txtIGV.Size = New System.Drawing.Size(95, 20)
         Me.txtIGV.TabIndex = 486
+        Me.txtIGV.TabStop = False
         Me.txtIGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblIGV
@@ -339,7 +341,7 @@ Partial Class FormEgreso
         Me.txtNumeroComprobante.Location = New System.Drawing.Point(120, 9)
         Me.txtNumeroComprobante.Name = "txtNumeroComprobante"
         Me.txtNumeroComprobante.Size = New System.Drawing.Size(163, 20)
-        Me.txtNumeroComprobante.TabIndex = 479
+        Me.txtNumeroComprobante.TabIndex = 50
         '
         'Label5
         '
@@ -356,7 +358,7 @@ Partial Class FormEgreso
         Me.cbMetodoPago.Location = New System.Drawing.Point(120, 34)
         Me.cbMetodoPago.Name = "cbMetodoPago"
         Me.cbMetodoPago.Size = New System.Drawing.Size(163, 21)
-        Me.cbMetodoPago.TabIndex = 475
+        Me.cbMetodoPago.TabIndex = 51
         '
         'Label3
         '
@@ -382,7 +384,7 @@ Partial Class FormEgreso
         Me.dtpFechaPago.Location = New System.Drawing.Point(120, 86)
         Me.dtpFechaPago.Name = "dtpFechaPago"
         Me.dtpFechaPago.Size = New System.Drawing.Size(95, 20)
-        Me.dtpFechaPago.TabIndex = 469
+        Me.dtpFechaPago.TabIndex = 53
         '
         'txtTotal
         '
@@ -390,6 +392,7 @@ Partial Class FormEgreso
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(95, 20)
         Me.txtTotal.TabIndex = 465
+        Me.txtTotal.TabStop = False
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblImporteCancelado
@@ -407,7 +410,7 @@ Partial Class FormEgreso
         Me.btnGuardarPago.Location = New System.Drawing.Point(425, 112)
         Me.btnGuardarPago.Name = "btnGuardarPago"
         Me.btnGuardarPago.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardarPago.TabIndex = 410
+        Me.btnGuardarPago.TabIndex = 60
         Me.btnGuardarPago.Text = "GUARDAR"
         Me.btnGuardarPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardarPago.UseVisualStyleBackColor = True
@@ -423,7 +426,7 @@ Partial Class FormEgreso
         Me.btnCancelarPago.Location = New System.Drawing.Point(503, 111)
         Me.btnCancelarPago.Name = "btnCancelarPago"
         Me.btnCancelarPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelarPago.TabIndex = 409
+        Me.btnCancelarPago.TabIndex = 61
         Me.btnCancelarPago.Text = "CANCELAR"
         Me.btnCancelarPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelarPago.UseVisualStyleBackColor = True
@@ -492,7 +495,7 @@ Partial Class FormEgreso
         Me.PanelPago.Controls.Add(Me.btnEliminarPago)
         Me.PanelPago.Controls.Add(Me.btnModificarPago)
         Me.PanelPago.Controls.Add(Me.dgvPago)
-        Me.PanelPago.Location = New System.Drawing.Point(2, 266)
+        Me.PanelPago.Location = New System.Drawing.Point(2, 246)
         Me.PanelPago.Margin = New System.Windows.Forms.Padding(2)
         Me.PanelPago.Name = "PanelPago"
         Me.PanelPago.Size = New System.Drawing.Size(586, 152)
@@ -509,7 +512,7 @@ Partial Class FormEgreso
         Me.btnVolver.Location = New System.Drawing.Point(510, 103)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(69, 26)
-        Me.btnVolver.TabIndex = 473
+        Me.btnVolver.TabIndex = 43
         Me.btnVolver.TabStop = False
         Me.btnVolver.Text = "VOLVER"
         Me.btnVolver.UseVisualStyleBackColor = True
@@ -525,7 +528,7 @@ Partial Class FormEgreso
         Me.btnNuevoPago.Location = New System.Drawing.Point(510, 5)
         Me.btnNuevoPago.Name = "btnNuevoPago"
         Me.btnNuevoPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnNuevoPago.TabIndex = 472
+        Me.btnNuevoPago.TabIndex = 40
         Me.btnNuevoPago.Text = "NUEVO"
         Me.btnNuevoPago.UseVisualStyleBackColor = True
         '
@@ -540,7 +543,7 @@ Partial Class FormEgreso
         Me.btnEliminarPago.Location = New System.Drawing.Point(510, 71)
         Me.btnEliminarPago.Name = "btnEliminarPago"
         Me.btnEliminarPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnEliminarPago.TabIndex = 461
+        Me.btnEliminarPago.TabIndex = 42
         Me.btnEliminarPago.TabStop = False
         Me.btnEliminarPago.Text = "ELIMINAR"
         Me.btnEliminarPago.UseVisualStyleBackColor = True
@@ -556,7 +559,7 @@ Partial Class FormEgreso
         Me.btnModificarPago.Location = New System.Drawing.Point(510, 39)
         Me.btnModificarPago.Name = "btnModificarPago"
         Me.btnModificarPago.Size = New System.Drawing.Size(69, 26)
-        Me.btnModificarPago.TabIndex = 460
+        Me.btnModificarPago.TabIndex = 41
         Me.btnModificarPago.TabStop = False
         Me.btnModificarPago.Text = "MODIFICAR"
         Me.btnModificarPago.UseVisualStyleBackColor = True
@@ -569,39 +572,39 @@ Partial Class FormEgreso
         Me.dgvPago.AllowUserToResizeRows = False
         Me.dgvPago.BackgroundColor = System.Drawing.Color.White
         Me.dgvPago.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvPago.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvPago.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvPago.ColumnHeadersHeight = 20
         Me.dgvPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvPago.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.IdPago, Me.OrigenId, Me.NumeroComprobante, Me.NroOperacion, Me.MetodoPagoId, Me.MedioDePago, Me.FechaPago, Me.ImporteTotal, Me.ImporteCancelado})
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvPago.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPago.DefaultCellStyle = DataGridViewCellStyle9
         Me.dgvPago.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPago.EnableHeadersVisualStyles = False
         Me.dgvPago.Location = New System.Drawing.Point(5, 5)
         Me.dgvPago.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvPago.Name = "dgvPago"
         Me.dgvPago.ReadOnly = True
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvPago.RowHeadersDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvPago.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.dgvPago.RowHeadersVisible = False
         Me.dgvPago.RowHeadersWidth = 22
         Me.dgvPago.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -610,12 +613,13 @@ Partial Class FormEgreso
         Me.dgvPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPago.Size = New System.Drawing.Size(451, 135)
         Me.dgvPago.TabIndex = 470
+        Me.dgvPago.TabStop = False
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "item"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn1.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -689,11 +693,11 @@ Partial Class FormEgreso
         'ImporteCancelado
         '
         Me.ImporteCancelado.DataPropertyName = "ImporteCancelado"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle18.Format = "N2"
-        DataGridViewCellStyle18.NullValue = "0"
-        DataGridViewCellStyle18.Padding = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.ImporteCancelado.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Format = "N2"
+        DataGridViewCellStyle8.NullValue = "0"
+        DataGridViewCellStyle8.Padding = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.ImporteCancelado.DefaultCellStyle = DataGridViewCellStyle8
         Me.ImporteCancelado.HeaderText = "IMPORTE PAGO"
         Me.ImporteCancelado.Name = "ImporteCancelado"
         Me.ImporteCancelado.ReadOnly = True
@@ -734,17 +738,17 @@ Partial Class FormEgreso
         '
         Me.chkIGV.AutoSize = True
         Me.chkIGV.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkIGV.Location = New System.Drawing.Point(421, 122)
+        Me.chkIGV.Location = New System.Drawing.Point(399, 104)
         Me.chkIGV.Name = "chkIGV"
         Me.chkIGV.Size = New System.Drawing.Size(79, 17)
-        Me.chkIGV.TabIndex = 490
+        Me.chkIGV.TabIndex = 20
         Me.chkIGV.Text = "Aplicar IGV"
         Me.chkIGV.UseVisualStyleBackColor = True
         '
         'lblGrupoEgreso
         '
         Me.lblGrupoEgreso.AutoSize = True
-        Me.lblGrupoEgreso.Location = New System.Drawing.Point(14, 11)
+        Me.lblGrupoEgreso.Location = New System.Drawing.Point(13, 10)
         Me.lblGrupoEgreso.Name = "lblGrupoEgreso"
         Me.lblGrupoEgreso.Size = New System.Drawing.Size(64, 13)
         Me.lblGrupoEgreso.TabIndex = 489
@@ -753,15 +757,15 @@ Partial Class FormEgreso
         'cboGrupoEgreso
         '
         Me.cboGrupoEgreso.FormattingEnabled = True
-        Me.cboGrupoEgreso.Location = New System.Drawing.Point(120, 9)
+        Me.cboGrupoEgreso.Location = New System.Drawing.Point(121, 7)
         Me.cboGrupoEgreso.Name = "cboGrupoEgreso"
-        Me.cboGrupoEgreso.Size = New System.Drawing.Size(162, 21)
-        Me.cboGrupoEgreso.TabIndex = 488
+        Me.cboGrupoEgreso.Size = New System.Drawing.Size(226, 21)
+        Me.cboGrupoEgreso.TabIndex = 10
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(417, 95)
+        Me.Label1.Location = New System.Drawing.Point(417, 72)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 487
@@ -770,15 +774,15 @@ Partial Class FormEgreso
         'cboSubGrupoEgreso
         '
         Me.cboSubGrupoEgreso.FormattingEnabled = True
-        Me.cboSubGrupoEgreso.Location = New System.Drawing.Point(121, 34)
+        Me.cboSubGrupoEgreso.Location = New System.Drawing.Point(121, 32)
         Me.cboSubGrupoEgreso.Name = "cboSubGrupoEgreso"
-        Me.cboSubGrupoEgreso.Size = New System.Drawing.Size(186, 21)
-        Me.cboSubGrupoEgreso.TabIndex = 486
+        Me.cboSubGrupoEgreso.Size = New System.Drawing.Size(227, 21)
+        Me.cboSubGrupoEgreso.TabIndex = 12
         '
         'lblTipoIngreso
         '
         Me.lblTipoIngreso.AutoSize = True
-        Me.lblTipoIngreso.Location = New System.Drawing.Point(14, 34)
+        Me.lblTipoIngreso.Location = New System.Drawing.Point(13, 35)
         Me.lblTipoIngreso.Name = "lblTipoIngreso"
         Me.lblTipoIngreso.Size = New System.Drawing.Size(63, 13)
         Me.lblTipoIngreso.TabIndex = 485
@@ -786,15 +790,15 @@ Partial Class FormEgreso
         '
         'txtNumeroComprobanteEgreso
         '
-        Me.txtNumeroComprobanteEgreso.Location = New System.Drawing.Point(120, 150)
+        Me.txtNumeroComprobanteEgreso.Location = New System.Drawing.Point(120, 156)
         Me.txtNumeroComprobanteEgreso.Name = "txtNumeroComprobanteEgreso"
         Me.txtNumeroComprobanteEgreso.Size = New System.Drawing.Size(163, 20)
-        Me.txtNumeroComprobanteEgreso.TabIndex = 484
+        Me.txtNumeroComprobanteEgreso.TabIndex = 16
         '
         'lblNumeroComprobanteIngreso
         '
         Me.lblNumeroComprobanteIngreso.AutoSize = True
-        Me.lblNumeroComprobanteIngreso.Location = New System.Drawing.Point(14, 152)
+        Me.lblNumeroComprobanteIngreso.Location = New System.Drawing.Point(14, 158)
         Me.lblNumeroComprobanteIngreso.Name = "lblNumeroComprobanteIngreso"
         Me.lblNumeroComprobanteIngreso.Size = New System.Drawing.Size(99, 13)
         Me.lblNumeroComprobanteIngreso.TabIndex = 483
@@ -806,7 +810,7 @@ Partial Class FormEgreso
         Me.cboPeriodo.Location = New System.Drawing.Point(488, 10)
         Me.cboPeriodo.Name = "cboPeriodo"
         Me.cboPeriodo.Size = New System.Drawing.Size(85, 21)
-        Me.cboPeriodo.TabIndex = 475
+        Me.cboPeriodo.TabIndex = 17
         '
         'Label16
         '
@@ -820,15 +824,15 @@ Partial Class FormEgreso
         'cboProveedor
         '
         Me.cboProveedor.FormattingEnabled = True
-        Me.cboProveedor.Location = New System.Drawing.Point(488, 35)
+        Me.cboProveedor.Location = New System.Drawing.Point(121, 57)
         Me.cboProveedor.Name = "cboProveedor"
-        Me.cboProveedor.Size = New System.Drawing.Size(85, 21)
-        Me.cboProveedor.TabIndex = 471
+        Me.cboProveedor.Size = New System.Drawing.Size(228, 21)
+        Me.cboProveedor.TabIndex = 13
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(396, 62)
+        Me.Label17.Location = New System.Drawing.Point(396, 39)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(76, 13)
         Me.Label17.TabIndex = 470
@@ -837,7 +841,7 @@ Partial Class FormEgreso
         'btnAbrir
         '
         Me.btnAbrir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAbrir.Location = New System.Drawing.Point(220, 121)
+        Me.btnAbrir.Location = New System.Drawing.Point(220, 127)
         Me.btnAbrir.Name = "btnAbrir"
         Me.btnAbrir.Size = New System.Drawing.Size(63, 26)
         Me.btnAbrir.TabIndex = 482
@@ -847,25 +851,25 @@ Partial Class FormEgreso
         'dtpFechaIngreso
         '
         Me.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaIngreso.Location = New System.Drawing.Point(488, 61)
+        Me.dtpFechaIngreso.Location = New System.Drawing.Point(488, 38)
         Me.dtpFechaIngreso.Name = "dtpFechaIngreso"
         Me.dtpFechaIngreso.Size = New System.Drawing.Size(84, 20)
-        Me.dtpFechaIngreso.TabIndex = 469
+        Me.dtpFechaIngreso.TabIndex = 18
         '
         'btnAdjuntarArchivo
         '
         Me.btnAdjuntarArchivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdjuntarArchivo.Location = New System.Drawing.Point(120, 121)
+        Me.btnAdjuntarArchivo.Location = New System.Drawing.Point(120, 127)
         Me.btnAdjuntarArchivo.Name = "btnAdjuntarArchivo"
         Me.btnAdjuntarArchivo.Size = New System.Drawing.Size(94, 26)
-        Me.btnAdjuntarArchivo.TabIndex = 480
+        Me.btnAdjuntarArchivo.TabIndex = 15
         Me.btnAdjuntarArchivo.Text = "Adjuntar Archivo"
         Me.btnAdjuntarArchivo.UseVisualStyleBackColor = True
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(396, 39)
+        Me.Label18.Location = New System.Drawing.Point(14, 62)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(56, 13)
         Me.Label18.TabIndex = 468
@@ -873,15 +877,15 @@ Partial Class FormEgreso
         '
         'txtImporteProvisional
         '
-        Me.txtImporteProvisional.Location = New System.Drawing.Point(488, 87)
+        Me.txtImporteProvisional.Location = New System.Drawing.Point(488, 64)
         Me.txtImporteProvisional.Name = "txtImporteProvisional"
         Me.txtImporteProvisional.Size = New System.Drawing.Size(84, 20)
-        Me.txtImporteProvisional.TabIndex = 465
+        Me.txtImporteProvisional.TabIndex = 19
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(396, 84)
+        Me.Label20.Location = New System.Drawing.Point(396, 61)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(93, 13)
         Me.Label20.TabIndex = 464
@@ -890,7 +894,7 @@ Partial Class FormEgreso
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 126)
+        Me.Label4.Location = New System.Drawing.Point(14, 132)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(70, 13)
         Me.Label4.TabIndex = 476
@@ -908,7 +912,7 @@ Partial Class FormEgreso
         Me.txtComentario.EnterIsTab = True
         Me.txtComentario.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtComentario.Label = "Descripción"
-        Me.txtComentario.Location = New System.Drawing.Point(121, 59)
+        Me.txtComentario.Location = New System.Drawing.Point(121, 82)
         Me.txtComentario.Mandatory = False
         Me.txtComentario.Margin = New System.Windows.Forms.Padding(2)
         Me.txtComentario.MaxLength = 100
@@ -917,15 +921,15 @@ Partial Class FormEgreso
         Me.txtComentario.Name = "txtComentario"
         Me.txtComentario.Precision = 0
         Me.txtComentario.SelectOnFocus = True
-        Me.txtComentario.Size = New System.Drawing.Size(226, 41)
+        Me.txtComentario.Size = New System.Drawing.Size(228, 41)
         Me.txtComentario.Symbol = Nothing
-        Me.txtComentario.TabIndex = 458
+        Me.txtComentario.TabIndex = 14
         Me.txtComentario.Value = Nothing
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(14, 62)
+        Me.Label13.Location = New System.Drawing.Point(14, 85)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(60, 13)
         Me.Label13.TabIndex = 461
@@ -937,7 +941,7 @@ Partial Class FormEgreso
         Me.btnGuardar.Location = New System.Drawing.Point(424, 150)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 30
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -953,7 +957,7 @@ Partial Class FormEgreso
         Me.btnCancelar.Location = New System.Drawing.Point(503, 150)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 31
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -986,8 +990,8 @@ Partial Class FormEgreso
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -1033,6 +1037,7 @@ Partial Class FormEgreso
         Me.SubGrupoEgresoDescripcion.HeaderText = "ITEM EGRESO"
         Me.SubGrupoEgresoDescripcion.Name = "SubGrupoEgresoDescripcion"
         Me.SubGrupoEgresoDescripcion.ReadOnly = True
+        Me.SubGrupoEgresoDescripcion.Width = 140
         '
         'ProveedorId
         '
@@ -1053,10 +1058,10 @@ Partial Class FormEgreso
         'NumeroComprobanteIngreso
         '
         Me.NumeroComprobanteIngreso.DataPropertyName = "NumeroComprobanteEgreso"
-        Me.NumeroComprobanteIngreso.HeaderText = "NUMERO FACTURA"
+        Me.NumeroComprobanteIngreso.HeaderText = "FACTURA"
         Me.NumeroComprobanteIngreso.Name = "NumeroComprobanteIngreso"
         Me.NumeroComprobanteIngreso.ReadOnly = True
-        Me.NumeroComprobanteIngreso.Width = 125
+        Me.NumeroComprobanteIngreso.Width = 85
         '
         'IGV
         '
@@ -1092,10 +1097,10 @@ Partial Class FormEgreso
         'ImporteProvision
         '
         Me.ImporteProvision.DataPropertyName = "ImporteProvision"
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle13.Format = "N2"
-        DataGridViewCellStyle13.NullValue = "0"
-        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
         Me.ImporteProvision.HeaderText = "SUBTOTAL"
         Me.ImporteProvision.Name = "ImporteProvision"
         Me.ImporteProvision.ReadOnly = True
@@ -1121,8 +1126,7 @@ Partial Class FormEgreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(590, 564)
-        Me.Controls.Add(Me.PanelEgreso)
+        Me.ClientSize = New System.Drawing.Size(592, 567)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnPagar)
         Me.Controls.Add(Me.dgvEgreso)
@@ -1132,7 +1136,9 @@ Partial Class FormEgreso
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.PanelPago)
+        Me.Controls.Add(Me.PanelEgreso)
         Me.Name = "FormEgreso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro de Egreso"
         CType(Me.dgvEgreso, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)

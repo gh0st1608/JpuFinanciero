@@ -8,7 +8,7 @@ Imports ERP_Datos
 
 
 Public Class NegParametro
-    Dim ObjParametroEnt = New EntParametro
+    Dim ObjParametroEnt As New EntParametro
     Dim ObjParametroDat As New DatParametro
     Public Function ObtenerTabla() As DataTable
 

@@ -25,7 +25,6 @@ Public Class FormIngreso
     Dim cantIngresos As Integer
     Dim cantPagos As Integer
     Dim blnActualizar As Boolean = False
-    Dim vg As New VariableGlobal
 
 #End Region
 
@@ -115,7 +114,6 @@ Public Class FormIngreso
         PanelPago.Visible = True
     End Sub
 #End Region
-
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaIngreso()

@@ -14,7 +14,6 @@ Public Class FormCliente
     Dim dataTableTipoCliente As DataTable
 
 #End Region
-
 #Region "Modos de ventana"
     Private Sub ModoInicial()
         Me.Height = 307
@@ -41,7 +40,6 @@ Public Class FormCliente
 
 
 #End Region
-
 #Region "Funciones Auxiliares"
 
     Private Sub CargarTabla()
@@ -51,7 +49,6 @@ Public Class FormCliente
 
 
 #End Region
-
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearCliente()
         If txtRazonSocial.Text = "" Then
@@ -188,7 +185,6 @@ Public Class FormCliente
         End If
     End Sub
 #End Region
-
 #Region "Funciones del formulario"
     Private Sub FormCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarTabla()
@@ -208,7 +204,6 @@ Public Class FormCliente
         End If
     End Sub
 #End Region
-
 #Region "Funciones de elementos del formulario"
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtIdCliente.Text = "0" Then
