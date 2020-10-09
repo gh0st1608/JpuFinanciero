@@ -32,4 +32,8 @@
     Private Sub RegistroDeEgresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeEgresoToolStripMenuItem.Click
         FormEgreso.Show()
     End Sub
+
+    Private Sub IngresosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresosToolStripMenuItem.Click
+        FormReporteIngresos.Show()
+    End Sub
 End Class

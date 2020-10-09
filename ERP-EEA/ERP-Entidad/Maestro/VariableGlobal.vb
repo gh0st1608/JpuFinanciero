@@ -6,4 +6,6 @@
     Public Shared VGEmpresa As String = ""
     Public Shared VGRutaComprobantesIngresos As String = "D:\Proyectos\ERP-EEA\Ingresos"
     Public Shared VGRutaComprobantesEgresos As String = "D:\Proyectos\ERP-EEA\Egresos"
+    Public Shared VGRutaReporteIngresos As String = "D:\Reportes"
+
 End Class

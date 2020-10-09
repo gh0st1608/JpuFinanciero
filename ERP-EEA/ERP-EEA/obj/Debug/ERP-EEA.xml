@@ -22,5 +22,40 @@ ERP-EEA
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:ERP_EEA.DsBDFinanciero">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoDataDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoFiltroDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoDataRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoFiltroRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoDataRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:ERP_EEA.DsBDFinanciero.DtReporteIngresoFiltroRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 </members>
 </doc>

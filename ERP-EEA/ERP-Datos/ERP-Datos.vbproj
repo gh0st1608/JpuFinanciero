@@ -68,6 +68,7 @@
     <Compile Include="Maestro\DatContacto.vb" />
     <Compile Include="Maestro\DatMetodoPago.vb" />
     <Compile Include="Maestro\DatSubGrupoEgreso.vb" />
+    <Compile Include="Maestro\DatUsuario.vb" />
     <Compile Include="Operacion\DatEgreso.vb" />
     <Compile Include="Operacion\DatIngreso.vb" />
     <Compile Include="Operacion\DatPago.vb" />
@@ -94,6 +95,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
+    <Compile Include="Reportes\DatReporte.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
