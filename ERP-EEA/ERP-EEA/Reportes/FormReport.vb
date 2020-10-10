@@ -2,7 +2,6 @@
 Public Class FormReport
 
     Private VarObjParamList As List(Of ReportParameter)
-    Private VarobjReportViewer As ReportViewer
     Private VarLinksReport As Boolean
     Private VarImageReport As Boolean
     Private VarDsReport As DataSet
@@ -14,15 +13,6 @@ Public Class FormReport
         End Get
         Set(value As List(Of ReportParameter))
             VarObjParamList = value
-        End Set
-    End Property
-
-    Public Property objReportViewer As ReportViewer
-        Get
-            Return VarobjReportViewer
-        End Get
-        Set(value As ReportViewer)
-            VarobjReportViewer = value
         End Set
     End Property
 
@@ -63,9 +53,9 @@ Public Class FormReport
     End Property
     Private Sub fnLoadReport()
 
-        objReportViewer.Reset()
-        objReportViewer.LocalReport.DataSources.Clear()
-        objReportViewer.LocalReport.ReportPath = PathReport
+        ReportViewer.Reset()
+        ReportViewer.LocalReport.DataSources.Clear()
+        ReportViewer.LocalReport.ReportPath = PathReport
 
         Dim objSource As ReportDataSource
 
@@ -73,17 +63,17 @@ Public Class FormReport
             objSource = New ReportDataSource()
             objSource.Name = dt.TableName
             objSource.Value = dt
-            objReportViewer.LocalReport.DataSources.Add(objSource)
+            ReportViewer.LocalReport.DataSources.Add(objSource)
         Next
 
         For Each param In ObjParamList
-            objReportViewer.LocalReport.SetParameters(param)
+            ReportViewer.LocalReport.SetParameters(param)
         Next
 
-        objReportViewer.LocalReport.EnableExternalImages = ImageReport
-        objReportViewer.LocalReport.EnableHyperlinks = LinksReport
-        objReportViewer.LocalReport.Refresh()
-        objReportViewer.RefreshReport()
+        ReportViewer.LocalReport.EnableExternalImages = ImageReport
+        ReportViewer.LocalReport.EnableHyperlinks = LinksReport
+        ReportViewer.LocalReport.Refresh()
+        ReportViewer.RefreshReport()
 
     End Sub
     Private Sub FormReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load

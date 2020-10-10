@@ -26,16 +26,13 @@ Partial Class FormReport
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LeerReporteIngresosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.ReportViewer2 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.LeerReporteIngresosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LeerReporteIngresosBindingSource
         '
         Me.LeerReporteIngresosBindingSource.DataMember = "LeerReporteIngresos"
-        '
-        'BDFinancieroDataSet
-        '
         '
         'ReportViewer1
         '
@@ -44,31 +41,31 @@ Partial Class FormReport
         Me.ReportViewer1.Size = New System.Drawing.Size(396, 246)
         Me.ReportViewer1.TabIndex = 0
         '
-        'ReportViewer2
+        'ReportViewer
         '
         ReportDataSource1.Name = "DsIngreso"
         ReportDataSource1.Value = Me.LeerReporteIngresosBindingSource
-        Me.ReportViewer2.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer2.LocalReport.ReportEmbeddedResource = "ERP_EEA.ReporteIngresos.rdlc"
-        Me.ReportViewer2.Location = New System.Drawing.Point(-1, 1)
-        Me.ReportViewer2.Name = "ReportViewer2"
-        Me.ReportViewer2.Size = New System.Drawing.Size(802, 449)
-        Me.ReportViewer2.TabIndex = 0
+        Me.ReportViewer.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer.LocalReport.ReportEmbeddedResource = "ERP_EEA.ReporteIngresos.rdlc"
+        Me.ReportViewer.Location = New System.Drawing.Point(-1, 1)
+        Me.ReportViewer.Name = "ReportViewer"
+        Me.ReportViewer.Size = New System.Drawing.Size(802, 449)
+        Me.ReportViewer.TabIndex = 0
         '
-
         'FormReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.ReportViewer2)
+        Me.Controls.Add(Me.ReportViewer)
         Me.Name = "FormReport"
         Me.Text = "FormReport"
+        CType(Me.LeerReporteIngresosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents ReportViewer2 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents ReportViewer As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents LeerReporteIngresosBindingSource As BindingSource
 End Class

@@ -1,20 +1,21 @@
 ﻿
 Imports Microsoft.Reporting.WinForms
 Imports ERP_Negocio
-Imports ERP_Entidad.VariableGlobal
+Imports ERP_Entidad
+
 Public Class FormReporteIngresos
     Dim negReporte As New NegReporte
     Dim negGrupoIngreso As New NegGrupoIngreso
     Dim negCliente As New NegCliente
     Dim negPeriodo As New NegPeriodo
-    Dim objForm As New FormReport
+
     Dim dataSet As New DataSet
     Dim dataTableFiltro As New DataTable
     Dim dataTableData As New DataTable
     Dim verTotal = 0
     Dim columnaSeleccionada As New Boolean
     Private Sub modoInicial()
-        Me.Height = 192
+        Me.Height = 238
         Me.Width = 427
         cboClienteFiltro.SelectedValue = 0
         cboGrupoIngresoFiltro.SelectedValue = 0
@@ -28,7 +29,7 @@ Public Class FormReporteIngresos
     Private Sub cargarCombo()
 
         cboClienteFiltro.ValueMember = "IdCliente"
-        cboClienteFiltro.DisplayMember = "NombreComercial"
+        cboClienteFiltro.DisplayMember = "Descripcion"
         cboClienteFiltro.DataSource = negCliente.ObtenerLista(True, False)
 
         cboGrupoIngresoFiltro.ValueMember = "IdGrupoIngreso"
@@ -60,16 +61,20 @@ Public Class FormReporteIngresos
 
         If columnaSeleccionada Then
             dataSet = negReporte.ObtenerReporteIngresos(cboGrupoIngresoFiltro.SelectedValue, cboClienteFiltro.SelectedValue, cboPeriodoFiltro.SelectedValue, dtpFechaInicialFiltro.Value, dtpFechaFinalFiltro.Value, verTotal)
-            dataTableFiltro = dataSet.Tables(0)
-            dataTableData = dataSet.Tables(1)
-            'dsReport.Tables[0].TableName = "ReporteVentaFiltro"
-            'dsReport.Tables[1].TableName = "ReporteVenta"
-            objForm.Width = 1090
-            objForm.dsReport = dataSet
-            objForm.Text = "Reporte de Ingresos"
-            objForm.ObjParamList = New List(Of ReportParameter)
-            objForm.PathReport = VGRutaReporteIngresos
-            objForm.imageReport = True
+            'dataTableFiltro = dataSet.Tables(0)
+            'dataTableData = dataSet.Tables(1)
+
+            dataSet.Tables(0).TableName = "DtReporteIngresoFiltro"
+            dataSet.Tables(1).TableName = "DtReporteIngresoData"
+
+            Dim objForm As New FormReport With {
+                .Width = 1090,
+                .DsReport = dataSet,
+                .Text = "Reporte de Ingresos",
+                .ObjParamList = New List(Of ReportParameter),
+                .PathReport = VariableGlobal.VGRutaReporteIngresos,
+                .ImageReport = True
+            }
             objForm.Show()
 
 

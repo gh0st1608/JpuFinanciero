@@ -20,18 +20,18 @@ Public Class DatReporte
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@FechaInicio", SqlDbType.Date)
             command.Parameters.Add("@FechaFin", SqlDbType.Date)
-            command.Parameters.Add("@Tipo", SqlDbType.VarChar)
+            command.Parameters.Add("@Total", SqlDbType.VarChar)
 
             command.Parameters("@GrupoIngresoId").Value = ParGrupoIngresoId
             command.Parameters("@ClienteId").Value = ParClienteId
             command.Parameters("@PeriodoId").Value = ParPeriodoId
             command.Parameters("@FechaInicio").Value = ParFechaInicio
             command.Parameters("@FechaFin").Value = ParFechaFin
-            command.Parameters("@Tipo").Value = ParTotal
-
+            command.Parameters("@Total").Value = ParTotal
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
+            connection.Close()
             Return resultadoDS
 
         Catch ex As Exception
