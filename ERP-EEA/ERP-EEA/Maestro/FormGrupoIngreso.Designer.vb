@@ -417,6 +417,7 @@ Partial Class FormGrupoIngreso
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormGrupoIngreso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Grupo Ingreso"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

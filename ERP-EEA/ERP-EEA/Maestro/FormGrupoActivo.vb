@@ -1,42 +1,33 @@
-﻿Imports System.Globalization
-Imports ERP_Negocio
+﻿Imports ERP_Negocio
 Imports ERP_Entidad
 
-Public Class FormParametro
-
+Public Class FormGrupoActivo
 #Region "Variables"
 
-    Dim negParametro As New NegParametro
-    Dim entParametro As New EntParametro
+    Dim negGrupoActivo As New NegGrupoActivo
+    Dim entGrupoActivo As New EntGrupoActivo
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
 
 #End Region
 
-
-
 #Region "Modos de ventana"
     Private Sub ModoInicial()
         Me.Height = 307
-        txtIdParametro.Text = "0"
+        txtIdGrupoActivo.Text = "0"
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
         btnModificar.Enabled = True
         btnEliminar.Enabled = True
         cboEstado.Visible = False
-        lblEstado.Visible = False
-        cboTipoParametro.Visible = True
-
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        'Me.Height = 392
-        Me.Height = 490
+        Me.Height = 392
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
-
     End Sub
 
 
@@ -44,26 +35,25 @@ Public Class FormParametro
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negParametro.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
-        dgvParametro.DataSource = dataTable
+        dataTable = negGrupoActivo.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dgvGrupoActivo.DataSource = dataTable
     End Sub
+
 
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    Private Sub CrearParametro()
+    Private Sub CrearGrupoActivo()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entParametro.Descripcion = txtDescripcion.Text
+            entGrupoActivo.Descripcion = txtDescripcion.Text
         End If
 
-        entParametro.TipoParametro = cboTipoParametro.Text
-        entParametro.ValorParametro = Convert.ToDecimal(txtValorParametro.Text, New CultureInfo("en-US"))
-        entParametro.UsuarioCreacionId = 1
+        entGrupoActivo.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
-        operacion = negParametro.Guardar(entParametro)
+        operacion = negGrupoActivo.Guardar(entGrupoActivo)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -71,50 +61,34 @@ Public Class FormParametro
             MsgBox("No guardo bien")
         End If
     End Sub
+    Private Sub LeerGrupoActivo() 'Item
+        entGrupoActivo = negGrupoActivo.ObtenerData(dgvGrupoActivo.CurrentRow.Cells("IdGrupoActivo").Value)
 
-    Private Sub LeerParametro() 'Item
-        entParametro = negParametro.ObtenerData(dgvParametro.CurrentRow.Cells("IdParametro").Value)
+        txtIdGrupoActivo.Text = entGrupoActivo.IdGrupoActivo
+        txtDescripcion.Text = entGrupoActivo.Descripcion
 
-        txtIdParametro.Text = entParametro.IdParametro
-        txtDescripcion.Text = entParametro.Descripcion
-        cboTipoParametro.Text = entParametro.TipoParametro
-        txtValorParametro.Text = entParametro.ValorParametro
-
-        If (entParametro.IdEstadoActivo = 0) Then
+        If (entGrupoActivo.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
-            lblEstado.Visible = True
-            cboTipoParametro.Enabled = False
             cboEstado.Text = "INACTIVO"
         End If
-
-
-
     End Sub
-
-    Private Sub ActualizarParametro()
+    Private Sub ActualizarGrupoActivo()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entParametro.Descripcion = txtDescripcion.Text
+            entGrupoActivo.Descripcion = txtDescripcion.Text
         End If
 
-        entParametro.ValorParametro = txtValorParametro.Text
-        entParametro.UsuarioModificacionId = 1
+        entGrupoActivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
-            entParametro.IdEstadoActivo = 1
+            entGrupoActivo.IdEstadoActivo = 1
         Else
-            entParametro.IdEstadoActivo = 0
+            entGrupoActivo.IdEstadoActivo = 0
         End If
 
-        If (cboTipoParametro.SelectedItem = "AUXILIAR") Then
-            entParametro.TipoParametro = "AUXILIAR"
-        Else
-            entParametro.TipoParametro = "MEDICION"
-        End If
-
-        operacion = negParametro.Actualizar(entParametro)
+        operacion = negGrupoActivo.Actualizar(entGrupoActivo)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -122,11 +96,11 @@ Public Class FormParametro
             MsgBox("No guardo bien")
         End If
     End Sub
-    Private Sub EliminarParametro()
-        entParametro.IdParametro = Int(dgvParametro.CurrentRow.Cells("IdParametro").Value)
-        entParametro.UsuarioModificacionId = 1
+    Private Sub EliminarGrupoActivo()
+        entGrupoActivo.IdGrupoActivo = Int(dgvGrupoActivo.CurrentRow.Cells("IDGrupoActivo").Value)
+        entGrupoActivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        operacion = negParametro.Eliminar(entParametro)
+        operacion = negGrupoActivo.Eliminar(entGrupoActivo)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -137,30 +111,30 @@ Public Class FormParametro
 #End Region
 
 #Region "Funciones del formulario"
-    Private Sub FormGrupoIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormGrupoActivo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ModoInicial()
     End Sub
 
-    Private Sub FormGrupoIngreso_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub FormGrupoActivo_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F2 Then
             ModoRegistro()
         End If
         If e.KeyCode = Keys.F5 Then
-            LeerParametro()
+            LeerGrupoActivo()
             ModoRegistro()
         End If
         If e.KeyCode = Keys.Delete Then
-            EliminarParametro()
+            EliminarGrupoActivo()
         End If
     End Sub
 #End Region
 
 #Region "Funciones de elementos del formulario"
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If txtIdParametro.Text = "0" Then
-            CrearParametro()
+        If txtIdGrupoActivo.Text = "0" Then
+            CrearGrupoActivo()
         Else
-            ActualizarParametro()
+            ActualizarGrupoActivo()
         End If
         ModoInicial()
     End Sub
@@ -170,13 +144,12 @@ Public Class FormParametro
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        LeerParametro()
+        LeerGrupoActivo()
         ModoRegistro()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        EliminarParametro()
-        ModoInicial()
+        EliminarGrupoActivo()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click

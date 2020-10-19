@@ -73,7 +73,7 @@ Public Class DatSubGrupoEgreso
         End Try
     End Function
 
-    Public Function LeerSubGrupoEgreso(ByVal IdSubGrupoEgreso As Integer, ByVal FiltroCombo As Integer) As DataTable
+    Public Function LeerSubGrupoEgreso(ByVal IdSubGrupoEgreso As Integer, ByVal GrupoEgresoId As Integer) As DataTable
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
@@ -85,7 +85,7 @@ Public Class DatSubGrupoEgreso
             command.Parameters.Add("@IdSubGrupoEgreso", SqlDbType.Int)
             command.Parameters("@IdSubGrupoEgreso").Value = IdSubGrupoEgreso
             command.Parameters.Add("@FiltroCombo", SqlDbType.Int)
-            command.Parameters("@FiltroCombo").Value = FiltroCombo
+            command.Parameters("@FiltroCombo").Value = GrupoEgresoId
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)

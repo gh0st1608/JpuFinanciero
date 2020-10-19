@@ -81,7 +81,7 @@ Public Class FormContacto
             entContacto.Celular = txtCelular.Text
         End If
 
-        entContacto.UsuarioCreacionId = 1
+        entContacto.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negContacto.Guardar(entContacto)
 
@@ -137,7 +137,7 @@ Public Class FormContacto
             entContacto.Celular = txtCelular.Text
         End If
 
-        entContacto.UsuarioModificacionId = 1
+        entContacto.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
             entContacto.IdEstadoActivo = 1
@@ -156,7 +156,7 @@ Public Class FormContacto
     End Sub
     Private Sub EliminarContacto()
         entContacto.IdContacto = CInt(dgvContacto.CurrentRow.Cells("IdContacto").Value)
-        entContacto.UsuarioModificacionId = 1
+        entContacto.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negContacto.Eliminar(entContacto)
 

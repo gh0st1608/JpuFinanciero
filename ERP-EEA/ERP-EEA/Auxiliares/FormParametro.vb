@@ -1,35 +1,42 @@
-﻿Imports ERP_Negocio
+﻿Imports System.Globalization
+Imports ERP_Negocio
 Imports ERP_Entidad
 
-Public Class FormTipoCliente
+Public Class FormParametro
 
 #Region "Variables"
 
-    Dim negTipoCliente As New NegTipoCliente
-    Dim entTipoCliente As New EntTipoCliente
+    Dim negParametro As New NegParametro
+    Dim entParametro As New EntParametro
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
 
 #End Region
 
+
+
 #Region "Modos de ventana"
     Private Sub ModoInicial()
         Me.Height = 307
-        txtIdTipoCliente.Text = "0"
+        txtIdParametro.Text = "0"
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
         btnModificar.Enabled = True
         btnEliminar.Enabled = True
-        cboEstado.Visible = false
+        cboEstado.Visible = False
+        lblEstado.Visible = False
+        cboTipoParametro.Visible = True
 
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 392
+        'Me.Height = 392
+        Me.Height = 490
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+
     End Sub
 
 
@@ -37,25 +44,26 @@ Public Class FormTipoCliente
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negTipoCliente.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
-        dgvTipoCliente.DataSource = dataTable
+        dataTable = negParametro.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dgvParametro.DataSource = dataTable
     End Sub
-
 
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    Private Sub CrearTipoCliente()
+    Private Sub CrearParametro()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entTipoCliente.Descripcion = txtDescripcion.Text
+            entParametro.Descripcion = txtDescripcion.Text
         End If
 
-        entTipoCliente.UsuarioCreacionId = VariableGlobal.VGIDUsuario
+        entParametro.TipoParametro = cboTipoParametro.Text
+        entParametro.ValorParametro = Convert.ToDecimal(txtValorParametro.Text, New CultureInfo("en-US"))
+        entParametro.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
-        operacion = negTipoCliente.Guardar(entTipoCliente)
+        operacion = negParametro.Guardar(entParametro)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -63,35 +71,50 @@ Public Class FormTipoCliente
             MsgBox("No guardo bien")
         End If
     End Sub
-    Private Sub LeerTipoCliente() 'Item
-        entTipoCliente = negTipoCliente.ObtenerData(dgvTipoCliente.CurrentRow.Cells("IdTipoCliente").Value)
 
-        txtIdTipoCliente.Text = entTipoCliente.IdTipoCliente
-        txtDescripcion.Text = entTipoCliente.Descripcion
+    Private Sub LeerParametro() 'Item
+        entParametro = negParametro.ObtenerData(dgvParametro.CurrentRow.Cells("IdParametro").Value)
 
-        If (entTipoCliente.IdEstadoActivo = 0) Then
+        txtIdParametro.Text = entParametro.IdParametro
+        txtDescripcion.Text = entParametro.Descripcion
+        cboTipoParametro.Text = entParametro.TipoParametro
+        txtValorParametro.Text = entParametro.ValorParametro
+
+        If (entParametro.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
+            lblEstado.Visible = True
+            cboTipoParametro.Enabled = False
             cboEstado.Text = "INACTIVO"
         End If
+
+
+
     End Sub
-    Private Sub ActualizarTipoCliente()
+
+    Private Sub ActualizarParametro()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
-            entTipoCliente.Descripcion = txtDescripcion.Text
+            entParametro.Descripcion = txtDescripcion.Text
         End If
 
-        entTipoCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
+        entParametro.ValorParametro = txtValorParametro.Text
+        entParametro.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
-            entTipoCliente.IdEstadoActivo = 1
-
+            entParametro.IdEstadoActivo = 1
         Else
-            entTipoCliente.IdEstadoActivo = 0
+            entParametro.IdEstadoActivo = 0
         End If
 
-        operacion = negTipoCliente.Actualizar(entTipoCliente)
+        If (cboTipoParametro.SelectedItem = "AUXILIAR") Then
+            entParametro.TipoParametro = "AUXILIAR"
+        Else
+            entParametro.TipoParametro = "MEDICION"
+        End If
+
+        operacion = negParametro.Actualizar(entParametro)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -99,11 +122,11 @@ Public Class FormTipoCliente
             MsgBox("No guardo bien")
         End If
     End Sub
-    Private Sub EliminarTipoCliente()
-        entTipoCliente.IdTipoCliente = Int(dgvTipoCliente.CurrentRow.Cells("IdTipoCliente").Value)
-        entTipoCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
+    Private Sub EliminarParametro()
+        entParametro.IdParametro = Int(dgvParametro.CurrentRow.Cells("IdParametro").Value)
+        entParametro.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        operacion = negTipoCliente.Eliminar(entTipoCliente)
+        operacion = negParametro.Eliminar(entParametro)
 
         If operacion Then
             MsgBox("Guardo con exito")
@@ -114,30 +137,30 @@ Public Class FormTipoCliente
 #End Region
 
 #Region "Funciones del formulario"
-    Private Sub FormTipoCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormGrupoIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ModoInicial()
     End Sub
 
-    Private Sub FormTipoCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub FormGrupoIngreso_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F2 Then
             ModoRegistro()
         End If
         If e.KeyCode = Keys.F5 Then
-            LeerTipoCliente()
+            LeerParametro()
             ModoRegistro()
         End If
         If e.KeyCode = Keys.Delete Then
-            EliminarTipoCliente()
+            EliminarParametro()
         End If
     End Sub
 #End Region
 
 #Region "Funciones de elementos del formulario"
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        If txtIdTipoCliente.Text = "0" Then
-            CrearTipoCliente()
+        If txtIdParametro.Text = "0" Then
+            CrearParametro()
         Else
-            ActualizarTipoCliente()
+            ActualizarParametro()
         End If
         ModoInicial()
     End Sub
@@ -147,12 +170,12 @@ Public Class FormTipoCliente
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        LeerTipoCliente()
+        LeerParametro()
         ModoRegistro()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        EliminarTipoCliente()
+        EliminarParametro()
         ModoInicial()
     End Sub
 

@@ -1,87 +1,104 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
+Imports System.IO
+Imports System.Collections.Generic
+Imports System.Text
+Imports System.Threading.Tasks
 
 Imports ERP_Entidad
 
-Public Class DatGrupoIngreso
+Public Class DatGrupoPatrimonio
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
 
-    Public Function CrearGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function CrearGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("CrearGrupoIngreso", connection)
+            command = New SqlCommand("CrearGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
+
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters.Add("@Cuenta", SqlDbType.Int)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
-            command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
+
+            command.Parameters("@Descripcion").Value = objGrupoPatrimonio.Descripcion
+            command.Parameters("@Cuenta").Value = objGrupoPatrimonio.Cuenta
             command.Parameters("@UsuarioCreacionId").Value = 1
+
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoActivo")
             connection.Close()
             Return 0 'false
         End Try
     End Function
 
-    Public Function ActualizarGrupoIngreso(ByVal objGrupoIngreso As EntGrupoIngreso) As Integer
+    Public Function ActualizarGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("ActualizarGrupoIngreso", connection)
+            command = New SqlCommand("ActualizarGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+            command.Parameters.Add("@IdGrupoPatrimonio", SqlDbType.Int)
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
+            command.Parameters.Add("@Cuenta", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
             command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
-            command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
-            command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
-            command.Parameters("@EstadoActivo").Value = objGrupoIngreso.IdEstadoActivo
+
+            command.Parameters("@IdGrupoPatrimonio").Value = objGrupoPatrimonio.IdGrupoPatrimonio
+            command.Parameters("@Descripcion").Value = objGrupoPatrimonio.Descripcion
+            command.Parameters("@Cuenta").Value = objGrupoPatrimonio.Cuenta
+            command.Parameters("@UsuarioModificacionId").Value = objGrupoPatrimonio.UsuarioModificacionId
+            command.Parameters("@EstadoActivo").Value = objGrupoPatrimonio.IdEstadoActivo
+
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
             connection.Close()
             Return 0 'false
         End Try
 
     End Function
 
-    Public Function EliminarGrupoIngreso(ByVal objGrupoIngreso) As Integer
+    Public Function EliminarGrupoPatrimonio(ByVal objGrupoPatrimonio) As Integer
         Dim command As SqlCommand
         Try
             connection.Open()
-            command = New SqlCommand("EliminarGrupoIngreso", connection)
+            command = New SqlCommand("EliminarGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
+
+            command.Parameters.Add("@IdGrupoPatrimonio", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
-            command.Parameters("@IdGrupoIngreso").Value = objGrupoIngreso.IdGrupoIngreso
-            command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
+
+            command.Parameters("@IdGrupoPatrimonio").Value = objGrupoPatrimonio.IdGrupoPatrimonio
+            command.Parameters("@UsuarioModificacionId").Value = objGrupoPatrimonio.UsuarioModificacionId
+
             command.ExecuteReader()
             connection.Close()
             Return 1 'true
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
             connection.Close()
             Return 0 'false
         End Try
+
     End Function
 
-    Public Function LeerGrupoIngreso(ByVal IdGrupoIngreso As Integer, ByVal Descripcion As String) As DataTable
+    Public Function LeerGrupoPatrimonio(ByVal IdGrupoPatrimonio As Integer, ByVal Descripcion As String) As DataTable
         Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
         Try
             connection.Open()
-            command = New SqlCommand("LeerGrupoIngreso", connection)
+            command = New SqlCommand("LeerGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
-            command.Parameters.Add("@IdGrupoIngreso", SqlDbType.Int)
-            command.Parameters("@IdGrupoIngreso").Value = IdGrupoIngreso
+            command.Parameters.Add("@IdGrupoPatrimonio", SqlDbType.Int)
+            command.Parameters("@IdGrupoPatrimonio").Value = IdGrupoPatrimonio
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters("@Descripcion").Value = Descripcion
             adapter = New SqlDataAdapter(command)
@@ -90,7 +107,7 @@ Public Class DatGrupoIngreso
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoIngreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
             connection.Close()
             Return Nothing
         End Try

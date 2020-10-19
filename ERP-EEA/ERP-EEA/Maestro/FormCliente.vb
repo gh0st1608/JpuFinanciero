@@ -88,7 +88,7 @@ Public Class FormCliente
 
 
 
-        entCliente.UsuarioCreacionId = 1
+        entCliente.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negCliente.Guardar(entCliente)
 
@@ -154,7 +154,7 @@ Public Class FormCliente
             entCliente.NumeroContacto = txtNumeroContacto.Text
         End If
 
-        entCliente.UsuarioModificacionId = 1
+        entCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
             entCliente.IdEstadoActivo = 1
@@ -173,7 +173,7 @@ Public Class FormCliente
     End Sub
     Private Sub EliminarCliente()
         entCliente.IdCliente = Int(dgvCliente.CurrentRow.Cells("IdCliente").Value)
-        entCliente.UsuarioModificacionId = 1
+        entCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negCliente.Eliminar(entCliente)
 

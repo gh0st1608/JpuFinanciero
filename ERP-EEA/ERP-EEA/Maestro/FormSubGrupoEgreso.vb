@@ -66,7 +66,7 @@ Public Class FormSubGrupoEgreso
             entSubGrupoEgreso.ItemSubGrupoEgreso = txtDescripcion.Text
         End If
 
-        entSubGrupoEgreso.UsuarioCreacionId = 1
+        entSubGrupoEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negSubGrupoEgreso.Guardar(entSubGrupoEgreso)
 
@@ -104,7 +104,7 @@ Public Class FormSubGrupoEgreso
             entSubGrupoEgreso.ItemSubGrupoEgreso = txtDescripcion.Text
         End If
 
-        entSubGrupoEgreso.UsuarioModificacionId = 1
+        entSubGrupoEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
             entSubGrupoEgreso.IdEstadoActivo = 1
@@ -120,7 +120,7 @@ Public Class FormSubGrupoEgreso
     End Sub
     Private Sub EliminarSubGrupoEgreso()
         entSubGrupoEgreso.IdSubGrupoEgreso = Int(dgvSubGrupoEgreso.CurrentRow.Cells("IDSubGrupoEgreso").Value)
-        entSubGrupoEgreso.UsuarioModificacionId = 1
+        entSubGrupoEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negSubGrupoEgreso.Eliminar(entSubGrupoEgreso)
 

@@ -53,7 +53,7 @@ Public Class FormGrupoIngreso
             entGrupoIngreso.Descripcion = txtDescripcion.Text
         End If
 
-        entGrupoIngreso.UsuarioCreacionId = 1
+        entGrupoIngreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negGrupoIngreso.Guardar(entGrupoIngreso)
 
@@ -82,7 +82,7 @@ Public Class FormGrupoIngreso
             entGrupoIngreso.Descripcion = txtDescripcion.Text
         End If
 
-        entGrupoIngreso.UsuarioModificacionId = 1
+        entGrupoIngreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
             entGrupoIngreso.IdEstadoActivo = 1
@@ -100,7 +100,7 @@ Public Class FormGrupoIngreso
     End Sub
     Private Sub EliminarGrupoIngreso()
         entGrupoIngreso.IdGrupoIngreso = Int(dgvGrupoIngreso.CurrentRow.Cells("IDGrupoIngreso").Value)
-        entGrupoIngreso.UsuarioModificacionId = 1
+        entGrupoIngreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negGrupoIngreso.Eliminar(entGrupoIngreso)
 

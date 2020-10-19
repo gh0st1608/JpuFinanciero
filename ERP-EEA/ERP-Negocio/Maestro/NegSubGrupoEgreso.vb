@@ -26,14 +26,13 @@ Public Class NegSubGrupoEgreso
 
     End Function
 
-    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean, ByVal FiltroCombo As Integer) As List(Of EntSubGrupoEgreso)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean, ByVal GrupoEgresoId As Integer) As List(Of EntSubGrupoEgreso)
 
         Dim result = New List(Of EntSubGrupoEgreso)
         Dim resultadoElemento As EntSubGrupoEgreso
         Dim Dt As DataTable
 
-
-        Dt = ObjSubGrupoEgresoDat.LeerSubGrupoEgreso(0, FiltroCombo)
+        Dt = ObjSubGrupoEgresoDat.LeerSubGrupoEgreso(0, GrupoEgresoId)
 
         If (Dt.Rows.Count() > 0) Then
 

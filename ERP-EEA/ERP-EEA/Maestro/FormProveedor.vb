@@ -85,7 +85,7 @@ Public Class FormProveedor
         entProveedor.MedicionId = cboMedicion.SelectedValue
         entProveedor.Tarifa = txtTarifa.Text
 
-        entProveedor.UsuarioCreacionId = 1
+        entProveedor.UsuarioCreacionId = VariableGlobal.VGIDUsuario
         operacion = negProveedor.Guardar(entProveedor)
 
         If operacion Then
@@ -136,7 +136,7 @@ Public Class FormProveedor
         entProveedor.MedicionId = cboMedicion.SelectedValue
         entProveedor.Tarifa = txtTarifa.Text
 
-        entProveedor.UsuarioModificacionId = 1
+        entProveedor.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         If (cboEstado.SelectedItem = "ACTIVO") Then
             entProveedor.IdEstadoActivo = 1
@@ -152,7 +152,7 @@ Public Class FormProveedor
     End Sub
     Private Sub EliminarProveedor()
         entProveedor.IdProveedor = Int(dgvProveedor.CurrentRow.Cells("IdProveedor").Value)
-        entProveedor.UsuarioModificacionId = 1
+        entProveedor.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negProveedor.Eliminar(entProveedor)
 
