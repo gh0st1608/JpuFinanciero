@@ -26,18 +26,31 @@ Partial Class FormMenu
         Me.MaestrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParametroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TipoClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GrupoIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GrupoEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubGrupoEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GrupoActivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GrupoPasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GrupoPatrimonioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistroDeEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IngresosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BalanceGeneralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PatrimonioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RelacionDebeHaberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MaestroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.IngresoToolStripMenuItem, Me.RegistroDeEgresoToolStripMenuItem, Me.ReportesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.BalanceGeneralToolStripMenuItem, Me.MaestroToolStripMenuItem, Me.IngresoToolStripMenuItem, Me.RegistroDeEgresoToolStripMenuItem, Me.ReportesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -46,34 +59,58 @@ Partial Class FormMenu
         '
         'MaestrosToolStripMenuItem
         '
-        Me.MaestrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParametroToolStripMenuItem, Me.TipoClienteToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.ProveedorToolStripMenuItem})
+        Me.MaestrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParametroToolStripMenuItem, Me.TipoClienteToolStripMenuItem, Me.GrupoIngresoToolStripMenuItem, Me.GrupoEgresoToolStripMenuItem, Me.SubGrupoEgresoToolStripMenuItem, Me.GrupoActivoToolStripMenuItem, Me.GrupoPasivoToolStripMenuItem, Me.GrupoPatrimonioToolStripMenuItem})
         Me.MaestrosToolStripMenuItem.Name = "MaestrosToolStripMenuItem"
-        Me.MaestrosToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
-        Me.MaestrosToolStripMenuItem.Text = "Maestros"
+        Me.MaestrosToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
+        Me.MaestrosToolStripMenuItem.Text = "Mant. Tablas"
         '
         'ParametroToolStripMenuItem
         '
         Me.ParametroToolStripMenuItem.Name = "ParametroToolStripMenuItem"
-        Me.ParametroToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ParametroToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ParametroToolStripMenuItem.Text = "Parámetro"
         '
         'TipoClienteToolStripMenuItem
         '
         Me.TipoClienteToolStripMenuItem.Name = "TipoClienteToolStripMenuItem"
-        Me.TipoClienteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.TipoClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TipoClienteToolStripMenuItem.Text = "Tipo Cliente"
         '
-        'ClienteToolStripMenuItem
+        'GrupoIngresoToolStripMenuItem
         '
-        Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
-        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
-        Me.ClienteToolStripMenuItem.Text = "Cliente"
+        Me.GrupoIngresoToolStripMenuItem.Name = "GrupoIngresoToolStripMenuItem"
+        Me.GrupoIngresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GrupoIngresoToolStripMenuItem.Text = "Grupo Ingreso"
         '
-        'ProveedorToolStripMenuItem
+        'GrupoEgresoToolStripMenuItem
         '
-        Me.ProveedorToolStripMenuItem.Name = "ProveedorToolStripMenuItem"
-        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
-        Me.ProveedorToolStripMenuItem.Text = "Proveedor"
+        Me.GrupoEgresoToolStripMenuItem.Name = "GrupoEgresoToolStripMenuItem"
+        Me.GrupoEgresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GrupoEgresoToolStripMenuItem.Text = "Grupo Egreso"
+        '
+        'SubGrupoEgresoToolStripMenuItem
+        '
+        Me.SubGrupoEgresoToolStripMenuItem.Name = "SubGrupoEgresoToolStripMenuItem"
+        Me.SubGrupoEgresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SubGrupoEgresoToolStripMenuItem.Text = "Sub-Grupo Egreso"
+        '
+        'GrupoActivoToolStripMenuItem
+        '
+        Me.GrupoActivoToolStripMenuItem.Name = "GrupoActivoToolStripMenuItem"
+        Me.GrupoActivoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GrupoActivoToolStripMenuItem.Text = "Grupo Activo"
+        '
+        'GrupoPasivoToolStripMenuItem
+        '
+        Me.GrupoPasivoToolStripMenuItem.Name = "GrupoPasivoToolStripMenuItem"
+        Me.GrupoPasivoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GrupoPasivoToolStripMenuItem.Text = "Grupo Pasivo"
+        '
+        'GrupoPatrimonioToolStripMenuItem
+        '
+        Me.GrupoPatrimonioToolStripMenuItem.Name = "GrupoPatrimonioToolStripMenuItem"
+        Me.GrupoPatrimonioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GrupoPatrimonioToolStripMenuItem.Text = "Grupo Patrimonio"
         '
         'IngresoToolStripMenuItem
         '
@@ -89,16 +126,72 @@ Partial Class FormMenu
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteIngresoToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
-        'IngresosToolStripMenuItem
+        'ReporteIngresoToolStripMenuItem
         '
-        Me.IngresosToolStripMenuItem.Name = "IngresosToolStripMenuItem"
-        Me.IngresosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.IngresosToolStripMenuItem.Text = "Ingresos"
+        Me.ReporteIngresoToolStripMenuItem.Name = "ReporteIngresoToolStripMenuItem"
+        Me.ReporteIngresoToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.ReporteIngresoToolStripMenuItem.Text = "Reporte Ingreso"
+        '
+        'BalanceGeneralToolStripMenuItem
+        '
+        Me.BalanceGeneralToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivoToolStripMenuItem, Me.PasivoToolStripMenuItem, Me.PatrimonioToolStripMenuItem, Me.RelacionDebeHaberToolStripMenuItem})
+        Me.BalanceGeneralToolStripMenuItem.Name = "BalanceGeneralToolStripMenuItem"
+        Me.BalanceGeneralToolStripMenuItem.Size = New System.Drawing.Size(153, 20)
+        Me.BalanceGeneralToolStripMenuItem.Text = "Mant. de Balance General"
+        '
+        'ActivoToolStripMenuItem
+        '
+        Me.ActivoToolStripMenuItem.Name = "ActivoToolStripMenuItem"
+        Me.ActivoToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.ActivoToolStripMenuItem.Text = "Activo"
+        '
+        'PasivoToolStripMenuItem
+        '
+        Me.PasivoToolStripMenuItem.Name = "PasivoToolStripMenuItem"
+        Me.PasivoToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.PasivoToolStripMenuItem.Text = "Pasivo"
+        '
+        'PatrimonioToolStripMenuItem
+        '
+        Me.PatrimonioToolStripMenuItem.Name = "PatrimonioToolStripMenuItem"
+        Me.PatrimonioToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.PatrimonioToolStripMenuItem.Text = "Patrimonio"
+        '
+        'RelacionDebeHaberToolStripMenuItem
+        '
+        Me.RelacionDebeHaberToolStripMenuItem.Name = "RelacionDebeHaberToolStripMenuItem"
+        Me.RelacionDebeHaberToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.RelacionDebeHaberToolStripMenuItem.Text = "Relacion Debe-Haber"
+        '
+        'MaestroToolStripMenuItem
+        '
+        Me.MaestroToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.ProveedorToolStripMenuItem})
+        Me.MaestroToolStripMenuItem.Name = "MaestroToolStripMenuItem"
+        Me.MaestroToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.MaestroToolStripMenuItem.Text = "Maestro"
+        '
+        'UsuarioToolStripMenuItem
+        '
+        Me.UsuarioToolStripMenuItem.Name = "UsuarioToolStripMenuItem"
+        Me.UsuarioToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UsuarioToolStripMenuItem.Text = "Usuario"
+        '
+        'ClienteToolStripMenuItem
+        '
+        Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
+        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClienteToolStripMenuItem.Text = "Cliente"
+        '
+        'ProveedorToolStripMenuItem
+        '
+        Me.ProveedorToolStripMenuItem.Name = "ProveedorToolStripMenuItem"
+        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProveedorToolStripMenuItem.Text = "Proveedor"
         '
         'FormMenu
         '
@@ -122,9 +215,22 @@ Partial Class FormMenu
     Friend WithEvents IngresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ParametroToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TipoClienteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClienteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProveedorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GrupoIngresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GrupoEgresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SubGrupoEgresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroDeEgresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents IngresosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteIngresoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GrupoActivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GrupoPasivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GrupoPatrimonioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BalanceGeneralToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PasivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PatrimonioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RelacionDebeHaberToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MaestroToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UsuarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProveedorToolStripMenuItem As ToolStripMenuItem
 End Class
