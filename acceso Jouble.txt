@@ -1,2 +1,0 @@
-correo: egalindoa@uni.pe
-pass: santiago123
