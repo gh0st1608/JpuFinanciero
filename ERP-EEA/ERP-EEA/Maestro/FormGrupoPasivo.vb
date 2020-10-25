@@ -3,98 +3,110 @@ Imports ERP_Entidad
 
 Public Class formGrupoPasivo
 #Region "Variables"
-
     Dim negGrupoPasivo As New NegGrupoPasivo
     Dim entGrupoPasivo As New EntGrupoPasivo
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 307
+        Me.Height = 305
         txtIdGrupoPasivo.Text = "0"
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
         cboEstado.Visible = False
+        lbEstado.Visible = False
+        dgvGrupoPasivo.Enabled = False
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 392
+        Me.Height = 416
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+        dgvGrupoPasivo.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negGrupoPasivo.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negGrupoPasivo.ObtenerTabla()
         dgvGrupoPasivo.DataSource = dataTable
+        If dgvGrupoPasivo.Rows.Count > 0 Then
+            dgvGrupoPasivo.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearGrupoPasivo()
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entGrupoPasivo.Descripcion = txtDescripcion.Text
         End If
-
+        If cbTipo.SelectedIndex = 0 Then
+            MsgBox("Escoger tipo", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
+        Else
+            entGrupoPasivo.IdTipo = cbTipo.SelectedIndex
+        End If
+        entGrupoPasivo.Cuenta = 0
         entGrupoPasivo.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negGrupoPasivo.Guardar(entGrupoPasivo)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Grupo Pasivo")
         End If
     End Sub
-    Private Sub LeerGrupoPasivo() 'Item
-        entGrupoPasivo = negGrupoPasivo.ObtenerData(dgvGrupoPasivo.CurrentRow.Cells("IdGrupoPasivo").Value)
 
+    Private Sub LeerGrupoPasivo()
+        entGrupoPasivo = negGrupoPasivo.ObtenerData(dgvGrupoPasivo.CurrentRow.Cells("IdGrupoPasivo").Value)
         txtIdGrupoPasivo.Text = entGrupoPasivo.IdGrupoPasivo
         txtDescripcion.Text = entGrupoPasivo.Descripcion
+        cbTipo.SelectedIndex = entGrupoPasivo.IdTipo
 
         If (entGrupoPasivo.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
             cboEstado.Text = "INACTIVO"
         End If
     End Sub
-    Private Sub ActualizarGrupoPasivo()
 
+    Private Sub ActualizarGrupoPasivo()
         If txtDescripcion.Text = "" Then
             MsgBox("Ingresar descripcion")
             Exit Sub
         Else
             entGrupoPasivo.Descripcion = txtDescripcion.Text
         End If
-
+        If cbTipo.SelectedIndex = 0 Then
+            MsgBox("Escoger tipo", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
+        Else
+            entGrupoPasivo.IdTipo = cbTipo.SelectedIndex
+        End If
         entGrupoPasivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        If (cboEstado.SelectedItem = "ACTIVO") Then
-            entGrupoPasivo.IdEstadoActivo = 1
-        Else
+        If (cboEstado.SelectedItem = "INACTIVO") Then
             entGrupoPasivo.IdEstadoActivo = 0
+        Else
+            entGrupoPasivo.IdEstadoActivo = 1
         End If
 
         operacion = negGrupoPasivo.Actualizar(entGrupoPasivo)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Grupo Pasivo")
         End If
     End Sub
     Private Sub EliminarGrupoPasivo()
@@ -102,11 +114,10 @@ Public Class formGrupoPasivo
         entGrupoPasivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negGrupoPasivo.Eliminar(entGrupoPasivo)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Grupo Pasivo")
         End If
     End Sub
 #End Region
@@ -126,6 +137,7 @@ Public Class formGrupoPasivo
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarGrupoPasivo()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -137,7 +149,9 @@ Public Class formGrupoPasivo
         Else
             ActualizarGrupoPasivo()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -151,11 +165,11 @@ Public Class formGrupoPasivo
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarGrupoPasivo()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         ModoInicial()
     End Sub
 #End Region
-
 End Class

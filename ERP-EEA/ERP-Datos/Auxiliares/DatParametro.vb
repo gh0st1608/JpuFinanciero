@@ -4,9 +4,8 @@ Imports ERP_Entidad
 
 Public Class DatParametro
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearParametro(ByVal objParametro As EntParametro) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearParametro(ByVal objParametro As EntParametro) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearParametro", connection)
@@ -21,16 +20,15 @@ Public Class DatParametro
             command.Parameters("@UsuarioCreacionId").Value = objParametro.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Parametro")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarParametro(ByVal objParametro As EntParametro) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarParametro(ByVal objParametro As EntParametro) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarParametro", connection)
@@ -49,16 +47,15 @@ Public Class DatParametro
             command.Parameters("@EstadoActivo").Value = objParametro.IdEstadoActivo
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Parametro")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarParametro(ByVal objParametro As EntParametro) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarParametro(ByVal objParametro As EntParametro) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarParametro", connection)
@@ -69,16 +66,15 @@ Public Class DatParametro
             command.Parameters("@UsuarioModificacionId").Value = objParametro.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Parametro")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerParametro(ByVal IdParametro As Integer, ByVal Descripcion As String, ByVal TipoParametro As String) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -98,7 +94,7 @@ Public Class DatParametro
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Parametro")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Parametro")
             connection.Close()
             Return Nothing
         End Try

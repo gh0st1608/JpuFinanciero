@@ -4,9 +4,8 @@ Imports System.Configuration
 
 Public Class DatIngreso
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearIngreso(ByVal objIngreso As EntIngreso) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearIngreso(ByVal objIngreso As EntIngreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearIngreso", connection)
@@ -35,16 +34,15 @@ Public Class DatIngreso
             command.Parameters("@UsuarioCreacionId").Value = objIngreso.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Ingreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Ingreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarIngreso(ByVal objIngreso As EntIngreso) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarIngreso(ByVal objIngreso As EntIngreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarIngreso", connection)
@@ -77,16 +75,15 @@ Public Class DatIngreso
             command.Parameters("@UsuarioModificacionId").Value = objIngreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Ingreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Ingreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarIngreso(ByVal objIngreso) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarIngreso(ByVal objIngreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarIngreso", connection)
@@ -97,16 +94,15 @@ Public Class DatIngreso
             command.Parameters("@UsuarioModificacionId").Value = objIngreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Ingreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Ingreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerIngreso(ByVal IdIngreso As Integer, ByVal PeriodoId As Integer, ByVal ClienteId As Integer) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -126,7 +122,7 @@ Public Class DatIngreso
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Ingreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Ingreso")
             connection.Close()
             Return Nothing
         End Try

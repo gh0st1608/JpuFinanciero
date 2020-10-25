@@ -4,9 +4,7 @@ Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormIngreso
-
 #Region "Variables"
-
     Dim negIngreso As New NegIngreso
     Dim entIngreso As New EntIngreso
     Dim entGrupoIngreso As New EntGrupoIngreso
@@ -25,7 +23,6 @@ Public Class FormIngreso
     Dim cantIngresos As Integer
     Dim cantPagos As Integer
     Dim blnActualizar As Boolean = False
-
 #End Region
 
 #Region "Modos de ventana"
@@ -129,7 +126,6 @@ Public Class FormIngreso
     End Sub
 
     Private Sub CargarCombo()
-
         cboTipoIngreso.ValueMember = "IdGrupoIngreso"
         cboTipoIngreso.DisplayMember = "Descripcion"
         cboTipoIngreso.DataSource = negGrupoIngreso.ObtenerLista(False, True)
@@ -213,7 +209,7 @@ Public Class FormIngreso
         Else
             entIngreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text, New CultureInfo("en-US"))
         End If
-        entIngreso.UsuarioCreacionId = 1
+        entIngreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         entIngreso.Deuda = entIngreso.ImporteProvision
 
@@ -279,7 +275,7 @@ Public Class FormIngreso
 
         entIngreso.Deuda = respaldo
 
-        entIngreso.UsuarioModificacionId = 1
+        entIngreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negIngreso.Actualizar(entIngreso)
 
@@ -297,7 +293,7 @@ Public Class FormIngreso
     End Sub
     Private Sub EliminarIngreso()
         entIngreso.IdIngreso = dgvIngreso.CurrentRow.Cells("IdIngreso").Value
-        entIngreso.UsuarioModificacionId = 1
+        entIngreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negIngreso.Eliminar(entIngreso)
 
         If operacion Then
@@ -334,7 +330,7 @@ Public Class FormIngreso
 
         respaldo = Convert.ToDecimal(entIngreso.Deuda)
 
-        entIngreso.UsuarioCreacionId = 1
+        entIngreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
 
         operacion = negPago.Guardar(entPago)
@@ -405,7 +401,7 @@ Public Class FormIngreso
         entPago.NroOperacion = txtNroOperacion.Text
         respaldo = entIngreso.Deuda - entPago.ImporteCancelado
 
-        entPago.UsuarioModificacionId = 1
+        entPago.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negPago.Actualizar(entPago)
 
@@ -418,7 +414,7 @@ Public Class FormIngreso
     End Sub
     Private Sub EliminarPago()
         entPago.IdPago = dgvPago.CurrentRow.Cells("IdPago").Value
-        entPago.UsuarioModificacionId = 1
+        entPago.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negPago.Eliminar(entPago)
 
         If operacion Then

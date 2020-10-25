@@ -82,7 +82,7 @@ Partial Class FormPasivo
         Me.dgvPasivo.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvPasivo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPasivo.EnableHeadersVisualStyles = False
-        Me.dgvPasivo.Location = New System.Drawing.Point(3, 33)
+        Me.dgvPasivo.Location = New System.Drawing.Point(13, 46)
         Me.dgvPasivo.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvPasivo.Name = "dgvPasivo"
         Me.dgvPasivo.ReadOnly = True
@@ -100,7 +100,7 @@ Partial Class FormPasivo
         Me.dgvPasivo.RowTemplate.Height = 18
         Me.dgvPasivo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvPasivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPasivo.Size = New System.Drawing.Size(425, 190)
+        Me.dgvPasivo.Size = New System.Drawing.Size(425, 200)
         Me.dgvPasivo.TabIndex = 497
         Me.dgvPasivo.TabStop = False
         '
@@ -138,7 +138,7 @@ Partial Class FormPasivo
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.ReadOnly = True
         Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Descripcion.Width = 200
+        Me.Descripcion.Width = 193
         '
         'Monto
         '
@@ -155,6 +155,7 @@ Partial Class FormPasivo
         Me.PeriodoId.HeaderText = "PERIODO"
         Me.PeriodoId.Name = "PeriodoId"
         Me.PeriodoId.ReadOnly = True
+        Me.PeriodoId.Width = 90
         '
         'btnModificar
         '
@@ -164,11 +165,10 @@ Partial Class FormPasivo
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(228, 2)
+        Me.btnModificar.Location = New System.Drawing.Point(238, 15)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 495
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 3
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -181,10 +181,10 @@ Partial Class FormPasivo
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(147, 2)
+        Me.btnNuevo.Location = New System.Drawing.Point(157, 15)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 494
+        Me.btnNuevo.TabIndex = 2
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -192,15 +192,15 @@ Partial Class FormPasivo
         'cbPeriodoFiltro
         '
         Me.cbPeriodoFiltro.FormattingEnabled = True
-        Me.cbPeriodoFiltro.Location = New System.Drawing.Point(51, 6)
+        Me.cbPeriodoFiltro.Location = New System.Drawing.Point(61, 19)
         Me.cbPeriodoFiltro.Name = "cbPeriodoFiltro"
         Me.cbPeriodoFiltro.Size = New System.Drawing.Size(75, 21)
-        Me.cbPeriodoFiltro.TabIndex = 493
+        Me.cbPeriodoFiltro.TabIndex = 1
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(2, 9)
+        Me.Label23.Location = New System.Drawing.Point(12, 22)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(43, 13)
         Me.Label23.TabIndex = 498
@@ -214,11 +214,10 @@ Partial Class FormPasivo
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(331, 2)
+        Me.btnEliminar.Location = New System.Drawing.Point(341, 15)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 496
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 4
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -235,15 +234,15 @@ Partial Class FormPasivo
         Me.PanelPasivo.Controls.Add(Me.btnGuardar)
         Me.PanelPasivo.Controls.Add(Me.btnCancelar)
         Me.PanelPasivo.Controls.Add(Me.txtIdPasivo)
-        Me.PanelPasivo.Location = New System.Drawing.Point(1, 228)
+        Me.PanelPasivo.Location = New System.Drawing.Point(13, 262)
         Me.PanelPasivo.Name = "PanelPasivo"
-        Me.PanelPasivo.Size = New System.Drawing.Size(427, 110)
+        Me.PanelPasivo.Size = New System.Drawing.Size(425, 93)
         Me.PanelPasivo.TabIndex = 499
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(280, 11)
+        Me.Label2.Location = New System.Drawing.Point(265, 11)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
         Me.Label2.TabIndex = 502
@@ -252,23 +251,24 @@ Partial Class FormPasivo
         'cboPeriodo
         '
         Me.cboPeriodo.FormattingEnabled = True
-        Me.cboPeriodo.Location = New System.Drawing.Point(323, 8)
+        Me.cboPeriodo.Location = New System.Drawing.Point(321, 8)
         Me.cboPeriodo.Name = "cboPeriodo"
         Me.cboPeriodo.Size = New System.Drawing.Size(94, 21)
-        Me.cboPeriodo.TabIndex = 501
+        Me.cboPeriodo.TabIndex = 11
         '
         'txtSubTotal
         '
-        Me.txtSubTotal.Location = New System.Drawing.Point(323, 35)
+        Me.txtSubTotal.Location = New System.Drawing.Point(321, 35)
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(94, 20)
         Me.txtSubTotal.TabIndex = 495
+        Me.txtSubTotal.TabStop = False
         Me.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblSubtotal
         '
         Me.lblSubtotal.AutoSize = True
-        Me.lblSubtotal.Location = New System.Drawing.Point(273, 38)
+        Me.lblSubtotal.Location = New System.Drawing.Point(265, 38)
         Me.lblSubtotal.Name = "lblSubtotal"
         Me.lblSubtotal.Size = New System.Drawing.Size(50, 13)
         Me.lblSubtotal.TabIndex = 494
@@ -294,7 +294,7 @@ Partial Class FormPasivo
         'btnGuardar
         '
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(269, 78)
+        Me.btnGuardar.Location = New System.Drawing.Point(267, 61)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
         Me.btnGuardar.TabIndex = 30
@@ -310,7 +310,7 @@ Partial Class FormPasivo
         Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(348, 78)
+        Me.btnCancelar.Location = New System.Drawing.Point(346, 61)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
         Me.btnCancelar.TabIndex = 31
@@ -330,7 +330,7 @@ Partial Class FormPasivo
         Me.txtIdPasivo.EnterIsTab = True
         Me.txtIdPasivo.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtIdPasivo.Label = "Descripción"
-        Me.txtIdPasivo.Location = New System.Drawing.Point(288, 82)
+        Me.txtIdPasivo.Location = New System.Drawing.Point(281, 67)
         Me.txtIdPasivo.Mandatory = False
         Me.txtIdPasivo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIdPasivo.MaxLength = 100
@@ -347,7 +347,7 @@ Partial Class FormPasivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(430, 341)
+        Me.ClientSize = New System.Drawing.Size(453, 369)
         Me.Controls.Add(Me.dgvPasivo)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
@@ -355,9 +355,10 @@ Partial Class FormPasivo
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.PanelPasivo)
+        Me.KeyPreview = True
         Me.Name = "FormPasivo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormPasivo"
+        Me.Text = "Pasivo"
         CType(Me.dgvPasivo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPasivo.ResumeLayout(False)
         Me.PanelPasivo.PerformLayout()
@@ -367,12 +368,6 @@ Partial Class FormPasivo
     End Sub
 
     Friend WithEvents dgvPasivo As PersControlLibrary.ExtendedDataGridView
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents IdActivo As DataGridViewTextBoxColumn
-    Friend WithEvents GrupoActivoId As DataGridViewTextBoxColumn
-    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents Monto As DataGridViewTextBoxColumn
-    Friend WithEvents PeriodoId As DataGridViewTextBoxColumn
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnNuevo As Button
     Friend WithEvents cbPeriodoFiltro As ComboBox
@@ -388,4 +383,10 @@ Partial Class FormPasivo
     Private WithEvents btnGuardar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents txtIdPasivo As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents IdActivo As DataGridViewTextBoxColumn
+    Friend WithEvents GrupoActivoId As DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents Monto As DataGridViewTextBoxColumn
+    Friend WithEvents PeriodoId As DataGridViewTextBoxColumn
 End Class

@@ -1,16 +1,10 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
-Imports System.IO
-Imports System.Collections.Generic
-Imports System.Text
-Imports System.Threading.Tasks
 Imports ERP_Entidad
 Public Class DatUsuario
-
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearUsuario(ByVal objUsuario As EntUsuario) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearUsuario(ByVal objUsuario As EntUsuario) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearUsuario", connection)
@@ -23,21 +17,19 @@ Public Class DatUsuario
             command.Parameters("@Contraseña").Value = objUsuario.Contraseña
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Usuario")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Usuario")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarUsuario(ByVal objUsuario As EntUsuario) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarUsuario(ByVal objUsuario As EntUsuario) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarUsuario", connection)
             command.CommandType = CommandType.StoredProcedure
-            'Actualizar
             command.Parameters.Add("@IdUsuario", SqlDbType.Int)
             command.Parameters.Add("@NombreUsuario", SqlDbType.VarChar)
             command.Parameters.Add("@NombreCompleto", SqlDbType.VarChar)
@@ -50,17 +42,16 @@ Public Class DatUsuario
             command.Parameters("@EstadoActivo").Value = objUsuario.EstadoId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Usuario")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Usuario")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
 
     End Function
 
-    Public Function EliminarUsuario(ByVal objUsuario As EntUsuario) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarUsuario(ByVal objUsuario As EntUsuario) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarUsuario", connection)
@@ -69,16 +60,15 @@ Public Class DatUsuario
             command.Parameters("@IdUsuario").Value = objUsuario.IdUsuario
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Usuario")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Usuario")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerUsuario(ByVal IdUsuario As Integer, ByVal NombreUsuario As String) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -96,28 +86,37 @@ Public Class DatUsuario
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Usuario")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Usuario")
             connection.Close()
             Return Nothing
         End Try
     End Function
 
     Public Function Autenticar(ByVal objUsuario As EntUsuario) As Boolean
-        Dim command As SqlCommand
+        Dim resultadoDT As DataTable
+        Dim resultadoDS As New DataSet
+        Dim adapter As SqlDataAdapter
         Try
             connection.Open()
-            command = New SqlCommand("EliminarUsuario", connection)
+            command = New SqlCommand("AutenticarUsuario", connection)
             command.CommandType = CommandType.StoredProcedure
-            command.Parameters.Add("@IdUsuario", SqlDbType.Int)
-            command.Parameters("@IdUsuario").Value = objUsuario.IdUsuario
-            command.ExecuteReader()
+            adapter = New SqlDataAdapter(command)
+            command.Parameters.Add("@Usuario", SqlDbType.VarChar)
+            command.Parameters.Add("@Clave", SqlDbType.VarChar)
+            command.Parameters("@Usuario").Value = objUsuario.NombreUsuario
+            command.Parameters("@Clave").Value = objUsuario.Contraseña
+            adapter.Fill(resultadoDS)
+            resultadoDT = resultadoDS.Tables(0)
             connection.Close()
-            Return True
+            If resultadoDT.Rows.Count > 0 Then
+                Return True
+            Else
+                Return False
+            End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Usuario")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Usuario")
             connection.Close()
             Return False
         End Try
     End Function
-
 End Class

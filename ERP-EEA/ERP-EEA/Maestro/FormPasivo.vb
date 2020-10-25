@@ -1,14 +1,8 @@
-﻿Imports System.IO
-Imports System.Globalization
-Imports ERP_Entidad
+﻿Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormPasivo
-
-
-
 #Region "Variables"
-
     Dim negPasivo As New NegPasivo
     Dim entPasivo As New EntPasivo
     Dim entGrupoPasivo As New EntGrupoPasivo
@@ -19,163 +13,132 @@ Public Class FormPasivo
     Dim dataTable As New DataTable
     Dim list As New List(Of String)
     Dim respaldo As Decimal
-    Dim cantPasivos As Integer
     Dim blnActualizar As Boolean = False
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        CargarTablaPasivo()
-        dgvPasivo.Enabled = True
-        Me.Height = 273
+        Me.Height = 298
         txtIdPasivo.Text = "0"
         cboPeriodo.SelectedValue = 0
         btnNuevo.Enabled = True
-        If cantPasivos = 0 Then
-            btnModificar.Enabled = False
-            btnEliminar.Enabled = False
-        Else
-            btnModificar.Enabled = True
-            btnEliminar.Enabled = True
-        End If
-        dgvPasivo.Enabled = True
-        PanelPasivo.Visible = True
-
-    End Sub
-
-    Private Sub ModoRegistro()
-        Me.Height = 460
-        btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
         dgvPasivo.Enabled = False
         PanelPasivo.Visible = True
+        CargarTablaPasivo()
     End Sub
 
-
+    Private Sub ModoRegistro()
+        Me.Height = 409
+        btnNuevo.Enabled = False
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        PanelPasivo.Visible = True
+    End Sub
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaPasivo()
         dataTable = negPasivo.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue, 0)
         dgvPasivo.DataSource = dataTable
-        cantPasivos = dgvPasivo.Rows.Count
+        If dgvPasivo.Rows.Count > 0 Then
+            dgvPasivo.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
 
-
     Private Sub CargarCombo()
-
         cboTipoPasivo.ValueMember = "IdGrupoPasivo"
         cboTipoPasivo.DisplayMember = "Descripcion"
         cboTipoPasivo.DataSource = negGrupoPasivo.ObtenerLista(False, True)
-
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
         cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True)
-
         cbPeriodoFiltro.ValueMember = "IdPeriodo"
         cbPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
         cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
-
     End Sub
-
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    'Pasivo
     Private Sub CrearPasivo()
         If cboTipoPasivo.SelectedValue = 0 Then
-            MsgBox("Escoger Origen de Pasivos")
+            MsgBox("Escoger Tipo Pasivo", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entPasivo.GrupoPasivoId = cboTipoPasivo.SelectedValue
         End If
-
-
         If cboPeriodo.SelectedValue = 0 Then
-            MsgBox("Escoger un cliente")
+            MsgBox("Escoger el periodo", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entPasivo.PeriodoId = cboPeriodo.SelectedValue
         End If
-
         If txtSubTotal.Text = "" Then
-            MsgBox("Ingresar el importe")
+            MsgBox("Ingresar el subtotal", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entPasivo.Monto = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US"))
+            entPasivo.Monto = Convert.ToDecimal(txtSubTotal.Text)
         End If
         entPasivo.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negPasivo.Guardar(entPasivo)
-
         If operacion Then
-            MsgBox("Guardo con exito")
-            ModoInicial()
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Pasivo")
         End If
     End Sub
-    Private Sub LeerPasivo()
 
+    Private Sub LeerPasivo()
         entPasivo = negPasivo.ObtenerData(dgvPasivo.CurrentRow.Cells("IdPasivo").Value)
         txtIdPasivo.Text = entPasivo.IdPasivo
         cboTipoPasivo.SelectedValue = entPasivo.GrupoPasivoId
         cboPeriodo.SelectedValue = entPasivo.PeriodoId
         txtSubTotal.Text = entPasivo.Monto.ToString(“##,##0.00”)
-
     End Sub
-    Private Sub ActualizarPasivo()
 
+    Private Sub ActualizarPasivo()
         If cboTipoPasivo.SelectedValue = 0 Then
-            MsgBox("Escoger un Pasivo")
+            MsgBox("Escoger Tipo Pasivo", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entPasivo.GrupoPasivoId = cboTipoPasivo.SelectedValue
         End If
         If cboPeriodo.SelectedValue = 0 Then
-            MsgBox("Escoger un periodo")
+            MsgBox("Escoger el periodo", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entPasivo.PeriodoId = cboPeriodo.SelectedValue
         End If
-
         If txtSubTotal.Text = "" Then
-            MsgBox("Ingresar el importe")
+            MsgBox("Ingresar el subtotal", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entPasivo.Monto = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US"))
+            entPasivo.Monto = Convert.ToDecimal(txtSubTotal.Text)
         End If
-
         entPasivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negPasivo.Actualizar(entPasivo)
-
         If operacion Then
-            MsgBox("Se guardo bien")
-            ModoInicial()
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Pasivo")
         Else
-            MsgBox("No se guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Pasivo")
         End If
     End Sub
+
     Private Sub EliminarPasivo()
         entPasivo.IdPasivo = dgvPasivo.CurrentRow.Cells("IdPasivo").Value
         entPasivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negPasivo.Eliminar(entPasivo)
-
         If operacion Then
-            MsgBox("Elimino con exito")
-            ModoInicial()
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Pasivo")
         Else
-            MsgBox("No elimino bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Pasivo")
         End If
     End Sub
-
-    'PAGO
-
 #End Region
 
 #Region "Funciones del formulario"
@@ -194,6 +157,7 @@ Public Class FormPasivo
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarPasivo()
+            ModoInicial()
         End If
     End Sub
 
@@ -201,7 +165,14 @@ Public Class FormPasivo
 
 #Region "Funciones de elementos del formulario"
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-
+        If txtIdPasivo.Text = "0" Then
+            CrearPasivo()
+        Else
+            ActualizarPasivo()
+        End If
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -215,6 +186,7 @@ Public Class FormPasivo
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarPasivo()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -224,7 +196,5 @@ Public Class FormPasivo
     Private Sub cbPeriodoFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.SelectedIndexChanged
         CargarTablaPasivo()
     End Sub
-
-
 #End Region
 End Class

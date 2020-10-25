@@ -4,9 +4,8 @@ Imports ERP_Entidad
 
 Public Class DatSubGrupoEgreso
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearSubGrupoEgreso(ByVal objSubGrupoEgreso As EntSubGrupoEgreso) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearSubGrupoEgreso(ByVal objSubGrupoEgreso As EntSubGrupoEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearSubGrupoEgreso", connection)
@@ -19,16 +18,15 @@ Public Class DatSubGrupoEgreso
             command.Parameters("@UsuarioCreacionId").Value = objSubGrupoEgreso.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "SubGrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Sub-Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarSubGrupoEgreso(ByVal objSubGrupoIngreso As EntSubGrupoEgreso) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarSubGrupoEgreso(ByVal objSubGrupoIngreso As EntSubGrupoEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarSubGrupoEgreso", connection)
@@ -45,16 +43,15 @@ Public Class DatSubGrupoEgreso
             command.Parameters("@EstadoActivo").Value = objSubGrupoIngreso.IdEstadoActivo
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "SubGrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Sub-Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarSubGrupoEgreso(ByVal objSubGrupoEgreso As EntSubGrupoEgreso) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarSubGrupoEgreso(ByVal objSubGrupoEgreso As EntSubGrupoEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarSubGrupoEgreso", connection)
@@ -65,16 +62,15 @@ Public Class DatSubGrupoEgreso
             command.Parameters("@UsuarioModificacionId").Value = objSubGrupoEgreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Sub-Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerSubGrupoEgreso(ByVal IdSubGrupoEgreso As Integer, ByVal GrupoEgresoId As Integer) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -92,7 +88,7 @@ Public Class DatSubGrupoEgreso
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "SubGrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Sub-Grupo Egreso")
             connection.Close()
             Return Nothing
         End Try

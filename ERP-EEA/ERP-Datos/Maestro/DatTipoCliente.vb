@@ -2,11 +2,9 @@
 Imports System.Configuration
 Imports ERP_Entidad
 Public Class DatTipoCliente
-
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearTipoCliente", connection)
@@ -17,16 +15,15 @@ Public Class DatTipoCliente
             command.Parameters("@UsuarioCreacionId").Value = objTipoCliente.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "TipoCliente")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Tipo Cliente")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarTipoCliente", connection)
@@ -41,17 +38,15 @@ Public Class DatTipoCliente
             command.Parameters("@EstadoActivo").Value = objTipoCliente.IdEstadoActivo
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "TipoCliente")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Tipo Cliente")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
-
     End Function
 
-    Public Function EliminarTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarTipoCliente(ByVal objTipoCliente As EntTipoCliente) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarTipoCliente", connection)
@@ -62,16 +57,15 @@ Public Class DatTipoCliente
             command.Parameters("@UsuarioModificacionId").Value = objTipoCliente.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "TipoCliente")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Tipo Cliente")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerTipoCliente(ByVal IdTipoCliente As Integer, ByVal Descripcion As String) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -87,7 +81,7 @@ Public Class DatTipoCliente
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "TipoCliente")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Tipo Cliente")
             connection.Close()
             Return Nothing
         End Try

@@ -21,7 +21,7 @@ Public Class DatMetodoPago
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "MetodoPago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Metodo de Pago")
             connection.Close()
             Return Nothing
         End Try

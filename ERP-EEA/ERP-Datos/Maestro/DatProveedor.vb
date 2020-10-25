@@ -4,9 +4,8 @@ Imports ERP_Entidad
 
 Public Class DatProveedor
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearProveedor(ByVal objProveedor As EntProveedor) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearProveedor(ByVal objProveedor As EntProveedor) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearProveedor", connection)
@@ -26,19 +25,18 @@ Public Class DatProveedor
             command.Parameters("@NumeroContacto").Value = objProveedor.NumeroContacto
             command.Parameters("@MedicionId").Value = objProveedor.MedicionId
             command.Parameters("@Tarifa").Value = objProveedor.Tarifa
-            command.Parameters("@UsuarioCreacionId").Value = 1
+            command.Parameters("@UsuarioCreacionId").Value = objProveedor.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Proveedor")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Proveedor")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarProveedor(ByVal objProveedor As EntProveedor) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarProveedor(ByVal objProveedor As EntProveedor) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarProveedor", connection)
@@ -65,16 +63,15 @@ Public Class DatProveedor
             command.Parameters("@EstadoActivo").Value = objProveedor.IdEstadoActivo
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Proveedor")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Proveedor")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarProveedor(ByVal objProveedor As EntProveedor) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarProveedor(ByVal objProveedor As EntProveedor) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarProveedor", connection)
@@ -85,16 +82,15 @@ Public Class DatProveedor
             command.Parameters("@UsuarioModificacionId").Value = objProveedor.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Proveedor")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Proveedor")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerProveedor(ByVal IdProveedor As Integer, ByVal Descripcion As String) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -110,7 +106,7 @@ Public Class DatProveedor
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Proveedor")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Proveedor")
             connection.Close()
             Return Nothing
         End Try

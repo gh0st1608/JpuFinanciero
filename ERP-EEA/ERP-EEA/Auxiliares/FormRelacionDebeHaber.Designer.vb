@@ -22,12 +22,14 @@ Partial Class FormRelacionDebeHaber
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PanelRelacionDebeHaber = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cbGrupoHaber = New System.Windows.Forms.ComboBox()
@@ -57,13 +59,22 @@ Partial Class FormRelacionDebeHaber
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.dgvRelacionDebeHaber = New PersControlLibrary.ExtendedDataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OrigenId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreCompleto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CorreoContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Celular = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdRelacionDebeHaber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoOperacionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EtapaOperacionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionGrupo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionEtapaOperacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoDebeId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoHaberId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DebeId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionSignoDebe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDebe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HaberId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionSignoHaber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionHaber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SignoDebe = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SignoHaber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PanelRelacionDebeHaber.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -84,7 +95,7 @@ Partial Class FormRelacionDebeHaber
         Me.PanelRelacionDebeHaber.Controls.Add(Me.btnCancelar)
         Me.PanelRelacionDebeHaber.Controls.Add(Me.txtIdRelacionDebeHaber)
         Me.PanelRelacionDebeHaber.Controls.Add(Me.lblGrupo)
-        Me.PanelRelacionDebeHaber.Location = New System.Drawing.Point(11, 407)
+        Me.PanelRelacionDebeHaber.Location = New System.Drawing.Point(12, 357)
         Me.PanelRelacionDebeHaber.Name = "PanelRelacionDebeHaber"
         Me.PanelRelacionDebeHaber.Size = New System.Drawing.Size(645, 153)
         Me.PanelRelacionDebeHaber.TabIndex = 496
@@ -111,7 +122,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbGrupoHaber.Location = New System.Drawing.Point(53, 19)
         Me.cbGrupoHaber.Name = "cbGrupoHaber"
         Me.cbGrupoHaber.Size = New System.Drawing.Size(130, 21)
-        Me.cbGrupoHaber.TabIndex = 489
+        Me.cbGrupoHaber.TabIndex = 16
         '
         'cbSignoHaber
         '
@@ -120,7 +131,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbSignoHaber.Location = New System.Drawing.Point(53, 73)
         Me.cbSignoHaber.Name = "cbSignoHaber"
         Me.cbSignoHaber.Size = New System.Drawing.Size(130, 21)
-        Me.cbSignoHaber.TabIndex = 491
+        Me.cbSignoHaber.TabIndex = 18
         '
         'Label5
         '
@@ -137,7 +148,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbHaber.Location = New System.Drawing.Point(53, 46)
         Me.cbHaber.Name = "cbHaber"
         Me.cbHaber.Size = New System.Drawing.Size(130, 21)
-        Me.cbHaber.TabIndex = 484
+        Me.cbHaber.TabIndex = 17
         '
         'Label6
         '
@@ -179,7 +190,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbGrupoDebe.Location = New System.Drawing.Point(53, 19)
         Me.cbGrupoDebe.Name = "cbGrupoDebe"
         Me.cbGrupoDebe.Size = New System.Drawing.Size(130, 21)
-        Me.cbGrupoDebe.TabIndex = 489
+        Me.cbGrupoDebe.TabIndex = 13
         '
         'cbSignoDebe
         '
@@ -189,7 +200,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbSignoDebe.Location = New System.Drawing.Point(53, 73)
         Me.cbSignoDebe.Name = "cbSignoDebe"
         Me.cbSignoDebe.Size = New System.Drawing.Size(130, 21)
-        Me.cbSignoDebe.TabIndex = 491
+        Me.cbSignoDebe.TabIndex = 15
         '
         'Label2
         '
@@ -206,7 +217,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbDebe.Location = New System.Drawing.Point(53, 46)
         Me.cbDebe.Name = "cbDebe"
         Me.cbDebe.Size = New System.Drawing.Size(130, 21)
-        Me.cbDebe.TabIndex = 484
+        Me.cbDebe.TabIndex = 14
         '
         'Label3
         '
@@ -233,7 +244,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbEtapaOperacion.Location = New System.Drawing.Point(107, 49)
         Me.cbEtapaOperacion.Name = "cbEtapaOperacion"
         Me.cbEtapaOperacion.Size = New System.Drawing.Size(107, 21)
-        Me.cbEtapaOperacion.TabIndex = 491
+        Me.cbEtapaOperacion.TabIndex = 11
         '
         'Label1
         '
@@ -251,7 +262,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbTipoOperacion.Location = New System.Drawing.Point(107, 22)
         Me.cbTipoOperacion.Name = "cbTipoOperacion"
         Me.cbTipoOperacion.Size = New System.Drawing.Size(107, 21)
-        Me.cbTipoOperacion.TabIndex = 489
+        Me.cbTipoOperacion.TabIndex = 10
         '
         'lblTipoOperacion
         '
@@ -268,7 +279,7 @@ Partial Class FormRelacionDebeHaber
         Me.cbGrupo.Location = New System.Drawing.Point(107, 76)
         Me.cbGrupo.Name = "cbGrupo"
         Me.cbGrupo.Size = New System.Drawing.Size(107, 21)
-        Me.cbGrupo.TabIndex = 484
+        Me.cbGrupo.TabIndex = 12
         '
         'btnGuardar
         '
@@ -276,7 +287,7 @@ Partial Class FormRelacionDebeHaber
         Me.btnGuardar.Location = New System.Drawing.Point(487, 120)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 30
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -292,7 +303,7 @@ Partial Class FormRelacionDebeHaber
         Me.btnCancelar.Location = New System.Drawing.Point(565, 120)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 31
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -342,8 +353,7 @@ Partial Class FormRelacionDebeHaber
         Me.btnEliminar.Location = New System.Drawing.Point(561, 15)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 495
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -359,8 +369,7 @@ Partial Class FormRelacionDebeHaber
         Me.btnModificar.Location = New System.Drawing.Point(458, 15)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 494
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -376,7 +385,7 @@ Partial Class FormRelacionDebeHaber
         Me.btnNuevo.Location = New System.Drawing.Point(377, 15)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 493
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -389,135 +398,217 @@ Partial Class FormRelacionDebeHaber
         Me.dgvRelacionDebeHaber.AllowUserToResizeRows = False
         Me.dgvRelacionDebeHaber.BackgroundColor = System.Drawing.Color.White
         Me.dgvRelacionDebeHaber.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle25.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle25.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRelacionDebeHaber.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRelacionDebeHaber.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvRelacionDebeHaber.ColumnHeadersHeight = 20
         Me.dgvRelacionDebeHaber.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvRelacionDebeHaber.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.IdContacto, Me.OrigenId, Me.NombreCompleto, Me.Cargo, Me.CorreoContacto, Me.Celular, Me.EstadoActivo})
-        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvRelacionDebeHaber.DefaultCellStyle = DataGridViewCellStyle29
+        Me.dgvRelacionDebeHaber.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.IdRelacionDebeHaber, Me.TipoOperacionId, Me.EtapaOperacionId, Me.GrupoId, Me.DescripcionGrupo, Me.DescripcionEtapaOperacion, Me.GrupoDebeId, Me.GrupoHaberId, Me.DebeId, Me.DescripcionSignoDebe, Me.DescripcionDebe, Me.HaberId, Me.DescripcionSignoHaber, Me.DescripcionHaber, Me.SignoDebe, Me.SignoHaber})
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvRelacionDebeHaber.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgvRelacionDebeHaber.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvRelacionDebeHaber.EnableHeadersVisualStyles = False
         Me.dgvRelacionDebeHaber.Location = New System.Drawing.Point(11, 50)
         Me.dgvRelacionDebeHaber.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvRelacionDebeHaber.Name = "dgvRelacionDebeHaber"
         Me.dgvRelacionDebeHaber.ReadOnly = True
-        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle30.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle30.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRelacionDebeHaber.RowHeadersDefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRelacionDebeHaber.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvRelacionDebeHaber.RowHeadersVisible = False
         Me.dgvRelacionDebeHaber.RowHeadersWidth = 22
         Me.dgvRelacionDebeHaber.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvRelacionDebeHaber.RowTemplate.Height = 18
         Me.dgvRelacionDebeHaber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvRelacionDebeHaber.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvRelacionDebeHaber.Size = New System.Drawing.Size(646, 340)
+        Me.dgvRelacionDebeHaber.Size = New System.Drawing.Size(646, 290)
         Me.dgvRelacionDebeHaber.TabIndex = 492
+        Me.dgvRelacionDebeHaber.TabStop = False
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "Item"
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn1.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn1.Width = 25
+        Me.DataGridViewTextBoxColumn1.Width = 30
         '
-        'IdContacto
+        'IdRelacionDebeHaber
         '
-        Me.IdContacto.DataPropertyName = "IdContacto"
-        Me.IdContacto.HeaderText = "IdContacto"
-        Me.IdContacto.Name = "IdContacto"
-        Me.IdContacto.ReadOnly = True
-        Me.IdContacto.Visible = False
+        Me.IdRelacionDebeHaber.DataPropertyName = "IdRelacionDebeHaber"
+        Me.IdRelacionDebeHaber.HeaderText = "IdRelacionDebeHaber"
+        Me.IdRelacionDebeHaber.Name = "IdRelacionDebeHaber"
+        Me.IdRelacionDebeHaber.ReadOnly = True
+        Me.IdRelacionDebeHaber.Visible = False
         '
-        'OrigenId
+        'TipoOperacionId
         '
-        Me.OrigenId.DataPropertyName = "OrigenId"
-        Me.OrigenId.HeaderText = "OrigenId"
-        Me.OrigenId.Name = "OrigenId"
-        Me.OrigenId.ReadOnly = True
-        Me.OrigenId.Visible = False
+        Me.TipoOperacionId.DataPropertyName = "TipoOperacionId"
+        Me.TipoOperacionId.HeaderText = "TipoOperacionId"
+        Me.TipoOperacionId.Name = "TipoOperacionId"
+        Me.TipoOperacionId.ReadOnly = True
+        Me.TipoOperacionId.Visible = False
         '
-        'NombreCompleto
+        'EtapaOperacionId
         '
-        Me.NombreCompleto.DataPropertyName = "NombreCompleto"
-        Me.NombreCompleto.HeaderText = "CONTACTO"
-        Me.NombreCompleto.Name = "NombreCompleto"
-        Me.NombreCompleto.ReadOnly = True
-        Me.NombreCompleto.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreCompleto.Width = 220
+        Me.EtapaOperacionId.DataPropertyName = "EtapaOperacionId"
+        Me.EtapaOperacionId.HeaderText = "EtapaOperacionId"
+        Me.EtapaOperacionId.Name = "EtapaOperacionId"
+        Me.EtapaOperacionId.ReadOnly = True
+        Me.EtapaOperacionId.Visible = False
         '
-        'Cargo
+        'GrupoId
         '
-        Me.Cargo.DataPropertyName = "Cargo"
-        DataGridViewCellStyle27.Format = "N2"
-        DataGridViewCellStyle27.NullValue = "0"
-        Me.Cargo.DefaultCellStyle = DataGridViewCellStyle27
-        Me.Cargo.HeaderText = "CARGO"
-        Me.Cargo.Name = "Cargo"
-        Me.Cargo.ReadOnly = True
-        Me.Cargo.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GrupoId.DataPropertyName = "GrupoId"
+        Me.GrupoId.HeaderText = "GrupoId"
+        Me.GrupoId.Name = "GrupoId"
+        Me.GrupoId.ReadOnly = True
+        Me.GrupoId.Visible = False
         '
-        'CorreoContacto
+        'DescripcionGrupo
         '
-        Me.CorreoContacto.DataPropertyName = "Correo"
-        DataGridViewCellStyle28.Format = "N2"
-        DataGridViewCellStyle28.NullValue = "0"
-        Me.CorreoContacto.DefaultCellStyle = DataGridViewCellStyle28
-        Me.CorreoContacto.HeaderText = "CORREO"
-        Me.CorreoContacto.Name = "CorreoContacto"
-        Me.CorreoContacto.ReadOnly = True
-        Me.CorreoContacto.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CorreoContacto.Width = 190
+        Me.DescripcionGrupo.DataPropertyName = "DescripcionGrupo"
+        Me.DescripcionGrupo.HeaderText = "OPERACION"
+        Me.DescripcionGrupo.Name = "DescripcionGrupo"
+        Me.DescripcionGrupo.ReadOnly = True
+        Me.DescripcionGrupo.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DescripcionGrupo.Width = 188
         '
-        'Celular
+        'DescripcionEtapaOperacion
         '
-        Me.Celular.DataPropertyName = "Celular"
-        Me.Celular.HeaderText = "CELULAR"
-        Me.Celular.Name = "Celular"
-        Me.Celular.ReadOnly = True
-        Me.Celular.Width = 90
+        Me.DescripcionEtapaOperacion.DataPropertyName = "DescripcionEtapaOperacion"
+        Me.DescripcionEtapaOperacion.HeaderText = "ETAPA"
+        Me.DescripcionEtapaOperacion.Name = "DescripcionEtapaOperacion"
+        Me.DescripcionEtapaOperacion.ReadOnly = True
+        Me.DescripcionEtapaOperacion.Width = 130
         '
-        'EstadoActivo
+        'GrupoDebeId
         '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "EstadoActivo"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        Me.EstadoActivo.Visible = False
+        Me.GrupoDebeId.DataPropertyName = "GrupoDebeId"
+        Me.GrupoDebeId.HeaderText = "GrupoDebeId"
+        Me.GrupoDebeId.Name = "GrupoDebeId"
+        Me.GrupoDebeId.ReadOnly = True
+        Me.GrupoDebeId.Visible = False
+        '
+        'GrupoHaberId
+        '
+        Me.GrupoHaberId.DataPropertyName = "GrupoHaberId"
+        Me.GrupoHaberId.HeaderText = "GrupoHaberId"
+        Me.GrupoHaberId.Name = "GrupoHaberId"
+        Me.GrupoHaberId.ReadOnly = True
+        Me.GrupoHaberId.Visible = False
+        '
+        'DebeId
+        '
+        Me.DebeId.DataPropertyName = "DebeId"
+        Me.DebeId.HeaderText = "DebeId"
+        Me.DebeId.Name = "DebeId"
+        Me.DebeId.ReadOnly = True
+        Me.DebeId.Visible = False
+        '
+        'DescripcionSignoDebe
+        '
+        Me.DescripcionSignoDebe.DataPropertyName = "DescripcionSignoDebe"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DescripcionSignoDebe.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DescripcionSignoDebe.HeaderText = ""
+        Me.DescripcionSignoDebe.Name = "DescripcionSignoDebe"
+        Me.DescripcionSignoDebe.ReadOnly = True
+        Me.DescripcionSignoDebe.Width = 20
+        '
+        'DescripcionDebe
+        '
+        Me.DescripcionDebe.DataPropertyName = "DescripcionDebe"
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = "0"
+        Me.DescripcionDebe.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DescripcionDebe.HeaderText = "DEBE"
+        Me.DescripcionDebe.Name = "DescripcionDebe"
+        Me.DescripcionDebe.ReadOnly = True
+        Me.DescripcionDebe.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DescripcionDebe.Width = 120
+        '
+        'HaberId
+        '
+        Me.HaberId.DataPropertyName = "HaberId"
+        Me.HaberId.HeaderText = "HaberId"
+        Me.HaberId.Name = "HaberId"
+        Me.HaberId.ReadOnly = True
+        Me.HaberId.Visible = False
+        '
+        'DescripcionSignoHaber
+        '
+        Me.DescripcionSignoHaber.DataPropertyName = "DescripcionSignoHaber"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DescripcionSignoHaber.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DescripcionSignoHaber.HeaderText = ""
+        Me.DescripcionSignoHaber.Name = "DescripcionSignoHaber"
+        Me.DescripcionSignoHaber.ReadOnly = True
+        Me.DescripcionSignoHaber.Width = 20
+        '
+        'DescripcionHaber
+        '
+        Me.DescripcionHaber.DataPropertyName = "DescripcionHaber"
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = "0"
+        Me.DescripcionHaber.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DescripcionHaber.HeaderText = "HABER"
+        Me.DescripcionHaber.Name = "DescripcionHaber"
+        Me.DescripcionHaber.ReadOnly = True
+        Me.DescripcionHaber.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DescripcionHaber.Width = 120
+        '
+        'SignoDebe
+        '
+        Me.SignoDebe.DataPropertyName = "SignoDebe"
+        Me.SignoDebe.HeaderText = "SignoDebe"
+        Me.SignoDebe.Name = "SignoDebe"
+        Me.SignoDebe.ReadOnly = True
+        Me.SignoDebe.Visible = False
+        '
+        'SignoHaber
+        '
+        Me.SignoHaber.DataPropertyName = "SignoHaber"
+        Me.SignoHaber.HeaderText = "SignoHaber"
+        Me.SignoHaber.Name = "SignoHaber"
+        Me.SignoHaber.ReadOnly = True
+        Me.SignoHaber.Visible = False
         '
         'FormRelacionDebeHaber
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(669, 573)
+        Me.ClientSize = New System.Drawing.Size(669, 524)
         Me.Controls.Add(Me.PanelRelacionDebeHaber)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.dgvRelacionDebeHaber)
+        Me.KeyPreview = True
+        Me.MaximumSize = New System.Drawing.Size(685, 563)
+        Me.MinimumSize = New System.Drawing.Size(685, 393)
         Me.Name = "FormRelacionDebeHaber"
-        Me.Text = "Relacion Debe-Haber"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Relación Debe-Haber"
         Me.PanelRelacionDebeHaber.ResumeLayout(False)
         Me.PanelRelacionDebeHaber.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -539,14 +630,6 @@ Partial Class FormRelacionDebeHaber
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnNuevo As Button
     Friend WithEvents dgvRelacionDebeHaber As PersControlLibrary.ExtendedDataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents IdContacto As DataGridViewTextBoxColumn
-    Friend WithEvents OrigenId As DataGridViewTextBoxColumn
-    Friend WithEvents NombreCompleto As DataGridViewTextBoxColumn
-    Friend WithEvents Cargo As DataGridViewTextBoxColumn
-    Friend WithEvents CorreoContacto As DataGridViewTextBoxColumn
-    Friend WithEvents Celular As DataGridViewTextBoxColumn
-    Friend WithEvents EstadoActivo As DataGridViewTextBoxColumn
     Friend WithEvents cbSignoDebe As ComboBox
     Friend WithEvents cbEtapaOperacion As ComboBox
     Friend WithEvents Label4 As Label
@@ -565,4 +648,21 @@ Partial Class FormRelacionDebeHaber
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdRelacionDebeHaber As DataGridViewTextBoxColumn
+    Friend WithEvents TipoOperacionId As DataGridViewTextBoxColumn
+    Friend WithEvents EtapaOperacionId As DataGridViewTextBoxColumn
+    Friend WithEvents GrupoId As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionGrupo As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionEtapaOperacion As DataGridViewTextBoxColumn
+    Friend WithEvents GrupoDebeId As DataGridViewTextBoxColumn
+    Friend WithEvents GrupoHaberId As DataGridViewTextBoxColumn
+    Friend WithEvents DebeId As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionSignoDebe As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionDebe As DataGridViewTextBoxColumn
+    Friend WithEvents HaberId As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionSignoHaber As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionHaber As DataGridViewTextBoxColumn
+    Friend WithEvents SignoDebe As DataGridViewTextBoxColumn
+    Friend WithEvents SignoHaber As DataGridViewTextBoxColumn
 End Class

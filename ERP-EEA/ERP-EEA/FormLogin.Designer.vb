@@ -105,6 +105,7 @@ Partial Class FormLogin
         Me.Controls.Add(Me.label1)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnIngresar)
+        Me.KeyPreview = True
         Me.Name = "FormLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"

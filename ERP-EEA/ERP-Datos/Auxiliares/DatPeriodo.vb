@@ -1,12 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
-Imports ERP_Entidad
-
 Public Class DatPeriodo
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
     Dim command As SqlCommand
     Dim adapter As SqlDataAdapter
-
     Public Function LeerPeriodo(ByVal IdPeriodo As Integer, ByVal DescripcionPeriodo As String) As DataTable
         Try
             Dim resultadoDT As DataTable
@@ -24,7 +21,7 @@ Public Class DatPeriodo
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Periodo")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Periodo")
             connection.Close()
             Return Nothing
         End Try

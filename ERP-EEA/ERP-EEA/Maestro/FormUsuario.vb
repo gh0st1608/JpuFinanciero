@@ -2,66 +2,66 @@
 Imports ERP_Entidad
 
 Public Class FormUsuario
-
 #Region "Variables"
-
     Dim negUsuario As New NegUsuario
     Dim entUsuario As New EntUsuario
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 196
+        Me.Height = 204
         txtIdUsuario.Text = "0"
         txtNombreUsuario.Text = ""
         txtNombreCompleto.Text = ""
         txtContraseña.Text = ""
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvUsuario.Enabled = False
         cboEstado.Visible = False
         lblEstado.Visible = False
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 329
+        Me.Height = 340
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+        dgvUsuario.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negUsuario.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negUsuario.ObtenerTabla()
         dgvUsuario.DataSource = dataTable
+        If dgvUsuario.Rows.Count > 0 Then
+            dgvUsuario.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearUsuario()
         If txtNombreCompleto.Text = "" Then
-            MsgBox("Ingresar Nombres y apellidos")
+            MsgBox("Ingresar Nombres y apellidos", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.NombreCompleto = txtNombreCompleto.Text
         End If
         If txtNombreUsuario.Text = "" Then
-            MsgBox("Ingresar Nombre de usuario")
+            MsgBox("Ingresar Nombre de usuario", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.NombreUsuario = txtNombreUsuario.Text
         End If
         If txtContraseña.Text = "" Then
-            MsgBox("Ingresar Contraseña")
+            MsgBox("Ingresar Contraseña", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.Contraseña = txtContraseña.Text
@@ -69,14 +69,14 @@ Public Class FormUsuario
 
         operacion = negUsuario.Guardar(entUsuario)
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Usuario")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Usuario")
         End If
     End Sub
-    Private Sub LeerUsuario() 'Item
-        entUsuario = negUsuario.ObtenerData(dgvUsuario.CurrentRow.Cells("IdUsuario").Value, "")
 
+    Private Sub LeerUsuario()
+        entUsuario = negUsuario.ObtenerData(dgvUsuario.CurrentRow.Cells("IdUsuario").Value, "")
         txtIdUsuario.Text = entUsuario.IdUsuario
         txtNombreCompleto.Text = entUsuario.NombreCompleto
         txtNombreUsuario.Text = entUsuario.NombreUsuario
@@ -88,21 +88,22 @@ Public Class FormUsuario
             cboEstado.Text = "INACTIVO"
         End If
     End Sub
+
     Private Sub ActualizarUsuario()
         If txtNombreCompleto.Text = "" Then
-            MsgBox("Ingresar Nombres y apellidos")
+            MsgBox("Ingresar Nombres y apellidos", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.NombreCompleto = txtNombreCompleto.Text
         End If
         If txtNombreUsuario.Text = "" Then
-            MsgBox("Ingresar Nombre de usuario")
+            MsgBox("Ingresar Nombre de usuario", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.NombreUsuario = txtNombreUsuario.Text
         End If
         If txtContraseña.Text = "" Then
-            MsgBox("Ingresar Contraseña")
+            MsgBox("Ingresar Contraseña", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entUsuario.Contraseña = txtContraseña.Text
@@ -115,22 +116,21 @@ Public Class FormUsuario
         End If
 
         operacion = negUsuario.Actualizar(entUsuario)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Usuario")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Usuario")
         End If
     End Sub
+
     Private Sub EliminarUsuario()
         entUsuario.IdUsuario = Int(dgvUsuario.CurrentRow.Cells("IDUsuario").Value)
 
         operacion = negUsuario.Eliminar(entUsuario)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Usuario")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Usuario")
         End If
     End Sub
 #End Region
@@ -150,6 +150,7 @@ Public Class FormUsuario
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarUsuario()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -161,7 +162,9 @@ Public Class FormUsuario
         Else
             ActualizarUsuario()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

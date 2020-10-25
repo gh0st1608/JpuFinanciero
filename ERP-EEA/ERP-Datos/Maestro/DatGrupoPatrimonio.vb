@@ -1,42 +1,33 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
-Imports System.IO
-Imports System.Collections.Generic
-Imports System.Text
-Imports System.Threading.Tasks
-
 Imports ERP_Entidad
 
 Public Class DatGrupoPatrimonio
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
+    Dim command As SqlCommand
 
-    Public Function CrearGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Integer
-        Dim command As SqlCommand
+    Public Function CrearGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
-
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@Cuenta", SqlDbType.Int)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
-
             command.Parameters("@Descripcion").Value = objGrupoPatrimonio.Descripcion
             command.Parameters("@Cuenta").Value = objGrupoPatrimonio.Cuenta
-            command.Parameters("@UsuarioCreacionId").Value = 1
-
+            command.Parameters("@UsuarioCreacionId").Value = objGrupoPatrimonio.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoActivo")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Patrimonio")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarGrupoPatrimonio(ByVal objGrupoPatrimonio As EntGrupoPatrimonio) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarGrupoPatrimonio", connection)
@@ -46,50 +37,41 @@ Public Class DatGrupoPatrimonio
             command.Parameters.Add("@Cuenta", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
             command.Parameters.Add("@EstadoActivo", SqlDbType.Int)
-
             command.Parameters("@IdGrupoPatrimonio").Value = objGrupoPatrimonio.IdGrupoPatrimonio
             command.Parameters("@Descripcion").Value = objGrupoPatrimonio.Descripcion
             command.Parameters("@Cuenta").Value = objGrupoPatrimonio.Cuenta
             command.Parameters("@UsuarioModificacionId").Value = objGrupoPatrimonio.UsuarioModificacionId
             command.Parameters("@EstadoActivo").Value = objGrupoPatrimonio.IdEstadoActivo
-
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Patrimonio")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
-
     End Function
 
-    Public Function EliminarGrupoPatrimonio(ByVal objGrupoPatrimonio) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarGrupoPatrimonio(ByVal objGrupoPatrimonio) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarGrupoPatrimonio", connection)
             command.CommandType = CommandType.StoredProcedure
-
             command.Parameters.Add("@IdGrupoPatrimonio", SqlDbType.Int)
             command.Parameters.Add("@UsuarioModificacionId", SqlDbType.Int)
-
             command.Parameters("@IdGrupoPatrimonio").Value = objGrupoPatrimonio.IdGrupoPatrimonio
             command.Parameters("@UsuarioModificacionId").Value = objGrupoPatrimonio.UsuarioModificacionId
-
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Patrimonio")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
-
     End Function
 
     Public Function LeerGrupoPatrimonio(ByVal IdGrupoPatrimonio As Integer, ByVal Descripcion As String) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -107,7 +89,7 @@ Public Class DatGrupoPatrimonio
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoPatrimonio")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Patrimonio")
             connection.Close()
             Return Nothing
         End Try

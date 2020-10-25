@@ -4,9 +4,8 @@ Imports System.Configuration
 
 Public Class DatEgreso
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearEgreso(ByVal objEgreso As EntEgreso) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearEgreso(ByVal objEgreso As EntEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearEgreso", connection)
@@ -37,16 +36,15 @@ Public Class DatEgreso
             command.Parameters("@UsuarioCreacionId").Value = objEgreso.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Egreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarEgreso(ByVal objEgreso As EntEgreso) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarEgreso(ByVal objEgreso As EntEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarEgreso", connection)
@@ -79,17 +77,16 @@ Public Class DatEgreso
             command.Parameters("@UsuarioModificacionId").Value = objEgreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Egreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
 
     End Function
 
-    Public Function EliminarEgreso(ByVal objEgreso) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarEgreso(ByVal objEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarEgreso", connection)
@@ -100,16 +97,15 @@ Public Class DatEgreso
             command.Parameters("@UsuarioModificacionId").Value = objEgreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Egreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerEgreso(ByVal IdEgreso As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -118,10 +114,10 @@ Public Class DatEgreso
             command = New SqlCommand("LeerEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
             command.Parameters.Add("@IdEgreso", SqlDbType.Int)
-            command.Parameters("@IdEgreso").Value = IdEgreso
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
-            command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
+            command.Parameters("@IdEgreso").Value = IdEgreso
+            command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters("@ProveedorId").Value = ProveedorId
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
@@ -129,7 +125,7 @@ Public Class DatEgreso
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Egreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Egreso")
             connection.Close()
             Return Nothing
         End Try

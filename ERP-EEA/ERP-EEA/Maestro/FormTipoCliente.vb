@@ -2,70 +2,67 @@
 Imports ERP_Entidad
 
 Public Class FormTipoCliente
-
 #Region "Variables"
-
     Dim negTipoCliente As New NegTipoCliente
     Dim entTipoCliente As New EntTipoCliente
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 307
+        Me.Height = 300
         txtIdTipoCliente.Text = "0"
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
-        cboEstado.Visible = false
-
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvTipoCliente.Enabled = False
+        cboEstado.Visible = False
+        lbEstado.Visible = False
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 392
+        Me.Height = 393
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+        dgvTipoCliente.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negTipoCliente.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negTipoCliente.ObtenerTabla()
         dgvTipoCliente.DataSource = dataTable
+        If dgvTipoCliente.Rows.Count > 0 Then
+            dgvTipoCliente.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearTipoCliente()
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entTipoCliente.Descripcion = txtDescripcion.Text
         End If
-
         entTipoCliente.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negTipoCliente.Guardar(entTipoCliente)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Tipo Cliente")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Tipo Cliente")
         End If
     End Sub
-    Private Sub LeerTipoCliente() 'Item
+    Private Sub LeerTipoCliente()
         entTipoCliente = negTipoCliente.ObtenerData(dgvTipoCliente.CurrentRow.Cells("IdTipoCliente").Value)
-
         txtIdTipoCliente.Text = entTipoCliente.IdTipoCliente
         txtDescripcion.Text = entTipoCliente.Descripcion
 
@@ -76,27 +73,24 @@ Public Class FormTipoCliente
     End Sub
     Private Sub ActualizarTipoCliente()
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entTipoCliente.Descripcion = txtDescripcion.Text
         End If
-
         entTipoCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        If (cboEstado.SelectedItem = "ACTIVO") Then
-            entTipoCliente.IdEstadoActivo = 1
-
-        Else
+        If (cboEstado.SelectedItem = "INACTIVO") Then
             entTipoCliente.IdEstadoActivo = 0
+        Else
+            entTipoCliente.IdEstadoActivo = 1
         End If
 
         operacion = negTipoCliente.Actualizar(entTipoCliente)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Tipo Cliente")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Tipo Cliente")
         End If
     End Sub
     Private Sub EliminarTipoCliente()
@@ -104,11 +98,10 @@ Public Class FormTipoCliente
         entTipoCliente.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negTipoCliente.Eliminar(entTipoCliente)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Tipo Cliente")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Tipo Cliente")
         End If
     End Sub
 #End Region
@@ -128,6 +121,7 @@ Public Class FormTipoCliente
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarTipoCliente()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -139,7 +133,9 @@ Public Class FormTipoCliente
         Else
             ActualizarTipoCliente()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -160,5 +156,4 @@ Public Class FormTipoCliente
         ModoInicial()
     End Sub
 #End Region
-
 End Class

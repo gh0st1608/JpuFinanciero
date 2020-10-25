@@ -2,45 +2,47 @@
 Imports ERP_Entidad
 
 Public Class FormSubGrupoEgreso
-
 #Region "Variables"
-
     Dim negSubGrupoEgreso As New NegSubGrupoEgreso
     Dim negGrupoEgreso As New NegGrupoEgreso
     Dim entSubGrupoEgreso As New EntSubGrupoEgreso
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 304
+        Me.Height = 295
         txtIdSubGrupoEgreso.Text = "0"
         cboGrupoEgreso.SelectedValue = 0
         txtDescripcion.Text = ""
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvSubGrupoEgreso.Enabled = False
         lbEstado.Visible = False
         cboEstado.Visible = False
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 409
+        Me.Height = 404
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
+        dgvSubGrupoEgreso.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negSubGrupoEgreso.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negSubGrupoEgreso.ObtenerTabla()
         dgvSubGrupoEgreso.DataSource = dataTable
+        If dgvSubGrupoEgreso.Rows.Count > 0 Then
+            dgvSubGrupoEgreso.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
 
     Private Sub CargarCombo()
@@ -53,32 +55,29 @@ Public Class FormSubGrupoEgreso
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearSubGrupoEgreso()
         If cboGrupoEgreso.SelectedValue = 0 Then
-            MsgBox("Escoger grupo egreso")
+            MsgBox("Escoger grupo egreso", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entSubGrupoEgreso.GrupoEgresoId = cboGrupoEgreso.SelectedValue
         End If
-
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entSubGrupoEgreso.ItemSubGrupoEgreso = txtDescripcion.Text
         End If
-
         entSubGrupoEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negSubGrupoEgreso.Guardar(entSubGrupoEgreso)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Sub-Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Sub-Grupo Pasivo")
         End If
     End Sub
-    Private Sub LeerSubGrupoEgreso() 'Item
-        entSubGrupoEgreso = negSubGrupoEgreso.ObtenerData(dgvSubGrupoEgreso.CurrentRow.Cells("IdSubGrupoEgreso").Value)
 
+    Private Sub LeerSubGrupoEgreso()
+        entSubGrupoEgreso = negSubGrupoEgreso.ObtenerData(dgvSubGrupoEgreso.CurrentRow.Cells("IdSubGrupoEgreso").Value)
         txtIdSubGrupoEgreso.Text = entSubGrupoEgreso.IdSubGrupoEgreso
         cboGrupoEgreso.SelectedValue = entSubGrupoEgreso.GrupoEgresoId
         txtDescripcion.Text = entSubGrupoEgreso.ItemSubGrupoEgreso
@@ -89,46 +88,45 @@ Public Class FormSubGrupoEgreso
             cboEstado.Text = "INACTIVO"
         End If
     End Sub
+
     Private Sub ActualizarSubGrupoEgreso()
         If cboGrupoEgreso.SelectedValue = 0 Then
-            MsgBox("Escoger grupo egreso")
+            MsgBox("Escoger grupo egreso", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entSubGrupoEgreso.GrupoEgresoId = cboGrupoEgreso.SelectedValue
         End If
-
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entSubGrupoEgreso.ItemSubGrupoEgreso = txtDescripcion.Text
         End If
-
         entSubGrupoEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        If (cboEstado.SelectedItem = "ACTIVO") Then
+        If (cboEstado.SelectedItem = "INACTIVO") Then
+            entSubGrupoEgreso.IdEstadoActivo = 0
+        Else
             entSubGrupoEgreso.IdEstadoActivo = 1
         End If
 
         operacion = negSubGrupoEgreso.Actualizar(entSubGrupoEgreso)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Sub-Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Sub-Grupo Pasivo")
         End If
     End Sub
+
     Private Sub EliminarSubGrupoEgreso()
         entSubGrupoEgreso.IdSubGrupoEgreso = Int(dgvSubGrupoEgreso.CurrentRow.Cells("IDSubGrupoEgreso").Value)
         entSubGrupoEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negSubGrupoEgreso.Eliminar(entSubGrupoEgreso)
-
         If operacion Then
-            MsgBox("Guardo con exito")
-            CargarTabla()
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Sub-Grupo Pasivo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Sub-Grupo Pasivo")
         End If
     End Sub
 #End Region
@@ -149,6 +147,7 @@ Public Class FormSubGrupoEgreso
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarSubGrupoEgreso()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -160,7 +159,9 @@ Public Class FormSubGrupoEgreso
         Else
             ActualizarSubGrupoEgreso()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -174,12 +175,11 @@ Public Class FormSubGrupoEgreso
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarSubGrupoEgreso()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         ModoInicial()
     End Sub
-
 #End Region
-
 End Class

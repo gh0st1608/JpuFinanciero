@@ -1,12 +1,8 @@
-﻿
-Imports ERP_Negocio
+﻿Imports ERP_Negocio
 Imports ERP_Entidad
 
 Public Class FormProveedor
-
-
 #Region "Variables"
-
     Dim negProveedor As New NegProveedor
     Dim entProveedor As New EntProveedor
     Dim negParametro As New NegParametro
@@ -14,23 +10,21 @@ Public Class FormProveedor
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
     Dim dataTableTipoCliente As DataTable
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 307
+        Me.Height = 300
         txtIdProveedor.Text = "0"
         txtNombreComercial.Text = ""
         txtRazonSocial.Text = ""
         txtNumeroContacto.Text = ""
-        lbEstado.Visible = False
         cboEstado.Visible = False
-        btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
-
         lbEstado.Visible = False
+        btnNuevo.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvProveedor.Enabled = False
         CargarTabla()
     End Sub
 
@@ -39,26 +33,26 @@ Public Class FormProveedor
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
-
+        dgvProveedor.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
-
     Private Sub CargarCombo()
-        cboMedicion.ValueMember = "IdParametro" 'Lo que yo obtengo con el select value
-        cboMedicion.DisplayMember = "Descripcion" 'Lo que yo no puedo mandar a la bd 
-        cboMedicion.DataSource = negParametro.ObtenerLista("MEDICION", False, True) ' Seleccion
+        cboMedicion.ValueMember = "IdParametro"
+        cboMedicion.DisplayMember = "Descripcion"
+        cboMedicion.DataSource = negParametro.ObtenerLista("MEDICION", False, True)
     End Sub
 
     Private Sub CargarTabla()
-        dataTable = negProveedor.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negProveedor.ObtenerTabla()
         dgvProveedor.DataSource = dataTable
+        If dgvProveedor.Rows.Count > 0 Then
+            dgvProveedor.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
@@ -69,34 +63,28 @@ Public Class FormProveedor
         Else
             entProveedor.Documento = txtDocumento.Text
         End If
-
         If txtRazonSocial.Text = "" Then
             MsgBox("Ingresar Razon Social")
             Exit Sub
         Else
             entProveedor.RazonSocial = txtRazonSocial.Text
         End If
-
         entProveedor.NombreComercial = txtNombreComercial.Text
-
         entProveedor.NumeroContacto = txtNumeroContacto.Text
         entProveedor.Correo = txtCorreo.Text
-
         entProveedor.MedicionId = cboMedicion.SelectedValue
         entProveedor.Tarifa = txtTarifa.Text
 
         entProveedor.UsuarioCreacionId = VariableGlobal.VGIDUsuario
         operacion = negProveedor.Guardar(entProveedor)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Proveedor")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Proveedor")
         End If
     End Sub
-    Private Sub LeerProveedor() 'Item
+    Private Sub LeerProveedor()
         entProveedor = negProveedor.ObtenerData(dgvProveedor.CurrentRow.Cells("IdProveedor").Value)
-
         txtIdProveedor.Text = entProveedor.IdProveedor
         txtDocumento.Text = entProveedor.Documento
         txtNombreComercial.Text = entProveedor.NombreComercial
@@ -105,7 +93,6 @@ Public Class FormProveedor
         txtCorreo.Text = entProveedor.Correo
         cboMedicion.SelectedValue = entProveedor.MedicionId
         txtTarifa.Text = entProveedor.Tarifa
-
         If (entProveedor.IdEstadoActivo = 0) Then
             cboEstado.Visible = True
             lbEstado.Visible = True
@@ -120,34 +107,30 @@ Public Class FormProveedor
         Else
             entProveedor.Documento = txtDocumento.Text
         End If
-
         If txtRazonSocial.Text = "" Then
             MsgBox("Ingresar Razon Social")
             Exit Sub
         Else
             entProveedor.RazonSocial = txtRazonSocial.Text
         End If
-
         entProveedor.NombreComercial = txtNombreComercial.Text
-
         entProveedor.NumeroContacto = txtNumeroContacto.Text
         entProveedor.Correo = txtCorreo.Text
-
         entProveedor.MedicionId = cboMedicion.SelectedValue
         entProveedor.Tarifa = txtTarifa.Text
-
         entProveedor.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        If (cboEstado.SelectedItem = "ACTIVO") Then
+        If (cboEstado.SelectedItem = "INACTIVO") Then
+            entProveedor.IdEstadoActivo = 0
+        Else
             entProveedor.IdEstadoActivo = 1
         End If
 
         operacion = negProveedor.Actualizar(entProveedor)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Proveedor")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Proveedor")
         End If
     End Sub
     Private Sub EliminarProveedor()
@@ -155,11 +138,10 @@ Public Class FormProveedor
         entProveedor.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negProveedor.Eliminar(entProveedor)
-
         If operacion Then
-            MsgBox("Elimino con exito")
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Proveedor")
         Else
-            MsgBox("No Elimino bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Proveedor")
         End If
     End Sub
 #End Region
@@ -180,6 +162,7 @@ Public Class FormProveedor
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarProveedor()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -191,7 +174,9 @@ Public Class FormProveedor
         Else
             ActualizarProveedor()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -211,7 +196,5 @@ Public Class FormProveedor
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         ModoInicial()
     End Sub
-
 #End Region
-
 End Class

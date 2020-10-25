@@ -22,12 +22,12 @@ Partial Class FormContacto
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtCorreo = New PersControlLibrary.ExtendedTextBox()
@@ -101,7 +101,7 @@ Partial Class FormContacto
         Me.txtCorreo.SelectOnFocus = True
         Me.txtCorreo.Size = New System.Drawing.Size(217, 20)
         Me.txtCorreo.Symbol = Nothing
-        Me.txtCorreo.TabIndex = 483
+        Me.txtCorreo.TabIndex = 13
         Me.txtCorreo.Value = Nothing
         '
         'Label3
@@ -135,7 +135,7 @@ Partial Class FormContacto
         Me.txtCelular.SelectOnFocus = True
         Me.txtCelular.Size = New System.Drawing.Size(116, 20)
         Me.txtCelular.Symbol = Nothing
-        Me.txtCelular.TabIndex = 482
+        Me.txtCelular.TabIndex = 14
         Me.txtCelular.Value = Nothing
         '
         'txtNombre
@@ -160,7 +160,7 @@ Partial Class FormContacto
         Me.txtNombre.SelectOnFocus = True
         Me.txtNombre.Size = New System.Drawing.Size(252, 20)
         Me.txtNombre.Symbol = Nothing
-        Me.txtNombre.TabIndex = 480
+        Me.txtNombre.TabIndex = 11
         Me.txtNombre.Value = Nothing
         '
         'txtCargo
@@ -185,7 +185,7 @@ Partial Class FormContacto
         Me.txtCargo.SelectOnFocus = True
         Me.txtCargo.Size = New System.Drawing.Size(252, 20)
         Me.txtCargo.Symbol = Nothing
-        Me.txtCargo.TabIndex = 481
+        Me.txtCargo.TabIndex = 12
         Me.txtCargo.Value = Nothing
         '
         'dgvContacto
@@ -196,53 +196,54 @@ Partial Class FormContacto
         Me.dgvContacto.AllowUserToResizeRows = False
         Me.dgvContacto.BackgroundColor = System.Drawing.Color.White
         Me.dgvContacto.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvContacto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvContacto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.dgvContacto.ColumnHeadersHeight = 20
         Me.dgvContacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvContacto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.IdContacto, Me.OrigenId, Me.NombreCompleto, Me.Cargo, Me.CorreoContacto, Me.Celular, Me.EstadoActivo})
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvContacto.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle23.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvContacto.DefaultCellStyle = DataGridViewCellStyle23
         Me.dgvContacto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvContacto.EnableHeadersVisualStyles = False
         Me.dgvContacto.Location = New System.Drawing.Point(11, 47)
         Me.dgvContacto.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvContacto.Name = "dgvContacto"
         Me.dgvContacto.ReadOnly = True
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvContacto.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle24.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle24.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvContacto.RowHeadersDefaultCellStyle = DataGridViewCellStyle24
         Me.dgvContacto.RowHeadersVisible = False
         Me.dgvContacto.RowHeadersWidth = 22
         Me.dgvContacto.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvContacto.RowTemplate.Height = 18
         Me.dgvContacto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvContacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvContacto.Size = New System.Drawing.Size(646, 100)
+        Me.dgvContacto.Size = New System.Drawing.Size(646, 110)
         Me.dgvContacto.TabIndex = 479
+        Me.dgvContacto.TabStop = False
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "Item"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewTextBoxColumn1.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
@@ -277,9 +278,9 @@ Partial Class FormContacto
         'Cargo
         '
         Me.Cargo.DataPropertyName = "Cargo"
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = "0"
-        Me.Cargo.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle21.Format = "N2"
+        DataGridViewCellStyle21.NullValue = "0"
+        Me.Cargo.DefaultCellStyle = DataGridViewCellStyle21
         Me.Cargo.HeaderText = "CARGO"
         Me.Cargo.Name = "Cargo"
         Me.Cargo.ReadOnly = True
@@ -288,9 +289,9 @@ Partial Class FormContacto
         'CorreoContacto
         '
         Me.CorreoContacto.DataPropertyName = "Correo"
-        DataGridViewCellStyle10.Format = "N2"
-        DataGridViewCellStyle10.NullValue = "0"
-        Me.CorreoContacto.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle22.Format = "N2"
+        DataGridViewCellStyle22.NullValue = "0"
+        Me.CorreoContacto.DefaultCellStyle = DataGridViewCellStyle22
         Me.CorreoContacto.HeaderText = "CORREO"
         Me.CorreoContacto.Name = "CorreoContacto"
         Me.CorreoContacto.ReadOnly = True
@@ -324,8 +325,7 @@ Partial Class FormContacto
         Me.btnEliminar.Location = New System.Drawing.Point(561, 12)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 490
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -341,8 +341,7 @@ Partial Class FormContacto
         Me.btnModificar.Location = New System.Drawing.Point(458, 12)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 489
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -358,7 +357,7 @@ Partial Class FormContacto
         Me.btnNuevo.Location = New System.Drawing.Point(377, 12)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 488
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -382,7 +381,7 @@ Partial Class FormContacto
         Me.Panel1.Controls.Add(Me.lblClienteProveedor)
         Me.Panel1.Controls.Add(Me.txtNombre)
         Me.Panel1.Controls.Add(Me.txtCargo)
-        Me.Panel1.Location = New System.Drawing.Point(12, 161)
+        Me.Panel1.Location = New System.Drawing.Point(12, 175)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(645, 126)
         Me.Panel1.TabIndex = 491
@@ -395,6 +394,7 @@ Partial Class FormContacto
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(116, 21)
         Me.cboEstado.TabIndex = 489
+        Me.cboEstado.TabStop = False
         '
         'lblEstado
         '
@@ -412,7 +412,7 @@ Partial Class FormContacto
         Me.cbCliente.Location = New System.Drawing.Point(63, 13)
         Me.cbCliente.Name = "cbCliente"
         Me.cbCliente.Size = New System.Drawing.Size(252, 21)
-        Me.cbCliente.TabIndex = 484
+        Me.cbCliente.TabIndex = 10
         '
         'btnGuardar
         '
@@ -420,7 +420,7 @@ Partial Class FormContacto
         Me.btnGuardar.Location = New System.Drawing.Point(479, 95)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -436,7 +436,7 @@ Partial Class FormContacto
         Me.btnCancelar.Location = New System.Drawing.Point(558, 94)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -513,12 +513,13 @@ Partial Class FormContacto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(670, 298)
+        Me.ClientSize = New System.Drawing.Size(670, 311)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.dgvContacto)
+        Me.KeyPreview = True
         Me.Name = "FormContacto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Contacto"

@@ -113,7 +113,7 @@ Partial Class FormCliente
         Me.dgvCliente.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvCliente.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvCliente.EnableHeadersVisualStyles = False
-        Me.dgvCliente.Location = New System.Drawing.Point(12, 43)
+        Me.dgvCliente.Location = New System.Drawing.Point(14, 50)
         Me.dgvCliente.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvCliente.Name = "dgvCliente"
         Me.dgvCliente.ReadOnly = True
@@ -131,8 +131,9 @@ Partial Class FormCliente
         Me.dgvCliente.RowTemplate.Height = 18
         Me.dgvCliente.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCliente.Size = New System.Drawing.Size(809, 216)
+        Me.dgvCliente.Size = New System.Drawing.Size(809, 200)
         Me.dgvCliente.TabIndex = 467
+        Me.dgvCliente.TabStop = False
         '
         'DataGridViewTextBoxColumn7
         '
@@ -259,11 +260,10 @@ Partial Class FormCliente
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(723, 12)
+        Me.btnEliminar.Location = New System.Drawing.Point(725, 14)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 466
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -276,11 +276,10 @@ Partial Class FormCliente
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(620, 12)
+        Me.btnModificar.Location = New System.Drawing.Point(622, 14)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 465
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -293,10 +292,10 @@ Partial Class FormCliente
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(539, 12)
+        Me.btnNuevo.Location = New System.Drawing.Point(541, 14)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 464
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -320,7 +319,7 @@ Partial Class FormCliente
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdCliente)
-        Me.Panel1.Location = New System.Drawing.Point(11, 270)
+        Me.Panel1.Location = New System.Drawing.Point(13, 268)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(809, 199)
         Me.Panel1.TabIndex = 463
@@ -385,6 +384,7 @@ Partial Class FormCliente
         Me.dgvContacto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvContacto.Size = New System.Drawing.Size(646, 68)
         Me.dgvContacto.TabIndex = 469
+        Me.dgvContacto.TabStop = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -666,7 +666,7 @@ Partial Class FormCliente
         Me.btnGuardar.Location = New System.Drawing.Point(589, 166)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(105, 26)
-        Me.btnGuardar.TabIndex = 30
+        Me.btnGuardar.TabIndex = 31
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
@@ -681,7 +681,7 @@ Partial Class FormCliente
         Me.btnCancelar.Location = New System.Drawing.Point(701, 166)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(100, 26)
-        Me.btnCancelar.TabIndex = 31
+        Me.btnCancelar.TabIndex = 32
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
@@ -714,12 +714,13 @@ Partial Class FormCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 478)
+        Me.ClientSize = New System.Drawing.Size(837, 481)
         Me.Controls.Add(Me.dgvCliente)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
+        Me.KeyPreview = True
         Me.Name = "FormCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cliente"

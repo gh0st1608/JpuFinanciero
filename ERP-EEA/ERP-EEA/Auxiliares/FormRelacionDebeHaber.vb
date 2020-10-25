@@ -1,10 +1,8 @@
-﻿Imports System.Globalization
-Imports ERP_Entidad
+﻿Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormRelacionDebeHaber
 #Region "Variables"
-
     Dim negRelacionDebeHaber As New NegRelacionDebeHaber
     Dim entRelacionDebeHaber As New EntRelacionDebeHaber
     Dim negGrupoActivo As New NegGrupoActivo
@@ -18,16 +16,12 @@ Public Class FormRelacionDebeHaber
     Dim dataTable As New DataTable
     Dim list As New List(Of String)
     Dim respaldo As Decimal
-    Dim cantRelacionDebeHabers As Integer = 0
     Dim blnActualizar As Boolean = False
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        CargarTablaRelacionDebeHaber()
-        dgvRelacionDebeHaber.Enabled = True
-        Me.Height = 442
+        Me.Height = 393
         txtIdRelacionDebeHaber.Text = "0"
         cbEtapaOperacion.SelectedIndex = 0
         cbGrupoDebe.SelectedIndex = 0
@@ -39,40 +33,37 @@ Public Class FormRelacionDebeHaber
         cbHaber.Enabled = False
         cbGrupo.Enabled = False
         btnNuevo.Enabled = True
-        If cantRelacionDebeHabers = 0 Then
-            btnModificar.Enabled = False
-            btnEliminar.Enabled = False
-        Else
-            btnModificar.Enabled = True
-            btnEliminar.Enabled = True
-        End If
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvRelacionDebeHaber.Enabled = False
         PanelRelacionDebeHaber.Visible = False
-
+        CargarTablaRelacionDebeHaber()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 612
+        Me.Height = 563
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
         dgvRelacionDebeHaber.Enabled = False
         PanelRelacionDebeHaber.Visible = True
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaRelacionDebeHaber()
-        dataTable = negRelacionDebeHaber.ObtenerTabla(0, 0)
+        dataTable = negRelacionDebeHaber.ObtenerTabla()
         dgvRelacionDebeHaber.DataSource = dataTable
-        cantRelacionDebeHabers = dgvRelacionDebeHaber.Rows.Count
+        If dgvRelacionDebeHaber.Rows.Count > 0 Then
+            dgvRelacionDebeHaber.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
 
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    'RelacionDebeHaber
     Private Sub CrearRelacionDebeHaber()
         If cbTipoOperacion.SelectedIndex = 0 Then
             MsgBox("Escoger el tipo de operación (Ingreso/Egreso)", MsgBoxStyle.Critical, "Validar campo")
@@ -80,77 +71,66 @@ Public Class FormRelacionDebeHaber
         Else
             entRelacionDebeHaber.TipoOperacionId = cbTipoOperacion.SelectedIndex
         End If
-
         If cbEtapaOperacion.SelectedIndex = 0 Then
             MsgBox("Escoger la etapa de la operación (Registro/Cobro-Pago)", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.EtapaOperacionId = cbEtapaOperacion.SelectedIndex
         End If
-
         If cbGrupo.SelectedValue = 0 Then
             MsgBox("Escoger la operación", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.GrupoId = cbGrupo.SelectedValue
         End If
-
-        If cbGrupoDebe.SelectedValue = 0 Then
+        If cbGrupoDebe.SelectedIndex = 0 Then
             MsgBox("Escoger el tipo de componente financiero (Activo/Pasivo/Patrimonio", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entRelacionDebeHaber.GrupoDebeId = cbGrupoDebe.SelectedValue
+            entRelacionDebeHaber.GrupoDebeId = cbGrupoDebe.SelectedIndex
         End If
-
         If cbDebe.SelectedValue = 0 Then
             MsgBox("Escoger el componente financiero", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.DebeId = cbDebe.SelectedValue
         End If
-
         If cbSignoDebe.SelectedIndex = 0 Then
             MsgBox("Escoger el signo del Debe", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.SignoDebe = cbSignoDebe.SelectedIndex
         End If
-
         If cbGrupoHaber.SelectedIndex = 0 Then
             MsgBox("Escoger el tipo de componente financiero (Activo/Pasivo/Patrimonio", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.GrupoHaberId = cbGrupoHaber.SelectedIndex
         End If
-
         If cbHaber.SelectedValue = 0 Then
             MsgBox("Escoger el componente financiero", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.HaberId = cbHaber.SelectedValue
         End If
-
         If cbSignoHaber.SelectedIndex = 0 Then
             MsgBox("Escoger el signo del Haber", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.SignoHaber = cbSignoHaber.SelectedIndex
         End If
-
         entRelacionDebeHaber.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negRelacionDebeHaber.Guardar(entRelacionDebeHaber)
-
         If operacion Then
-            MsgBox("Guardo con exito", MsgBoxStyle.Information, "Crear Relacion Debe-Haber")
-            ModoInicial()
+            MsgBox("Guardó con exito", MsgBoxStyle.Information, "Crear Relacion Debe-Haber")
         Else
-            MsgBox("No guardo bien", MsgBoxStyle.Critical, "Crear Relacion Debe-Haber")
+            MsgBox("No guardó", MsgBoxStyle.Critical, "Crear Relacion Debe-Haber")
         End If
     End Sub
-    Private Sub LeerRelacionDebeHaber()
 
-        entRelacionDebeHaber = negRelacionDebeHaber.ObtenerData(dgvRelacionDebeHaber.CurrentRow.Cells("IdRelacionDebeHaber").Value, 0, 0)
+    Private Sub LeerRelacionDebeHaber()
+        entRelacionDebeHaber = negRelacionDebeHaber.ObtenerData(dgvRelacionDebeHaber.CurrentRow.Cells("IdRelacionDebeHaber").Value, 0, 0, 0)
         txtIdRelacionDebeHaber.Text = entRelacionDebeHaber.IdRelacionDebeHaber
         cbTipoOperacion.SelectedIndex = entRelacionDebeHaber.TipoOperacionId
         cbSignoHaber.SelectedIndex = entRelacionDebeHaber.SignoHaber
@@ -161,8 +141,8 @@ Public Class FormRelacionDebeHaber
         cbGrupo.SelectedValue = entRelacionDebeHaber.GrupoId
         cbEtapaOperacion.SelectedIndex = entRelacionDebeHaber.EtapaOperacionId
         cbDebe.SelectedValue = entRelacionDebeHaber.DebeId
-
     End Sub
+
     Private Sub ActualizarRelacionDebeHaber()
         If cbTipoOperacion.SelectedIndex = 0 Then
             MsgBox("Escoger el tipo de operación (Ingreso/Egreso)", MsgBoxStyle.Critical, "Validar campo")
@@ -170,72 +150,61 @@ Public Class FormRelacionDebeHaber
         Else
             entRelacionDebeHaber.TipoOperacionId = cbTipoOperacion.SelectedIndex
         End If
-
         If cbEtapaOperacion.SelectedIndex = 0 Then
             MsgBox("Escoger la etapa de la operación (Registro/Cobro-Pago)", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.EtapaOperacionId = cbEtapaOperacion.SelectedIndex
         End If
-
         If cbGrupo.SelectedValue = 0 Then
             MsgBox("Escoger la operación", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.GrupoId = cbGrupo.SelectedValue
         End If
-
         If cbGrupoDebe.SelectedValue = 0 Then
             MsgBox("Escoger el tipo de componente financiero (Activo/Pasivo/Patrimonio", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.GrupoDebeId = cbGrupoDebe.SelectedValue
         End If
-
         If cbDebe.SelectedValue = 0 Then
             MsgBox("Escoger el componente financiero", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.DebeId = cbDebe.SelectedValue
         End If
-
         If cbSignoDebe.SelectedIndex = 0 Then
             MsgBox("Escoger el signo del Debe", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.SignoDebe = cbSignoDebe.SelectedIndex
         End If
-
         If cbGrupoHaber.SelectedIndex = 0 Then
             MsgBox("Escoger el tipo de componente financiero (Activo/Pasivo/Patrimonio", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.GrupoHaberId = cbGrupoHaber.SelectedIndex
         End If
-
         If cbHaber.SelectedValue = 0 Then
             MsgBox("Escoger el componente financiero", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.HaberId = cbHaber.SelectedValue
         End If
-
         If cbSignoHaber.SelectedIndex = 0 Then
             MsgBox("Escoger el signo del Haber", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entRelacionDebeHaber.SignoHaber = cbSignoHaber.SelectedIndex
         End If
-
         entRelacionDebeHaber.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negRelacionDebeHaber.Actualizar(entRelacionDebeHaber)
-
         If operacion Then
-            MsgBox("Se guardo bien")
-            ModoInicial()
+            MsgBox("Guardó con exito", MsgBoxStyle.Information, "Actualizar Relacion Debe-Haber")
         Else
-            MsgBox("No se guardo bien")
+            MsgBox("No guardó", MsgBoxStyle.Critical, "Actualizar Relacion Debe-Haber")
         End If
     End Sub
     Private Sub EliminarRelacionDebeHaber()
@@ -244,15 +213,11 @@ Public Class FormRelacionDebeHaber
         operacion = negRelacionDebeHaber.Eliminar(entRelacionDebeHaber)
 
         If operacion Then
-            MsgBox("Elimino con exito")
-            ModoInicial()
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Relacion Debe-Haber")
         Else
-            MsgBox("No elimino bien")
+            MsgBox("No eliminó", MsgBoxStyle.Information, "Eliminar Relacion Debe-Haber")
         End If
     End Sub
-
-    'PAGO
-
 #End Region
 
 #Region "Funciones del formulario"
@@ -270,9 +235,9 @@ Public Class FormRelacionDebeHaber
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarRelacionDebeHaber()
+            ModoInicial()
         End If
     End Sub
-
 #End Region
 
 #Region "Funciones de elementos del formulario"
@@ -281,6 +246,9 @@ Public Class FormRelacionDebeHaber
             CrearRelacionDebeHaber()
         Else
             ActualizarRelacionDebeHaber()
+        End If
+        If operacion Then
+            ModoInicial()
         End If
     End Sub
 
@@ -295,6 +263,7 @@ Public Class FormRelacionDebeHaber
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarRelacionDebeHaber()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -307,11 +276,13 @@ Public Class FormRelacionDebeHaber
         Else
             If cbTipoOperacion.SelectedIndex = 1 Then
                 cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdSubGrupoEgreso"
-                cbGrupo.DisplayMember = "ItemSubGrupoEgreso" '
+                cbGrupo.DataSource = Nothing
+                cbGrupo.ValueMember = "IdGrupoIngreso"
+                cbGrupo.DisplayMember = "Descripcion" '
                 cbGrupo.DataSource = negGrupoIngreso.ObtenerLista(False, True)
             Else
                 cbGrupo.Enabled = True
+                cbGrupo.DataSource = Nothing
                 cbGrupo.ValueMember = "IdSubGrupoEgreso"
                 cbGrupo.DisplayMember = "ItemSubGrupoEgreso" '
                 cbGrupo.DataSource = negSubGrupoEgreso.ObtenerLista(False, True, 0)
@@ -321,48 +292,58 @@ Public Class FormRelacionDebeHaber
 
     Private Sub cbGrupoDebe_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbGrupoDebe.SelectedIndexChanged
         If cbTipoOperacion.SelectedIndex = 0 Then
-            cbGrupo.Enabled = False
+            cbDebe.Enabled = False
         Else
-            If cbTipoOperacion.SelectedIndex = 1 Then
-                cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdGrupoIngreso"
-                cbGrupo.DisplayMember = "Descripcion" '
-                cbGrupo.DataSource = negGrupoIngreso.ObtenerLista(False, True)
+            If cbGrupoDebe.SelectedIndex = 1 Then
+                cbDebe.Enabled = True
+                cbDebe.DataSource = Nothing
+                cbDebe.ValueMember = "IdGrupoActivo"
+                cbDebe.DisplayMember = "Descripcion"
+                cbDebe.DataSource = negGrupoActivo.ObtenerLista(False, True)
             End If
-            If cbTipoOperacion.SelectedIndex = 2 Then
-                cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdSubGrupoEgreso"
-                cbGrupo.DisplayMember = "ItemSubGrupoEgreso" '
-                cbGrupo.DataSource = negSubGrupoEgreso.ObtenerLista(False, True, 0)
+            If cbGrupoDebe.SelectedIndex = 2 Then
+                cbDebe.Enabled = True
+                cbDebe.DataSource = Nothing
+                cbDebe.ValueMember = "IdGrupoPasivo"
+                cbDebe.DisplayMember = "Descripcion"
+                cbDebe.DataSource = negGrupoPasivo.ObtenerLista(False, True)
+            End If
+            If cbGrupoDebe.SelectedIndex = 3 Then
+                cbDebe.Enabled = True
+                cbDebe.DataSource = Nothing
+                cbDebe.ValueMember = "IdGrupoPatrimonio"
+                cbDebe.DisplayMember = "Descripcion"
+                cbDebe.DataSource = negGrupoPatrimonio.ObtenerLista(False, True)
             End If
         End If
     End Sub
 
     Private Sub cbGrupoHaber_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbGrupoHaber.SelectedIndexChanged
         If cbGrupoHaber.SelectedIndex = 0 Then
-            cbGrupo.Enabled = False
+            cbHaber.Enabled = False
         Else
             If cbGrupoHaber.SelectedIndex = 1 Then
-                cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdGrupoActivo"
-                cbGrupo.DisplayMember = "Descripcion"
-                cbGrupo.DataSource = negGrupoActivo.ObtenerLista(False, True)
+                cbHaber.Enabled = True
+                cbHaber.DataSource = Nothing
+                cbHaber.ValueMember = "IdGrupoActivo"
+                cbHaber.DisplayMember = "Descripcion"
+                cbHaber.DataSource = negGrupoActivo.ObtenerLista(False, True)
             End If
             If cbGrupoHaber.SelectedIndex = 2 Then
-                cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdGrupoPasivo"
-                cbGrupo.DisplayMember = "Descripcion"
-                cbGrupo.DataSource = negGrupoPasivo.ObtenerLista(False, True)
+                cbHaber.Enabled = True
+                cbHaber.DataSource = Nothing
+                cbHaber.ValueMember = "IdGrupoPasivo"
+                cbHaber.DisplayMember = "Descripcion"
+                cbHaber.DataSource = negGrupoPasivo.ObtenerLista(False, True)
             End If
             If cbGrupoHaber.SelectedIndex = 3 Then
-                cbGrupo.Enabled = True
-                cbGrupo.ValueMember = "IdGrupoPatrimonio"
-                cbGrupo.DisplayMember = "Descripcion"
-                cbGrupo.DataSource = negGrupoPatrimonio.ObtenerLista(False, True)
+                cbHaber.Enabled = True
+                cbHaber.DataSource = Nothing
+                cbHaber.ValueMember = "IdGrupoPatrimonio"
+                cbHaber.DisplayMember = "Descripcion"
+                cbHaber.DataSource = negGrupoPatrimonio.ObtenerLista(False, True)
             End If
         End If
     End Sub
-
-
 #End Region
 End Class

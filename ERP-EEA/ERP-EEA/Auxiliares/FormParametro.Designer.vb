@@ -69,7 +69,7 @@ Partial Class FormParametro
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvParametro.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvParametro.ColumnHeadersHeight = 32
+        Me.dgvParametro.ColumnHeadersHeight = 30
         Me.dgvParametro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvParametro.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.item, Me.IdParametro, Me.TipoParametro, Me.Descripcion, Me.ValorParametro, Me.IdEstadoActivo, Me.EstadoActivo})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -82,7 +82,7 @@ Partial Class FormParametro
         Me.dgvParametro.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvParametro.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvParametro.EnableHeadersVisualStyles = False
-        Me.dgvParametro.Location = New System.Drawing.Point(8, 47)
+        Me.dgvParametro.Location = New System.Drawing.Point(11, 50)
         Me.dgvParametro.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvParametro.Name = "dgvParametro"
         Me.dgvParametro.ReadOnly = True
@@ -100,8 +100,9 @@ Partial Class FormParametro
         Me.dgvParametro.RowTemplate.Height = 18
         Me.dgvParametro.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvParametro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvParametro.Size = New System.Drawing.Size(620, 216)
+        Me.dgvParametro.Size = New System.Drawing.Size(620, 210)
         Me.dgvParametro.TabIndex = 467
+        Me.dgvParametro.TabStop = False
         '
         'item
         '
@@ -128,6 +129,7 @@ Partial Class FormParametro
         Me.TipoParametro.HeaderText = "TIPO PARAMETRO"
         Me.TipoParametro.Name = "TipoParametro"
         Me.TipoParametro.ReadOnly = True
+        Me.TipoParametro.Width = 80
         '
         'Descripcion
         '
@@ -136,7 +138,7 @@ Partial Class FormParametro
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.ReadOnly = True
         Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Descripcion.Width = 320
+        Me.Descripcion.Width = 315
         '
         'ValorParametro
         '
@@ -144,6 +146,7 @@ Partial Class FormParametro
         Me.ValorParametro.HeaderText = "VALOR PARAMETRO"
         Me.ValorParametro.Name = "ValorParametro"
         Me.ValorParametro.ReadOnly = True
+        Me.ValorParametro.Width = 90
         '
         'IdEstadoActivo
         '
@@ -160,6 +163,7 @@ Partial Class FormParametro
         Me.EstadoActivo.HeaderText = "ESTADO"
         Me.EstadoActivo.Name = "EstadoActivo"
         Me.EstadoActivo.ReadOnly = True
+        Me.EstadoActivo.Width = 90
         '
         'btnEliminar
         '
@@ -169,11 +173,10 @@ Partial Class FormParametro
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(530, 12)
+        Me.btnEliminar.Location = New System.Drawing.Point(533, 15)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 466
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -186,11 +189,10 @@ Partial Class FormParametro
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(427, 12)
+        Me.btnModificar.Location = New System.Drawing.Point(430, 15)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 465
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -203,10 +205,10 @@ Partial Class FormParametro
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(346, 12)
+        Me.btnNuevo.Location = New System.Drawing.Point(349, 15)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 464
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -225,42 +227,45 @@ Partial Class FormParametro
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdParametro)
-        Me.Panel1.Location = New System.Drawing.Point(8, 274)
+        Me.Panel1.Location = New System.Drawing.Point(11, 277)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(615, 169)
+        Me.Panel1.Size = New System.Drawing.Size(615, 99)
         Me.Panel1.TabIndex = 463
         '
         'cboEstado
         '
         Me.cboEstado.FormattingEnabled = True
-        Me.cboEstado.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
-        Me.cboEstado.Location = New System.Drawing.Point(133, 90)
+        Me.cboEstado.Items.AddRange(New Object() {"Activo", "Inactivo"})
+        Me.cboEstado.Location = New System.Drawing.Point(442, 36)
         Me.cboEstado.Name = "cboEstado"
-        Me.cboEstado.Size = New System.Drawing.Size(116, 21)
+        Me.cboEstado.Size = New System.Drawing.Size(160, 21)
         Me.cboEstado.TabIndex = 471
+        Me.cboEstado.TabStop = False
+        Me.cboEstado.Visible = False
         '
         'lblEstado
         '
         Me.lblEstado.AutoSize = True
-        Me.lblEstado.Location = New System.Drawing.Point(13, 93)
+        Me.lblEstado.Location = New System.Drawing.Point(357, 37)
         Me.lblEstado.Name = "lblEstado"
         Me.lblEstado.Size = New System.Drawing.Size(40, 13)
         Me.lblEstado.TabIndex = 470
         Me.lblEstado.Text = "Estado"
+        Me.lblEstado.Visible = False
         '
         'cboTipoParametro
         '
         Me.cboTipoParametro.FormattingEnabled = True
-        Me.cboTipoParametro.Items.AddRange(New Object() {"AUXILIAR", "MEDICION"})
-        Me.cboTipoParametro.Location = New System.Drawing.Point(133, 63)
+        Me.cboTipoParametro.Items.AddRange(New Object() {"Selecciones", "Auxiliar", "Medicion"})
+        Me.cboTipoParametro.Location = New System.Drawing.Point(442, 9)
         Me.cboTipoParametro.Name = "cboTipoParametro"
-        Me.cboTipoParametro.Size = New System.Drawing.Size(116, 21)
-        Me.cboTipoParametro.TabIndex = 469
+        Me.cboTipoParametro.Size = New System.Drawing.Size(160, 21)
+        Me.cboTipoParametro.TabIndex = 12
         '
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(13, 37)
+        Me.lblDescripcion.Location = New System.Drawing.Point(9, 37)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(82, 13)
         Me.lblDescripcion.TabIndex = 467
@@ -278,7 +283,7 @@ Partial Class FormParametro
         Me.txtValorParametro.EnterIsTab = True
         Me.txtValorParametro.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtValorParametro.Label = "Descripción"
-        Me.txtValorParametro.Location = New System.Drawing.Point(133, 34)
+        Me.txtValorParametro.Location = New System.Drawing.Point(112, 34)
         Me.txtValorParametro.Mandatory = False
         Me.txtValorParametro.Margin = New System.Windows.Forms.Padding(2)
         Me.txtValorParametro.MaxLength = 100
@@ -286,15 +291,15 @@ Partial Class FormParametro
         Me.txtValorParametro.Name = "txtValorParametro"
         Me.txtValorParametro.Precision = 0
         Me.txtValorParametro.SelectOnFocus = True
-        Me.txtValorParametro.Size = New System.Drawing.Size(116, 20)
+        Me.txtValorParametro.Size = New System.Drawing.Size(144, 20)
         Me.txtValorParametro.Symbol = Nothing
-        Me.txtValorParametro.TabIndex = 466
+        Me.txtValorParametro.TabIndex = 11
         Me.txtValorParametro.Value = Nothing
         '
         'lblTipoParametro
         '
         Me.lblTipoParametro.AutoSize = True
-        Me.lblTipoParametro.Location = New System.Drawing.Point(13, 66)
+        Me.lblTipoParametro.Location = New System.Drawing.Point(357, 12)
         Me.lblTipoParametro.Name = "lblTipoParametro"
         Me.lblTipoParametro.Size = New System.Drawing.Size(79, 13)
         Me.lblTipoParametro.TabIndex = 465
@@ -303,7 +308,7 @@ Partial Class FormParametro
         'lblNombreParametro
         '
         Me.lblNombreParametro.AutoSize = True
-        Me.lblNombreParametro.Location = New System.Drawing.Point(13, 13)
+        Me.lblNombreParametro.Location = New System.Drawing.Point(9, 13)
         Me.lblNombreParametro.Name = "lblNombreParametro"
         Me.lblNombreParametro.Size = New System.Drawing.Size(95, 13)
         Me.lblNombreParametro.TabIndex = 461
@@ -321,7 +326,7 @@ Partial Class FormParametro
         Me.txtDescripcion.EnterIsTab = True
         Me.txtDescripcion.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtDescripcion.Label = "Descripción"
-        Me.txtDescripcion.Location = New System.Drawing.Point(133, 10)
+        Me.txtDescripcion.Location = New System.Drawing.Point(112, 10)
         Me.txtDescripcion.Mandatory = False
         Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDescripcion.MaxLength = 100
@@ -329,18 +334,18 @@ Partial Class FormParametro
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Precision = 0
         Me.txtDescripcion.SelectOnFocus = True
-        Me.txtDescripcion.Size = New System.Drawing.Size(465, 20)
+        Me.txtDescripcion.Size = New System.Drawing.Size(224, 20)
         Me.txtDescripcion.Symbol = Nothing
-        Me.txtDescripcion.TabIndex = 458
+        Me.txtDescripcion.TabIndex = 10
         Me.txtDescripcion.Value = Nothing
         '
         'btnGuardar
         '
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(450, 133)
+        Me.btnGuardar.Location = New System.Drawing.Point(454, 63)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -353,10 +358,10 @@ Partial Class FormParametro
         Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(529, 133)
+        Me.btnCancelar.Location = New System.Drawing.Point(533, 63)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -373,7 +378,7 @@ Partial Class FormParametro
         Me.txtIdParametro.EnterIsTab = True
         Me.txtIdParametro.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtIdParametro.Label = "Descripción"
-        Me.txtIdParametro.Location = New System.Drawing.Point(478, 137)
+        Me.txtIdParametro.Location = New System.Drawing.Point(482, 67)
         Me.txtIdParametro.Mandatory = False
         Me.txtIdParametro.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIdParametro.MaxLength = 100
@@ -390,15 +395,18 @@ Partial Class FormParametro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(635, 450)
+        Me.ClientSize = New System.Drawing.Size(642, 389)
         Me.Controls.Add(Me.dgvParametro)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
+        Me.KeyPreview = True
+        Me.MaximumSize = New System.Drawing.Size(658, 428)
+        Me.MinimumSize = New System.Drawing.Size(658, 316)
         Me.Name = "FormParametro"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormParametro"
+        Me.Text = "Parámetros"
         CType(Me.dgvParametro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

@@ -1,74 +1,73 @@
-﻿Imports System.Globalization
-Imports ERP_Negocio
+﻿Imports ERP_Negocio
 Imports ERP_Entidad
 
 Public Class FormParametro
-
 #Region "Variables"
-
     Dim negParametro As New NegParametro
     Dim entParametro As New EntParametro
     Dim operacion As Boolean = False
     Dim dataTable As DataTable
-
 #End Region
-
-
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 307
+        Me.Height = 316
         txtIdParametro.Text = "0"
         txtDescripcion.Text = ""
+        txtValorParametro.Text = ""
         btnNuevo.Enabled = True
-        btnModificar.Enabled = True
-        btnEliminar.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        cboTipoParametro.SelectedIndex = 0
         cboEstado.Visible = False
         lblEstado.Visible = False
-        cboTipoParametro.Visible = True
-
+        dgvParametro.Enabled = True
         CargarTabla()
     End Sub
 
     Private Sub ModoRegistro()
-        'Me.Height = 392
-        Me.Height = 490
+        Me.Height = 428
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
-
+        dgvParametro.Enabled = False
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTabla()
-        dataTable = negParametro.ObtenerTabla() 'Puedo enviarte filtros si no fueran maestros
+        dataTable = negParametro.ObtenerTabla()
         dgvParametro.DataSource = dataTable
+        If dataTable.Rows.Count > 0 Then
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+            dgvParametro.Enabled = True
+        End If
     End Sub
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
     Private Sub CrearParametro()
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entParametro.Descripcion = txtDescripcion.Text
         End If
-
-        entParametro.TipoParametro = cboTipoParametro.Text
-        entParametro.ValorParametro = Convert.ToDecimal(txtValorParametro.Text, New CultureInfo("en-US"))
+        If cboTipoParametro.SelectedIndex = 0 Then
+            MsgBox("Escoger el tipo de parámetro", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
+        Else
+            entParametro.TipoParametro = cboTipoParametro.Text
+        End If
+        entParametro.ValorParametro = txtValorParametro.Text
         entParametro.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negParametro.Guardar(entParametro)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Parametro")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Parametro")
         End If
     End Sub
 
@@ -86,40 +85,35 @@ Public Class FormParametro
             cboTipoParametro.Enabled = False
             cboEstado.Text = "INACTIVO"
         End If
-
-
-
     End Sub
 
     Private Sub ActualizarParametro()
         If txtDescripcion.Text = "" Then
-            MsgBox("Ingresar descripcion")
+            MsgBox("Ingresar descripcion", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entParametro.Descripcion = txtDescripcion.Text
         End If
-
+        If cboTipoParametro.SelectedIndex = 0 Then
+            MsgBox("Escoger el tipo de parámetro", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
+        Else
+            entParametro.TipoParametro = cboTipoParametro.Text
+        End If
         entParametro.ValorParametro = txtValorParametro.Text
         entParametro.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
-        If (cboEstado.SelectedItem = "ACTIVO") Then
-            entParametro.IdEstadoActivo = 1
-        Else
+        If (cboEstado.SelectedItem = "INACTIVO") Then
             entParametro.IdEstadoActivo = 0
-        End If
-
-        If (cboTipoParametro.SelectedItem = "AUXILIAR") Then
-            entParametro.TipoParametro = "AUXILIAR"
         Else
-            entParametro.TipoParametro = "MEDICION"
+            entParametro.IdEstadoActivo = 1
         End If
 
         operacion = negParametro.Actualizar(entParametro)
-
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Parametro")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Parametro")
         End If
     End Sub
     Private Sub EliminarParametro()
@@ -129,9 +123,9 @@ Public Class FormParametro
         operacion = negParametro.Eliminar(entParametro)
 
         If operacion Then
-            MsgBox("Guardo con exito")
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Parametro")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Parametro")
         End If
     End Sub
 #End Region
@@ -151,6 +145,7 @@ Public Class FormParametro
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarParametro()
+            ModoInicial()
         End If
     End Sub
 #End Region
@@ -162,7 +157,9 @@ Public Class FormParametro
         Else
             ActualizarParametro()
         End If
-        ModoInicial()
+        If operacion Then
+            ModoInicial()
+        End If
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

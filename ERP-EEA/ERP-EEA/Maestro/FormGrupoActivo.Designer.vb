@@ -27,18 +27,12 @@ Partial Class FormGrupoActivo
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvGrupoActivo = New PersControlLibrary.ExtendedDataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdGrupoPasivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdTipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreGrupoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbTipo = New System.Windows.Forms.ComboBox()
         Me.lbEstado = New System.Windows.Forms.Label()
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -46,6 +40,14 @@ Partial Class FormGrupoActivo
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdGrupoActivo = New PersControlLibrary.ExtendedTextBox()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdGrupoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdTipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreGrupoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvGrupoActivo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -68,7 +70,7 @@ Partial Class FormGrupoActivo
         Me.dgvGrupoActivo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvGrupoActivo.ColumnHeadersHeight = 20
         Me.dgvGrupoActivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvGrupoActivo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdGrupoPasivo, Me.IdTipo, Me.Tipo, Me.NombreGrupoActivo, Me.Cuenta, Me.EstadoActivo, Me.IdEstadoActivo})
+        Me.dgvGrupoActivo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdGrupoActivo, Me.IdTipo, Me.Tipo, Me.NombreGrupoActivo, Me.Cuenta, Me.EstadoActivo, Me.IdEstadoActivo})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -79,7 +81,7 @@ Partial Class FormGrupoActivo
         Me.dgvGrupoActivo.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvGrupoActivo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvGrupoActivo.EnableHeadersVisualStyles = False
-        Me.dgvGrupoActivo.Location = New System.Drawing.Point(7, 35)
+        Me.dgvGrupoActivo.Location = New System.Drawing.Point(11, 53)
         Me.dgvGrupoActivo.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvGrupoActivo.Name = "dgvGrupoActivo"
         Me.dgvGrupoActivo.ReadOnly = True
@@ -97,75 +99,9 @@ Partial Class FormGrupoActivo
         Me.dgvGrupoActivo.RowTemplate.Height = 18
         Me.dgvGrupoActivo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvGrupoActivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrupoActivo.Size = New System.Drawing.Size(415, 216)
+        Me.dgvGrupoActivo.Size = New System.Drawing.Size(415, 200)
         Me.dgvGrupoActivo.TabIndex = 462
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdGrupoPasivo
-        '
-        Me.IdGrupoPasivo.DataPropertyName = "IdGrupoPasivo"
-        Me.IdGrupoPasivo.HeaderText = "IdGrupoPasivo"
-        Me.IdGrupoPasivo.Name = "IdGrupoPasivo"
-        Me.IdGrupoPasivo.ReadOnly = True
-        Me.IdGrupoPasivo.Visible = False
-        '
-        'IdTipo
-        '
-        Me.IdTipo.DataPropertyName = "IdTipo"
-        Me.IdTipo.HeaderText = "IdTipo"
-        Me.IdTipo.Name = "IdTipo"
-        Me.IdTipo.ReadOnly = True
-        Me.IdTipo.Visible = False
-        '
-        'Tipo
-        '
-        Me.Tipo.DataPropertyName = "Tipo"
-        Me.Tipo.HeaderText = "TIPO"
-        Me.Tipo.Name = "Tipo"
-        Me.Tipo.ReadOnly = True
-        '
-        'NombreGrupoActivo
-        '
-        Me.NombreGrupoActivo.DataPropertyName = "Descripcion"
-        Me.NombreGrupoActivo.HeaderText = "NOMBRE"
-        Me.NombreGrupoActivo.Name = "NombreGrupoActivo"
-        Me.NombreGrupoActivo.ReadOnly = True
-        Me.NombreGrupoActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreGrupoActivo.Width = 190
-        '
-        'Cuenta
-        '
-        Me.Cuenta.DataPropertyName = "Cuenta"
-        Me.Cuenta.HeaderText = "Cuenta"
-        Me.Cuenta.Name = "Cuenta"
-        Me.Cuenta.ReadOnly = True
-        Me.Cuenta.Visible = False
-        '
-        'EstadoActivo
-        '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "ESTADO"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        Me.EstadoActivo.Width = 130
-        '
-        'IdEstadoActivo
-        '
-        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
-        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
-        Me.IdEstadoActivo.Name = "IdEstadoActivo"
-        Me.IdEstadoActivo.ReadOnly = True
-        Me.IdEstadoActivo.Visible = False
+        Me.dgvGrupoActivo.TabStop = False
         '
         'btnEliminar
         '
@@ -175,11 +111,10 @@ Partial Class FormGrupoActivo
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(323, 4)
+        Me.btnEliminar.Location = New System.Drawing.Point(327, 14)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 461
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -192,11 +127,10 @@ Partial Class FormGrupoActivo
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(220, 4)
+        Me.btnModificar.Location = New System.Drawing.Point(224, 14)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 460
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -209,10 +143,10 @@ Partial Class FormGrupoActivo
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(139, 4)
+        Me.btnNuevo.Location = New System.Drawing.Point(143, 14)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 459
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -220,6 +154,8 @@ Partial Class FormGrupoActivo
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(174, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.cbTipo)
         Me.Panel1.Controls.Add(Me.lbEstado)
         Me.Panel1.Controls.Add(Me.cboEstado)
         Me.Panel1.Controls.Add(Me.Label2)
@@ -227,15 +163,34 @@ Partial Class FormGrupoActivo
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdGrupoActivo)
-        Me.Panel1.Location = New System.Drawing.Point(7, 262)
+        Me.Panel1.Location = New System.Drawing.Point(11, 273)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(414, 73)
+        Me.Panel1.Size = New System.Drawing.Size(414, 98)
         Me.Panel1.TabIndex = 458
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(14, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(28, 13)
+        Me.Label1.TabIndex = 465
+        Me.Label1.Text = "Tipo"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'cbTipo
+        '
+        Me.cbTipo.FormattingEnabled = True
+        Me.cbTipo.Items.AddRange(New Object() {"Seleccione", "Corriente", "No Corriente"})
+        Me.cbTipo.Location = New System.Drawing.Point(82, 36)
+        Me.cbTipo.Name = "cbTipo"
+        Me.cbTipo.Size = New System.Drawing.Size(121, 21)
+        Me.cbTipo.TabIndex = 11
         '
         'lbEstado
         '
         Me.lbEstado.AutoSize = True
-        Me.lbEstado.Location = New System.Drawing.Point(14, 44)
+        Me.lbEstado.Location = New System.Drawing.Point(238, 41)
         Me.lbEstado.Name = "lbEstado"
         Me.lbEstado.Size = New System.Drawing.Size(40, 13)
         Me.lbEstado.TabIndex = 463
@@ -245,10 +200,11 @@ Partial Class FormGrupoActivo
         '
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
-        Me.cboEstado.Location = New System.Drawing.Point(82, 39)
+        Me.cboEstado.Location = New System.Drawing.Point(284, 36)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(121, 21)
         Me.cboEstado.TabIndex = 462
+        Me.cboEstado.TabStop = False
         '
         'Label2
         '
@@ -281,16 +237,16 @@ Partial Class FormGrupoActivo
         Me.txtDescripcion.SelectOnFocus = True
         Me.txtDescripcion.Size = New System.Drawing.Size(323, 20)
         Me.txtDescripcion.Symbol = Nothing
-        Me.txtDescripcion.TabIndex = 458
+        Me.txtDescripcion.TabIndex = 10
         Me.txtDescripcion.Value = Nothing
         '
         'btnGuardar
         '
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardar.Location = New System.Drawing.Point(256, 37)
+        Me.btnGuardar.Location = New System.Drawing.Point(256, 63)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -303,10 +259,10 @@ Partial Class FormGrupoActivo
         Me.btnCancelar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancelar.ForeColor = System.Drawing.Color.Black
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(336, 37)
+        Me.btnCancelar.Location = New System.Drawing.Point(336, 63)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -323,7 +279,7 @@ Partial Class FormGrupoActivo
         Me.txtIdGrupoActivo.EnterIsTab = True
         Me.txtIdGrupoActivo.Format = PersControlLibrary.ExtendedTextBox.ExtendedTextBoxFormats.AnyText
         Me.txtIdGrupoActivo.Label = "Descripción"
-        Me.txtIdGrupoActivo.Location = New System.Drawing.Point(278, 41)
+        Me.txtIdGrupoActivo.Location = New System.Drawing.Point(278, 67)
         Me.txtIdGrupoActivo.Mandatory = False
         Me.txtIdGrupoActivo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtIdGrupoActivo.MaxLength = 100
@@ -336,16 +292,87 @@ Partial Class FormGrupoActivo
         Me.txtIdGrupoActivo.TabIndex = 460
         Me.txtIdGrupoActivo.Value = Nothing
         '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
+        'IdGrupoActivo
+        '
+        Me.IdGrupoActivo.DataPropertyName = "IdGrupoActivo"
+        Me.IdGrupoActivo.HeaderText = "IdGrupoPasivo"
+        Me.IdGrupoActivo.Name = "IdGrupoActivo"
+        Me.IdGrupoActivo.ReadOnly = True
+        Me.IdGrupoActivo.Visible = False
+        '
+        'IdTipo
+        '
+        Me.IdTipo.DataPropertyName = "IdTipo"
+        Me.IdTipo.HeaderText = "IdTipo"
+        Me.IdTipo.Name = "IdTipo"
+        Me.IdTipo.ReadOnly = True
+        Me.IdTipo.Visible = False
+        '
+        'Tipo
+        '
+        Me.Tipo.DataPropertyName = "Tipo"
+        Me.Tipo.HeaderText = "TIPO"
+        Me.Tipo.Name = "Tipo"
+        Me.Tipo.ReadOnly = True
+        Me.Tipo.Width = 95
+        '
+        'NombreGrupoActivo
+        '
+        Me.NombreGrupoActivo.DataPropertyName = "Descripcion"
+        Me.NombreGrupoActivo.HeaderText = "NOMBRE"
+        Me.NombreGrupoActivo.Name = "NombreGrupoActivo"
+        Me.NombreGrupoActivo.ReadOnly = True
+        Me.NombreGrupoActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NombreGrupoActivo.Width = 195
+        '
+        'Cuenta
+        '
+        Me.Cuenta.DataPropertyName = "Cuenta"
+        Me.Cuenta.HeaderText = "Cuenta"
+        Me.Cuenta.Name = "Cuenta"
+        Me.Cuenta.ReadOnly = True
+        Me.Cuenta.Visible = False
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
+        Me.EstadoActivo.Width = 80
+        '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
+        '
         'FormGrupoActivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(425, 337)
+        Me.ClientSize = New System.Drawing.Size(438, 383)
         Me.Controls.Add(Me.dgvGrupoActivo)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
+        Me.KeyPreview = True
+        Me.MaximumSize = New System.Drawing.Size(454, 422)
+        Me.MinimumSize = New System.Drawing.Size(454, 310)
         Me.Name = "FormGrupoActivo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Grupo Activo"
@@ -368,8 +395,10 @@ Partial Class FormGrupoActivo
     Private WithEvents btnGuardar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents txtIdGrupoActivo As PersControlLibrary.ExtendedTextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cbTipo As ComboBox
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents IdGrupoPasivo As DataGridViewTextBoxColumn
+    Friend WithEvents IdGrupoActivo As DataGridViewTextBoxColumn
     Friend WithEvents IdTipo As DataGridViewTextBoxColumn
     Friend WithEvents Tipo As DataGridViewTextBoxColumn
     Friend WithEvents NombreGrupoActivo As DataGridViewTextBoxColumn

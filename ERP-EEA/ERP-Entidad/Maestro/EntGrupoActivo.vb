@@ -3,6 +3,7 @@
     Private VarIdTipo As Integer
     Private VarTipo As String
     Private VarDescripcion As String
+    Private VarDescripcionTipo As String
     Private VarCuenta As Integer
     Private VarUsuarioCreacionId As Integer
     Private VarUsuarioModificacionId As Integer
@@ -42,6 +43,15 @@
         End Get
         Set(ByVal value As String)
             VarDescripcion = value
+        End Set
+    End Property
+
+    Public Property DescripcionTipo As String
+        Get
+            Return VarDescripcionTipo
+        End Get
+        Set(ByVal value As String)
+            VarDescripcionTipo = value
         End Set
     End Property
 

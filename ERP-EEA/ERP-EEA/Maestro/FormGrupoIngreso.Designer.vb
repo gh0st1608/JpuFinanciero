@@ -95,11 +95,10 @@ Partial Class FormGrupoIngreso
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(327, 11)
+        Me.btnEliminar.Location = New System.Drawing.Point(327, 13)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 456
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -112,11 +111,10 @@ Partial Class FormGrupoIngreso
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(224, 11)
+        Me.btnModificar.Location = New System.Drawing.Point(224, 13)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 454
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -129,10 +127,10 @@ Partial Class FormGrupoIngreso
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(143, 11)
+        Me.btnNuevo.Location = New System.Drawing.Point(143, 13)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 453
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -169,6 +167,7 @@ Partial Class FormGrupoIngreso
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(121, 21)
         Me.cboEstado.TabIndex = 462
+        Me.cboEstado.TabStop = False
         '
         'Label2
         '
@@ -201,7 +200,7 @@ Partial Class FormGrupoIngreso
         Me.txtDescripcion.SelectOnFocus = True
         Me.txtDescripcion.Size = New System.Drawing.Size(323, 20)
         Me.txtDescripcion.Symbol = Nothing
-        Me.txtDescripcion.TabIndex = 458
+        Me.txtDescripcion.TabIndex = 10
         Me.txtDescripcion.Value = Nothing
         '
         'btnGuardar
@@ -210,7 +209,7 @@ Partial Class FormGrupoIngreso
         Me.btnGuardar.Location = New System.Drawing.Point(257, 37)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -226,7 +225,7 @@ Partial Class FormGrupoIngreso
         Me.btnCancelar.Location = New System.Drawing.Point(336, 37)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -341,7 +340,7 @@ Partial Class FormGrupoIngreso
         Me.dgvGrupoIngreso.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvGrupoIngreso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvGrupoIngreso.EnableHeadersVisualStyles = False
-        Me.dgvGrupoIngreso.Location = New System.Drawing.Point(11, 42)
+        Me.dgvGrupoIngreso.Location = New System.Drawing.Point(11, 48)
         Me.dgvGrupoIngreso.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvGrupoIngreso.Name = "dgvGrupoIngreso"
         Me.dgvGrupoIngreso.ReadOnly = True
@@ -359,8 +358,9 @@ Partial Class FormGrupoIngreso
         Me.dgvGrupoIngreso.RowTemplate.Height = 18
         Me.dgvGrupoIngreso.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvGrupoIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrupoIngreso.Size = New System.Drawing.Size(415, 216)
+        Me.dgvGrupoIngreso.Size = New System.Drawing.Size(415, 200)
         Me.dgvGrupoIngreso.TabIndex = 457
+        Me.dgvGrupoIngreso.TabStop = False
         '
         'DataGridViewTextBoxColumn7
         '
@@ -388,7 +388,7 @@ Partial Class FormGrupoIngreso
         Me.NombreGrupoIngreso.Name = "NombreGrupoIngreso"
         Me.NombreGrupoIngreso.ReadOnly = True
         Me.NombreGrupoIngreso.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreGrupoIngreso.Width = 280
+        Me.NombreGrupoIngreso.Width = 270
         '
         'EstadoActivo
         '
@@ -396,7 +396,6 @@ Partial Class FormGrupoIngreso
         Me.EstadoActivo.HeaderText = "ESTADO"
         Me.EstadoActivo.Name = "EstadoActivo"
         Me.EstadoActivo.ReadOnly = True
-        Me.EstadoActivo.Width = 130
         '
         'IdEstadoActivo
         '
@@ -416,6 +415,7 @@ Partial Class FormGrupoIngreso
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
+        Me.KeyPreview = True
         Me.Name = "FormGrupoIngreso"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Grupo Ingreso"

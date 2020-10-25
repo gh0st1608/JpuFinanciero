@@ -5,28 +5,23 @@ Public Class NegPeriodo
     Dim ObjPeriodoEnt As New EntPeriodo
     Dim ObjPeriodoDat As New DatPeriodo
 
-    Public Function ObtenerData(ByVal Id As Integer, ByVal DescripcionPeriodo As String) As EntPeriodo 'Mostrar el detalle al hacer click en el dgv
-
+    Public Function ObtenerData(ByVal Id As Integer, ByVal DescripcionPeriodo As String) As EntPeriodo
         Dim Dt As DataTable
-
         Dt = ObjPeriodoDat.LeerPeriodo(Id, DescripcionPeriodo)
-
-        ObjPeriodoEnt.IdPeriodo = Convert.ToInt32(Dt.Rows(0).Item("IdPeriodo"))
-        ObjPeriodoEnt.DescripcionPeriodo = Convert.ToString(Dt.Rows(0).Item("DescripcionPeriodo"))
-        ObjPeriodoEnt.FechaInicio = Convert.ToDateTime(Dt.Rows(0).Item("FechaInicio"))
-        ObjPeriodoEnt.FechaFin = Convert.ToDateTime(Dt.Rows(0).Item("FechaFin"))
-
+        If (Dt.Rows.Count() > 0) Then
+            ObjPeriodoEnt.IdPeriodo = Convert.ToInt32(Dt.Rows(0).Item("IdPeriodo"))
+            ObjPeriodoEnt.DescripcionPeriodo = Convert.ToString(Dt.Rows(0).Item("DescripcionPeriodo"))
+            ObjPeriodoEnt.FechaInicio = Convert.ToDateTime(Dt.Rows(0).Item("FechaInicio"))
+            ObjPeriodoEnt.FechaFin = Convert.ToDateTime(Dt.Rows(0).Item("FechaFin"))
+        End If
         Return ObjPeriodoEnt
-
     End Function
 
     Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntPeriodo)
-
         Dim result = New List(Of EntPeriodo)
         Dim resultadoElemento As EntPeriodo
         Dim Dt As DataTable
         Dt = ObjPeriodoDat.LeerPeriodo(0, "")
-
         If (Dt.Rows.Count() > 0) Then
             If (Filtro) Then
                 resultadoElemento = New EntPeriodo
@@ -51,5 +46,4 @@ Public Class NegPeriodo
         End If
         Return result
     End Function
-
 End Class

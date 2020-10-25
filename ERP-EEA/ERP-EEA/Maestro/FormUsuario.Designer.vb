@@ -69,7 +69,7 @@ Partial Class FormUsuario
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtNombreCompleto)
         Me.Panel1.Controls.Add(Me.txtNombreUsuario)
-        Me.Panel1.Location = New System.Drawing.Point(12, 159)
+        Me.Panel1.Location = New System.Drawing.Point(12, 169)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(461, 122)
         Me.Panel1.TabIndex = 496
@@ -82,6 +82,7 @@ Partial Class FormUsuario
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(116, 21)
         Me.cboEstado.TabIndex = 489
+        Me.cboEstado.TabStop = False
         '
         'lblEstado
         '
@@ -98,7 +99,7 @@ Partial Class FormUsuario
         Me.btnGuardar.Location = New System.Drawing.Point(298, 86)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -114,7 +115,7 @@ Partial Class FormUsuario
         Me.btnCancelar.Location = New System.Drawing.Point(377, 85)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -150,7 +151,7 @@ Partial Class FormUsuario
         Me.txtContraseña.SelectOnFocus = True
         Me.txtContraseña.Size = New System.Drawing.Size(343, 20)
         Me.txtContraseña.Symbol = Nothing
-        Me.txtContraseña.TabIndex = 483
+        Me.txtContraseña.TabIndex = 12
         Me.txtContraseña.Value = Nothing
         '
         'Label3
@@ -218,7 +219,7 @@ Partial Class FormUsuario
         Me.txtNombreCompleto.SelectOnFocus = True
         Me.txtNombreCompleto.Size = New System.Drawing.Size(343, 20)
         Me.txtNombreCompleto.Symbol = Nothing
-        Me.txtNombreCompleto.TabIndex = 480
+        Me.txtNombreCompleto.TabIndex = 10
         Me.txtNombreCompleto.Value = Nothing
         '
         'txtNombreUsuario
@@ -243,7 +244,7 @@ Partial Class FormUsuario
         Me.txtNombreUsuario.SelectOnFocus = True
         Me.txtNombreUsuario.Size = New System.Drawing.Size(343, 20)
         Me.txtNombreUsuario.Symbol = Nothing
-        Me.txtNombreUsuario.TabIndex = 481
+        Me.txtNombreUsuario.TabIndex = 11
         Me.txtNombreUsuario.Value = Nothing
         '
         'btnEliminar
@@ -257,8 +258,7 @@ Partial Class FormUsuario
         Me.btnEliminar.Location = New System.Drawing.Point(376, 12)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 495
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -274,8 +274,7 @@ Partial Class FormUsuario
         Me.btnModificar.Location = New System.Drawing.Point(273, 12)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 494
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -291,7 +290,7 @@ Partial Class FormUsuario
         Me.btnNuevo.Location = New System.Drawing.Point(192, 12)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 493
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -343,8 +342,9 @@ Partial Class FormUsuario
         Me.dgvUsuario.RowTemplate.Height = 18
         Me.dgvUsuario.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvUsuario.Size = New System.Drawing.Size(462, 100)
+        Me.dgvUsuario.Size = New System.Drawing.Size(462, 110)
         Me.dgvUsuario.TabIndex = 492
+        Me.dgvUsuario.TabStop = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -417,12 +417,15 @@ Partial Class FormUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(483, 291)
+        Me.ClientSize = New System.Drawing.Size(483, 301)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.dgvUsuario)
+        Me.KeyPreview = True
+        Me.MaximumSize = New System.Drawing.Size(499, 340)
+        Me.MinimumSize = New System.Drawing.Size(499, 204)
         Me.Name = "FormUsuario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Usuario"

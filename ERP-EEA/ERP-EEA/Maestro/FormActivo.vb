@@ -1,11 +1,8 @@
-﻿Imports System.IO
-Imports System.Globalization
-Imports ERP_Entidad
+﻿Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormActivo
 #Region "Variables"
-
     Dim negActivo As New NegActivo
     Dim entActivo As New EntActivo
     Dim entGrupoActivo As New EntGrupoActivo
@@ -16,163 +13,134 @@ Public Class FormActivo
     Dim dataTable As New DataTable
     Dim list As New List(Of String)
     Dim respaldo As Decimal
-    Dim cantActivos As Integer
     Dim blnActualizar As Boolean = False
-
 #End Region
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        CargarTablaActivo()
-        dgvActivo.Enabled = True
-        Me.Height = 273
+        Me.Height = 295
         txtIdActivo.Text = "0"
         cboPeriodo.SelectedValue = 0
+        cboTipoActivo.SelectedValue = 0
+        txtSubTotal.Text = "0"
         btnNuevo.Enabled = True
-        If cantActivos = 0 Then
-            btnModificar.Enabled = False
-            btnEliminar.Enabled = False
-        Else
-            btnModificar.Enabled = True
-            btnEliminar.Enabled = True
-        End If
-        dgvActivo.Enabled = True
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        dgvActivo.Enabled = False
         PanelActivo.Visible = True
-
+        CargarTablaActivo()
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 460
+        Me.Height = 404
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
         dgvActivo.Enabled = False
         PanelActivo.Visible = True
     End Sub
-
-
 #End Region
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaActivo()
         dataTable = negActivo.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue)
         dgvActivo.DataSource = dataTable
-        cantActivos = dgvActivo.Rows.Count
+        If dgvActivo.Rows.Count > 0 Then
+            dgvActivo.Enabled = True
+            btnModificar.Enabled = True
+            btnEliminar.Enabled = True
+        End If
     End Sub
 
-
     Private Sub CargarCombo()
-
         cboTipoActivo.ValueMember = "IdGrupoActivo"
         cboTipoActivo.DisplayMember = "Descripcion"
         cboTipoActivo.DataSource = negGrupoActivo.ObtenerLista(False, True)
-
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
         cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True)
-
         cbPeriodoFiltro.ValueMember = "IdPeriodo"
         cbPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
         cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
-
     End Sub
-
-
-
 #End Region
 
 #Region "Funciones Principales (CRUD)"
-    'Activo
     Private Sub CrearActivo()
         If cboTipoActivo.SelectedValue = 0 Then
-            MsgBox("Escoger Origen de Activos")
+            MsgBox("Escoger Origen de Activos", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entActivo.GrupoActivoId = cboTipoActivo.SelectedValue
         End If
-
-
         If cboPeriodo.SelectedValue = 0 Then
-            MsgBox("Escoger un cliente")
+            MsgBox("Escoger un cliente", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entActivo.PeriodoId = cboPeriodo.SelectedValue
         End If
-
         If txtSubTotal.Text = "" Then
-            MsgBox("Ingresar el importe")
+            MsgBox("Ingresar el importe", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entActivo.Monto = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US"))
+            entActivo.Monto = Convert.ToDecimal(txtSubTotal.Text)
         End If
         entActivo.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negActivo.Guardar(entActivo)
-
         If operacion Then
-            MsgBox("Guardo con exito")
-            ModoInicial()
+            MsgBox("Creó con exito", MsgBoxStyle.Information, "Crear Activo")
         Else
-            MsgBox("No guardo bien")
+            MsgBox("No creó", MsgBoxStyle.Critical, "Crear Activo")
         End If
     End Sub
-    Private Sub LeerActivo()
 
+    Private Sub LeerActivo()
         entActivo = negActivo.ObtenerData(dgvActivo.CurrentRow.Cells("IdActivo").Value)
         txtIdActivo.Text = entActivo.IdActivo
         cboTipoActivo.SelectedValue = entActivo.GrupoActivoId
         cboPeriodo.SelectedValue = entActivo.PeriodoId
         txtSubTotal.Text = entActivo.Monto.ToString(“##,##0.00”)
-
     End Sub
-    Private Sub ActualizarActivo()
 
+    Private Sub ActualizarActivo()
         If cboTipoActivo.SelectedValue = 0 Then
-            MsgBox("Escoger un Activo")
+            MsgBox("Escoger Origen de Activos", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entActivo.GrupoActivoId = cboTipoActivo.SelectedValue
         End If
         If cboPeriodo.SelectedValue = 0 Then
-            MsgBox("Escoger un periodo")
+            MsgBox("Escoger un cliente", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
             entActivo.PeriodoId = cboPeriodo.SelectedValue
         End If
-
         If txtSubTotal.Text = "" Then
-            MsgBox("Ingresar el importe")
+            MsgBox("Ingresar el importe", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entActivo.Monto = Convert.ToDecimal(txtSubTotal.Text, New CultureInfo("en-US"))
+            entActivo.Monto = Convert.ToDecimal(txtSubTotal.Text)
         End If
-
-        entActivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
+        entActivo.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         operacion = negActivo.Actualizar(entActivo)
-
         If operacion Then
-            MsgBox("Se guardo bien")
-            ModoInicial()
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Activo")
         Else
-            MsgBox("No se guardo bien")
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Activo")
         End If
     End Sub
     Private Sub EliminarActivo()
         entActivo.IdActivo = dgvActivo.CurrentRow.Cells("IdActivo").Value
         entActivo.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negActivo.Eliminar(entActivo)
-
         If operacion Then
-            MsgBox("Elimino con exito")
-            ModoInicial()
+            MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Activo")
         Else
-            MsgBox("No elimino bien")
+            MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Activo")
         End If
     End Sub
-
-    'PAGO
-
 #End Region
 
 #Region "Funciones del formulario"
@@ -191,9 +159,9 @@ Public Class FormActivo
         End If
         If e.KeyCode = Keys.Delete Then
             EliminarActivo()
+            ModoInicial()
         End If
     End Sub
-
 #End Region
 
 #Region "Funciones de elementos del formulario"
@@ -202,6 +170,9 @@ Public Class FormActivo
             CrearActivo()
         Else
             ActualizarActivo()
+        End If
+        If operacion Then
+            ModoInicial()
         End If
     End Sub
 
@@ -216,6 +187,7 @@ Public Class FormActivo
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         EliminarActivo()
+        ModoInicial()
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
@@ -225,7 +197,5 @@ Public Class FormActivo
     Private Sub cbPeriodoFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.SelectedIndexChanged
         CargarTablaActivo()
     End Sub
-
-
 #End Region
 End Class

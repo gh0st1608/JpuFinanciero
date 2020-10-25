@@ -1,17 +1,11 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Configuration
-Imports System.IO
-Imports System.Collections.Generic
-Imports System.Text
-Imports System.Threading.Tasks
-
 Imports ERP_Entidad
 
 Public Class DatGrupoEgreso
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearGrupoEgreso", connection)
@@ -19,19 +13,18 @@ Public Class DatGrupoEgreso
             command.Parameters.Add("@Descripcion", SqlDbType.VarChar, 50)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
             command.Parameters("@Descripcion").Value = objGrupoIngreso.Descripcion
-            command.Parameters("@UsuarioCreacionId").Value = 1
+            command.Parameters("@UsuarioCreacionId").Value = objGrupoIngreso.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarGrupoEgreso(ByVal objGrupoIngreso As EntGrupoEgreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarGrupoEgreso", connection)
@@ -46,16 +39,15 @@ Public Class DatGrupoEgreso
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarGrupoEgreso(ByVal objGrupoIngreso) As Integer
-        Dim command As SqlCommand
+    Public Function EliminarGrupoEgreso(ByVal objGrupoIngreso) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarGrupoEgreso", connection)
@@ -66,16 +58,15 @@ Public Class DatGrupoEgreso
             command.Parameters("@UsuarioModificacionId").Value = objGrupoIngreso.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Egreso")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerGrupoEgreso(ByVal IdGrupoEgreso As Integer) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -91,7 +82,7 @@ Public Class DatGrupoEgreso
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "GrupoEgreso")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Grupo Egreso")
             connection.Close()
             Return Nothing
         End Try

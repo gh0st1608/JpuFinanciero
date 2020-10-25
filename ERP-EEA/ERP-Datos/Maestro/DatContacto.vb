@@ -4,9 +4,8 @@ Imports ERP_Entidad
 
 Public Class DatContacto
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-
-    Public Function CrearContacto(ByVal objContacto As EntContacto) As Integer
-        Dim command As SqlCommand
+    Dim command As SqlCommand
+    Public Function CrearContacto(ByVal objContacto As EntContacto) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearContacto", connection)
@@ -27,16 +26,15 @@ Public Class DatContacto
             command.Parameters("@UsuarioCreacionId").Value = objContacto.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Contacto")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Contacto")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function ActualizarContacto(ByVal objContacto As EntContacto) As Integer
-        Dim command As SqlCommand
+    Public Function ActualizarContacto(ByVal objContacto As EntContacto) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("ActualizarContacto", connection)
@@ -61,15 +59,15 @@ Public Class DatContacto
             command.Parameters("@IdEstadoActivo").Value = objContacto.IdEstadoActivo
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Contacto")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Contacto")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
-    Public Function EliminarContacto(ByVal objContacto As EntContacto) As Integer
+    Public Function EliminarContacto(ByVal objContacto As EntContacto) As Boolean
         Dim command As SqlCommand
         Try
             connection.Open()
@@ -81,20 +79,18 @@ Public Class DatContacto
             command.Parameters("@UsuarioModificacionId").Value = objContacto.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1 'true
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Contacto")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Contacto")
             connection.Close()
-            Return 0 'false
+            Return False
         End Try
     End Function
 
     Public Function LeerContacto(ByVal IdContacto As Integer, ByVal TipoContactoId As Integer, ByVal OrigenId As Integer) As DataTable
-        Dim command As SqlCommand
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
-
         Try
             connection.Open()
             command = New SqlCommand("LeerContacto", connection)
@@ -111,7 +107,7 @@ Public Class DatContacto
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Contacto")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Contacto")
             connection.Close()
             Return Nothing
         End Try

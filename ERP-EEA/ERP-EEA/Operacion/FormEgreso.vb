@@ -4,7 +4,6 @@ Imports ERP_Entidad
 Imports ERP_Negocio
 
 Public Class FormEgreso
-
 #Region "Variables"
 
     Dim negEgreso As New NegEgreso
@@ -58,7 +57,6 @@ Public Class FormEgreso
         dgvEgreso.Enabled = True
         PanelEgreso.Visible = True
         PanelPago.Visible = False
-
     End Sub
 
     Private Sub ModoRegistro()
@@ -119,7 +117,6 @@ Public Class FormEgreso
     End Sub
 #End Region
 
-
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaEgreso()
         dataTable = negEgreso.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue, 0)
@@ -134,7 +131,6 @@ Public Class FormEgreso
     End Sub
 
     Private Sub CargarCombo()
-
         cboGrupoEgreso.ValueMember = "IdGrupoEgreso"
         cboGrupoEgreso.DisplayMember = "Descripcion"
         cboGrupoEgreso.DataSource = negGrupoEgreso.ObtenerLista(False, True)
@@ -154,7 +150,6 @@ Public Class FormEgreso
         cbMetodoPago.ValueMember = "IdMetodoPago"
         cbMetodoPago.DisplayMember = "Descripcion"
         cbMetodoPago.DataSource = negMetodoPago.ObtenerLista(False, True)
-
     End Sub
 
 
@@ -221,7 +216,7 @@ Public Class FormEgreso
         Else
             entEgreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text, New CultureInfo("en-US"))
         End If
-        entEgreso.UsuarioCreacionId = 1
+        entEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         entEgreso.Deuda = entEgreso.ImporteProvision
 
@@ -302,7 +297,7 @@ Public Class FormEgreso
 
         entEgreso.Deuda = respaldo
 
-        entEgreso.UsuarioModificacionId = 1
+        entEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
         operacion = negEgreso.Actualizar(entEgreso)
 
@@ -321,7 +316,7 @@ Public Class FormEgreso
 
     Private Sub EliminarEgreso()
         entEgreso.IdEgreso = dgvEgreso.CurrentRow.Cells("IdEgreso").Value
-        entEgreso.UsuarioModificacionId = 1
+        entEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negEgreso.Eliminar(entEgreso)
 
         If operacion Then
@@ -358,7 +353,7 @@ Public Class FormEgreso
 
         respaldo = Convert.ToDecimal(entEgreso.Deuda)
 
-        entEgreso.UsuarioCreacionId = 1
+        entEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
 
         operacion = negPago.Guardar(entPago)
@@ -416,7 +411,7 @@ Public Class FormEgreso
         End If
         entPago.ImporteTotal = entPago.ImporteCancelado
         respaldo = entEgreso.Deuda - entPago.ImporteCancelado
-        entPago.UsuarioModificacionId = 1
+        entPago.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negPago.Actualizar(entPago)
 
         If operacion Then
@@ -428,7 +423,7 @@ Public Class FormEgreso
     End Sub
     Private Sub EliminarPago()
         entPago.IdPago = dgvPago.CurrentRow.Cells("IdPago").Value
-        entPago.UsuarioModificacionId = 1
+        entPago.UsuarioModificacionId = VariableGlobal.VGIDUsuario
         operacion = negPago.Eliminar(entPago)
 
         If operacion Then
@@ -552,8 +547,6 @@ Public Class FormEgreso
 
     Private Sub cboGrupoEgreso_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboGrupoEgreso.SelectedIndexChanged
 
-
-
         If cboGrupoEgreso.SelectedValue = 0 Then
             cboSubGrupoEgreso.Enabled = False
         Else
@@ -567,6 +560,4 @@ Public Class FormEgreso
 
 
 #End Region
-
-
 End Class

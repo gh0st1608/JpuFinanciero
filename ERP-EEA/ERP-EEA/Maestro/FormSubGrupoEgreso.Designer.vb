@@ -37,6 +37,7 @@ Partial Class FormSubGrupoEgreso
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cboGrupoEgreso = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbEstado = New System.Windows.Forms.Label()
         Me.cboEstado = New System.Windows.Forms.ComboBox()
@@ -45,7 +46,6 @@ Partial Class FormSubGrupoEgreso
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdSubGrupoEgreso = New PersControlLibrary.ExtendedTextBox()
-        Me.cboGrupoEgreso = New System.Windows.Forms.ComboBox()
         CType(Me.dgvSubGrupoEgreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class FormSubGrupoEgreso
         Me.dgvSubGrupoEgreso.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvSubGrupoEgreso.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvSubGrupoEgreso.EnableHeadersVisualStyles = False
-        Me.dgvSubGrupoEgreso.Location = New System.Drawing.Point(11, 39)
+        Me.dgvSubGrupoEgreso.Location = New System.Drawing.Point(11, 44)
         Me.dgvSubGrupoEgreso.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvSubGrupoEgreso.Name = "dgvSubGrupoEgreso"
         Me.dgvSubGrupoEgreso.ReadOnly = True
@@ -97,8 +97,9 @@ Partial Class FormSubGrupoEgreso
         Me.dgvSubGrupoEgreso.RowTemplate.Height = 18
         Me.dgvSubGrupoEgreso.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvSubGrupoEgreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSubGrupoEgreso.Size = New System.Drawing.Size(415, 216)
+        Me.dgvSubGrupoEgreso.Size = New System.Drawing.Size(415, 200)
         Me.dgvSubGrupoEgreso.TabIndex = 462
+        Me.dgvSubGrupoEgreso.TabStop = False
         '
         'DataGridViewTextBoxColumn7
         '
@@ -159,11 +160,10 @@ Partial Class FormSubGrupoEgreso
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.ForeColor = System.Drawing.Color.Black
         Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminar.Location = New System.Drawing.Point(327, 8)
+        Me.btnEliminar.Location = New System.Drawing.Point(327, 11)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(97, 26)
-        Me.btnEliminar.TabIndex = 461
-        Me.btnEliminar.TabStop = False
+        Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "[Supr] ELIMINAR"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEliminar.UseVisualStyleBackColor = True
@@ -176,11 +176,10 @@ Partial Class FormSubGrupoEgreso
         Me.btnModificar.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.ForeColor = System.Drawing.Color.Black
         Me.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificar.Location = New System.Drawing.Point(224, 8)
+        Me.btnModificar.Location = New System.Drawing.Point(224, 11)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(97, 26)
-        Me.btnModificar.TabIndex = 460
-        Me.btnModificar.TabStop = False
+        Me.btnModificar.TabIndex = 2
         Me.btnModificar.Text = "[F5] MODIFICAR"
         Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -193,10 +192,10 @@ Partial Class FormSubGrupoEgreso
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.ForeColor = System.Drawing.Color.Black
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(143, 8)
+        Me.btnNuevo.Location = New System.Drawing.Point(143, 11)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 26)
-        Me.btnNuevo.TabIndex = 459
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "[F2] NUEVO"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnNuevo.UseVisualStyleBackColor = True
@@ -213,10 +212,18 @@ Partial Class FormSubGrupoEgreso
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Controls.Add(Me.btnCancelar)
         Me.Panel1.Controls.Add(Me.txtIdSubGrupoEgreso)
-        Me.Panel1.Location = New System.Drawing.Point(11, 266)
+        Me.Panel1.Location = New System.Drawing.Point(11, 259)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(414, 93)
         Me.Panel1.TabIndex = 458
+        '
+        'cboGrupoEgreso
+        '
+        Me.cboGrupoEgreso.FormattingEnabled = True
+        Me.cboGrupoEgreso.Location = New System.Drawing.Point(87, 8)
+        Me.cboGrupoEgreso.Name = "cboGrupoEgreso"
+        Me.cboGrupoEgreso.Size = New System.Drawing.Size(318, 21)
+        Me.cboGrupoEgreso.TabIndex = 10
         '
         'Label1
         '
@@ -244,6 +251,7 @@ Partial Class FormSubGrupoEgreso
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(121, 21)
         Me.cboEstado.TabIndex = 462
+        Me.cboEstado.TabStop = False
         '
         'Label2
         '
@@ -276,7 +284,7 @@ Partial Class FormSubGrupoEgreso
         Me.txtDescripcion.SelectOnFocus = True
         Me.txtDescripcion.Size = New System.Drawing.Size(318, 20)
         Me.txtDescripcion.Symbol = Nothing
-        Me.txtDescripcion.TabIndex = 458
+        Me.txtDescripcion.TabIndex = 11
         Me.txtDescripcion.Value = Nothing
         '
         'btnGuardar
@@ -285,7 +293,7 @@ Partial Class FormSubGrupoEgreso
         Me.btnGuardar.Location = New System.Drawing.Point(257, 61)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(73, 26)
-        Me.btnGuardar.TabIndex = 410
+        Me.btnGuardar.TabIndex = 20
         Me.btnGuardar.Text = "GUARDAR"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnGuardar.UseVisualStyleBackColor = True
@@ -301,7 +309,7 @@ Partial Class FormSubGrupoEgreso
         Me.btnCancelar.Location = New System.Drawing.Point(336, 61)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(69, 26)
-        Me.btnCancelar.TabIndex = 409
+        Me.btnCancelar.TabIndex = 21
         Me.btnCancelar.Text = "CANCELAR"
         Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancelar.UseVisualStyleBackColor = True
@@ -331,24 +339,17 @@ Partial Class FormSubGrupoEgreso
         Me.txtIdSubGrupoEgreso.TabIndex = 460
         Me.txtIdSubGrupoEgreso.Value = Nothing
         '
-        'cboGrupoEgreso
-        '
-        Me.cboGrupoEgreso.FormattingEnabled = True
-        Me.cboGrupoEgreso.Location = New System.Drawing.Point(87, 8)
-        Me.cboGrupoEgreso.Name = "cboGrupoEgreso"
-        Me.cboGrupoEgreso.Size = New System.Drawing.Size(318, 21)
-        Me.cboGrupoEgreso.TabIndex = 487
-        '
         'FormSubGrupoEgreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(435, 370)
+        Me.ClientSize = New System.Drawing.Size(436, 365)
         Me.Controls.Add(Me.dgvSubGrupoEgreso)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel1)
+        Me.KeyPreview = True
         Me.Name = "FormSubGrupoEgreso"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sub-Grupo Egreso"

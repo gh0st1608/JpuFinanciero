@@ -5,7 +5,7 @@ Public Class DatPago
     Dim connection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
     Dim command As SqlCommand
 
-    Public Function CrearPago(ByVal objPago As EntPago) As Integer
+    Public Function CrearPago(ByVal objPago As EntPago) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("CrearPago", connection)
@@ -34,11 +34,11 @@ Public Class DatPago
             command.Parameters("@UsuarioCreacionId").Value = objPago.UsuarioCreacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Pago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Pago")
             connection.Close()
-            Return 0
+            Return False
         End Try
     End Function
 
@@ -73,15 +73,15 @@ Public Class DatPago
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Pago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Pago")
             connection.Close()
-            Return 0
+            Return False
         End Try
     End Function
 
-    Public Function EliminarPago(ByVal objPago As EntPago) As Integer
+    Public Function EliminarPago(ByVal objPago As EntPago) As Boolean
         Try
             connection.Open()
             command = New SqlCommand("EliminarPago", connection)
@@ -92,11 +92,11 @@ Public Class DatPago
             command.Parameters("@UsuarioModificacionId").Value = objPago.UsuarioModificacionId
             command.ExecuteReader()
             connection.Close()
-            Return 1
+            Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Pago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Pago")
             connection.Close()
-            Return 0
+            Return False
         End Try
     End Function
 
@@ -126,7 +126,7 @@ Public Class DatPago
             connection.Close()
             Return resultadoDT
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Pago")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para Pago")
             connection.Close()
             Return Nothing
         End Try
