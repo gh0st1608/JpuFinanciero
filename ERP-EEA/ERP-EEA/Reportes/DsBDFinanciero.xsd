@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsBDFinanciero" targetNamespace="http://tempuri.org/DsBDFinanciero.xsd" xmlns:mstns="http://tempuri.org/DsBDFinanciero.xsd" xmlns="http://tempuri.org/DsBDFinanciero.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsBDFinanciero" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsBDFinanciero" msprop:Generator_UserDSName="DsBDFinanciero">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DtReporteIngresoFiltro" msprop:Generator_TableClassName="DtReporteIngresoFiltroDataTable" msprop:Generator_TableVarName="tableDtReporteIngresoFiltro" msprop:Generator_TablePropName="DtReporteIngresoFiltro" msprop:Generator_RowDeletingName="DtReporteIngresoFiltroRowDeleting" msprop:Generator_RowChangingName="DtReporteIngresoFiltroRowChanging" msprop:Generator_RowEvHandlerName="DtReporteIngresoFiltroRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteIngresoFiltroRowDeleted" msprop:Generator_UserTableName="DtReporteIngresoFiltro" msprop:Generator_RowChangedName="DtReporteIngresoFiltroRowChanged" msprop:Generator_RowEvArgName="DtReporteIngresoFiltroRowChangeEvent" msprop:Generator_RowClassName="DtReporteIngresoFiltroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GrupoIngreso" msprop:Generator_ColumnVarNameInTable="columnGrupoIngreso" msprop:Generator_ColumnPropNameInRow="GrupoIngreso" msprop:Generator_ColumnPropNameInTable="GrupoIngresoColumn" msprop:Generator_UserColumnName="GrupoIngreso" type="xs:string" minOccurs="0" />
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtReporteIngresoData" msprop:Generator_TableClassName="DtReporteIngresoDataDataTable" msprop:Generator_TableVarName="tableDtReporteIngresoData" msprop:Generator_RowChangedName="DtReporteIngresoDataRowChanged" msprop:Generator_TablePropName="DtReporteIngresoData" msprop:Generator_RowDeletingName="DtReporteIngresoDataRowDeleting" msprop:Generator_RowChangingName="DtReporteIngresoDataRowChanging" msprop:Generator_RowEvHandlerName="DtReporteIngresoDataRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteIngresoDataRowDeleted" msprop:Generator_RowClassName="DtReporteIngresoDataRow" msprop:Generator_UserTableName="DtReporteIngresoData" msprop:Generator_RowEvArgName="DtReporteIngresoDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtReporteEgresoFiltro" msprop:Generator_TableClassName="DtReporteEgresoFiltroDataTable" msprop:Generator_TableVarName="tableDtReporteEgresoFiltro" msprop:Generator_RowChangedName="DtReporteEgresoFiltroRowChanged" msprop:Generator_TablePropName="DtReporteEgresoFiltro" msprop:Generator_RowDeletingName="DtReporteEgresoFiltroRowDeleting" msprop:Generator_RowChangingName="DtReporteEgresoFiltroRowChanging" msprop:Generator_RowEvHandlerName="DtReporteEgresoFiltroRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteEgresoFiltroRowDeleted" msprop:Generator_RowClassName="DtReporteEgresoFiltroRow" msprop:Generator_UserTableName="DtReporteEgresoFiltro" msprop:Generator_RowEvArgName="DtReporteEgresoFiltroRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnGrupoEgreso" msprop:Generator_ColumnPropNameInRow="GrupoEgreso" msprop:Generator_ColumnPropNameInTable="GrupoEgresoColumn" msprop:Generator_UserColumnName="GrupoEgreso" type="xs:string" minOccurs="0" />
+              <xs:element name="SubGrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnSubGrupoEgreso" msprop:Generator_ColumnPropNameInRow="SubGrupoEgreso" msprop:Generator_ColumnPropNameInTable="SubGrupoEgresoColumn" msprop:Generator_UserColumnName="SubGrupoEgreso" type="xs:string" minOccurs="0" />
+              <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtReporteEgresoData" msprop:Generator_TableClassName="DtReporteEgresoDataDataTable" msprop:Generator_TableVarName="tableDtReporteEgresoData" msprop:Generator_RowChangedName="DtReporteEgresoDataRowChanged" msprop:Generator_TablePropName="DtReporteEgresoData" msprop:Generator_RowDeletingName="DtReporteEgresoDataRowDeleting" msprop:Generator_RowChangingName="DtReporteEgresoDataRowChanging" msprop:Generator_RowEvHandlerName="DtReporteEgresoDataRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteEgresoDataRowDeleted" msprop:Generator_RowClassName="DtReporteEgresoDataRow" msprop:Generator_UserTableName="DtReporteEgresoData" msprop:Generator_RowEvArgName="DtReporteEgresoDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnGrupoEgreso" msprop:Generator_ColumnPropNameInRow="GrupoEgreso" msprop:Generator_ColumnPropNameInTable="GrupoEgresoColumn" msprop:Generator_UserColumnName="GrupoEgreso" type="xs:string" minOccurs="0" />
+              <xs:element name="SubGrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnSubGrupoEgreso" msprop:Generator_ColumnPropNameInRow="SubGrupoEgreso" msprop:Generator_ColumnPropNameInTable="SubGrupoEgresoColumn" msprop:Generator_UserColumnName="SubGrupoEgreso" type="xs:string" minOccurs="0" />
+              <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtEstadoResultadoFiltro" msprop:Generator_TableClassName="DtEstadoResultadoFiltroDataTable" msprop:Generator_TableVarName="tableDtEstadoResultadoFiltro" msprop:Generator_TablePropName="DtEstadoResultadoFiltro" msprop:Generator_RowDeletingName="DtEstadoResultadoFiltroRowDeleting" msprop:Generator_RowChangingName="DtEstadoResultadoFiltroRowChanging" msprop:Generator_RowEvHandlerName="DtEstadoResultadoFiltroRowChangeEventHandler" msprop:Generator_RowDeletedName="DtEstadoResultadoFiltroRowDeleted" msprop:Generator_UserTableName="DtEstadoResultadoFiltro" msprop:Generator_RowChangedName="DtEstadoResultadoFiltroRowChanged" msprop:Generator_RowEvArgName="DtEstadoResultadoFiltroRowChangeEvent" msprop:Generator_RowClassName="DtEstadoResultadoFiltroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PeriodoInicio" msprop:Generator_ColumnVarNameInTable="columnPeriodoInicio" msprop:Generator_ColumnPropNameInRow="PeriodoInicio" msprop:Generator_ColumnPropNameInTable="PeriodoInicioColumn" msprop:Generator_UserColumnName="PeriodoInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoFin" msprop:Generator_ColumnVarNameInTable="columnPeriodoFin" msprop:Generator_ColumnPropNameInRow="PeriodoFin" msprop:Generator_ColumnPropNameInTable="PeriodoFinColumn" msprop:Generator_UserColumnName="PeriodoFin" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtEstadoResultadoData" msprop:Generator_TableClassName="DtEstadoResultadoDataDataTable" msprop:Generator_TableVarName="tableDtEstadoResultadoData" msprop:Generator_TablePropName="DtEstadoResultadoData" msprop:Generator_RowDeletingName="DtEstadoResultadoDataRowDeleting" msprop:Generator_RowChangingName="DtEstadoResultadoDataRowChanging" msprop:Generator_RowEvHandlerName="DtEstadoResultadoDataRowChangeEventHandler" msprop:Generator_RowDeletedName="DtEstadoResultadoDataRowDeleted" msprop:Generator_UserTableName="DtEstadoResultadoData" msprop:Generator_RowChangedName="DtEstadoResultadoDataRowChanged" msprop:Generator_RowEvArgName="DtEstadoResultadoDataRowChangeEvent" msprop:Generator_RowClassName="DtEstadoResultadoDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="Venta" msprop:Generator_ColumnVarNameInTable="columnVenta" msprop:Generator_ColumnPropNameInRow="Venta" msprop:Generator_ColumnPropNameInTable="VentaColumn" msprop:Generator_UserColumnName="Venta" type="xs:string" minOccurs="0" />
+              <xs:element name="Costo1" msprop:Generator_ColumnVarNameInTable="columnCosto1" msprop:Generator_ColumnPropNameInRow="Costo1" msprop:Generator_ColumnPropNameInTable="Costo1Column" msprop:Generator_UserColumnName="Costo1" type="xs:string" minOccurs="0" />
+              <xs:element name="Costo2" msprop:Generator_ColumnVarNameInTable="columnCosto2" msprop:Generator_ColumnPropNameInRow="Costo2" msprop:Generator_ColumnPropNameInTable="Costo2Column" msprop:Generator_UserColumnName="Costo2" type="xs:string" minOccurs="0" />
+              <xs:element name="Costo3" msprop:Generator_ColumnVarNameInTable="columnCosto3" msprop:Generator_ColumnPropNameInRow="Costo3" msprop:Generator_ColumnPropNameInTable="Costo3Column" msprop:Generator_UserColumnName="Costo3" type="xs:string" minOccurs="0" />
+              <xs:element name="GastoAdministrativo" msprop:Generator_ColumnVarNameInTable="columnGastoAdministrativo" msprop:Generator_ColumnPropNameInRow="GastoAdministrativo" msprop:Generator_ColumnPropNameInTable="GastoAdministrativoColumn" msprop:Generator_UserColumnName="GastoAdministrativo" type="xs:string" minOccurs="0" />
+              <xs:element name="GastoVenta" msprop:Generator_ColumnVarNameInTable="columnGastoVenta" msprop:Generator_ColumnPropNameInRow="GastoVenta" msprop:Generator_ColumnPropNameInTable="GastoVentaColumn" msprop:Generator_UserColumnName="GastoVenta" type="xs:string" minOccurs="0" />
+              <xs:element name="GastoFinanciero" msprop:Generator_ColumnVarNameInTable="columnGastoFinanciero" msprop:Generator_ColumnPropNameInRow="GastoFinanciero" msprop:Generator_ColumnPropNameInTable="GastoFinancieroColumn" msprop:Generator_UserColumnName="GastoFinanciero" type="xs:string" minOccurs="0" />
+              <xs:element name="GastoMenor" msprop:Generator_ColumnVarNameInTable="columnGastoMenor" msprop:Generator_ColumnPropNameInRow="GastoMenor" msprop:Generator_ColumnPropNameInTable="GastoMenorColumn" msprop:Generator_UserColumnName="GastoMenor" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
