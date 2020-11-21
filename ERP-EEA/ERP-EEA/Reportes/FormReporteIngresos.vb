@@ -8,7 +8,7 @@ Public Class FormReporteIngresos
     Dim negGrupoIngreso As New NegGrupoIngreso
     Dim negCliente As New NegCliente
     Dim negPeriodo As New NegPeriodo
-
+    Dim entPeriodo As New EntPeriodo
     Dim dataSet As New DataSet
     Dim verTotal = 0
     Dim columnaSeleccionada As New Boolean
@@ -17,9 +17,8 @@ Public Class FormReporteIngresos
         'Me.Width = 427
         cboClienteFiltro.SelectedValue = 0
         cboGrupoIngresoFiltro.SelectedValue = 0
-        cboPeriodoFiltro.SelectedIndex = 0
-        dtpFechaInicialFiltro.Value = DateTime.Now
-        dtpFechaFinalFiltro.Value = DateTime.Now
+        cboPeriodoInicialFiltro.SelectedIndex = 0
+        cboPeriodoFinalFiltro.SelectedIndex = 0
         ckbTotalFiltro.Checked = True
         columnaSeleccionada = False
     End Sub
@@ -33,9 +32,14 @@ Public Class FormReporteIngresos
         cboGrupoIngresoFiltro.DisplayMember = "Descripcion"
         cboGrupoIngresoFiltro.DataSource = negGrupoIngreso.ObtenerLista(True, False)
 
-        cboPeriodoFiltro.ValueMember = "IdPeriodo"
-        cboPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
-        cboPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cboPeriodoInicialFiltro.ValueMember = "IdPeriodo"
+        cboPeriodoInicialFiltro.DisplayMember = "DescripcionPeriodo"
+        cboPeriodoInicialFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+
+        cboPeriodoFinalFiltro.ValueMember = "IdPeriodo"
+        cboPeriodoFinalFiltro.DisplayMember = "DescripcionPeriodo"
+        cboPeriodoFinalFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+
     End Sub
 
     Private Sub FormIngreso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -54,7 +58,7 @@ Public Class FormReporteIngresos
         End If
 
         If columnaSeleccionada Then
-            dataSet = negReporte.ObtenerReporteIngresos(cboGrupoIngresoFiltro.SelectedValue, cboClienteFiltro.SelectedValue, cboPeriodoFiltro.SelectedValue, dtpFechaInicialFiltro.Value, dtpFechaFinalFiltro.Value, verTotal)
+            dataSet = negReporte.ObtenerReporteIngresos(cboGrupoIngresoFiltro.SelectedValue, cboClienteFiltro.SelectedValue, cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue, verTotal)
 
 
             dataSet.Tables(0).TableName = "DtReporteIngresoFiltro"
@@ -80,6 +84,18 @@ Public Class FormReporteIngresos
         modoInicial()
     End Sub
 
+    Private Sub cboPeriodoInicialFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoInicialFiltro.TextChanged
+        If cboPeriodoInicialFiltro.Text.Length = 7 Then
+            EntPeriodo = negPeriodo.ObtenerData(0, cboPeriodoInicialFiltro.Text)
+            cboPeriodoInicialFiltro.SelectedValue = EntPeriodo.IdPeriodo
+        End If
+    End Sub
 
+    Private Sub cboPeriodoFinalFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoFinalFiltro.TextChanged
+        If cboPeriodoFinalFiltro.Text.Length = 7 Then
+            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoFinalFiltro.Text)
+            cboPeriodoFinalFiltro.SelectedValue = entPeriodo.IdPeriodo
+        End If
+    End Sub
 
 End Class

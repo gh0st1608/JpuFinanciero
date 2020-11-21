@@ -25,18 +25,18 @@ Partial Class FormReporteEgresos
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.ckbTotalFiltro = New System.Windows.Forms.CheckBox()
-        Me.dtpFechaFinalFiltro = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cboGrupoEgresoFiltro = New System.Windows.Forms.ComboBox()
         Me.lblGrupoEgreso = New System.Windows.Forms.Label()
         Me.cboPeriodoFiltro = New System.Windows.Forms.ComboBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.cboProveedorFiltro = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.dtpFechaInicialFiltro = New System.Windows.Forms.DateTimePicker()
         Me.lblProveedor = New System.Windows.Forms.Label()
         Me.cboSubGrupoEgresoFiltro = New System.Windows.Forms.ComboBox()
         Me.lblSubGrupoEgresoFiltro = New System.Windows.Forms.Label()
+        Me.cboPeriodoFinalFiltro = New System.Windows.Forms.ComboBox()
+        Me.cboPeriodoInicialFiltro = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnGenerar
@@ -71,23 +71,6 @@ Partial Class FormReporteEgresos
         Me.ckbTotalFiltro.UseVisualStyleBackColor = True
         Me.ckbTotalFiltro.Visible = False
         '
-        'dtpFechaFinalFiltro
-        '
-        Me.dtpFechaFinalFiltro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaFinalFiltro.Location = New System.Drawing.Point(110, 119)
-        Me.dtpFechaFinalFiltro.Name = "dtpFechaFinalFiltro"
-        Me.dtpFechaFinalFiltro.Size = New System.Drawing.Size(84, 20)
-        Me.dtpFechaFinalFiltro.TabIndex = 509
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 125)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
-        Me.Label1.TabIndex = 508
-        Me.Label1.Text = "Fecha Final"
-        '
         'cboGrupoEgresoFiltro
         '
         Me.cboGrupoEgresoFiltro.FormattingEnabled = True
@@ -99,7 +82,7 @@ Partial Class FormReporteEgresos
         'lblGrupoEgreso
         '
         Me.lblGrupoEgreso.AutoSize = True
-        Me.lblGrupoEgreso.Location = New System.Drawing.Point(12, 15)
+        Me.lblGrupoEgreso.Location = New System.Drawing.Point(29, 15)
         Me.lblGrupoEgreso.Name = "lblGrupoEgreso"
         Me.lblGrupoEgreso.Size = New System.Drawing.Size(72, 13)
         Me.lblGrupoEgreso.TabIndex = 506
@@ -132,27 +115,10 @@ Partial Class FormReporteEgresos
         Me.cboProveedorFiltro.Size = New System.Drawing.Size(293, 21)
         Me.cboProveedorFiltro.TabIndex = 503
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(12, 99)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(65, 13)
-        Me.Label17.TabIndex = 502
-        Me.Label17.Text = "Fecha Inicio"
-        '
-        'dtpFechaInicialFiltro
-        '
-        Me.dtpFechaInicialFiltro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaInicialFiltro.Location = New System.Drawing.Point(110, 93)
-        Me.dtpFechaInicialFiltro.Name = "dtpFechaInicialFiltro"
-        Me.dtpFechaInicialFiltro.Size = New System.Drawing.Size(84, 20)
-        Me.dtpFechaInicialFiltro.TabIndex = 501
-        '
         'lblProveedor
         '
         Me.lblProveedor.AutoSize = True
-        Me.lblProveedor.Location = New System.Drawing.Point(12, 69)
+        Me.lblProveedor.Location = New System.Drawing.Point(45, 69)
         Me.lblProveedor.Name = "lblProveedor"
         Me.lblProveedor.Size = New System.Drawing.Size(56, 13)
         Me.lblProveedor.TabIndex = 500
@@ -175,25 +141,59 @@ Partial Class FormReporteEgresos
         Me.lblSubGrupoEgresoFiltro.TabIndex = 513
         Me.lblSubGrupoEgresoFiltro.Text = "SubGrupo Egreso"
         '
+        'cboPeriodoFinalFiltro
+        '
+        Me.cboPeriodoFinalFiltro.FormattingEnabled = True
+        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(110, 118)
+        Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
+        Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoFinalFiltro.TabIndex = 518
+        '
+        'cboPeriodoInicialFiltro
+        '
+        Me.cboPeriodoInicialFiltro.FormattingEnabled = True
+        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(110, 93)
+        Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
+        Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoInicialFiltro.TabIndex = 517
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(39, 118)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.TabIndex = 516
+        Me.Label1.Text = "Fecha Final"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(39, 96)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(65, 13)
+        Me.Label17.TabIndex = 515
+        Me.Label17.Text = "Fecha Inicio"
+        '
         'FormReporteEgresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(416, 184)
+        Me.Controls.Add(Me.cboPeriodoFinalFiltro)
+        Me.Controls.Add(Me.cboPeriodoInicialFiltro)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.cboSubGrupoEgresoFiltro)
         Me.Controls.Add(Me.lblSubGrupoEgresoFiltro)
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.ckbTotalFiltro)
-        Me.Controls.Add(Me.dtpFechaFinalFiltro)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboGrupoEgresoFiltro)
         Me.Controls.Add(Me.lblGrupoEgreso)
         Me.Controls.Add(Me.cboPeriodoFiltro)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.cboProveedorFiltro)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.dtpFechaInicialFiltro)
         Me.Controls.Add(Me.lblProveedor)
         Me.Name = "FormReporteEgresos"
         Me.Text = "Reporte de Egresos"
@@ -205,16 +205,16 @@ Partial Class FormReporteEgresos
     Friend WithEvents btnGenerar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents ckbTotalFiltro As CheckBox
-    Friend WithEvents dtpFechaFinalFiltro As DateTimePicker
-    Friend WithEvents Label1 As Label
     Friend WithEvents cboGrupoEgresoFiltro As ComboBox
     Friend WithEvents lblGrupoEgreso As Label
     Friend WithEvents cboPeriodoFiltro As ComboBox
     Friend WithEvents Label16 As Label
     Friend WithEvents cboProveedorFiltro As ComboBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents dtpFechaInicialFiltro As DateTimePicker
     Friend WithEvents lblProveedor As Label
     Friend WithEvents cboSubGrupoEgresoFiltro As ComboBox
     Friend WithEvents lblSubGrupoEgresoFiltro As Label
+    Friend WithEvents cboPeriodoFinalFiltro As ComboBox
+    Friend WithEvents cboPeriodoInicialFiltro As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label17 As Label
 End Class

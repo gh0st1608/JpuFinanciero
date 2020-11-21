@@ -8,7 +8,7 @@ Public Class FormReporteEgresos
     Dim negSubGrupoEgreso As New NegSubGrupoEgreso
     Dim negProveedor As New NegProveedor
     Dim negPeriodo As New NegPeriodo
-
+    Dim entPeriodo As New EntPeriodo
     Dim dataSet As New DataSet
     Dim verTotal = 0
     Dim columnaSeleccionada As New Boolean
@@ -18,9 +18,8 @@ Public Class FormReporteEgresos
         cboProveedorFiltro.SelectedValue = 0
         cboGrupoEgresoFiltro.SelectedValue = 0
         cboSubGrupoEgresoFiltro.SelectedValue = 0
-        cboPeriodoFiltro.SelectedIndex = 0
-        dtpFechaInicialFiltro.Value = DateTime.Now
-        dtpFechaFinalFiltro.Value = DateTime.Now
+        cboPeriodoInicialFiltro.SelectedIndex = 0
+        cboPeriodoFinalFiltro.SelectedIndex = 0
         ckbTotalFiltro.Checked = True
         columnaSeleccionada = False
     End Sub
@@ -60,7 +59,7 @@ Public Class FormReporteEgresos
         End If
 
         If columnaSeleccionada Then
-            dataSet = negReporte.ObtenerReporteEgresos(cboGrupoEgresoFiltro.SelectedValue, cboSubGrupoEgresoFiltro.SelectedValue, cboProveedorFiltro.SelectedValue, cboPeriodoFiltro.SelectedValue, dtpFechaInicialFiltro.Value, dtpFechaFinalFiltro.Value, verTotal)
+            dataSet = negReporte.ObtenerReporteEgresos(cboGrupoEgresoFiltro.SelectedValue, cboSubGrupoEgresoFiltro.SelectedValue, cboProveedorFiltro.SelectedValue, cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue, verTotal)
             'dataTableFiltro = dataSet.Tables(0)
             'dataTableData = dataSet.Tables(1)
 
@@ -101,4 +100,20 @@ Public Class FormReporteEgresos
         End If
 
     End Sub
+
+    Private Sub cboPeriodoInicialFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoInicialFiltro.TextChanged
+        If cboPeriodoInicialFiltro.Text.Length = 7 Then
+            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoInicialFiltro.Text)
+            cboPeriodoInicialFiltro.SelectedValue = entPeriodo.IdPeriodo
+        End If
+    End Sub
+
+    Private Sub cboPeriodoFinalFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoFinalFiltro.TextChanged
+        If cboPeriodoFinalFiltro.Text.Length = 7 Then
+            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoFinalFiltro.Text)
+            cboPeriodoFinalFiltro.SelectedValue = entPeriodo.IdPeriodo
+        End If
+    End Sub
+
+
 End Class

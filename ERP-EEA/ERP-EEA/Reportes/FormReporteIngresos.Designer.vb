@@ -28,13 +28,13 @@ Partial Class FormReporteIngresos
         Me.Label16 = New System.Windows.Forms.Label()
         Me.cboClienteFiltro = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.dtpFechaInicialFiltro = New System.Windows.Forms.DateTimePicker()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dtpFechaFinalFiltro = New System.Windows.Forms.DateTimePicker()
         Me.ckbTotalFiltro = New System.Windows.Forms.CheckBox()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnGenerar = New System.Windows.Forms.Button()
+        Me.cboPeriodoInicialFiltro = New System.Windows.Forms.ComboBox()
+        Me.cboPeriodoFinalFiltro = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'cboGrupoIngresoFiltro
@@ -90,14 +90,6 @@ Partial Class FormReporteIngresos
         Me.Label17.TabIndex = 489
         Me.Label17.Text = "Fecha Inicio"
         '
-        'dtpFechaInicialFiltro
-        '
-        Me.dtpFechaInicialFiltro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaInicialFiltro.Location = New System.Drawing.Point(83, 74)
-        Me.dtpFechaInicialFiltro.Name = "dtpFechaInicialFiltro"
-        Me.dtpFechaInicialFiltro.Size = New System.Drawing.Size(84, 20)
-        Me.dtpFechaInicialFiltro.TabIndex = 488
-        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -115,14 +107,6 @@ Partial Class FormReporteIngresos
         Me.Label1.Size = New System.Drawing.Size(62, 13)
         Me.Label1.TabIndex = 495
         Me.Label1.Text = "Fecha Final"
-        '
-        'dtpFechaFinalFiltro
-        '
-        Me.dtpFechaFinalFiltro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaFinalFiltro.Location = New System.Drawing.Point(83, 102)
-        Me.dtpFechaFinalFiltro.Name = "dtpFechaFinalFiltro"
-        Me.dtpFechaFinalFiltro.Size = New System.Drawing.Size(84, 20)
-        Me.dtpFechaFinalFiltro.TabIndex = 496
         '
         'ckbTotalFiltro
         '
@@ -156,15 +140,32 @@ Partial Class FormReporteIngresos
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
         '
+        'cboPeriodoInicialFiltro
+        '
+        Me.cboPeriodoInicialFiltro.FormattingEnabled = True
+        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(83, 77)
+        Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
+        Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoInicialFiltro.TabIndex = 500
+        '
+        'cboPeriodoFinalFiltro
+        '
+        Me.cboPeriodoFinalFiltro.FormattingEnabled = True
+        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(83, 102)
+        Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
+        Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoFinalFiltro.TabIndex = 501
+        '
         'FormReporteIngresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(402, 168)
+        Me.Controls.Add(Me.cboPeriodoFinalFiltro)
+        Me.Controls.Add(Me.cboPeriodoInicialFiltro)
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.ckbTotalFiltro)
-        Me.Controls.Add(Me.dtpFechaFinalFiltro)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboGrupoIngresoFiltro)
         Me.Controls.Add(Me.lblTipoIngreso)
@@ -172,7 +173,6 @@ Partial Class FormReporteIngresos
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.cboClienteFiltro)
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.dtpFechaInicialFiltro)
         Me.Controls.Add(Me.Label18)
         Me.Name = "FormReporteIngresos"
         Me.Text = "Reporte de Ingresos"
@@ -187,11 +187,11 @@ Partial Class FormReporteIngresos
     Friend WithEvents Label16 As Label
     Friend WithEvents cboClienteFiltro As ComboBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents dtpFechaInicialFiltro As DateTimePicker
     Friend WithEvents Label18 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents dtpFechaFinalFiltro As DateTimePicker
     Friend WithEvents ckbTotalFiltro As CheckBox
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnGenerar As Button
+    Friend WithEvents cboPeriodoInicialFiltro As ComboBox
+    Friend WithEvents cboPeriodoFinalFiltro As ComboBox
 End Class

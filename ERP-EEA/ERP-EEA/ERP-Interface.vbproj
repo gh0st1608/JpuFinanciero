@@ -281,6 +281,12 @@
     <Compile Include="Reportes\FormReporteIngresos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\FormReporteRatios.Designer.vb">
+      <DependentUpon>FormReporteRatios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteRatios.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Auxiliares\FormCierre.resx">
@@ -364,9 +370,13 @@
     <EmbeddedResource Include="Reportes\FormReporteIngresos.resx">
       <DependentUpon>FormReporteIngresos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteRatios.resx">
+      <DependentUpon>FormReporteRatios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteEgresos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEstadoResultados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteIngresos.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteRatios.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\app.manifest" />

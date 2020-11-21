@@ -8,4 +8,5 @@
     Public Shared VGRutaComprobantesEgresos As String = "D:\Proyectos\ERP-EEA\Egresos"
     Public Shared VGRutaReporteIngresos As String = "D:\Reportes\ReporteIngresos.rdlc"
     Public Shared VGRutaReporteEgresos As String = "D:\Reportes\ReporteEgresos.rdlc"
+    Public Shared VGRutaReporteRatios As String = "D:\Reportes\ReporteRatios.rdlc"
 End Class

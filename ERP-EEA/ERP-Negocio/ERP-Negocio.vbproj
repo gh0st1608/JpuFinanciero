@@ -64,9 +64,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliares\NegRatio.vb" />
     <Compile Include="Auxiliares\NegRelacionDebeHaber.vb" />
     <Compile Include="Auxiliares\NegMetodoPago.vb" />
     <Compile Include="Auxiliares\NegParametro.vb" />
+    <Compile Include="Auxiliares\NegTipoRatio.vb" />
     <Compile Include="Maestro\NegActivo.vb" />
     <Compile Include="Maestro\NegCliente.vb" />
     <Compile Include="Maestro\NegContacto.vb" />

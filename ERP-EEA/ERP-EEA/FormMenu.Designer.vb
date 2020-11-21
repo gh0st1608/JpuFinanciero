@@ -37,6 +37,7 @@ Partial Class FormMenu
         Me.PasivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PatrimonioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RelacionDebeHaberToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CierreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaestroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,7 +47,7 @@ Partial Class FormMenu
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CierreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteRatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -145,6 +146,12 @@ Partial Class FormMenu
         Me.RelacionDebeHaberToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.RelacionDebeHaberToolStripMenuItem.Text = "Relacion Debe-Haber"
         '
+        'CierreToolStripMenuItem
+        '
+        Me.CierreToolStripMenuItem.Name = "CierreToolStripMenuItem"
+        Me.CierreToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.CierreToolStripMenuItem.Text = "Cierre"
+        '
         'MaestroToolStripMenuItem
         '
         Me.MaestroToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuarioToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.ProveedorToolStripMenuItem})
@@ -184,7 +191,7 @@ Partial Class FormMenu
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteIngresoToolStripMenuItem, Me.ReporteEgresoToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteIngresoToolStripMenuItem, Me.ReporteEgresoToolStripMenuItem, Me.ReporteRatiosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -192,20 +199,20 @@ Partial Class FormMenu
         'ReporteIngresoToolStripMenuItem
         '
         Me.ReporteIngresoToolStripMenuItem.Name = "ReporteIngresoToolStripMenuItem"
-        Me.ReporteIngresoToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.ReporteIngresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteIngresoToolStripMenuItem.Text = "Reporte Ingreso"
         '
         'ReporteEgresoToolStripMenuItem
         '
         Me.ReporteEgresoToolStripMenuItem.Name = "ReporteEgresoToolStripMenuItem"
-        Me.ReporteEgresoToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.ReporteEgresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReporteEgresoToolStripMenuItem.Text = "Reporte Egreso"
         '
-        'CierreToolStripMenuItem
+        'ReporteRatiosToolStripMenuItem
         '
-        Me.CierreToolStripMenuItem.Name = "CierreToolStripMenuItem"
-        Me.CierreToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-        Me.CierreToolStripMenuItem.Text = "Cierre"
+        Me.ReporteRatiosToolStripMenuItem.Name = "ReporteRatiosToolStripMenuItem"
+        Me.ReporteRatiosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReporteRatiosToolStripMenuItem.Text = "Reporte Ratios"
         '
         'FormMenu
         '
@@ -249,4 +256,5 @@ Partial Class FormMenu
     Friend WithEvents ProveedorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteEgresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CierreToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteRatiosToolStripMenuItem As ToolStripMenuItem
 End Class

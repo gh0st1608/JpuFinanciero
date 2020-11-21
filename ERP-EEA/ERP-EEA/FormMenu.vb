@@ -93,4 +93,8 @@ Public Class FormMenu
     Private Sub CierreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CierreToolStripMenuItem.Click
         FormCierre.Show()
     End Sub
+
+    Private Sub ReporteRatiosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteRatiosToolStripMenuItem.Click
+        FormReporteRatios.Show()
+    End Sub
 End Class

@@ -22,6 +22,7 @@ Public Class FormIngreso
     Dim entActivo As New EntActivo
     Dim entPasivo As New EntPasivo
     Dim entPatrimonio As New EntPatrimonio
+    Dim entPeriodo As New EntPeriodo
     Dim negActivo As New NegActivo
     Dim negPasivo As New NegPasivo
     Dim negPatrimonio As New NegPatrimonio
@@ -1106,5 +1107,14 @@ Public Class FormIngreso
     Private Sub cbPeriodoFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.SelectedIndexChanged
         CargarTablaIngreso()
     End Sub
+
+    Private Sub cbPeriodoFiltro_TextChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.TextChanged
+        If cbPeriodoFiltro.Text.Length = 7 Then
+            EntPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
+            cbPeriodoFiltro.SelectedValue = EntPeriodo.IdPeriodo
+            CargarTablaIngreso()
+        End If
+    End Sub
+
 #End Region
 End Class

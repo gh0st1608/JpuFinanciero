@@ -17,9 +17,8 @@
             <xs:sequence>
               <xs:element name="GrupoIngreso" msprop:Generator_ColumnVarNameInTable="columnGrupoIngreso" msprop:Generator_ColumnPropNameInRow="GrupoIngreso" msprop:Generator_ColumnPropNameInTable="GrupoIngresoColumn" msprop:Generator_UserColumnName="GrupoIngreso" type="xs:string" minOccurs="0" />
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:string" minOccurs="0" />
-              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoInicio" msprop:Generator_ColumnVarNameInTable="columnPeriodoInicio" msprop:Generator_ColumnPropNameInRow="PeriodoInicio" msprop:Generator_ColumnPropNameInTable="PeriodoInicioColumn" msprop:Generator_UserColumnName="PeriodoInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoFin" msprop:Generator_ColumnVarNameInTable="columnPeriodoFin" msprop:Generator_ColumnPropNameInRow="PeriodoFin" msprop:Generator_ColumnPropNameInTable="PeriodoFinColumn" msprop:Generator_UserColumnName="PeriodoFin" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -38,9 +37,8 @@
               <xs:element name="GrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnGrupoEgreso" msprop:Generator_ColumnPropNameInRow="GrupoEgreso" msprop:Generator_ColumnPropNameInTable="GrupoEgresoColumn" msprop:Generator_UserColumnName="GrupoEgreso" type="xs:string" minOccurs="0" />
               <xs:element name="SubGrupoEgreso" msprop:Generator_ColumnVarNameInTable="columnSubGrupoEgreso" msprop:Generator_ColumnPropNameInRow="SubGrupoEgreso" msprop:Generator_ColumnPropNameInTable="SubGrupoEgresoColumn" msprop:Generator_UserColumnName="SubGrupoEgreso" type="xs:string" minOccurs="0" />
               <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor" type="xs:string" minOccurs="0" />
-              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:string" minOccurs="0" />
-              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoInicio" msprop:Generator_ColumnVarNameInTable="columnPeriodoInicio" msprop:Generator_ColumnPropNameInRow="PeriodoInicio" msprop:Generator_ColumnPropNameInTable="PeriodoInicioColumn" msprop:Generator_UserColumnName="PeriodoInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoFin" msprop:Generator_ColumnVarNameInTable="columnPeriodoFin" msprop:Generator_ColumnPropNameInRow="PeriodoFin" msprop:Generator_ColumnPropNameInTable="PeriodoFinColumn" msprop:Generator_UserColumnName="PeriodoFin" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -75,6 +73,24 @@
               <xs:element name="GastoVenta" msprop:Generator_ColumnVarNameInTable="columnGastoVenta" msprop:Generator_ColumnPropNameInRow="GastoVenta" msprop:Generator_ColumnPropNameInTable="GastoVentaColumn" msprop:Generator_UserColumnName="GastoVenta" type="xs:string" minOccurs="0" />
               <xs:element name="GastoFinanciero" msprop:Generator_ColumnVarNameInTable="columnGastoFinanciero" msprop:Generator_ColumnPropNameInRow="GastoFinanciero" msprop:Generator_ColumnPropNameInTable="GastoFinancieroColumn" msprop:Generator_UserColumnName="GastoFinanciero" type="xs:string" minOccurs="0" />
               <xs:element name="GastoMenor" msprop:Generator_ColumnVarNameInTable="columnGastoMenor" msprop:Generator_ColumnPropNameInRow="GastoMenor" msprop:Generator_ColumnPropNameInTable="GastoMenorColumn" msprop:Generator_UserColumnName="GastoMenor" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtReporteRatioFiltro" msprop:Generator_TableClassName="DtReporteRatioFiltroDataTable" msprop:Generator_TableVarName="tableDtReporteRatioFiltro" msprop:Generator_TablePropName="DtReporteRatioFiltro" msprop:Generator_RowDeletingName="DtReporteRatioFiltroRowDeleting" msprop:Generator_RowChangingName="DtReporteRatioFiltroRowChanging" msprop:Generator_RowEvHandlerName="DtReporteRatioFiltroRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteRatioFiltroRowDeleted" msprop:Generator_UserTableName="DtReporteRatioFiltro" msprop:Generator_RowChangedName="DtReporteRatioFiltroRowChanged" msprop:Generator_RowEvArgName="DtReporteRatioFiltroRowChangeEvent" msprop:Generator_RowClassName="DtReporteRatioFiltroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipoRatio" msprop:Generator_ColumnVarNameInTable="columnTipoRatio" msprop:Generator_ColumnPropNameInRow="TipoRatio" msprop:Generator_ColumnPropNameInTable="TipoRatioColumn" msprop:Generator_UserColumnName="TipoRatio" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoInicio" msprop:Generator_ColumnVarNameInTable="columnPeriodoInicio" msprop:Generator_ColumnPropNameInRow="PeriodoInicio" msprop:Generator_ColumnPropNameInTable="PeriodoInicioColumn" msprop:Generator_UserColumnName="PeriodoInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="PeriodoFin" msprop:Generator_ColumnVarNameInTable="columnPeriodoFin" msprop:Generator_ColumnPropNameInRow="PeriodoFin" msprop:Generator_ColumnPropNameInTable="PeriodoFinColumn" msprop:Generator_UserColumnName="PeriodoFin" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtReporteRatioData" msprop:Generator_TableClassName="DtReporteRatioDataDataTable" msprop:Generator_TableVarName="tableDtReporteRatioData" msprop:Generator_TablePropName="DtReporteRatioData" msprop:Generator_RowDeletingName="DtReporteRatioDataRowDeleting" msprop:Generator_RowChangingName="DtReporteRatioDataRowChanging" msprop:Generator_RowEvHandlerName="DtReporteRatioDataRowChangeEventHandler" msprop:Generator_RowDeletedName="DtReporteRatioDataRowDeleted" msprop:Generator_UserTableName="DtReporteRatioData" msprop:Generator_RowChangedName="DtReporteRatioDataRowChanged" msprop:Generator_RowEvArgName="DtReporteRatioDataRowChangeEvent" msprop:Generator_RowClassName="DtReporteRatioDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TipoRatio" msprop:Generator_ColumnVarNameInTable="columnTipoRatio" msprop:Generator_ColumnPropNameInRow="TipoRatio" msprop:Generator_ColumnPropNameInTable="TipoRatioColumn" msprop:Generator_UserColumnName="TipoRatio" type="xs:string" minOccurs="0" />
+              <xs:element name="Valor" msprop:Generator_ColumnVarNameInTable="columnValor" msprop:Generator_ColumnPropNameInRow="Valor" msprop:Generator_ColumnPropNameInTable="ValorColumn" msprop:Generator_UserColumnName="Valor" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" msprop:Generator_UserColumnName="Periodo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
