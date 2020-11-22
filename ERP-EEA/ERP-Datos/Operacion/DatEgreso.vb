@@ -105,7 +105,7 @@ Public Class DatEgreso
         End Try
     End Function
 
-    Public Function LeerEgreso(ByVal IdEgreso As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer) As DataTable
+    Public Function LeerEgreso(ByVal IdEgreso As Integer, ByVal SubGrupoEgresoId As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer) As DataTable
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -114,9 +114,11 @@ Public Class DatEgreso
             command = New SqlCommand("LeerEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
             command.Parameters.Add("@IdEgreso", SqlDbType.Int)
+            command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
             command.Parameters("@IdEgreso").Value = IdEgreso
+            command.Parameters("@SubGrupoEgresoId").Value = SubGrupoEgresoId
             command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters("@ProveedorId").Value = ProveedorId
             adapter = New SqlDataAdapter(command)

@@ -362,7 +362,7 @@ Public Class FormEgreso
     Private Sub LeerEgreso()
         If dgvEgreso.Rows.Count > 0 Then
             cboPeriodo.Enabled = False
-            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value)
+            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0, 0)
             txtIdEgreso.Text = entEgreso.IdEgreso
             cboGrupoEgreso.SelectedValue = entEgreso.GrupoEgresoId
             cboSubGrupoEgreso.SelectedValue = entEgreso.SubGrupoEgresoId
@@ -508,7 +508,7 @@ Public Class FormEgreso
 
     Private Sub EliminarEgreso()
         If dgvEgreso.Rows.Count > 0 Then
-            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value)
+            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0, 0)
             If entEgreso.ImporteProvision <> entEgreso.Deuda Then
                 MsgBox("Primero de debe eliminar los pagos realizados a este egreso", MsgBoxStyle.Critical, "Eliminar Ingreso")
                 Exit Sub

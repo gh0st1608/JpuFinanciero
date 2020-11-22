@@ -87,12 +87,12 @@ Public Class DatReporte
             command = New SqlCommand("LeerReporteRatios", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            command.Parameters.Add("@RatioId", SqlDbType.Int)
+            command.Parameters.Add("@TipoRatioId", SqlDbType.Int)
             command.Parameters.Add("@PeriodoInicio", SqlDbType.Int)
             command.Parameters.Add("@PeriodoFin", SqlDbType.Int)
 
 
-            command.Parameters("@RatioId").Value = ParRatioId
+            command.Parameters("@TipoRatioId").Value = ParRatioId
             command.Parameters("@PeriodoInicio").Value = ParPeriodoInicio
             command.Parameters("@PeriodoFin").Value = ParPeriodoFin
 

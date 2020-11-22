@@ -6,12 +6,12 @@ Public Class NegEgreso
     Dim ObjEgresoDat As New DatEgreso
 
     Public Function ObtenerTabla(ByVal IdEgreso As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer) As DataTable
-        Return ObjEgresoDat.LeerEgreso(IdEgreso, PeriodoId, ProveedorId)
+        Return ObjEgresoDat.LeerEgreso(IdEgreso, 0, PeriodoId, ProveedorId)
     End Function
 
-    Public Function ObtenerData(ByVal Id As Integer) As EntEgreso
+    Public Function ObtenerData(ByVal Id As Integer, ByVal SubGrupoEgresoId As Integer, ByVal PeriodoId As Integer) As EntEgreso
         Dim Dt As DataTable
-        Dt = ObjEgresoDat.LeerEgreso(Id, 0, 0)
+        Dt = ObjEgresoDat.LeerEgreso(Id, SubGrupoEgresoId, PeriodoId, 0)
         If (Dt.Rows.Count() > 0) Then
             ObjEgresoEnt.IdEgreso = Convert.ToInt32(Dt.Rows(0).Item("IdEgreso"))
             ObjEgresoEnt.GrupoEgresoId = Convert.ToInt32(Dt.Rows(0).Item("GrupoEgresoId"))

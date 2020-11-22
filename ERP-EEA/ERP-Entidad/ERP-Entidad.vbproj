@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auxiliares\Conexion.vb" />
+    <Compile Include="Auxiliares\EntEstadoResultado.vb" />
     <Compile Include="Auxiliares\EntRatio.vb" />
     <Compile Include="Auxiliares\EntRelacionDebeHaber.vb" />
     <Compile Include="Auxiliares\EntMetodoPago.vb" />

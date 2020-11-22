@@ -69,6 +69,7 @@
     <Compile Include="Auxiliares\DatRelacionDebeHaber.vb" />
     <Compile Include="Auxiliares\DatMetodoPago.vb" />
     <Compile Include="Auxiliares\DatTipoRatio.vb" />
+    <Compile Include="Auxiliares\DatEstadoResultado.vb" />
     <Compile Include="Maestro\DatActivo.vb" />
     <Compile Include="Maestro\DatCliente.vb" />
     <Compile Include="Maestro\DatContacto.vb" />

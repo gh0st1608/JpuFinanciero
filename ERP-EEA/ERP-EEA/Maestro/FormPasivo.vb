@@ -210,7 +210,7 @@ Public Class FormPasivo
 
     Private Sub cbPeriodoFiltro_TextChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.TextChanged
         If cbPeriodoFiltro.Text.Length = 7 Then
-            EntPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
             cbPeriodoFiltro.SelectedValue = EntPeriodo.IdPeriodo
             CargarTablaPasivo()
         End If
