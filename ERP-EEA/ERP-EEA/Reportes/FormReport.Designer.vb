@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormReport
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormReport
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DtReporteIngresoFiltroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -58,10 +58,10 @@ Partial Class FormReport
         Me.ReportViewer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ReportViewer.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ReportViewer.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer.Location = New System.Drawing.Point(-6, 0)
         Me.ReportViewer.Name = "ReportViewer"
-        Me.ReportViewer.Size = New System.Drawing.Size(732, 353)
+        Me.ReportViewer.ServerReport.BearerToken = Nothing
+        Me.ReportViewer.Size = New System.Drawing.Size(738, 358)
         Me.ReportViewer.TabIndex = 0
         '
         'FormReport

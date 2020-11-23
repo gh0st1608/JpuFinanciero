@@ -5,17 +5,9 @@ Public Class FormCierre
 #Region "Variables"
     Dim negPeriodo As New NegPeriodo
     Dim entPeriodo As New EntPeriodo
-    Dim negEgreso As New NegEgreso
-    Dim entEgreso As New EntEgreso
-    Dim negIngreso As New NegIngreso
-    Dim entIngreso As New EntEgreso
     Dim negActivo As New NegActivo
-    Dim entActivo As New EntActivo
     Dim negPasivo As New NegPasivo
-    Dim entPasivo As New EntPasivo
     Dim negPatrimonio As New NegPatrimonio
-    Dim entPatrimonio As New EntPatrimonio
-    Dim entEstadoResultado As New EntEstadoResultado
     Dim negEstadoResultado As New NegEstadoResultado
     Dim negRatio As New NegRatio
     Dim entRatio As New EntRatio
@@ -42,6 +34,7 @@ Public Class FormCierre
     Dim GastosAdministrativos As Decimal
     Dim UtilidadOperativa As Decimal
     Dim GastoMenor As Decimal
+    Dim GastoFinanciero As Decimal
     Dim UtilidadNeta As Decimal
     Dim ActivosTotalCorriente As Decimal
     Dim ActivosTotal As Decimal
@@ -114,8 +107,6 @@ Public Class FormCierre
         UtilidadNetaPatrimonio = negPatrimonio.ObtenerData(0, entPeriodo.IdPeriodo, 4).Monto
         PatrimonioTotal = Capital + CapitalAdicional + AporteCapital + UtilidadNetaPatrimonio
 
-        'Egreso
-        HaberesOperacionales = negEgreso.ObtenerData(0, 2, entPeriodo.IdPeriodo).ImporteProvision
         'HaberesOperacionales = negEgreso.ObtenerData(0, 2, entPeriodo.IdPeriodo).ImporteProvision - negEgreso.ObtenerData(0, 2, entPeriodo.IdPeriodo).Deuda
 
         '---Valores de Estado de Resultado----
@@ -144,8 +135,11 @@ Public Class FormCierre
         'Gasto Menor
         GastoMenor = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 8).Valor
 
+        'GastoFinanciero
+        GastoFinanciero = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 9).Valor
+
         'Utilidad Neta
-        UtilidadNeta = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 9).Valor
+        UtilidadNeta = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 10).Valor
 
         '1 Razon Corriente [activo coriente/pasivo corriente] (veces)
         entRatio.TipoRatioId = 1
@@ -199,7 +193,7 @@ Public Class FormCierre
 
         '11 Margen de Gasto Personal(%)
         entRatio.TipoRatioId = 11
-        entRatio.Valor = (HaberesOperacionales / CostoVentas1 + CostoVentas2 + CostoVentas3 + GastosAdministrativos + GastoMenor)
+        entRatio.Valor = (CostoVentas1 / CostoVentas1 + CostoVentas2 + CostoVentas3 + GastosAdministrativos + GastoMenor + GastoFinanciero)
         operacion = negRatio.Guardar(entRatio)
 
     End Sub

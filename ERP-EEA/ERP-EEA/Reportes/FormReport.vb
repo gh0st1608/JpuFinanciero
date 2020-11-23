@@ -79,6 +79,7 @@ Public Class FormReport
     Private Sub FormReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         fnLoadReport()
         Me.ReportViewer.RefreshReport()
+        Me.ReportViewer.RefreshReport()
     End Sub
 
 End Class
