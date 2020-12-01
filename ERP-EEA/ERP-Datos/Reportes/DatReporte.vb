@@ -77,7 +77,7 @@ Public Class DatReporte
         End Try
     End Function
 
-    Public Function ObtenerDataReporteRatios(ByVal ParRatioId As Integer, ByVal ParPeriodoInicio As Integer, ByVal ParPeriodoFin As Integer) As DataSet
+    Public Function ObtenerDataReporteRatios(ByVal ParPeriodoInicio As Integer, ByVal ParPeriodoFin As Integer) As DataSet
 
         Dim resultadoDS As New DataSet
         Dim adapter As New SqlDataAdapter
@@ -87,12 +87,10 @@ Public Class DatReporte
             command = New SqlCommand("LeerReporteRatios", connection)
             command.CommandType = CommandType.StoredProcedure
 
-            command.Parameters.Add("@TipoRatioId", SqlDbType.Int)
+
             command.Parameters.Add("@PeriodoInicio", SqlDbType.Int)
             command.Parameters.Add("@PeriodoFin", SqlDbType.Int)
 
-
-            command.Parameters("@TipoRatioId").Value = ParRatioId
             command.Parameters("@PeriodoInicio").Value = ParPeriodoInicio
             command.Parameters("@PeriodoFin").Value = ParPeriodoFin
 
@@ -104,6 +102,63 @@ Public Class DatReporte
 
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "ObtenerRatios")
+            connection.Close()
+            Return Nothing
+
+        End Try
+    End Function
+
+    Public Function ObtenerDataReporteBalanceGeneral(ByVal ParPeriodo As Integer) As DataSet
+
+        Dim resultadoDS As New DataSet
+        Dim adapter As New SqlDataAdapter
+
+        Try
+            connection.Open()
+            command = New SqlCommand("LeerReporteBalanceGeneral", connection)
+            command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@Periodo", SqlDbType.Int)
+            command.Parameters("@Periodo").Value = ParPeriodo
+
+
+            adapter = New SqlDataAdapter(command)
+            adapter.Fill(resultadoDS)
+            connection.Close()
+            Return resultadoDS
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "ObtenerBalanceGeneral")
+            connection.Close()
+            Return Nothing
+
+        End Try
+    End Function
+
+
+    Public Function ObtenerDataReporteFCProyectado(ByVal ParPeriodoInicio As Integer, ByVal ParPeriodoFin As Integer) As DataSet
+
+        Dim resultadoDS As New DataSet
+        Dim adapter As New SqlDataAdapter
+
+        Try
+            connection.Open()
+            command = New SqlCommand("LeerReporteFCProyectado", connection)
+            command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.Add("@PeriodoInicio", SqlDbType.Int)
+            command.Parameters.Add("@PeriodoFin", SqlDbType.Int)
+            command.Parameters("@PeriodoInicio").Value = ParPeriodoInicio
+            command.Parameters("@PeriodoFin").Value = ParPeriodoFin
+
+
+            adapter = New SqlDataAdapter(command)
+            adapter.Fill(resultadoDS)
+            connection.Close()
+            Return resultadoDS
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "ObtenerFCProyectado")
             connection.Close()
             Return Nothing
 

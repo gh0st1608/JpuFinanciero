@@ -243,6 +243,12 @@
     <Compile Include="Operacion\FormIngreso.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Operacion\FormProyectado.Designer.vb">
+      <DependentUpon>FormProyectado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Operacion\FormProyectado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\DsBDFinanciero.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -250,6 +256,12 @@
     </Compile>
     <Compile Include="Reportes\DsBDFinanciero.vb">
       <DependentUpon>DsBDFinanciero.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormBalanceGeneral.Designer.vb">
+      <DependentUpon>FormBalanceGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormBalanceGeneral.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\FormEstadoResultado.Designer.vb">
       <DependentUpon>FormEstadoResultado.vb</DependentUpon>
@@ -267,6 +279,12 @@
       <DependentUpon>FormReporteEgresos.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\FormReporteEgresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FormReporteFCProyectado.Designer.vb">
+      <DependentUpon>FormReporteFCProyectado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FormReporteFCProyectado.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\FormReporteIngresos.Designer.vb">
@@ -352,6 +370,12 @@
     <EmbeddedResource Include="Operacion\FormIngreso.resx">
       <DependentUpon>FormIngreso.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operacion\FormProyectado.resx">
+      <DependentUpon>FormProyectado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormBalanceGeneral.resx">
+      <DependentUpon>FormBalanceGeneral.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FormEstadoResultado.resx">
       <DependentUpon>FormEstadoResultado.vb</DependentUpon>
     </EmbeddedResource>
@@ -361,14 +385,19 @@
     <EmbeddedResource Include="Reportes\FormReporteEgresos.resx">
       <DependentUpon>FormReporteEgresos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FormReporteFCProyectado.resx">
+      <DependentUpon>FormReporteFCProyectado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FormReporteIngresos.resx">
       <DependentUpon>FormReporteIngresos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FormReporteRatios.resx">
       <DependentUpon>FormReporteRatios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteBalanceGeneral.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEgresos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEstadoResultados.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteFCProyectado.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteIngresos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteRatios.rdlc" />
   </ItemGroup>

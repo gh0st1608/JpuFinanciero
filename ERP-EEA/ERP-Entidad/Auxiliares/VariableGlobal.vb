@@ -9,4 +9,6 @@
     Public Shared VGRutaReporteIngresos As String = "D:\Reportes\ReporteIngresos.rdlc"
     Public Shared VGRutaReporteEgresos As String = "D:\Reportes\ReporteEgresos.rdlc"
     Public Shared VGRutaReporteRatios As String = "D:\Reportes\ReporteRatios.rdlc"
+    Public Shared VGRutaReporteBalanceGeneral As String = "D:\Reportes\ReporteBalanceGeneral.rdlc"
+    Public Shared VGRutaReporteFCProyectado As String = "D:\Reportes\ReporteFCProyectado.rdlc"
 End Class

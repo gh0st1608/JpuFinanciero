@@ -11,8 +11,16 @@ Public Class NegReporte
         Return objProformaReporteDat.ObtenerDataReporteEgresos(GrupoEgresoId, SubGrupoEgresoId, ProveedorId, PeriodoInicial, PeriodoFinal, VerTotal)
     End Function
 
-    Public Function ObtenerReporteRatios(ByVal RatioId As Integer, ByVal PeriodoInicial As Integer, ByVal PeriodoFinal As Integer) As DataSet
-        Return objProformaReporteDat.ObtenerDataReporteRatios(RatioId, PeriodoInicial, PeriodoFinal)
+    Public Function ObtenerReporteRatios(ByVal PeriodoInicial As Integer, ByVal PeriodoFinal As Integer) As DataSet
+        Return objProformaReporteDat.ObtenerDataReporteRatios(PeriodoInicial, PeriodoFinal)
+    End Function
+
+    Public Function ObtenerReporteBalanceGeneral(ByVal Periodo As Integer) As DataSet
+        Return objProformaReporteDat.ObtenerDataReporteBalanceGeneral(Periodo)
+    End Function
+
+    Public Function ObtenerReporteFCProyectado(ByVal PeriodoInicio As Integer, ByVal PeriodoFin As Integer) As DataSet
+        Return objProformaReporteDat.ObtenerDataReporteFCProyectado(PeriodoInicio, PeriodoFin)
     End Function
 
 End Class

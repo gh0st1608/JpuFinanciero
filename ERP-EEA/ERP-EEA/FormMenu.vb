@@ -97,4 +97,20 @@ Public Class FormMenu
     Private Sub ReporteRatiosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteRatiosToolStripMenuItem.Click
         FormReporteRatios.Show()
     End Sub
+
+    Private Sub ReporteBalanceGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteBalanceGeneralToolStripMenuItem.Click
+        FormBalanceGeneral.Show()
+    End Sub
+
+    Private Sub ProyectadoToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        FormProyectado.Show()
+    End Sub
+
+    Private Sub ProyectadoToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ProyectadoToolStripMenuItem.Click
+        FormProyectado.Show()
+    End Sub
+
+    Private Sub ReporteFlujoCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteFlujoCajaToolStripMenuItem.Click
+        FormReporteFCProyectado.Show()
+    End Sub
 End Class

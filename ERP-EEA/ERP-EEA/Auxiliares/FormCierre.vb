@@ -1,6 +1,6 @@
 ﻿Imports ERP_Negocio
 Imports ERP_Entidad
-
+Imports System.Math
 Public Class FormCierre
 #Region "Variables"
     Dim negPeriodo As New NegPeriodo
@@ -30,11 +30,13 @@ Public Class FormCierre
     Dim CostoVentas1 As Decimal
     Dim CostoVentas2 As Decimal
     Dim CostoVentas3 As Decimal
+    Dim Costos As Decimal
     Dim UtilidadBruta As Decimal
     Dim GastosAdministrativos As Decimal
     Dim UtilidadOperativa As Decimal
     Dim GastoMenor As Decimal
     Dim GastoFinanciero As Decimal
+    Dim GastoInversion As Decimal
     Dim UtilidadNeta As Decimal
     Dim ActivosTotalCorriente As Decimal
     Dim ActivosTotal As Decimal
@@ -81,6 +83,7 @@ Public Class FormCierre
 
         'Periodo Ratio
         entRatio.PeriodoId = Int(dgvPeriodo.CurrentRow.Cells("IdPeriodo").Value)
+        entRatio.UsuarioCreacionId = 1
 
         'Pasivos Corriente
         CuentasPorPagar = negPasivo.ObtenerData(0, entPeriodo.IdPeriodo, 1).Monto
@@ -138,62 +141,68 @@ Public Class FormCierre
         'GastoFinanciero
         GastoFinanciero = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 9).Valor
 
+        'GastoInversion
+        GastoInversion = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 10).Valor
+
         'Utilidad Neta
-        UtilidadNeta = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 10).Valor
+        UtilidadNeta = negEstadoResultado.ObtenerData(0, entPeriodo.IdPeriodo, 11).Valor
+
+        'Costos
+        Costos = CostoVentas1 + CostoVentas2 + CostoVentas3
 
         '1 Razon Corriente [activo coriente/pasivo corriente] (veces)
         entRatio.TipoRatioId = 1
-        entRatio.Valor = (ActivosTotalCorriente / PasivosTotal)
+        entRatio.Valor = Round((ActivosTotalCorriente / PasivosTotal), 1)
         operacion = negRatio.Guardar(entRatio)
 
         '2 Razon Endeudamiento [pasivo total /activo total] x100 (%)
         entRatio.TipoRatioId = 2
-        entRatio.Valor = (PasivosTotal / ActivosTotal) * 100
+        entRatio.Valor = Round((PasivosTotal / ActivosTotal) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '3 Razon de Endeudamiento Patrimonial [pasivo total / patrimonio] (veces)
         entRatio.TipoRatioId = 3
-        entRatio.Valor = (PasivosTotal / PatrimonioTotal)
+        entRatio.Valor = Round((PasivosTotal / PatrimonioTotal), 1)
         operacion = negRatio.Guardar(entRatio)
 
         '4 Promedio de Pagos (dias)
         entRatio.TipoRatioId = 4
-        entRatio.Valor = (CuentasPorPagar / CostoVentas1 + CostoVentas2 + CostoVentas3) * 365
+        entRatio.Valor = Round(((CuentasPorPagar / Costos) * 365))
         operacion = negRatio.Guardar(entRatio)
 
         '5 Rotacion de Activos (veces)
         entRatio.TipoRatioId = 5
-        entRatio.Valor = (Ventas / ActivosTotal)
+        entRatio.Valor = Round((Ventas / ActivosTotal), 1)
         operacion = negRatio.Guardar(entRatio)
 
         '6 Margen de utilidad Bruta(%)
         entRatio.TipoRatioId = 6
-        entRatio.Valor = (UtilidadBruta / Ventas)
+        entRatio.Valor = Round((UtilidadBruta / Ventas) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '7 Margen de Utilidad Operativa(%)
         entRatio.TipoRatioId = 7
-        entRatio.Valor = (UtilidadOperativa / Ventas)
+        entRatio.Valor = Round((UtilidadOperativa / Ventas) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '8 Margen de utilidad Neta(%)
         entRatio.TipoRatioId = 8
-        entRatio.Valor = (UtilidadNeta / Ventas)
+        entRatio.Valor = Round((UtilidadNeta / Ventas) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '9 Rendimiento Sobre Activos(%)
         entRatio.TipoRatioId = 9
-        entRatio.Valor = (UtilidadNeta / ActivosTotal)
+        entRatio.Valor = Round((UtilidadNeta / ActivosTotal) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '10 Rendimiento Sobre Patrimonio(%)
         entRatio.TipoRatioId = 10
-        entRatio.Valor = (UtilidadNeta / PatrimonioTotal)
+        entRatio.Valor = Round((UtilidadNeta / PatrimonioTotal) * 100)
         operacion = negRatio.Guardar(entRatio)
 
         '11 Margen de Gasto Personal(%)
         entRatio.TipoRatioId = 11
-        entRatio.Valor = (CostoVentas1 / CostoVentas1 + CostoVentas2 + CostoVentas3 + GastosAdministrativos + GastoMenor + GastoFinanciero)
+        entRatio.Valor = Round((CostoVentas1 / CostoVentas1 + CostoVentas2 + CostoVentas3 + GastosAdministrativos + GastoMenor + GastoFinanciero)) * 100
         operacion = negRatio.Guardar(entRatio)
 
     End Sub

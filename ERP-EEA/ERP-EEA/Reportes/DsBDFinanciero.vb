@@ -1,10 +1,11 @@
 ﻿
 
 Partial Class DsBDFinanciero
-    Partial Public Class DtReporteRatioFiltroDataTable
-        Private Sub DtReporteRatioFiltroDataTable_DtReporteRatioFiltroRowChanging(sender As Object, e As DtReporteRatioFiltroRowChangeEvent) Handles Me.DtReporteRatioFiltroRowChanging
+    Partial Public Class DtReporteFCProyectadoDataPasivoDataTable
 
-        End Sub
+    End Class
+
+    Partial Public Class DtReporteRatioFiltroDataTable
 
     End Class
 

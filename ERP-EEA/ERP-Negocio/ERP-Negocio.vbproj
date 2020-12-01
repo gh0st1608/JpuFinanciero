@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.vb" />
     <Compile Include="Operacion\NegIngreso.vb" />
+    <Compile Include="Operacion\NegProyectado.vb" />
     <Compile Include="Reportes\NegReporte.vb" />
   </ItemGroup>
   <ItemGroup>

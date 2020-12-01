@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -48,12 +48,15 @@ Partial Class FormMenu
         Me.ReporteIngresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteEgresoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteRatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteBalanceGeneralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProyectadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteFlujoCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.BalanceGeneralToolStripMenuItem, Me.MaestroToolStripMenuItem, Me.IngresoToolStripMenuItem, Me.RegistroDeEgresoToolStripMenuItem, Me.ReportesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaestrosToolStripMenuItem, Me.BalanceGeneralToolStripMenuItem, Me.MaestroToolStripMenuItem, Me.IngresoToolStripMenuItem, Me.RegistroDeEgresoToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ProyectadoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -191,7 +194,7 @@ Partial Class FormMenu
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteIngresoToolStripMenuItem, Me.ReporteEgresoToolStripMenuItem, Me.ReporteRatiosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteIngresoToolStripMenuItem, Me.ReporteEgresoToolStripMenuItem, Me.ReporteRatiosToolStripMenuItem, Me.ReporteBalanceGeneralToolStripMenuItem, Me.ReporteFlujoCajaToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -199,20 +202,38 @@ Partial Class FormMenu
         'ReporteIngresoToolStripMenuItem
         '
         Me.ReporteIngresoToolStripMenuItem.Name = "ReporteIngresoToolStripMenuItem"
-        Me.ReporteIngresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReporteIngresoToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.ReporteIngresoToolStripMenuItem.Text = "Reporte Ingreso"
         '
         'ReporteEgresoToolStripMenuItem
         '
         Me.ReporteEgresoToolStripMenuItem.Name = "ReporteEgresoToolStripMenuItem"
-        Me.ReporteEgresoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReporteEgresoToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.ReporteEgresoToolStripMenuItem.Text = "Reporte Egreso"
         '
         'ReporteRatiosToolStripMenuItem
         '
         Me.ReporteRatiosToolStripMenuItem.Name = "ReporteRatiosToolStripMenuItem"
-        Me.ReporteRatiosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReporteRatiosToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.ReporteRatiosToolStripMenuItem.Text = "Reporte Ratios"
+        '
+        'ReporteBalanceGeneralToolStripMenuItem
+        '
+        Me.ReporteBalanceGeneralToolStripMenuItem.Name = "ReporteBalanceGeneralToolStripMenuItem"
+        Me.ReporteBalanceGeneralToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.ReporteBalanceGeneralToolStripMenuItem.Text = "Reporte Balance General"
+        '
+        'ProyectadoToolStripMenuItem
+        '
+        Me.ProyectadoToolStripMenuItem.Name = "ProyectadoToolStripMenuItem"
+        Me.ProyectadoToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
+        Me.ProyectadoToolStripMenuItem.Text = "Proyectado"
+        '
+        'ReporteFlujoCajaToolStripMenuItem
+        '
+        Me.ReporteFlujoCajaToolStripMenuItem.Name = "ReporteFlujoCajaToolStripMenuItem"
+        Me.ReporteFlujoCajaToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.ReporteFlujoCajaToolStripMenuItem.Text = "Reporte Flujo Caja"
         '
         'FormMenu
         '
@@ -257,4 +278,7 @@ Partial Class FormMenu
     Friend WithEvents ReporteEgresoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CierreToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteRatiosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteBalanceGeneralToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProyectadoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteFlujoCajaToolStripMenuItem As ToolStripMenuItem
 End Class

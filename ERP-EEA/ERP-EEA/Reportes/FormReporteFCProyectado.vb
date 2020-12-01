@@ -2,23 +2,22 @@
 Imports ERP_Negocio
 Imports ERP_Entidad
 
-Public Class FormReporteRatios
+Public Class FormReporteFCProyectado
+
     Dim negReporte As New NegReporte
     Dim negPeriodo As New NegPeriodo
     Dim entPeriodo As New EntPeriodo
-    Dim negTipoRatio As New NegTipoRatio
     Dim dataSet As New DataSet
-    Dim verTotal = 0
+
+
     Private Sub modoInicial()
-        Me.Height = 148
-        Me.Width = 202
+        Me.Height = 138
+        Me.Width = 214
         cboPeriodoInicialFiltro.SelectedIndex = 0
         cboPeriodoFinalFiltro.SelectedIndex = 0
     End Sub
 
     Private Sub cargarCombo()
-
-
 
         cboPeriodoInicialFiltro.ValueMember = "IdPeriodo"
         cboPeriodoInicialFiltro.DisplayMember = "DescripcionPeriodo"
@@ -37,16 +36,18 @@ Public Class FormReporteRatios
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
 
-        dataSet = negReporte.ObtenerReporteRatios(cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue)
-        dataSet.Tables(0).TableName = "DtReporteRatioFiltro"
-        dataSet.Tables(1).TableName = "DtReporteRatioData"
+        dataSet = negReporte.ObtenerReporteFCProyectado(cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue)
+        dataSet.Tables(0).TableName = "DtReporteFCProyectadoFiltro"
+        dataSet.Tables(1).TableName = "DtReporteFCProyectadoDataActivo"
+        dataSet.Tables(2).TableName = "DtReporteFCProyectadoDataPasivo"
+        dataSet.Tables(3).TableName = "DtReporteFCProyectadoDataEgreso"
 
         Dim objForm As New FormReport With {
             .Width = 1090,
             .DsReport = dataSet,
-            .Text = "Reporte de Ratios",
+            .Text = "Reporte FCProyectado",
             .ObjParamList = New List(Of ReportParameter),
-            .PathReport = VariableGlobal.VGRutaReporteRatios,
+            .PathReport = VariableGlobal.VGRutaReporteFCProyectado,
             .ImageReport = True
         }
         objForm.Show()
@@ -70,5 +71,4 @@ Public Class FormReporteRatios
             cboPeriodoFinalFiltro.SelectedValue = entPeriodo.IdPeriodo
         End If
     End Sub
-
 End Class
