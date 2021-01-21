@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Reporting.WinForms
+Imports System.IO
 Public Class FormReport
 
     Private VarObjParamList As List(Of ReportParameter)
@@ -6,6 +7,7 @@ Public Class FormReport
     Private VarImageReport As Boolean
     Private VarDsReport As DataSet
     Private VarPathReport As String
+    Private VarSubReport As Boolean
 
     Public Property ObjParamList As List(Of ReportParameter)
         Get
@@ -51,6 +53,16 @@ Public Class FormReport
             VarPathReport = value
         End Set
     End Property
+
+    Public Property SubReport As Boolean
+        Get
+            Return VarSubReport
+        End Get
+        Set(ByVal value As Boolean)
+            VarSubReport = value
+        End Set
+    End Property
+
     Private Sub fnLoadReport()
 
         ReportViewer.Reset()
@@ -70,12 +82,29 @@ Public Class FormReport
             ReportViewer.LocalReport.SetParameters(param)
         Next
 
+        If SubReport Then
+            AddHandler Me.ReportViewer.LocalReport.SubreportProcessing, AddressOf MySubreportEventHandler
+        End If
+
         ReportViewer.LocalReport.EnableExternalImages = ImageReport
         ReportViewer.LocalReport.EnableHyperlinks = LinksReport
         ReportViewer.LocalReport.Refresh()
         ReportViewer.RefreshReport()
 
     End Sub
+
+    Public Sub MySubreportEventHandler(ByVal sender As Object, ByVal e As SubreportProcessingEventArgs)
+
+        Dim objSource As ReportDataSource
+
+        For Each dt In DsReport.Tables
+            objSource = New ReportDataSource()
+            objSource.Name = dt.TableName
+            objSource.Value = dt
+            e.DataSources.Add(objSource)
+        Next
+    End Sub
+
     Private Sub FormReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         fnLoadReport()
         Me.ReportViewer.RefreshReport()

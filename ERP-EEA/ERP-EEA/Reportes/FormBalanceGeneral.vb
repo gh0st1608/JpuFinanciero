@@ -20,7 +20,7 @@ Public Class FormBalanceGeneral
     Private Sub cargarCombo()
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
-        cboPeriodo.DataSource = NegPeriodo.ObtenerLista(True, False)
+        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True, 1)
 
     End Sub
 
@@ -30,22 +30,27 @@ Public Class FormBalanceGeneral
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
+        If cboPeriodo.SelectedValue = 0 Then
+            MsgBox("Escoger el periodo correctamente", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
+        Else
+            dataSet = negReporte.ObtenerReporteBalanceGeneral(cboPeriodo.SelectedValue)
+            dataSet.Tables(0).TableName = "DtReporteBalanceGeneralFiltro"
+            dataSet.Tables(1).TableName = "DtReporteBalanceGeneralDataActivo"
+            dataSet.Tables(2).TableName = "DtReporteBalanceGeneralDataPasivo"
+            dataSet.Tables(3).TableName = "DtReporteBalanceGeneralDataPatrimonio"
 
-        dataSet = NegReporte.ObtenerReporteBalanceGeneral(cboPeriodo.SelectedValue)
-        dataSet.Tables(0).TableName = "DtReporteBalanceGeneralFiltro"
-        dataSet.Tables(1).TableName = "DtReporteBalanceGeneralDataActivo"
-        dataSet.Tables(2).TableName = "DtReporteBalanceGeneralDataPasivo"
-        dataSet.Tables(3).TableName = "DtReporteBalanceGeneralDataPatrimonio"
-
-        Dim objForm As New FormReport With {
-            .Width = 1090,
-            .DsReport = dataSet,
-            .Text = "Reporte de Balance General",
-            .ObjParamList = New List(Of ReportParameter),
-            .PathReport = VariableGlobal.VGRutaReporteBalanceGeneral,
-            .ImageReport = True
-        }
-        objForm.Show()
+            Dim objForm As New FormReport With {
+                .Width = 1090,
+                .DsReport = dataSet,
+                .Text = "Reporte de Balance General",
+                .ObjParamList = New List(Of ReportParameter),
+                .PathReport = VariableGlobal.VGRutaReporteBalanceGeneral,
+                .ImageReport = True,
+                .SubReport = False
+            }
+            objForm.Show()
+        End If
     End Sub
 
 End Class

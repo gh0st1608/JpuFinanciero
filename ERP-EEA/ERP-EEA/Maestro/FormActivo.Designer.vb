@@ -22,20 +22,13 @@ Partial Class FormActivo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvActivo = New PersControlLibrary.ExtendedDataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoActivoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.cbPeriodoFiltro = New System.Windows.Forms.ComboBox()
@@ -51,6 +44,13 @@ Partial Class FormActivo
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdActivo = New PersControlLibrary.ExtendedTextBox()
+        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoActivoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvActivo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelActivo.SuspendLayout()
         Me.SuspendLayout()
@@ -63,39 +63,39 @@ Partial Class FormActivo
         Me.dgvActivo.AllowUserToResizeRows = False
         Me.dgvActivo.BackgroundColor = System.Drawing.Color.White
         Me.dgvActivo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvActivo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvActivo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dgvActivo.ColumnHeadersHeight = 20
         Me.dgvActivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvActivo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdActivo, Me.GrupoActivoId, Me.Periodo, Me.Descripcion, Me.Monto, Me.PeriodoId})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvActivo.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvActivo.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgvActivo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvActivo.EnableHeadersVisualStyles = False
         Me.dgvActivo.Location = New System.Drawing.Point(14, 44)
         Me.dgvActivo.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvActivo.Name = "dgvActivo"
         Me.dgvActivo.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvActivo.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvActivo.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvActivo.RowHeadersVisible = False
         Me.dgvActivo.RowHeadersWidth = 22
         Me.dgvActivo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -105,71 +105,6 @@ Partial Class FormActivo
         Me.dgvActivo.Size = New System.Drawing.Size(427, 200)
         Me.dgvActivo.TabIndex = 490
         Me.dgvActivo.TabStop = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdActivo
-        '
-        Me.IdActivo.DataPropertyName = "IdActivo"
-        Me.IdActivo.HeaderText = "IdActivo"
-        Me.IdActivo.Name = "IdActivo"
-        Me.IdActivo.ReadOnly = True
-        Me.IdActivo.Visible = False
-        '
-        'GrupoActivoId
-        '
-        Me.GrupoActivoId.DataPropertyName = "GrupoActivoId"
-        Me.GrupoActivoId.HeaderText = "GrupoActivoId"
-        Me.GrupoActivoId.Name = "GrupoActivoId"
-        Me.GrupoActivoId.ReadOnly = True
-        Me.GrupoActivoId.Visible = False
-        '
-        'Periodo
-        '
-        Me.Periodo.DataPropertyName = "Periodo"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Periodo.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Periodo.HeaderText = "PERIODO"
-        Me.Periodo.Name = "Periodo"
-        Me.Periodo.ReadOnly = True
-        Me.Periodo.Width = 80
-        '
-        'Descripcion
-        '
-        Me.Descripcion.DataPropertyName = "Descripcion"
-        Me.Descripcion.HeaderText = "NOMBRE"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Descripcion.Width = 202
-        '
-        'Monto
-        '
-        Me.Monto.DataPropertyName = "Monto"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = "0"
-        Me.Monto.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Monto.HeaderText = "SUBTOTAL"
-        Me.Monto.Name = "Monto"
-        Me.Monto.ReadOnly = True
-        '
-        'PeriodoId
-        '
-        Me.PeriodoId.DataPropertyName = "PeriodoId"
-        Me.PeriodoId.HeaderText = "PeriodoId"
-        Me.PeriodoId.Name = "PeriodoId"
-        Me.PeriodoId.ReadOnly = True
-        Me.PeriodoId.Visible = False
         '
         'btnModificar
         '
@@ -356,6 +291,71 @@ Partial Class FormActivo
         Me.txtIdActivo.TabIndex = 460
         Me.txtIdActivo.Value = Nothing
         '
+        'PeriodoId
+        '
+        Me.PeriodoId.DataPropertyName = "PeriodoId"
+        Me.PeriodoId.HeaderText = "PeriodoId"
+        Me.PeriodoId.Name = "PeriodoId"
+        Me.PeriodoId.ReadOnly = True
+        Me.PeriodoId.Visible = False
+        '
+        'Monto
+        '
+        Me.Monto.DataPropertyName = "Monto"
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Format = "N2"
+        DataGridViewCellStyle10.NullValue = "0"
+        Me.Monto.DefaultCellStyle = DataGridViewCellStyle10
+        Me.Monto.HeaderText = "SUBTOTAL"
+        Me.Monto.Name = "Monto"
+        Me.Monto.ReadOnly = True
+        '
+        'Descripcion
+        '
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "NOMBRE"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Descripcion.Width = 202
+        '
+        'Periodo
+        '
+        Me.Periodo.DataPropertyName = "Periodo"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Periodo.DefaultCellStyle = DataGridViewCellStyle9
+        Me.Periodo.HeaderText = "PERIODO"
+        Me.Periodo.Name = "Periodo"
+        Me.Periodo.ReadOnly = True
+        Me.Periodo.Width = 80
+        '
+        'GrupoActivoId
+        '
+        Me.GrupoActivoId.DataPropertyName = "GrupoActivoId"
+        Me.GrupoActivoId.HeaderText = "GrupoActivoId"
+        Me.GrupoActivoId.Name = "GrupoActivoId"
+        Me.GrupoActivoId.ReadOnly = True
+        Me.GrupoActivoId.Visible = False
+        '
+        'IdActivo
+        '
+        Me.IdActivo.DataPropertyName = "IdActivo"
+        Me.IdActivo.HeaderText = "IdActivo"
+        Me.IdActivo.Name = "IdActivo"
+        Me.IdActivo.ReadOnly = True
+        Me.IdActivo.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
+        '
         'FormActivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -373,7 +373,7 @@ Partial Class FormActivo
         Me.MinimumSize = New System.Drawing.Size(472, 295)
         Me.Name = "FormActivo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Registro Activo"
+        Me.Text = "Activo"
         CType(Me.dgvActivo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelActivo.ResumeLayout(False)
         Me.PanelActivo.PerformLayout()

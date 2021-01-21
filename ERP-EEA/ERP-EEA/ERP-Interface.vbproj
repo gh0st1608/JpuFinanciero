@@ -250,12 +250,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\DsBDFinanciero.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>DsBDFinanciero.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reportes\DsBDFinanciero.vb">
       <DependentUpon>DsBDFinanciero.xsd</DependentUpon>
+      <SubType>code</SubType>
     </Compile>
     <Compile Include="Reportes\FormBalanceGeneral.Designer.vb">
       <DependentUpon>FormBalanceGeneral.vb</DependentUpon>
@@ -400,6 +401,7 @@
     <EmbeddedResource Include="Reportes\ReporteFCProyectado.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteIngresos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteRatios.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteRatios2.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\app.manifest" />
@@ -426,9 +428,9 @@
       <DependentUpon>DsBDFinanciero.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DsBDFinanciero.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsBDFinanciero.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Reportes\DsBDFinanciero.xss">
       <DependentUpon>DsBDFinanciero.xsd</DependentUpon>

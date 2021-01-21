@@ -16,6 +16,10 @@ Public Class DatIngreso
             command.Parameters.Add("@Detraccion", SqlDbType.Bit)
             command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@IgvProvision", SqlDbType.Money)
+            command.Parameters.Add("@DetraccionProvision", SqlDbType.Money)
+            command.Parameters.Add("@TotalProvision", SqlDbType.Money)
+            command.Parameters.Add("@IngresoCuenta", SqlDbType.Money)
             command.Parameters.Add("@ComprobanteUbicacion", SqlDbType.VarChar, 200)
             command.Parameters.Add("@NumeroComprobanteIngreso", SqlDbType.VarChar, 20)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
@@ -27,6 +31,10 @@ Public Class DatIngreso
             command.Parameters("@Detraccion").Value = objIngreso.Detraccion
             command.Parameters("@IGV").Value = objIngreso.IGV
             command.Parameters("@ImporteProvision").Value = objIngreso.ImporteProvision
+            command.Parameters("@IgvProvision").Value = objIngreso.IgvProvision
+            command.Parameters("@DetraccionProvision").Value = objIngreso.DetraccionProvision
+            command.Parameters("@TotalProvision").Value = objIngreso.TotalProvision
+            command.Parameters("@IngresoCuenta").Value = objIngreso.IngresoCuenta
             command.Parameters("@PeriodoId").Value = objIngreso.PeriodoId
             command.Parameters("@FechaIngresoProvision").Value = objIngreso.FechaIngresoProvision
             command.Parameters("@ComprobanteUbicacion").Value = objIngreso.ComprobanteUbicacion
@@ -53,6 +61,10 @@ Public Class DatIngreso
             command.Parameters.Add("@Detraccion", SqlDbType.Bit)
             command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@IgvProvision", SqlDbType.Money)
+            command.Parameters.Add("@DetraccionProvision", SqlDbType.Money)
+            command.Parameters.Add("@TotalProvision", SqlDbType.Money)
+            command.Parameters.Add("@IngresoCuenta", SqlDbType.Money)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
             command.Parameters.Add("@FechaIngresoProvision", SqlDbType.Date)
@@ -66,6 +78,10 @@ Public Class DatIngreso
             command.Parameters("@Detraccion").Value = objIngreso.Detraccion
             command.Parameters("@IGV").Value = objIngreso.IGV
             command.Parameters("@ImporteProvision").Value = objIngreso.ImporteProvision
+            command.Parameters("@IgvProvision").Value = objIngreso.IgvProvision
+            command.Parameters("@DetraccionProvision").Value = objIngreso.DetraccionProvision
+            command.Parameters("@TotalProvision").Value = objIngreso.TotalProvision
+            command.Parameters("@IngresoCuenta").Value = objIngreso.IngresoCuenta
             command.Parameters("@Deuda").Value = objIngreso.Deuda
             command.Parameters("@PeriodoId").Value = objIngreso.PeriodoId
             command.Parameters("@Comentario").Value = objIngreso.Comentario
@@ -111,10 +127,10 @@ Public Class DatIngreso
             command = New SqlCommand("LeerIngreso", connection)
             command.CommandType = CommandType.StoredProcedure
             command.Parameters.Add("@IdIngreso", SqlDbType.Int)
-            command.Parameters("@IdIngreso").Value = IdIngreso
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
-            command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters.Add("@ClienteId", SqlDbType.Int)
+            command.Parameters("@IdIngreso").Value = IdIngreso
+            command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters("@ClienteId").Value = ClienteId
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

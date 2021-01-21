@@ -14,6 +14,8 @@ Public Class DatEgreso
             command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@IgvProvision", SqlDbType.Money)
+            command.Parameters.Add("@TotalProvision", SqlDbType.Money)
             command.Parameters.Add("@Deuda", SqlDbType.Float)
             command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
@@ -26,6 +28,8 @@ Public Class DatEgreso
             command.Parameters("@SubGrupoEgresoId").Value = objEgreso.SubGrupoEgresoId
             command.Parameters("@ProveedorId").Value = objEgreso.ProveedorId
             command.Parameters("@ImporteProvision").Value = objEgreso.ImporteProvision
+            command.Parameters("@IgvProvision").Value = objEgreso.IgvProvision
+            command.Parameters("@TotalProvision").Value = objEgreso.TotalProvision
             command.Parameters("@Deuda").Value = objEgreso.Deuda
             command.Parameters("@IGV").Value = objEgreso.IGV
             command.Parameters("@PeriodoId").Value = objEgreso.PeriodoId
@@ -54,6 +58,8 @@ Public Class DatEgreso
             command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
+            command.Parameters.Add("@IgvProvision", SqlDbType.Money)
+            command.Parameters.Add("@TotalProvision", SqlDbType.Money)
             command.Parameters.Add("@IGV", SqlDbType.Bit)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@Comentario", SqlDbType.VarChar, 200)
@@ -67,6 +73,8 @@ Public Class DatEgreso
             command.Parameters("@SubGrupoEgresoId").Value = objEgreso.SubGrupoEgresoId
             command.Parameters("@ProveedorId").Value = objEgreso.ProveedorId
             command.Parameters("@ImporteProvision").Value = objEgreso.ImporteProvision
+            command.Parameters("@IgvProvision").Value = objEgreso.IgvProvision
+            command.Parameters("@TotalProvision").Value = objEgreso.TotalProvision
             command.Parameters("@IGV").Value = objEgreso.IGV
             command.Parameters("@PeriodoId").Value = objEgreso.PeriodoId
             command.Parameters("@Comentario").Value = objEgreso.Comentario
@@ -105,7 +113,7 @@ Public Class DatEgreso
         End Try
     End Function
 
-    Public Function LeerEgreso(ByVal IdEgreso As Integer, ByVal SubGrupoEgresoId As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer) As DataTable
+    Public Function LeerEgreso(ByVal IdEgreso As Integer, ByVal PeriodoId As Integer, ByVal ProveedorId As Integer, ByVal Alerta As Boolean) As DataTable
         Dim resultadoDT As DataTable
         Dim resultadoDS As New DataSet
         Dim adapter As SqlDataAdapter
@@ -114,13 +122,13 @@ Public Class DatEgreso
             command = New SqlCommand("LeerEgreso", connection)
             command.CommandType = CommandType.StoredProcedure
             command.Parameters.Add("@IdEgreso", SqlDbType.Int)
-            command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@ProveedorId", SqlDbType.Int)
+            command.Parameters.Add("@alerta", SqlDbType.Bit)
             command.Parameters("@IdEgreso").Value = IdEgreso
-            command.Parameters("@SubGrupoEgresoId").Value = SubGrupoEgresoId
             command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters("@ProveedorId").Value = ProveedorId
+            command.Parameters("@alerta").Value = Alerta
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)

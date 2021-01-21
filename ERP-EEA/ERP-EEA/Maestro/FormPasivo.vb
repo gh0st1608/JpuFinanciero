@@ -58,10 +58,10 @@ Public Class FormPasivo
         cboTipoPasivo.DataSource = negGrupoPasivo.ObtenerLista(False, True)
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
-        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True)
+        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True, 1)
         cbPeriodoFiltro.ValueMember = "IdPeriodo"
         cbPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
-        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False, 1)
     End Sub
 #End Region
 
@@ -210,7 +210,7 @@ Public Class FormPasivo
 
     Private Sub cbPeriodoFiltro_TextChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.TextChanged
         If cbPeriodoFiltro.Text.Length = 7 Then
-            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text, 0)
             cbPeriodoFiltro.SelectedValue = EntPeriodo.IdPeriodo
             CargarTablaPasivo()
         End If

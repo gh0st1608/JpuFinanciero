@@ -1001,7 +1001,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>12.76401in</Width>
+      <Width>7.06609in</Width>
       <Page>
         <PageHeader>
           <Height>3.57835cm</Height>
@@ -1024,7 +1024,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>2.58306cm</Top>
-              <Left>0.52066cm</Left>
+              <Left>0.20316cm</Left>
               <Height>0.6cm</Height>
               <Width>1.52104cm</Width>
               <Style>
@@ -1069,10 +1069,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0.39529cm</Top>
-              <Left>10.44787cm</Left>
+              <Top>1.31816cm</Top>
+              <Left>5.12974cm</Left>
               <Height>0.73229cm</Height>
-              <Width>9.90833cm</Width>
+              <Width>9.22042cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1096,7 +1096,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Globals!ExecutionTime</Value>
-                      <Style />
+                      <Style>
+                        <Format>d</Format>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -1105,10 +1107,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>2.45077cm</Top>
-              <Left>26.92608cm</Left>
+              <Top>0.3175cm</Top>
+              <Left>14.68088cm</Left>
               <Height>0.73229cm</Height>
-              <Width>5.17638cm</Width>
+              <Width>2.95758cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1125,7 +1127,7 @@
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
               <Top>0.39529cm</Top>
-              <Left>0.52066cm</Left>
+              <Left>0.20316cm</Left>
               <Height>1.65516cm</Height>
               <Width>4.38736cm</Width>
               <ZIndex>3</ZIndex>
@@ -1152,7 +1154,7 @@
               </Paragraphs>
               <rd:DefaultName>Periodo</rd:DefaultName>
               <Top>2.58306cm</Top>
-              <Left>2.28896cm</Left>
+              <Left>1.97146cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>4</ZIndex>

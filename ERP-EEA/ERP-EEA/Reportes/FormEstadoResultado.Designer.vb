@@ -34,7 +34,7 @@ Partial Class FormEstadoResultado
         Me.btnGenerar.Location = New System.Drawing.Point(101, 70)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGenerar.TabIndex = 518
+        Me.btnGenerar.TabIndex = 10
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
         '
@@ -62,7 +62,7 @@ Partial Class FormEstadoResultado
         Me.cbPeriodoInicio.Location = New System.Drawing.Point(101, 12)
         Me.cbPeriodoInicio.Name = "cbPeriodoInicio"
         Me.cbPeriodoInicio.Size = New System.Drawing.Size(125, 21)
-        Me.cbPeriodoInicio.TabIndex = 519
+        Me.cbPeriodoInicio.TabIndex = 1
         '
         'cbPeriodoFin
         '
@@ -70,7 +70,7 @@ Partial Class FormEstadoResultado
         Me.cbPeriodoFin.Location = New System.Drawing.Point(101, 39)
         Me.cbPeriodoFin.Name = "cbPeriodoFin"
         Me.cbPeriodoFin.Size = New System.Drawing.Size(125, 21)
-        Me.cbPeriodoFin.TabIndex = 519
+        Me.cbPeriodoFin.TabIndex = 2
         '
         'FormEstadoResultado
         '
@@ -83,8 +83,11 @@ Partial Class FormEstadoResultado
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label17)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(259, 144)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(259, 144)
         Me.Name = "FormEstadoResultado"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estado de Resultados"
         Me.ResumeLayout(False)
         Me.PerformLayout()

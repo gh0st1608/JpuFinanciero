@@ -185,7 +185,7 @@ Partial Class FormIngreso
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
+        Me.DataGridViewTextBoxColumn7.Width = 35
         '
         'IdIngreso
         '
@@ -217,7 +217,7 @@ Partial Class FormIngreso
         Me.Descripcion.HeaderText = "CLIENTE"
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Width = 265
+        Me.Descripcion.Width = 255
         '
         'NumeroComprobanteIngreso
         '
@@ -269,7 +269,7 @@ Partial Class FormIngreso
         'ImporteProvision
         '
         Me.ImporteProvision.DataPropertyName = "ImporteProvision"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle3.Format = "N2"
         DataGridViewCellStyle3.NullValue = "0"
         Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
@@ -697,9 +697,9 @@ Partial Class FormIngreso
         Me.lbNroOperacion.AutoSize = True
         Me.lbNroOperacion.Location = New System.Drawing.Point(13, 62)
         Me.lbNroOperacion.Name = "lbNroOperacion"
-        Me.lbNroOperacion.Size = New System.Drawing.Size(76, 13)
+        Me.lbNroOperacion.Size = New System.Drawing.Size(84, 13)
         Me.lbNroOperacion.TabIndex = 491
-        Me.lbNroOperacion.Text = "Nro Operacion"
+        Me.lbNroOperacion.Text = "Nº de operacion"
         '
         'txtNroOperacion
         '
@@ -801,9 +801,9 @@ Partial Class FormIngreso
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(12, 90)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(80, 13)
+        Me.Label7.Size = New System.Drawing.Size(83, 13)
         Me.Label7.TabIndex = 470
-        Me.Label7.Text = "Fecha de Pago"
+        Me.Label7.Text = "Fecha de Cobro"
         '
         'dtpFechaPago
         '
@@ -1225,6 +1225,18 @@ Partial Class FormIngreso
     Friend WithEvents Label1 As Label
     Friend WithEvents lbNroOperacion As Label
     Friend WithEvents txtNroOperacion As TextBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdPago As DataGridViewTextBoxColumn
+    Friend WithEvents OrigenId As DataGridViewTextBoxColumn
+    Friend WithEvents NumeroComprobante As DataGridViewTextBoxColumn
+    Friend WithEvents NroOperacion As DataGridViewTextBoxColumn
+    Friend WithEvents MetodoPagoId As DataGridViewTextBoxColumn
+    Friend WithEvents MedioDePago As DataGridViewTextBoxColumn
+    Friend WithEvents FechaPago As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteTotal As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteCancelado As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteDetraccion As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteIGV As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IdIngreso As DataGridViewTextBoxColumn
     Friend WithEvents GrupoIngresoId As DataGridViewTextBoxColumn
@@ -1239,16 +1251,4 @@ Partial Class FormIngreso
     Friend WithEvents ImporteProvision As DataGridViewTextBoxColumn
     Friend WithEvents ComprobanteUbicacion As DataGridViewTextBoxColumn
     Friend WithEvents Deuda As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents IdPago As DataGridViewTextBoxColumn
-    Friend WithEvents OrigenId As DataGridViewTextBoxColumn
-    Friend WithEvents NumeroComprobante As DataGridViewTextBoxColumn
-    Friend WithEvents NroOperacion As DataGridViewTextBoxColumn
-    Friend WithEvents MetodoPagoId As DataGridViewTextBoxColumn
-    Friend WithEvents MedioDePago As DataGridViewTextBoxColumn
-    Friend WithEvents FechaPago As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteTotal As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteCancelado As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteDetraccion As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteIGV As DataGridViewTextBoxColumn
 End Class

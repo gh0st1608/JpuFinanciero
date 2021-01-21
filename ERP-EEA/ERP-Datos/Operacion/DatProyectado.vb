@@ -10,13 +10,11 @@ Public Class DatProyectado
             connection.Open()
             command = New SqlCommand("CrearProyectado", connection)
             command.CommandType = CommandType.StoredProcedure
-            command.Parameters.Add("@TipoOperacion", SqlDbType.Int)
             command.Parameters.Add("@SubGrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@GrupoEgresoId", SqlDbType.Int)
             command.Parameters.Add("@ImporteProvision", SqlDbType.Money)
             command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
-            command.Parameters("@TipoOperacion").Value = objProyectado.TipoOperacionId
             command.Parameters("@GrupoEgresoId").Value = objProyectado.GrupoEgresoId
             command.Parameters("@SubGrupoEgresoId").Value = objProyectado.SubGrupoEgresoId
             command.Parameters("@ImporteProvision").Value = objProyectado.ImporteProvision

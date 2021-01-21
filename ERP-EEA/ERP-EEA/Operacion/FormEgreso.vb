@@ -53,6 +53,11 @@ Public Class FormEgreso
         PanelEgreso.Visible = False
         PanelPago.Visible = False
         PanelRegistroPago.Visible = False
+        If VariableGlobal.VGAlertaEgreso Then
+            btnVerDeudas.Text = "TODOS"
+        Else
+            btnVerDeudas.Text = "DEUDAS"
+        End If
         CargarTablaEgreso()
     End Sub
 
@@ -106,7 +111,7 @@ Public Class FormEgreso
 
 #Region "Funciones Auxiliares"
     Private Sub CargarTablaEgreso()
-        dataTable = negEgreso.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue, 0)
+        dataTable = negEgreso.ObtenerTabla(0, cbPeriodoFiltro.SelectedValue, 0, VariableGlobal.VGAlertaEgreso)
         dgvEgreso.DataSource = dataTable
         If dgvEgreso.Rows.Count > 0 Then
             dgvEgreso.Enabled = True
@@ -122,7 +127,7 @@ Public Class FormEgreso
     End Sub
 
     Private Sub CargarTablaPago()
-        dataTable = negPago.ObtenerTabla(0, 1, Int(txtIdEgreso.Text), cbPeriodoFiltro.SelectedValue, 0, 0)
+        dataTable = negPago.ObtenerTabla(0, 2, Int(txtIdEgreso.Text), cbPeriodoFiltro.SelectedValue, 0, 0)
         dgvPago.DataSource = dataTable
         If dgvPago.Rows.Count > 0 Then
             dgvPago.Enabled = True
@@ -146,11 +151,11 @@ Public Class FormEgreso
 
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
-        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True)
+        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True, 1)
 
         cbPeriodoFiltro.ValueMember = "IdPeriodo"
         cbPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
-        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False, 1)
 
         cbMetodoPago.ValueMember = "IdMetodoPago"
         cbMetodoPago.DisplayMember = "Descripcion"
@@ -215,6 +220,9 @@ Public Class FormEgreso
         Else
             entEgreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text)
             entEgreso.Deuda = entEgreso.ImporteProvision
+            entParametro = negParametro.ObtenerData(2)
+            entEgreso.IgvProvision = entEgreso.ImporteProvision * entParametro.ValorParametro
+            entEgreso.TotalProvision = entEgreso.ImporteProvision + entEgreso.IgvProvision
         End If
         entEgreso.IGV = chkIGV.Checked
         entEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
@@ -362,7 +370,7 @@ Public Class FormEgreso
     Private Sub LeerEgreso()
         If dgvEgreso.Rows.Count > 0 Then
             cboPeriodo.Enabled = False
-            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0, 0)
+            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0)
             txtIdEgreso.Text = entEgreso.IdEgreso
             cboGrupoEgreso.SelectedValue = entEgreso.GrupoEgresoId
             cboSubGrupoEgreso.SelectedValue = entEgreso.SubGrupoEgresoId
@@ -419,10 +427,12 @@ Public Class FormEgreso
             MsgBox("Ingresar el importe", MsgBoxStyle.Critical, "Validar campo")
             Exit Sub
         Else
-            entEgreso.ImporteProvision = Convert.ToDecimal(txtImporteProvisional.Text)
             If actualizarPago = False Then
                 entEgreso.Deuda = entEgreso.ImporteProvision
             End If
+            entParametro = negParametro.ObtenerData(2)
+            entEgreso.IgvProvision = entEgreso.ImporteProvision * entParametro.ValorParametro
+            entEgreso.TotalProvision = entEgreso.ImporteProvision + entEgreso.IgvProvision
         End If
         entEgreso.IGV = chkIGV.Checked
         entEgreso.UsuarioModificacionId = VariableGlobal.VGIDUsuario
@@ -508,7 +518,7 @@ Public Class FormEgreso
 
     Private Sub EliminarEgreso()
         If dgvEgreso.Rows.Count > 0 Then
-            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0, 0)
+            entEgreso = negEgreso.ObtenerData(dgvEgreso.CurrentRow.Cells("IdEgreso").Value, 0)
             If entEgreso.ImporteProvision <> entEgreso.Deuda Then
                 MsgBox("Primero de debe eliminar los pagos realizados a este egreso", MsgBoxStyle.Critical, "Eliminar Ingreso")
                 Exit Sub
@@ -620,149 +630,167 @@ Public Class FormEgreso
         entEgreso.UsuarioCreacionId = VariableGlobal.VGIDUsuario
 
         'Cuenta Contable
-        entRelacionDebeHaber = negRelacionDebeHaber.ObtenerData(0, 2, 2, entEgreso.SubGrupoEgresoId)
-        Select Case entRelacionDebeHaber.GrupoDebeId
-            Case 1
-                entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
-                If entActivo.IdActivo = 0 Then
-                    entActivo.PeriodoId = entEgreso.PeriodoId
-                    entActivo.GrupoActivoId = entRelacionDebeHaber.DebeId
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entActivo.Monto = entPago.ImporteTotal
-                    Else
-                        entActivo.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negActivo.Guardar(entActivo)
-                Else
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entActivo.Monto = entActivo.Monto + entPago.ImporteTotal
-                    Else
-                        entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negActivo.Actualizar(entActivo)
-                End If
-            Case 2
-                entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
-                If entPasivo.IdPasivo = 0 Then
-                    entPasivo.PeriodoId = entEgreso.PeriodoId
-                    entPasivo.GrupoPasivoId = entRelacionDebeHaber.DebeId
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPasivo.Monto = entPago.ImporteTotal
-                    Else
-                        entPasivo.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negPasivo.Guardar(entPasivo)
-                Else
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPasivo.Monto = entPasivo.Monto + entPago.ImporteTotal
-                    Else
-                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negPasivo.Actualizar(entPasivo)
-                End If
-            Case 3
-                entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
-                If entPatrimonio.IdPatrimonio = 0 Then
-                    entPatrimonio.PeriodoId = entEgreso.PeriodoId
-                    entPatrimonio.GrupoPatrimonioId = entRelacionDebeHaber.DebeId
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPatrimonio.Monto = entPago.ImporteTotal
-                    Else
-                        entPatrimonio.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negPatrimonio.Guardar(entPatrimonio)
-                Else
-                    If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteTotal
-                    Else
-                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negPatrimonio.Actualizar(entPatrimonio)
-                End If
-            Case Else
-                operacion = False
-        End Select
-        If operacion = False Then
-            MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Debe")
-            Exit Sub
-        End If
-        Select Case entRelacionDebeHaber.GrupoHaberId
-            Case 1
-                entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
-                If entActivo.IdActivo = 0 Then
-                    entActivo.PeriodoId = entEgreso.PeriodoId
-                    entActivo.GrupoActivoId = entRelacionDebeHaber.HaberId
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entActivo.Monto = entPago.ImporteTotal
-                    Else
-                        entActivo.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negActivo.Guardar(entActivo)
-                Else
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entActivo.Monto = entActivo.Monto + entPago.ImporteTotal
-                    Else
-                        entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negActivo.Actualizar(entActivo)
-                End If
-            Case 2
-                entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
-                If entPasivo.IdPasivo = 0 Then
-                    entPasivo.PeriodoId = entEgreso.PeriodoId
-                    entPasivo.GrupoPasivoId = entRelacionDebeHaber.HaberId
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPasivo.Monto = entPago.ImporteTotal
-                    Else
-                        entPasivo.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negPasivo.Guardar(entPasivo)
-                Else
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPasivo.Monto = entPasivo.Monto + entPago.ImporteTotal
-                    Else
-                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negPasivo.Actualizar(entPasivo)
-                End If
-            Case 3
-                entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
-                If entPatrimonio.IdPatrimonio = 0 Then
-                    entPatrimonio.PeriodoId = entEgreso.PeriodoId
-                    entPatrimonio.GrupoPatrimonioId = entRelacionDebeHaber.HaberId
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPatrimonio.Monto = entPago.ImporteTotal
-                    Else
-                        entPatrimonio.Monto = -1 * entPago.ImporteCancelado
-                    End If
-                    operacion = negPatrimonio.Guardar(entPatrimonio)
-                Else
-                    If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteTotal
-                    Else
-                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
-                    End If
-                    operacion = negPatrimonio.Actualizar(entPatrimonio)
-                End If
-            Case Else
-                operacion = False
-        End Select
-        If operacion = False Then
-            MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Haber")
-            Exit Sub
-        End If
-        If entEgreso.IGV Then
-            entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, 3)
-            If entPasivo.IdPasivo = 0 Then
-                entPasivo.PeriodoId = entEgreso.PeriodoId
-                entPasivo.GrupoPasivoId = 3
-                entPasivo.Monto = -1 * entPago.ImporteIGV
-                operacion = negPasivo.Guardar(entPasivo)
-            Else
-                entPasivo.Monto = entPasivo.Monto - entPago.ImporteIGV
-                operacion = negPasivo.Actualizar(entPasivo)
-            End If
-        End If
+        'entRelacionDebeHaber = negRelacionDebeHaber.ObtenerData(0, 2, 2, entEgreso.SubGrupoEgresoId)
+        'Select Case entRelacionDebeHaber.GrupoDebeId
+        '    Case 1
+        '        entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
+        '        If entActivo.IdActivo = 0 Then
+        '            entActivo.PeriodoId = entEgreso.PeriodoId
+        '            entActivo.GrupoActivoId = entRelacionDebeHaber.DebeId
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entActivo.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entActivo.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negActivo.Guardar(entActivo)
+        '        Else
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entActivo.Monto = entActivo.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negActivo.Actualizar(entActivo)
+        '        End If
+        '    Case 2
+        '        entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
+        '        If entPasivo.IdPasivo = 0 Then
+        '            entPasivo.PeriodoId = entEgreso.PeriodoId
+        '            entPasivo.GrupoPasivoId = entRelacionDebeHaber.DebeId
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entPasivo.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entPasivo.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPasivo.Guardar(entPasivo)
+        '        Else
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entPasivo.Monto = entPasivo.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPasivo.Actualizar(entPasivo)
+        '        End If
+        '    Case 3
+        '        entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
+        '        If entPatrimonio.IdPatrimonio = 0 Then
+        '            entPatrimonio.PeriodoId = entEgreso.PeriodoId
+        '            entPatrimonio.GrupoPatrimonioId = entRelacionDebeHaber.DebeId
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entPatrimonio.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entPatrimonio.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPatrimonio.Guardar(entPatrimonio)
+        '        Else
+        '            If entRelacionDebeHaber.SignoDebe = 1 Then
+        '                entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPatrimonio.Actualizar(entPatrimonio)
+        '        End If
+        '    Case Else
+        '        operacion = False
+        'End Select
+        'If operacion = False Then
+        '    MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Debe")
+        '    Exit Sub
+        'End If
+        'Select Case entRelacionDebeHaber.GrupoHaberId
+        '    Case 1
+        '        entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
+        '        If entActivo.IdActivo = 0 Then
+        '            entActivo.PeriodoId = entEgreso.PeriodoId
+        '            entActivo.GrupoActivoId = entRelacionDebeHaber.HaberId
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entActivo.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entActivo.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negActivo.Guardar(entActivo)
+        '        Else
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entActivo.Monto = entActivo.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negActivo.Actualizar(entActivo)
+        '        End If
+        '    Case 2
+        '        entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
+        '        If entPasivo.IdPasivo = 0 Then
+        '            entPasivo.PeriodoId = entEgreso.PeriodoId
+        '            entPasivo.GrupoPasivoId = entRelacionDebeHaber.HaberId
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entPasivo.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entPasivo.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPasivo.Guardar(entPasivo)
+        '        Else
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entPasivo.Monto = entPasivo.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPasivo.Actualizar(entPasivo)
+        '        End If
+        '    Case 3
+        '        entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
+        '        If entPatrimonio.IdPatrimonio = 0 Then
+        '            entPatrimonio.PeriodoId = entEgreso.PeriodoId
+        '            entPatrimonio.GrupoPatrimonioId = entRelacionDebeHaber.HaberId
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entPatrimonio.Monto = entPago.ImporteCancelado
+        '            Else
+        '                entPatrimonio.Monto = -1 * entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPatrimonio.Guardar(entPatrimonio)
+        '        Else
+        '            If entRelacionDebeHaber.SignoHaber = 1 Then
+        '                entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteCancelado
+        '            Else
+        '                entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
+        '            End If
+        '            operacion = negPatrimonio.Actualizar(entPatrimonio)
+        '        End If
+        '    Case Else
+        '        operacion = False
+        'End Select
+        'If operacion = False Then
+        '    MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Haber")
+        '    Exit Sub
+        'End If
+        'If entEgreso.IGV Then
+        '    entPasivo = negPasivo.ObtenerData(1, entEgreso.PeriodoId, 3)
+        '    If entPasivo.IdPasivo = 0 Then
+        '        entPasivo.PeriodoId = entEgreso.PeriodoId
+        '        entPasivo.GrupoPasivoId = 3
+        '        entPasivo.Monto = -1 * entPago.ImporteIGV
+        '        operacion = negPasivo.Guardar(entPasivo)
+        '    Else
+        '        entPasivo.Monto = entPasivo.Monto - entPago.ImporteIGV
+        '        operacion = negPasivo.Actualizar(entPasivo)
+        '    End If
+        '    If operacion = False Then
+        '        MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar IGV")
+        '        Exit Sub
+        '    End If
+        '    entPatrimonio = negPatrimonio.ObtenerData(1, entEgreso.PeriodoId, 4)
+        '    If entPatrimonio.IdPatrimonio = 0 Then
+        '        entPatrimonio.PeriodoId = entEgreso.PeriodoId
+        '        entPatrimonio.GrupoPatrimonioId = 4
+        '        entPatrimonio.Monto = -1 * entPago.ImporteIGV
+        '        operacion = negPatrimonio.Guardar(entPatrimonio)
+        '    Else
+        '        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteIGV
+        '        operacion = negPatrimonio.Actualizar(entPatrimonio)
+        '    End If
+        '    If operacion = False Then
+        '        MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Utilidad Neta")
+        '        Exit Sub
+        '    End If
+        'End If
 
         operacion = negPago.Guardar(entPago)
         If operacion Then
@@ -773,7 +801,7 @@ Public Class FormEgreso
     End Sub
     Private Sub LeerPago()
         If dgvPago.Rows.Count > 0 Then
-            entPago = negPago.ObtenerData(dgvPago.CurrentRow.Cells("IdPago").Value, 1)
+            entPago = negPago.ObtenerData(dgvPago.CurrentRow.Cells("IdPago").Value, 2)
             txtIdPago.Text = entPago.IdPago
             txtNumeroComprobante.Text = entPago.NumeroComprobante
             cbMetodoPago.SelectedValue = entPago.MetodoPagoId
@@ -816,7 +844,7 @@ Public Class FormEgreso
     End Sub
     Private Sub EliminarPago()
         If dgvPago.Rows.Count > 0 Then
-            entPago = negPago.ObtenerData(dgvPago.CurrentRow.Cells("IdPago").Value, 1)
+            entPago = negPago.ObtenerData(dgvPago.CurrentRow.Cells("IdPago").Value, 2)
             entPago.UsuarioModificacionId = VariableGlobal.VGIDUsuario
 
             entEgreso.Deuda = entEgreso.Deuda + entPago.ImporteCancelado
@@ -829,7 +857,7 @@ Public Class FormEgreso
                 Case 1
                     entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
                     If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entActivo.Monto = entActivo.Monto - entPago.ImporteTotal
+                        entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
                     Else
                         entActivo.Monto = entActivo.Monto + entPago.ImporteCancelado
                     End If
@@ -837,7 +865,7 @@ Public Class FormEgreso
                 Case 2
                     entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
                     If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteTotal
+                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
                     Else
                         entPasivo.Monto = entPasivo.Monto + entPago.ImporteCancelado
                     End If
@@ -845,7 +873,7 @@ Public Class FormEgreso
                 Case 3
                     entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.DebeId)
                     If entRelacionDebeHaber.SignoDebe = 1 Then
-                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteTotal
+                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
                     Else
                         entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteCancelado
                     End If
@@ -861,7 +889,7 @@ Public Class FormEgreso
                 Case 1
                     entActivo = negActivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
                     If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entActivo.Monto = entActivo.Monto - entPago.ImporteTotal
+                        entActivo.Monto = entActivo.Monto - entPago.ImporteCancelado
                     Else
                         entActivo.Monto = entActivo.Monto + entPago.ImporteCancelado
                     End If
@@ -869,7 +897,7 @@ Public Class FormEgreso
                 Case 2
                     entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
                     If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteTotal
+                        entPasivo.Monto = entPasivo.Monto - entPago.ImporteCancelado
                     Else
                         entPasivo.Monto = entPasivo.Monto + entPago.ImporteCancelado
                     End If
@@ -877,7 +905,7 @@ Public Class FormEgreso
                 Case 3
                     entPatrimonio = negPatrimonio.ObtenerData(0, entEgreso.PeriodoId, entRelacionDebeHaber.HaberId)
                     If entRelacionDebeHaber.SignoHaber = 1 Then
-                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteTotal
+                        entPatrimonio.Monto = entPatrimonio.Monto - entPago.ImporteCancelado
                     Else
                         entPatrimonio.Monto = entPatrimonio.Monto + entPago.ImporteCancelado
                     End If
@@ -891,9 +919,20 @@ Public Class FormEgreso
             End If
 
             If entEgreso.IGV Then
-                entPasivo = negPasivo.ObtenerData(0, entEgreso.PeriodoId, 3)
+                entPasivo = negPasivo.ObtenerData(1, entEgreso.PeriodoId, 3)
                 entPasivo.Monto = entPasivo.Monto + entPago.ImporteIGV
                 operacion = negPasivo.Actualizar(entPasivo)
+                If operacion = False Then
+                    MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar IGV")
+                    Exit Sub
+                End If
+                entPatrimonio = negPatrimonio.ObtenerData(1, entEgreso.PeriodoId, 4)
+                entPatrimonio.Monto = entPasivo.Monto + entPago.ImporteIGV
+                operacion = negPatrimonio.Actualizar(entPatrimonio)
+                If operacion = False Then
+                    MsgBox("No creó/actualizó", MsgBoxStyle.Critical, "Crear/Actualizar Utilidad Neta")
+                    Exit Sub
+                End If
             End If
 
             'Cuenta contable - retornar efectos de registro
@@ -1053,6 +1092,9 @@ Public Class FormEgreso
 
     Private Sub btnEliminarPago_Click(sender As Object, e As EventArgs) Handles btnEliminarPago.Click
         EliminarPago()
+        If operacion Then
+            ModoPago()
+        End If
     End Sub
 
     Private Sub btnGuardarPago_Click(sender As Object, e As EventArgs) Handles btnGuardarPago.Click
@@ -1065,6 +1107,18 @@ Public Class FormEgreso
         LeerEgreso()
         If operacion Then
             ModoPago()
+        End If
+    End Sub
+
+    Private Sub btnVerDeudas_Click(sender As Object, e As EventArgs) Handles btnVerDeudas.Click
+        If VariableGlobal.VGAlertaEgreso Then
+            VariableGlobal.VGAlertaEgreso = False
+            CargarTablaEgreso()
+            btnVerDeudas.Text = "DEUDAS"
+        Else
+            VariableGlobal.VGAlertaEgreso = True
+            CargarTablaEgreso()
+            btnVerDeudas.Text = "TODOS"
         End If
     End Sub
 
@@ -1107,11 +1161,10 @@ Public Class FormEgreso
 
     Private Sub cbPeriodoFiltro_TextChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.TextChanged
         If cbPeriodoFiltro.Text.Length = 7 Then
-            EntPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text, 0)
             cbPeriodoFiltro.SelectedValue = EntPeriodo.IdPeriodo
             CargarTablaEgreso()
         End If
     End Sub
-
 #End Region
 End Class

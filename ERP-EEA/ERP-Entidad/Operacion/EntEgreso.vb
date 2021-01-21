@@ -6,7 +6,6 @@
     Private VarSubGrupoEgresoDescripcion As String
     Private VarProveedorId As Integer
     Private VarProveedorDescripcion As String
-    Private VarImporteProvision As Decimal
     Private VarPeriodoId As Integer
     Private VarIGV As Byte
     Private VarComentario As String
@@ -17,6 +16,9 @@
     Private VarUsuarioModificacionId As Integer
     Private VarEstadoActivo As Byte
     Private VarDeuda As Decimal
+    Private VarImporteProvision As Decimal
+    Private VarIgvProvision As Decimal
+    Private VarTotalProvision As Decimal
 
     Public Property IdEgreso As Integer
         Get
@@ -35,8 +37,6 @@
             VarGrupoEgresoId = value
         End Set
     End Property
-
-
 
     Public Property SubGrupoEgresoId As Integer
         Get
@@ -65,22 +65,12 @@
         End Set
     End Property
 
-
     Public Property ProveedorDescripcion As String
         Get
             Return VarProveedorDescripcion
         End Get
         Set(value As String)
             VarProveedorDescripcion = value
-        End Set
-    End Property
-
-    Public Property ImporteProvision As Decimal
-        Get
-            Return VarImporteProvision
-        End Get
-        Set(ByVal value As Decimal)
-            VarImporteProvision = value
         End Set
     End Property
 
@@ -94,14 +84,12 @@
     End Property
 
     Public Property IGV As Byte
-
         Get
             Return VarIGV
         End Get
         Set(ByVal value As Byte)
             VarIGV = value
         End Set
-
     End Property
 
     Public Property Comentario As String
@@ -114,25 +102,21 @@
     End Property
 
     Public Property ComprobanteUbicacion As String
-
         Get
             Return VarComprobanteUbicacion
         End Get
         Set(value As String)
             VarComprobanteUbicacion = value
         End Set
-
     End Property
 
     Public Property NumeroComprobanteEgreso As String
-
         Get
             Return VarNumeroComprobanteEgreso
         End Get
         Set(value As String)
             VarNumeroComprobanteEgreso = value
         End Set
-
     End Property
 
     Public Property FechaEgresoProvision As Date
@@ -143,7 +127,6 @@
             VarFechaEgresoProvision = value
         End Set
     End Property
-
 
     Public Property UsuarioCreacionId As Integer
         Get
@@ -181,5 +164,31 @@
         End Set
     End Property
 
+    Public Property ImporteProvision As Decimal
+        Get
+            Return VarImporteProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarImporteProvision = value
+        End Set
+    End Property
+
+    Public Property IgvProvision As Decimal
+        Get
+            Return VarIgvProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarIgvProvision = value
+        End Set
+    End Property
+
+    Public Property TotalProvision As Decimal
+        Get
+            Return VarTotalProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarTotalProvision = value
+        End Set
+    End Property
 End Class
 

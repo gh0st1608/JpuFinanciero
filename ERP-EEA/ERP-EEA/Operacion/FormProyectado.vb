@@ -18,8 +18,7 @@ Public Class FormProyectado
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 285
-        Me.Width = 519
+        Me.Height = 290
         operacion = False
         txtIdProyectado.Text = "0"
         txtImporteProyectado.Text = ""
@@ -33,8 +32,7 @@ Public Class FormProyectado
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 378
-        Me.Width = 519
+        Me.Height = 397
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
@@ -67,11 +65,11 @@ Public Class FormProyectado
 
         cboPeriodo.ValueMember = "IdPeriodo"
         cboPeriodo.DisplayMember = "DescripcionPeriodo"
-        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True)
+        cboPeriodo.DataSource = negPeriodo.ObtenerLista(False, True, 0)
 
         cbPeriodoFiltro.ValueMember = "IdPeriodo"
         cbPeriodoFiltro.DisplayMember = "DescripcionPeriodo"
-        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cbPeriodoFiltro.DataSource = negPeriodo.ObtenerLista(True, False, 0)
 
     End Sub
 
@@ -164,12 +162,23 @@ Public Class FormProyectado
         End If
 
         entProyectado.UsuarioModificacionId = VariableGlobal.VGIDUsuario
-
+        operacion = negProyectado.Actualizar(entProyectado)
+        If operacion Then
+            MsgBox("Actualizó con exito", MsgBoxStyle.Information, "Actualizar Proyectado")
+        Else
+            MsgBox("No actualizó", MsgBoxStyle.Critical, "Actualizar Proyectado")
+        End If
     End Sub
     Private Sub EliminarProyectado()
         If dgvProyectado.Rows.Count > 0 Then
             entProyectado = negProyectado.ObtenerData(dgvProyectado.CurrentRow.Cells("IdProyectado").Value, 0, 0)
             entProyectado.UsuarioModificacionId = VariableGlobal.VGIDUsuario
+            operacion = negProyectado.Eliminar(entProyectado)
+            If operacion Then
+                MsgBox("Eliminó con exito", MsgBoxStyle.Information, "Eliminar Proyectado")
+            Else
+                MsgBox("No eliminó", MsgBoxStyle.Critical, "Eliminar Proyectado")
+            End If
         End If
     End Sub
 #End Region
@@ -225,6 +234,10 @@ Public Class FormProyectado
         End If
     End Sub
 
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        ModoInicial()
+    End Sub
+
     Private Sub cbPeriodoFiltro_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.SelectedIndexChanged
         CargarTablaProyectado()
     End Sub
@@ -242,11 +255,12 @@ Public Class FormProyectado
 
     Private Sub cbPeriodoFiltro_TextChanged(sender As Object, e As EventArgs) Handles cbPeriodoFiltro.TextChanged
         If cbPeriodoFiltro.Text.Length = 7 Then
-            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cbPeriodoFiltro.Text, 2)
             cbPeriodoFiltro.SelectedValue = entPeriodo.IdPeriodo
             CargarTablaProyectado()
         End If
     End Sub
+
 #End Region
 
 End Class

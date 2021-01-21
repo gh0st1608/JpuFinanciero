@@ -30,15 +30,15 @@ Partial Class FormBalanceGeneral
         'cboPeriodo
         '
         Me.cboPeriodo.FormattingEnabled = True
-        Me.cboPeriodo.Location = New System.Drawing.Point(71, 15)
+        Me.cboPeriodo.Location = New System.Drawing.Point(74, 8)
         Me.cboPeriodo.Name = "cboPeriodo"
-        Me.cboPeriodo.Size = New System.Drawing.Size(125, 21)
-        Me.cboPeriodo.TabIndex = 521
+        Me.cboPeriodo.Size = New System.Drawing.Size(109, 21)
+        Me.cboPeriodo.TabIndex = 1
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(22, 18)
+        Me.Label17.Location = New System.Drawing.Point(25, 11)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(43, 13)
         Me.Label17.TabIndex = 520
@@ -46,10 +46,10 @@ Partial Class FormBalanceGeneral
         '
         'btnGenerar
         '
-        Me.btnGenerar.Location = New System.Drawing.Point(121, 48)
+        Me.btnGenerar.Location = New System.Drawing.Point(94, 37)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGenerar.TabIndex = 522
+        Me.btnGenerar.TabIndex = 10
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
         '
@@ -57,12 +57,17 @@ Partial Class FormBalanceGeneral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(219, 83)
+        Me.ClientSize = New System.Drawing.Size(211, 72)
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.cboPeriodo)
         Me.Controls.Add(Me.Label17)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(227, 111)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(227, 111)
         Me.Name = "FormBalanceGeneral"
-        Me.Text = "FormBalanceGeneral"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Balance General"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -23,88 +23,57 @@ Partial Class FormReporteFCProyectado
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnGenerar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.cboPeriodoFinalFiltro = New System.Windows.Forms.ComboBox()
         Me.cboPeriodoInicialFiltro = New System.Windows.Forms.ComboBox()
-        Me.lblPeriodoFinal = New System.Windows.Forms.Label()
         Me.lblPeriodoInicio = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnGenerar
         '
-        Me.btnGenerar.Location = New System.Drawing.Point(108, 64)
+        Me.btnGenerar.Location = New System.Drawing.Point(62, 42)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGenerar.TabIndex = 532
+        Me.btnGenerar.TabIndex = 10
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(27, 64)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 531
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
-        '
-        'cboPeriodoFinalFiltro
-        '
-        Me.cboPeriodoFinalFiltro.FormattingEnabled = True
-        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(94, 37)
-        Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
-        Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoFinalFiltro.TabIndex = 530
         '
         'cboPeriodoInicialFiltro
         '
         Me.cboPeriodoInicialFiltro.FormattingEnabled = True
-        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(94, 12)
+        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(62, 12)
         Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
         Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoInicialFiltro.TabIndex = 529
-        '
-        'lblPeriodoFinal
-        '
-        Me.lblPeriodoFinal.AutoSize = True
-        Me.lblPeriodoFinal.Location = New System.Drawing.Point(23, 37)
-        Me.lblPeriodoFinal.Name = "lblPeriodoFinal"
-        Me.lblPeriodoFinal.Size = New System.Drawing.Size(68, 13)
-        Me.lblPeriodoFinal.TabIndex = 528
-        Me.lblPeriodoFinal.Text = "Periodo Final"
+        Me.cboPeriodoInicialFiltro.TabIndex = 1
         '
         'lblPeriodoInicio
         '
         Me.lblPeriodoInicio.AutoSize = True
-        Me.lblPeriodoInicio.Location = New System.Drawing.Point(23, 15)
+        Me.lblPeriodoInicio.Location = New System.Drawing.Point(13, 15)
         Me.lblPeriodoInicio.Name = "lblPeriodoInicio"
-        Me.lblPeriodoInicio.Size = New System.Drawing.Size(71, 13)
+        Me.lblPeriodoInicio.Size = New System.Drawing.Size(43, 13)
         Me.lblPeriodoInicio.TabIndex = 527
-        Me.lblPeriodoInicio.Text = "Periodo Inicio"
+        Me.lblPeriodoInicio.Text = "Periodo"
         '
         'FormReporteFCProyectado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(198, 99)
+        Me.ClientSize = New System.Drawing.Size(160, 78)
         Me.Controls.Add(Me.btnGenerar)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.cboPeriodoFinalFiltro)
         Me.Controls.Add(Me.cboPeriodoInicialFiltro)
-        Me.Controls.Add(Me.lblPeriodoFinal)
         Me.Controls.Add(Me.lblPeriodoInicio)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(176, 117)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(176, 117)
         Me.Name = "FormReporteFCProyectado"
-        Me.Text = "FormReporteFCProyectado"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Flujo de caja"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btnGenerar As Button
-    Friend WithEvents btnCancelar As Button
-    Friend WithEvents cboPeriodoFinalFiltro As ComboBox
     Friend WithEvents cboPeriodoInicialFiltro As ComboBox
-    Friend WithEvents lblPeriodoFinal As Label
     Friend WithEvents lblPeriodoInicio As Label
 End Class

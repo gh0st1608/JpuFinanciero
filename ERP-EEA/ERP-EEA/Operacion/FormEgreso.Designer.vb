@@ -25,32 +25,16 @@ Partial Class FormEgreso
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.btnPagar = New System.Windows.Forms.Button()
         Me.dgvEgreso = New PersControlLibrary.ExtendedDataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEgreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoEgresoDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubGrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubGrupoEgresoDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProveedorId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroComprobanteIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IGV = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Comentario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaIngresoProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImporteProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ComprobanteUbicacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Deuda = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.cbPeriodoFiltro = New System.Windows.Forms.ComboBox()
@@ -119,6 +103,23 @@ Partial Class FormEgreso
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdEgreso = New PersControlLibrary.ExtendedTextBox()
+        Me.btnVerDeudas = New System.Windows.Forms.Button()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEgreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoEgresoDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubGrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubGrupoEgresoDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProveedorId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroComprobanteIngreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IGV = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Comentario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaIngresoProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImporteProvision = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ComprobanteUbicacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Deuda = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvEgreso, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelRegistroPago.SuspendLayout()
         Me.PanelPago.SuspendLayout()
@@ -192,141 +193,6 @@ Partial Class FormEgreso
         Me.dgvEgreso.Size = New System.Drawing.Size(597, 200)
         Me.dgvEgreso.TabIndex = 476
         Me.dgvEgreso.TabStop = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdEgreso
-        '
-        Me.IdEgreso.DataPropertyName = "IdEgreso"
-        Me.IdEgreso.HeaderText = "IdEgreso"
-        Me.IdEgreso.Name = "IdEgreso"
-        Me.IdEgreso.ReadOnly = True
-        Me.IdEgreso.Visible = False
-        '
-        'GrupoEgresoId
-        '
-        Me.GrupoEgresoId.DataPropertyName = "GrupoEgresoId"
-        Me.GrupoEgresoId.HeaderText = "GrupoEgresoId"
-        Me.GrupoEgresoId.Name = "GrupoEgresoId"
-        Me.GrupoEgresoId.ReadOnly = True
-        Me.GrupoEgresoId.Visible = False
-        '
-        'GrupoEgresoDescripcion
-        '
-        Me.GrupoEgresoDescripcion.DataPropertyName = "GrupoEgresoDescripcion"
-        Me.GrupoEgresoDescripcion.HeaderText = "TIPO EGRESO"
-        Me.GrupoEgresoDescripcion.Name = "GrupoEgresoDescripcion"
-        Me.GrupoEgresoDescripcion.ReadOnly = True
-        Me.GrupoEgresoDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GrupoEgresoDescripcion.Visible = False
-        '
-        'SubGrupoEgresoId
-        '
-        Me.SubGrupoEgresoId.DataPropertyName = "SubGrupoEgresoId"
-        Me.SubGrupoEgresoId.HeaderText = "SubGrupoEgresoId"
-        Me.SubGrupoEgresoId.Name = "SubGrupoEgresoId"
-        Me.SubGrupoEgresoId.ReadOnly = True
-        Me.SubGrupoEgresoId.Visible = False
-        '
-        'SubGrupoEgresoDescripcion
-        '
-        Me.SubGrupoEgresoDescripcion.DataPropertyName = "SubGrupoEgresoDescripcion"
-        Me.SubGrupoEgresoDescripcion.HeaderText = "ITEM EGRESO"
-        Me.SubGrupoEgresoDescripcion.Name = "SubGrupoEgresoDescripcion"
-        Me.SubGrupoEgresoDescripcion.ReadOnly = True
-        Me.SubGrupoEgresoDescripcion.Width = 140
-        '
-        'ProveedorId
-        '
-        Me.ProveedorId.DataPropertyName = "ProveedorId"
-        Me.ProveedorId.HeaderText = "ProveedorId"
-        Me.ProveedorId.Name = "ProveedorId"
-        Me.ProveedorId.ReadOnly = True
-        Me.ProveedorId.Visible = False
-        '
-        'NombreComercial
-        '
-        Me.NombreComercial.DataPropertyName = "NombreComercial"
-        Me.NombreComercial.HeaderText = "PROVEEDOR"
-        Me.NombreComercial.Name = "NombreComercial"
-        Me.NombreComercial.ReadOnly = True
-        Me.NombreComercial.Width = 160
-        '
-        'NumeroComprobanteIngreso
-        '
-        Me.NumeroComprobanteIngreso.DataPropertyName = "NumeroComprobanteEgreso"
-        Me.NumeroComprobanteIngreso.HeaderText = "FACTURA"
-        Me.NumeroComprobanteIngreso.Name = "NumeroComprobanteIngreso"
-        Me.NumeroComprobanteIngreso.ReadOnly = True
-        Me.NumeroComprobanteIngreso.Width = 85
-        '
-        'IGV
-        '
-        Me.IGV.DataPropertyName = "IGV"
-        Me.IGV.HeaderText = "IGV"
-        Me.IGV.Name = "IGV"
-        Me.IGV.ReadOnly = True
-        Me.IGV.Visible = False
-        '
-        'PeriodoId
-        '
-        Me.PeriodoId.DataPropertyName = "PeriodoId"
-        Me.PeriodoId.HeaderText = "PeriodoId"
-        Me.PeriodoId.Name = "PeriodoId"
-        Me.PeriodoId.ReadOnly = True
-        Me.PeriodoId.Visible = False
-        '
-        'Comentario
-        '
-        Me.Comentario.DataPropertyName = "Comentario"
-        Me.Comentario.HeaderText = "Comentario"
-        Me.Comentario.Name = "Comentario"
-        Me.Comentario.ReadOnly = True
-        Me.Comentario.Visible = False
-        '
-        'FechaIngresoProvision
-        '
-        Me.FechaIngresoProvision.DataPropertyName = "FechaEgresoProvision"
-        Me.FechaIngresoProvision.HeaderText = "FECHA EMISION"
-        Me.FechaIngresoProvision.Name = "FechaIngresoProvision"
-        Me.FechaIngresoProvision.ReadOnly = True
-        '
-        'ImporteProvision
-        '
-        Me.ImporteProvision.DataPropertyName = "ImporteProvision"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
-        Me.ImporteProvision.HeaderText = "SUBTOTAL"
-        Me.ImporteProvision.Name = "ImporteProvision"
-        Me.ImporteProvision.ReadOnly = True
-        Me.ImporteProvision.Width = 70
-        '
-        'ComprobanteUbicacion
-        '
-        Me.ComprobanteUbicacion.DataPropertyName = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.HeaderText = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.Name = "ComprobanteUbicacion"
-        Me.ComprobanteUbicacion.ReadOnly = True
-        Me.ComprobanteUbicacion.Visible = False
-        '
-        'Deuda
-        '
-        Me.Deuda.DataPropertyName = "Deuda"
-        Me.Deuda.HeaderText = "Deuda"
-        Me.Deuda.Name = "Deuda"
-        Me.Deuda.ReadOnly = True
-        Me.Deuda.Visible = False
         '
         'btnModificar
         '
@@ -1143,6 +1009,156 @@ Partial Class FormEgreso
         Me.txtIdEgreso.TabIndex = 460
         Me.txtIdEgreso.Value = Nothing
         '
+        'btnVerDeudas
+        '
+        Me.btnVerDeudas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnVerDeudas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnVerDeudas.FlatAppearance.BorderSize = 0
+        Me.btnVerDeudas.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerDeudas.ForeColor = System.Drawing.Color.Black
+        Me.btnVerDeudas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnVerDeudas.Location = New System.Drawing.Point(160, 14)
+        Me.btnVerDeudas.Name = "btnVerDeudas"
+        Me.btnVerDeudas.Size = New System.Drawing.Size(60, 26)
+        Me.btnVerDeudas.TabIndex = 2
+        Me.btnVerDeudas.Text = "TODOS"
+        Me.btnVerDeudas.UseVisualStyleBackColor = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 35
+        '
+        'IdEgreso
+        '
+        Me.IdEgreso.DataPropertyName = "IdEgreso"
+        Me.IdEgreso.HeaderText = "IdEgreso"
+        Me.IdEgreso.Name = "IdEgreso"
+        Me.IdEgreso.ReadOnly = True
+        Me.IdEgreso.Visible = False
+        '
+        'GrupoEgresoId
+        '
+        Me.GrupoEgresoId.DataPropertyName = "GrupoEgresoId"
+        Me.GrupoEgresoId.HeaderText = "GrupoEgresoId"
+        Me.GrupoEgresoId.Name = "GrupoEgresoId"
+        Me.GrupoEgresoId.ReadOnly = True
+        Me.GrupoEgresoId.Visible = False
+        '
+        'GrupoEgresoDescripcion
+        '
+        Me.GrupoEgresoDescripcion.DataPropertyName = "GrupoEgresoDescripcion"
+        Me.GrupoEgresoDescripcion.HeaderText = "TIPO EGRESO"
+        Me.GrupoEgresoDescripcion.Name = "GrupoEgresoDescripcion"
+        Me.GrupoEgresoDescripcion.ReadOnly = True
+        Me.GrupoEgresoDescripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GrupoEgresoDescripcion.Visible = False
+        '
+        'SubGrupoEgresoId
+        '
+        Me.SubGrupoEgresoId.DataPropertyName = "SubGrupoEgresoId"
+        Me.SubGrupoEgresoId.HeaderText = "SubGrupoEgresoId"
+        Me.SubGrupoEgresoId.Name = "SubGrupoEgresoId"
+        Me.SubGrupoEgresoId.ReadOnly = True
+        Me.SubGrupoEgresoId.Visible = False
+        '
+        'SubGrupoEgresoDescripcion
+        '
+        Me.SubGrupoEgresoDescripcion.DataPropertyName = "SubGrupoEgresoDescripcion"
+        Me.SubGrupoEgresoDescripcion.HeaderText = "ITEM EGRESO"
+        Me.SubGrupoEgresoDescripcion.Name = "SubGrupoEgresoDescripcion"
+        Me.SubGrupoEgresoDescripcion.ReadOnly = True
+        Me.SubGrupoEgresoDescripcion.Width = 130
+        '
+        'ProveedorId
+        '
+        Me.ProveedorId.DataPropertyName = "ProveedorId"
+        Me.ProveedorId.HeaderText = "ProveedorId"
+        Me.ProveedorId.Name = "ProveedorId"
+        Me.ProveedorId.ReadOnly = True
+        Me.ProveedorId.Visible = False
+        '
+        'NombreComercial
+        '
+        Me.NombreComercial.DataPropertyName = "NombreComercial"
+        Me.NombreComercial.HeaderText = "PROVEEDOR"
+        Me.NombreComercial.Name = "NombreComercial"
+        Me.NombreComercial.ReadOnly = True
+        Me.NombreComercial.Width = 160
+        '
+        'NumeroComprobanteIngreso
+        '
+        Me.NumeroComprobanteIngreso.DataPropertyName = "NumeroComprobanteEgreso"
+        Me.NumeroComprobanteIngreso.HeaderText = "FACTURA"
+        Me.NumeroComprobanteIngreso.Name = "NumeroComprobanteIngreso"
+        Me.NumeroComprobanteIngreso.ReadOnly = True
+        Me.NumeroComprobanteIngreso.Width = 85
+        '
+        'IGV
+        '
+        Me.IGV.DataPropertyName = "IGV"
+        Me.IGV.HeaderText = "IGV"
+        Me.IGV.Name = "IGV"
+        Me.IGV.ReadOnly = True
+        Me.IGV.Visible = False
+        '
+        'PeriodoId
+        '
+        Me.PeriodoId.DataPropertyName = "PeriodoId"
+        Me.PeriodoId.HeaderText = "PeriodoId"
+        Me.PeriodoId.Name = "PeriodoId"
+        Me.PeriodoId.ReadOnly = True
+        Me.PeriodoId.Visible = False
+        '
+        'Comentario
+        '
+        Me.Comentario.DataPropertyName = "Comentario"
+        Me.Comentario.HeaderText = "Comentario"
+        Me.Comentario.Name = "Comentario"
+        Me.Comentario.ReadOnly = True
+        Me.Comentario.Visible = False
+        '
+        'FechaIngresoProvision
+        '
+        Me.FechaIngresoProvision.DataPropertyName = "FechaEgresoProvision"
+        Me.FechaIngresoProvision.HeaderText = "FECHA EMISION"
+        Me.FechaIngresoProvision.Name = "FechaIngresoProvision"
+        Me.FechaIngresoProvision.ReadOnly = True
+        '
+        'ImporteProvision
+        '
+        Me.ImporteProvision.DataPropertyName = "ImporteProvision"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ImporteProvision.HeaderText = "SUBTOTAL"
+        Me.ImporteProvision.Name = "ImporteProvision"
+        Me.ImporteProvision.ReadOnly = True
+        Me.ImporteProvision.Width = 70
+        '
+        'ComprobanteUbicacion
+        '
+        Me.ComprobanteUbicacion.DataPropertyName = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.HeaderText = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.Name = "ComprobanteUbicacion"
+        Me.ComprobanteUbicacion.ReadOnly = True
+        Me.ComprobanteUbicacion.Visible = False
+        '
+        'Deuda
+        '
+        Me.Deuda.DataPropertyName = "Deuda"
+        Me.Deuda.HeaderText = "Deuda"
+        Me.Deuda.Name = "Deuda"
+        Me.Deuda.ReadOnly = True
+        Me.Deuda.Visible = False
+        '
         'FormEgreso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1152,6 +1168,7 @@ Partial Class FormEgreso
         Me.Controls.Add(Me.btnPagar)
         Me.Controls.Add(Me.dgvEgreso)
         Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnVerDeudas)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.cbPeriodoFiltro)
         Me.Controls.Add(Me.Label23)
@@ -1233,6 +1250,19 @@ Partial Class FormEgreso
     Friend WithEvents lblGrupoEgreso As Label
     Friend WithEvents cboGrupoEgreso As ComboBox
     Friend WithEvents chkIGV As CheckBox
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdPago As DataGridViewTextBoxColumn
+    Friend WithEvents OrigenId As DataGridViewTextBoxColumn
+    Friend WithEvents NumeroComprobante As DataGridViewTextBoxColumn
+    Friend WithEvents NroOperacion As DataGridViewTextBoxColumn
+    Friend WithEvents MetodoPagoId As DataGridViewTextBoxColumn
+    Friend WithEvents MedioDePago As DataGridViewTextBoxColumn
+    Friend WithEvents FechaPago As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteTotal As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteCancelado As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteDetraccion As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteIGV As DataGridViewTextBoxColumn
+    Friend WithEvents btnVerDeudas As Button
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents IdEgreso As DataGridViewTextBoxColumn
     Friend WithEvents GrupoEgresoId As DataGridViewTextBoxColumn
@@ -1249,16 +1279,4 @@ Partial Class FormEgreso
     Friend WithEvents ImporteProvision As DataGridViewTextBoxColumn
     Friend WithEvents ComprobanteUbicacion As DataGridViewTextBoxColumn
     Friend WithEvents Deuda As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents IdPago As DataGridViewTextBoxColumn
-    Friend WithEvents OrigenId As DataGridViewTextBoxColumn
-    Friend WithEvents NumeroComprobante As DataGridViewTextBoxColumn
-    Friend WithEvents NroOperacion As DataGridViewTextBoxColumn
-    Friend WithEvents MetodoPagoId As DataGridViewTextBoxColumn
-    Friend WithEvents MedioDePago As DataGridViewTextBoxColumn
-    Friend WithEvents FechaPago As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteTotal As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteCancelado As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteDetraccion As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteIGV As DataGridViewTextBoxColumn
 End Class

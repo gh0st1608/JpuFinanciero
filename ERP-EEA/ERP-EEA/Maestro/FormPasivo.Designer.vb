@@ -25,9 +25,9 @@ Partial Class FormPasivo
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvPasivo = New PersControlLibrary.ExtendedDataGridView()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -44,13 +44,13 @@ Partial Class FormPasivo
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdPasivo = New PersControlLibrary.ExtendedTextBox()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdPasivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrupoPasivoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PeriodoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Periodo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrupoPasivoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdPasivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvPasivo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPasivo.SuspendLayout()
         Me.SuspendLayout()
@@ -292,51 +292,13 @@ Partial Class FormPasivo
         Me.txtIdPasivo.TabIndex = 460
         Me.txtIdPasivo.Value = Nothing
         '
-        'DataGridViewTextBoxColumn7
+        'PeriodoId
         '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdPasivo
-        '
-        Me.IdPasivo.DataPropertyName = "IdPasivo"
-        Me.IdPasivo.HeaderText = "IdPasivo"
-        Me.IdPasivo.Name = "IdPasivo"
-        Me.IdPasivo.ReadOnly = True
-        Me.IdPasivo.Visible = False
-        '
-        'GrupoPasivoId
-        '
-        Me.GrupoPasivoId.DataPropertyName = "GrupoPasivoId"
-        Me.GrupoPasivoId.HeaderText = "GrupoPasivoId"
-        Me.GrupoPasivoId.Name = "GrupoPasivoId"
-        Me.GrupoPasivoId.ReadOnly = True
-        Me.GrupoPasivoId.Visible = False
-        '
-        'Periodo
-        '
-        Me.Periodo.DataPropertyName = "Periodo"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Periodo.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Periodo.HeaderText = "PERIODO"
-        Me.Periodo.Name = "Periodo"
-        Me.Periodo.ReadOnly = True
-        Me.Periodo.Width = 90
-        '
-        'Descripcion
-        '
-        Me.Descripcion.DataPropertyName = "Descripcion"
-        Me.Descripcion.HeaderText = "NOMBRE"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.ReadOnly = True
-        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Descripcion.Width = 193
+        Me.PeriodoId.DataPropertyName = "PeriodoId"
+        Me.PeriodoId.HeaderText = "PeriodoId"
+        Me.PeriodoId.Name = "PeriodoId"
+        Me.PeriodoId.ReadOnly = True
+        Me.PeriodoId.Visible = False
         '
         'Monto
         '
@@ -349,13 +311,51 @@ Partial Class FormPasivo
         Me.Monto.Name = "Monto"
         Me.Monto.ReadOnly = True
         '
-        'PeriodoId
+        'Descripcion
         '
-        Me.PeriodoId.DataPropertyName = "PeriodoId"
-        Me.PeriodoId.HeaderText = "PeriodoId"
-        Me.PeriodoId.Name = "PeriodoId"
-        Me.PeriodoId.ReadOnly = True
-        Me.PeriodoId.Visible = False
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "NOMBRE"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
+        Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Descripcion.Width = 193
+        '
+        'Periodo
+        '
+        Me.Periodo.DataPropertyName = "Periodo"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Periodo.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Periodo.HeaderText = "PERIODO"
+        Me.Periodo.Name = "Periodo"
+        Me.Periodo.ReadOnly = True
+        Me.Periodo.Width = 90
+        '
+        'GrupoPasivoId
+        '
+        Me.GrupoPasivoId.DataPropertyName = "GrupoPasivoId"
+        Me.GrupoPasivoId.HeaderText = "GrupoPasivoId"
+        Me.GrupoPasivoId.Name = "GrupoPasivoId"
+        Me.GrupoPasivoId.ReadOnly = True
+        Me.GrupoPasivoId.Visible = False
+        '
+        'IdPasivo
+        '
+        Me.IdPasivo.DataPropertyName = "IdPasivo"
+        Me.IdPasivo.HeaderText = "IdPasivo"
+        Me.IdPasivo.Name = "IdPasivo"
+        Me.IdPasivo.ReadOnly = True
+        Me.IdPasivo.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 25
         '
         'FormPasivo
         '

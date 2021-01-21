@@ -1,6 +1,7 @@
 ﻿Imports ERP_Negocio
 Imports ERP_Entidad
 Imports System.Math
+
 Public Class FormCierre
 #Region "Variables"
     Dim negPeriodo As New NegPeriodo
@@ -9,6 +10,7 @@ Public Class FormCierre
     Dim negPasivo As New NegPasivo
     Dim negPatrimonio As New NegPatrimonio
     Dim negEstadoResultado As New NegEstadoResultado
+    Dim entEstadoResultado As New EntEstadoResultado
     Dim negRatio As New NegRatio
     Dim entRatio As New EntRatio
     Dim operacion As Boolean = False
@@ -52,7 +54,6 @@ Public Class FormCierre
         btnCerrar.Enabled = True
         CargarTabla()
     End Sub
-
 #End Region
 
 #Region "Funciones Auxiliares"
@@ -67,23 +68,10 @@ Public Class FormCierre
         End If
     End Sub
 
-    '1 Razon Corriente [activo coriente/pasivo corriente] (veces)
-    '2 Razon Endeudamiento [pasivo total /activo total] x100 (%)
-    '3 Razon de Endeudamiento Patrimonial [pasivo total / patrimonio] (veces)
-    '4 Periodo Promedio de Pagos
-    '5 Rotacion de Activos
-    '6 Margen de Utilidad Bruta
-    '7 Margen de Utilidad Operativa
-    '8 Margen de utilidad neta
-    '9 Rendimiento sobre activos
-    '10 Rendimiento sobre patrimonio
-    '11 Margen de Gasto Operativo
-
     Private Sub CrearRatios()
-
+        entRatio.UsuarioCreacionId = 1
         'Periodo Ratio
         entRatio.PeriodoId = Int(dgvPeriodo.CurrentRow.Cells("IdPeriodo").Value)
-        entRatio.UsuarioCreacionId = 1
 
         'Pasivos Corriente
         CuentasPorPagar = negPasivo.ObtenerData(0, entPeriodo.IdPeriodo, 1).Monto
@@ -202,13 +190,90 @@ Public Class FormCierre
 
         '11 Margen de Gasto Personal(%)
         entRatio.TipoRatioId = 11
-        entRatio.Valor = Round((CostoVentas1 / CostoVentas1 + CostoVentas2 + CostoVentas3 + GastosAdministrativos + GastoMenor + GastoFinanciero)) * 100
+        entRatio.Valor = Round((CostoVentas1 / (Costos + GastosAdministrativos + GastoMenor + GastoFinanciero))) * 100
+        'entRatio.Valor = Round((CostoVentas1 / (Costos + GastosAdministrativos + GastoMenor + GastoFinanciero + GastoInversion))) * 100
         operacion = negRatio.Guardar(entRatio)
-
     End Sub
 
+    Private Sub CrearEstadoResultados()
+        entEstadoResultado.UsuarioCreacionId = VariableGlobal.VGIDUsuario
+        'Periodo 
+        entEstadoResultado.PeriodoId = Int(dgvPeriodo.CurrentRow.Cells("IdPeriodo").Value)
+        Dim Tabla As New DataTable
+        Tabla = negEstadoResultado.ObtenerTabla(entEstadoResultado.PeriodoId)
 
-
+        If (Tabla.Rows.Count() > 0) Then
+            'Ventas
+            Ventas = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("Venta"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("Venta")))
+            entEstadoResultado.Valor = Ventas
+            entEstadoResultado.Concepto = "Ventas"
+            entEstadoResultado.Orden = 1
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Costo de Venta 1
+            CostoVentas1 = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("Costo1"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("Costo1")))
+            entEstadoResultado.Valor = CostoVentas1
+            entEstadoResultado.Concepto = "Costo de Venta 1"
+            entEstadoResultado.Orden = 2
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Costo de Venta 2
+            CostoVentas2 = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("Costo2"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("Costo2")))
+            entEstadoResultado.Valor = CostoVentas2
+            entEstadoResultado.Concepto = "Costo de Venta 2"
+            entEstadoResultado.Orden = 3
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Costo de Venta 3
+            CostoVentas3 = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("Costo2"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("Costo3")))
+            entEstadoResultado.Valor = CostoVentas3
+            entEstadoResultado.Concepto = "Costo de Venta 3"
+            entEstadoResultado.Orden = 4
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Costos
+            entEstadoResultado.Valor = CostoVentas1 + CostoVentas2 + CostoVentas3
+            entEstadoResultado.Concepto = "Costos"
+            entEstadoResultado.Orden = 0
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Utilidad Bruta
+            UtilidadBruta = Ventas - (CostoVentas1 + CostoVentas2 + CostoVentas3)
+            entEstadoResultado.Valor = UtilidadBruta
+            entEstadoResultado.Concepto = "Utilidad Bruta"
+            entEstadoResultado.Orden = 5
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Gastos Administrativos
+            GastosAdministrativos = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("GastoAdministrativo"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("GastoAdministrativo")))
+            entEstadoResultado.Valor = GastosAdministrativos
+            entEstadoResultado.Concepto = "Gasto Administrativo"
+            entEstadoResultado.Orden = 6
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Utilidad Operativa
+            entEstadoResultado.Valor = UtilidadBruta - GastosAdministrativos
+            entEstadoResultado.Concepto = "Utilidad Operativa"
+            entEstadoResultado.Orden = 7
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Gasto Menor
+            GastoMenor = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("GastoMenor"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("GastoMenor")))
+            entEstadoResultado.Valor = GastoMenor
+            entEstadoResultado.Concepto = "Gasto Menor"
+            entEstadoResultado.Orden = 8
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'GastoFinanciero
+            GastoFinanciero = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("GastoFinanciero"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("GastoFinanciero")))
+            entEstadoResultado.Valor = GastoFinanciero
+            entEstadoResultado.Concepto = "Gasto Financiero"
+            entEstadoResultado.Orden = 9
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'GastoInversion
+            'GastoInversion = IIf(IsDBNull(Convert.ToDecimal(Tabla.Rows(0).Item("GastoInversion"))), 0, Convert.ToDecimal(Tabla.Rows(0).Item("GastoInversion")))
+            'entEstadoResultado.Valor = GastoInversion
+            'entEstadoResultado.Concepto = "Gasto Inversión"
+            'entEstadoResultado.Orden = 10
+            'operacion = negEstadoResultado.Guardar(entEstadoResultado)
+            'Utilidad Neta
+            entEstadoResultado.Valor = UtilidadBruta - (GastoFinanciero + GastoMenor + GastosAdministrativos + GastoInversion)
+            entEstadoResultado.Concepto = "Utilidad Neta"
+            entEstadoResultado.Orden = 11
+            operacion = negEstadoResultado.Guardar(entEstadoResultado)
+        End If
+    End Sub
 #End Region
 
 #Region "Funciones Principales (CRUD)"
@@ -239,9 +304,9 @@ Public Class FormCierre
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         ActualizaPeriodo()
+        CrearEstadoResultados()
         CrearRatios()
         ModoInicial()
     End Sub
-
 #End Region
 End Class

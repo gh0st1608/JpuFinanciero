@@ -10,7 +10,7 @@ Public Class NegPasivo
     End Function
 
     Public Function ObtenerData(ByVal Id As Integer, ByVal PeriodoId As Integer, ByVal GrupoId As Integer) As EntPasivo
-        Dim Dt As DataTable
+        Dim Dt As New DataTable
         Dt = ObjPasivoDat.LeerPasivo(Id, PeriodoId, GrupoId, True)
         If (Dt.Rows.Count() > 0) Then
             ObjPasivoEnt.IdPasivo = Convert.ToInt32(Dt.Rows(0).Item("IdPasivo"))

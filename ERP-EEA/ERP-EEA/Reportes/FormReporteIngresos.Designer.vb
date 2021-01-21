@@ -24,14 +24,10 @@ Partial Class FormReporteIngresos
     Private Sub InitializeComponent()
         Me.cboGrupoIngresoFiltro = New System.Windows.Forms.ComboBox()
         Me.lblTipoIngreso = New System.Windows.Forms.Label()
-        Me.cboPeriodoFiltro = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.cboClienteFiltro = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ckbTotalFiltro = New System.Windows.Forms.CheckBox()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.cboPeriodoInicialFiltro = New System.Windows.Forms.ComboBox()
         Me.cboPeriodoFinalFiltro = New System.Windows.Forms.ComboBox()
@@ -40,9 +36,9 @@ Partial Class FormReporteIngresos
         'cboGrupoIngresoFiltro
         '
         Me.cboGrupoIngresoFiltro.FormattingEnabled = True
-        Me.cboGrupoIngresoFiltro.Location = New System.Drawing.Point(83, 16)
+        Me.cboGrupoIngresoFiltro.Location = New System.Drawing.Point(86, 16)
         Me.cboGrupoIngresoFiltro.Name = "cboGrupoIngresoFiltro"
-        Me.cboGrupoIngresoFiltro.Size = New System.Drawing.Size(305, 21)
+        Me.cboGrupoIngresoFiltro.Size = New System.Drawing.Size(277, 21)
         Me.cboGrupoIngresoFiltro.TabIndex = 494
         '
         'lblTipoIngreso
@@ -54,46 +50,27 @@ Partial Class FormReporteIngresos
         Me.lblTipoIngreso.TabIndex = 493
         Me.lblTipoIngreso.Text = "Tipo Ingreso"
         '
-        'cboPeriodoFiltro
-        '
-        Me.cboPeriodoFiltro.FormattingEnabled = True
-        Me.cboPeriodoFiltro.Location = New System.Drawing.Point(94, 139)
-        Me.cboPeriodoFiltro.Name = "cboPeriodoFiltro"
-        Me.cboPeriodoFiltro.Size = New System.Drawing.Size(94, 21)
-        Me.cboPeriodoFiltro.TabIndex = 492
-        Me.cboPeriodoFiltro.Visible = False
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(49, 142)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(43, 13)
-        Me.Label16.TabIndex = 491
-        Me.Label16.Text = "Periodo"
-        Me.Label16.Visible = False
-        '
         'cboClienteFiltro
         '
         Me.cboClienteFiltro.FormattingEnabled = True
-        Me.cboClienteFiltro.Location = New System.Drawing.Point(83, 45)
+        Me.cboClienteFiltro.Location = New System.Drawing.Point(86, 43)
         Me.cboClienteFiltro.Name = "cboClienteFiltro"
-        Me.cboClienteFiltro.Size = New System.Drawing.Size(305, 21)
+        Me.cboClienteFiltro.Size = New System.Drawing.Size(277, 21)
         Me.cboClienteFiltro.TabIndex = 490
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(12, 80)
+        Me.Label17.Location = New System.Drawing.Point(9, 73)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(65, 13)
+        Me.Label17.Size = New System.Drawing.Size(71, 13)
         Me.Label17.TabIndex = 489
-        Me.Label17.Text = "Fecha Inicio"
+        Me.Label17.Text = "Periodo Inicio"
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(36, 48)
+        Me.Label18.Location = New System.Drawing.Point(9, 46)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(39, 13)
         Me.Label18.TabIndex = 487
@@ -102,38 +79,15 @@ Partial Class FormReporteIngresos
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 102)
+        Me.Label1.Location = New System.Drawing.Point(200, 73)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 495
-        Me.Label1.Text = "Fecha Final"
-        '
-        'ckbTotalFiltro
-        '
-        Me.ckbTotalFiltro.AutoSize = True
-        Me.ckbTotalFiltro.Location = New System.Drawing.Point(52, 166)
-        Me.ckbTotalFiltro.Name = "ckbTotalFiltro"
-        Me.ckbTotalFiltro.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.ckbTotalFiltro.Size = New System.Drawing.Size(50, 17)
-        Me.ckbTotalFiltro.TabIndex = 497
-        Me.ckbTotalFiltro.Text = "Total"
-        Me.ckbTotalFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.ckbTotalFiltro.UseVisualStyleBackColor = True
-        Me.ckbTotalFiltro.Visible = False
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(194, 132)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 498
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
+        Me.Label1.Text = "Periodo Fin"
         '
         'btnGenerar
         '
-        Me.btnGenerar.Location = New System.Drawing.Point(315, 133)
+        Me.btnGenerar.Location = New System.Drawing.Point(288, 101)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
         Me.btnGenerar.TabIndex = 499
@@ -143,38 +97,39 @@ Partial Class FormReporteIngresos
         'cboPeriodoInicialFiltro
         '
         Me.cboPeriodoInicialFiltro.FormattingEnabled = True
-        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(83, 77)
+        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(86, 70)
         Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
-        Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(86, 21)
         Me.cboPeriodoInicialFiltro.TabIndex = 500
         '
         'cboPeriodoFinalFiltro
         '
         Me.cboPeriodoFinalFiltro.FormattingEnabled = True
-        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(83, 102)
+        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(277, 70)
         Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
-        Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
+        Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(86, 21)
         Me.cboPeriodoFinalFiltro.TabIndex = 501
         '
         'FormReporteIngresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(402, 168)
+        Me.ClientSize = New System.Drawing.Size(375, 136)
         Me.Controls.Add(Me.cboPeriodoFinalFiltro)
         Me.Controls.Add(Me.cboPeriodoInicialFiltro)
         Me.Controls.Add(Me.btnGenerar)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.ckbTotalFiltro)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cboGrupoIngresoFiltro)
         Me.Controls.Add(Me.lblTipoIngreso)
-        Me.Controls.Add(Me.cboPeriodoFiltro)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.cboClienteFiltro)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label18)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(391, 175)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(391, 175)
         Me.Name = "FormReporteIngresos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Ingresos"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -183,14 +138,10 @@ Partial Class FormReporteIngresos
 
     Friend WithEvents cboGrupoIngresoFiltro As ComboBox
     Friend WithEvents lblTipoIngreso As Label
-    Friend WithEvents cboPeriodoFiltro As ComboBox
-    Friend WithEvents Label16 As Label
     Friend WithEvents cboClienteFiltro As ComboBox
     Friend WithEvents Label17 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ckbTotalFiltro As CheckBox
-    Friend WithEvents btnCancelar As Button
     Friend WithEvents btnGenerar As Button
     Friend WithEvents cboPeriodoInicialFiltro As ComboBox
     Friend WithEvents cboPeriodoFinalFiltro As ComboBox

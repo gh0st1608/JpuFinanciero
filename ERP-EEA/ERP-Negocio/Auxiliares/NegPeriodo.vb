@@ -6,12 +6,12 @@ Public Class NegPeriodo
     Dim ObjPeriodoDat As New DatPeriodo
 
     Public Function ObtenerTabla() As DataTable
-        Return ObjPeriodoDat.LeerPeriodo(0, "")
+        Return ObjPeriodoDat.LeerPeriodo(0, "", 1)
     End Function
 
-    Public Function ObtenerData(ByVal Id As Integer, ByVal DescripcionPeriodo As String) As EntPeriodo
+    Public Function ObtenerData(ByVal Id As Integer, ByVal DescripcionPeriodo As String, ByVal Modo As Integer) As EntPeriodo
         Dim Dt As DataTable
-        Dt = ObjPeriodoDat.LeerPeriodo(Id, DescripcionPeriodo)
+        Dt = ObjPeriodoDat.LeerPeriodo(Id, DescripcionPeriodo, Modo)
         If (Dt.Rows.Count() > 0) Then
             ObjPeriodoEnt.IdPeriodo = Convert.ToInt32(Dt.Rows(0).Item("IdPeriodo"))
             ObjPeriodoEnt.DescripcionPeriodo = Convert.ToString(Dt.Rows(0).Item("DescripcionPeriodo"))
@@ -22,11 +22,11 @@ Public Class NegPeriodo
         Return ObjPeriodoEnt
     End Function
 
-    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean) As List(Of EntPeriodo)
+    Public Function ObtenerLista(ByVal Filtro As Boolean, ByVal Seleccion As Boolean, ByVal Modo As Integer) As List(Of EntPeriodo)
         Dim result = New List(Of EntPeriodo)
         Dim resultadoElemento As EntPeriodo
         Dim Dt As DataTable
-        Dt = ObjPeriodoDat.LeerPeriodo(0, "")
+        Dt = ObjPeriodoDat.LeerPeriodo(0, "", Modo)
         If (Dt.Rows.Count() > 0) Then
             If (Filtro) Then
                 resultadoElemento = New EntPeriodo

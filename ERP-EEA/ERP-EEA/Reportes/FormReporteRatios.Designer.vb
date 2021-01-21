@@ -27,24 +27,23 @@ Partial Class FormReporteRatios
         Me.lblPeriodoFinal = New System.Windows.Forms.Label()
         Me.lblPeriodoInicio = New System.Windows.Forms.Label()
         Me.btnGenerar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'cboPeriodoFinalFiltro
         '
         Me.cboPeriodoFinalFiltro.FormattingEnabled = True
-        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(84, 37)
+        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(90, 37)
         Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
         Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoFinalFiltro.TabIndex = 522
+        Me.cboPeriodoFinalFiltro.TabIndex = 2
         '
         'cboPeriodoInicialFiltro
         '
         Me.cboPeriodoInicialFiltro.FormattingEnabled = True
-        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(84, 12)
+        Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(90, 12)
         Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
         Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoInicialFiltro.TabIndex = 521
+        Me.cboPeriodoInicialFiltro.TabIndex = 1
         '
         'lblPeriodoFinal
         '
@@ -66,35 +65,29 @@ Partial Class FormReporteRatios
         '
         'btnGenerar
         '
-        Me.btnGenerar.Location = New System.Drawing.Point(97, 77)
+        Me.btnGenerar.Location = New System.Drawing.Point(55, 66)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGenerar.TabIndex = 526
+        Me.btnGenerar.TabIndex = 10
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(16, 77)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 525
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
         '
         'FormReporteRatios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(186, 109)
+        Me.ClientSize = New System.Drawing.Size(190, 100)
         Me.Controls.Add(Me.btnGenerar)
-        Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.cboPeriodoFinalFiltro)
         Me.Controls.Add(Me.cboPeriodoInicialFiltro)
         Me.Controls.Add(Me.lblPeriodoFinal)
         Me.Controls.Add(Me.lblPeriodoInicio)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(206, 139)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(206, 139)
         Me.Name = "FormReporteRatios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ratios"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -106,5 +99,4 @@ Partial Class FormReporteRatios
     Friend WithEvents lblPeriodoFinal As Label
     Friend WithEvents lblPeriodoInicio As Label
     Friend WithEvents btnGenerar As Button
-    Friend WithEvents btnCancelar As Button
 End Class

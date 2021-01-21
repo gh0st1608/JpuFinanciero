@@ -8,14 +8,14 @@
             <TablixCornerRow>
               <TablixCornerCell>
                 <CellContents>
-                  <Textbox Name="Textbox8">
+                  <Textbox Name="Textbox21">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Cliente</Value>
+                            <Value />
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -26,7 +26,53 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox8</rd:DefaultName>
+                    <rd:DefaultName>Textbox21</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Double</Style>
+                        <Width>3pt</Width>
+                      </Border>
+                      <TopBorder>
+                        <Style>None</Style>
+                      </TopBorder>
+                      <BottomBorder>
+                        <Style>None</Style>
+                      </BottomBorder>
+                      <LeftBorder>
+                        <Style>None</Style>
+                      </LeftBorder>
+                      <BackgroundColor>White</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox22">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox22</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -65,7 +111,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Fields!Importe.Value,2)</Value>
+                              <Value>=Fields!Importe.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -96,7 +142,7 @@
         <TablixColumnHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Periodo">
+              <Group Name="Periodo1">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Periodo.Value</GroupExpression>
                 </GroupExpressions>
@@ -109,7 +155,7 @@
               <TablixHeader>
                 <Size>0.6cm</Size>
                 <CellContents>
-                  <Textbox Name="Periodo">
+                  <Textbox Name="Periodo1">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -127,7 +173,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Periodo</rd:DefaultName>
+                    <rd:DefaultName>Periodo1</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -150,16 +196,61 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Cliente1">
+              <Group Name="Orden">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Cliente.Value</GroupExpression>
+                  <GroupExpression>=Fields!Orden.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Cliente.Value</Value>
+                  <Value>=Fields!Orden.Value</Value>
                 </SortExpression>
               </SortExpressions>
+              <TablixHeader>
+                <Size>0.48917cm</Size>
+                <CellContents>
+                  <Textbox Name="Orden">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!Orden.Value</Value>
+                            <Style>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Orden</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <TopBorder>
+                        <Style>None</Style>
+                      </TopBorder>
+                      <BottomBorder>
+                        <Style>None</Style>
+                      </BottomBorder>
+                      <LeftBorder>
+                        <Style>None</Style>
+                      </LeftBorder>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
               <TablixMembers>
                 <TablixMember>
                   <Group Name="Cliente">
@@ -173,7 +264,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.5882cm</Size>
+                    <Size>4.85479cm</Size>
                     <CellContents>
                       <Textbox Name="Cliente1">
                         <CanGrow>true</CanGrow>
@@ -216,9 +307,8 @@
         </TablixRowHierarchy>
         <DataSetName>DtReporteIngresoData</DataSetName>
         <Top>0.36724cm</Top>
-        <Left>0.60885cm</Left>
         <Height>1.2cm</Height>
-        <Width>5.0882cm</Width>
+        <Width>7.84396cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -226,13 +316,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77084in</Height>
+    <Height>0.85324in</Height>
     <Style />
   </Body>
   <Width>14.5625in</Width>
   <Page>
     <PageHeader>
-      <Height>3.57835cm</Height>
+      <Height>3.39314cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -388,7 +478,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Fecha Inicio:</Value>
+                  <Value>Periodo Inicio:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -429,7 +519,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Fecha Fin:</Value>
+                  <Value>Periodo Fin:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -440,7 +530,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
           <Top>2.57238cm</Top>
-          <Left>31.2917cm</Left>
+          <Left>30.89482cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>5</ZIndex>
@@ -456,72 +546,6 @@
               <Style>Double</Style>
               <Width>1.5pt</Width>
             </LeftBorder>
-            <VerticalAlign>Middle</VerticalAlign>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="FechaInicio">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=CDate(First(Fields!FechaInicio.Value, "DtReporteIngresoFiltro")).ToString("dd/MM/yyyy")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>FechaInicio</rd:DefaultName>
-          <Top>2.57238cm</Top>
-          <Left>28.09433cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>6</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <VerticalAlign>Middle</VerticalAlign>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="FechaFin">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=CDate(First(Fields!FechaFin.Value, "DtReporteIngresoFiltro")).ToString("dd/MM/yyyy")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>FechaFin</rd:DefaultName>
-          <Top>2.57238cm</Top>
-          <Left>33.96808cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>7</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
             <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -555,7 +579,7 @@
           <Left>13.59107cm</Left>
           <Height>0.73229cm</Height>
           <Width>9.90833cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -578,7 +602,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
-                  <Style />
+                  <Style>
+                    <Format>d</Format>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -588,10 +614,10 @@
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>0.7021cm</Top>
-          <Left>31.2917cm</Left>
+          <Left>30.89482cm</Left>
           <Height>0.73229cm</Height>
-          <Width>5.17638cm</Width>
-          <ZIndex>9</ZIndex>
+          <Width>4.35618cm</Width>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -610,7 +636,7 @@
           <Left>0.52066cm</Left>
           <Height>1.65516cm</Height>
           <Width>4.38736cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -618,6 +644,66 @@
             </Border>
           </Style>
         </Image>
+        <Textbox Name="PeriodoInicio">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!PeriodoInicio.Value, "DtReporteIngresoFiltro")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PeriodoInicio</rd:DefaultName>
+          <Top>2.57238cm</Top>
+          <Left>27.91795cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.94438cm</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="PeriodoFin">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!PeriodoFin.Value, "DtReporteIngresoFiltro")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PeriodoFin</rd:DefaultName>
+          <Top>2.57238cm</Top>
+          <Left>33.39482cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.85618cm</Width>
+          <ZIndex>10</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -659,22 +745,18 @@
           <DataField>Cliente</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Periodo">
-          <DataField>Periodo</DataField>
+        <Field Name="PeriodoInicio">
+          <DataField>PeriodoInicio</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FechaInicio">
-          <DataField>FechaInicio</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FechaFin">
-          <DataField>FechaFin</DataField>
+        <Field Name="PeriodoFin">
+          <DataField>PeriodoFin</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsBDFinanciero</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\RikSo\Desktop\JpuFinanciero\ERP-EEA\ERP-EEA\Reportes\DsBDFinanciero.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Proyectos\ERP-EEA\ERP-EEA\Reportes\DsBDFinanciero.xsd</rd:SchemaPath>
         <rd:TableName>DtReporteIngresoFiltro</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -699,10 +781,14 @@
           <DataField>Importe</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Orden">
+          <DataField>Orden</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsBDFinanciero</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\RikSo\Desktop\JpuFinanciero\ERP-EEA\ERP-EEA\Reportes\DsBDFinanciero.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Proyectos\ERP-EEA\ERP-EEA\Reportes\DsBDFinanciero.xsd</rd:SchemaPath>
         <rd:TableName>DtReporteIngresoData</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

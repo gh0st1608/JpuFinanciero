@@ -9,7 +9,7 @@ Public Class NegActivo
     End Function
 
     Public Function ObtenerData(ByVal Id As Integer, ByVal PeriodoId As Integer, ByVal GrupoId As Integer) As EntActivo
-        Dim Dt As DataTable
+        Dim Dt As New DataTable
         Dim ObjActivoEnt As New EntActivo
         Dt = ObjActivoDat.LeerActivo(Id, PeriodoId, GrupoId, True)
         If (Dt.Rows.Count() > 0) Then

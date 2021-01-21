@@ -1,4 +1,6 @@
-﻿
+﻿Imports ERP_Entidad
+Imports ERP_Negocio
+
 Public Class FormMenu
     Private Sub IngresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresoToolStripMenuItem.Click
         FormIngreso.Show()
@@ -25,9 +27,16 @@ Public Class FormMenu
 
         r.NumberFormat.NumberGroupSeparator = ","
         r.NumberFormat.NumberDecimalSeparator = "."
+        Threading.Thread.CurrentThread.CurrentCulture = r
 
-        System.Threading.Thread.CurrentThread.CurrentCulture = r
-
+        Dim DataTable As New DataTable
+        Dim negEgreso As New NegEgreso
+        DataTable = negEgreso.ObtenerTabla(0, 0, 0, True)
+        If DataTable.Rows.Count() > 0 Then
+            VariableGlobal.VGAlertaEgreso = True
+        Else
+            VariableGlobal.VGAlertaEgreso = False
+        End If
     End Sub
 
     Private Sub GrupoIngresoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GrupoIngresoToolStripMenuItem.Click
@@ -98,19 +107,19 @@ Public Class FormMenu
         FormReporteRatios.Show()
     End Sub
 
-    Private Sub ReporteBalanceGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteBalanceGeneralToolStripMenuItem.Click
+    Private Sub ProyectadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProyectadoToolStripMenuItem.Click
+        FormProyectado.Show()
+    End Sub
+
+    Private Sub BalanceGeneralToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BalanceGeneralToolStripMenuItem1.Click
         FormBalanceGeneral.Show()
     End Sub
 
-    Private Sub ProyectadoToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FormProyectado.Show()
+    Private Sub EstadoDeResultadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadoDeResultadosToolStripMenuItem.Click
+        FormEstadoResultado.Show()
     End Sub
 
-    Private Sub ProyectadoToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ProyectadoToolStripMenuItem.Click
-        FormProyectado.Show()
-    End Sub
-
-    Private Sub ReporteFlujoCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteFlujoCajaToolStripMenuItem.Click
+    Private Sub FlujoDeCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FlujoDeCajaToolStripMenuItem.Click
         FormReporteFCProyectado.Show()
     End Sub
 End Class

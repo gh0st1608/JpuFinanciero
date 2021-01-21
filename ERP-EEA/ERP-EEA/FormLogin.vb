@@ -30,6 +30,9 @@ Public Class FormLogin
                 VariableGlobal.VGCuentaUsuario = entidadUsuario.NombreUsuario
                 Me.Hide()
                 FormMenu.Show()
+                If VariableGlobal.VGAlertaEgreso Then
+                    FormEgreso.Show()
+                End If
             Else
                 MessageBox.Show("El usuario y/o la contraseña es incorrecto", "Autenticar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtUsuario.Focus()

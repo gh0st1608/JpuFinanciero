@@ -27,18 +27,6 @@ Partial Class FormProveedor
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvProveedor = New PersControlLibrary.ExtendedDataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdProveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Correo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MedicionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TipoMedicion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -62,6 +50,18 @@ Partial Class FormProveedor
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdProveedor = New PersControlLibrary.ExtendedTextBox()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdProveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreComercial = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RazonSocial = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroContacto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Correo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MedicionId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoMedicion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tarifa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEstadoActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
@@ -116,104 +116,6 @@ Partial Class FormProveedor
         Me.dgvProveedor.Size = New System.Drawing.Size(813, 200)
         Me.dgvProveedor.TabIndex = 467
         Me.dgvProveedor.TabStop = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
-        '
-        'IdProveedor
-        '
-        Me.IdProveedor.DataPropertyName = "IdProveedor"
-        Me.IdProveedor.HeaderText = "IdProveedor"
-        Me.IdProveedor.Name = "IdProveedor"
-        Me.IdProveedor.ReadOnly = True
-        Me.IdProveedor.Visible = False
-        '
-        'Documento
-        '
-        Me.Documento.DataPropertyName = "Documento"
-        Me.Documento.HeaderText = "Documento"
-        Me.Documento.Name = "Documento"
-        Me.Documento.ReadOnly = True
-        Me.Documento.Visible = False
-        '
-        'NombreComercial
-        '
-        Me.NombreComercial.DataPropertyName = "NombreComercial"
-        Me.NombreComercial.HeaderText = "NOMBRE COMERCIAL"
-        Me.NombreComercial.Name = "NombreComercial"
-        Me.NombreComercial.ReadOnly = True
-        Me.NombreComercial.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NombreComercial.Width = 320
-        '
-        'RazonSocial
-        '
-        Me.RazonSocial.DataPropertyName = "RazonSocial"
-        Me.RazonSocial.HeaderText = "RazonSocial"
-        Me.RazonSocial.Name = "RazonSocial"
-        Me.RazonSocial.ReadOnly = True
-        Me.RazonSocial.Visible = False
-        '
-        'NumeroContacto
-        '
-        Me.NumeroContacto.DataPropertyName = "NumeroContacto"
-        Me.NumeroContacto.HeaderText = "TELEFONO/CELULAR"
-        Me.NumeroContacto.Name = "NumeroContacto"
-        Me.NumeroContacto.ReadOnly = True
-        Me.NumeroContacto.Width = 120
-        '
-        'Correo
-        '
-        Me.Correo.DataPropertyName = "Correo"
-        Me.Correo.HeaderText = "Correo"
-        Me.Correo.Name = "Correo"
-        Me.Correo.ReadOnly = True
-        Me.Correo.Visible = False
-        '
-        'MedicionId
-        '
-        Me.MedicionId.DataPropertyName = "MedicionId"
-        Me.MedicionId.HeaderText = "MedicionId"
-        Me.MedicionId.Name = "MedicionId"
-        Me.MedicionId.ReadOnly = True
-        Me.MedicionId.Visible = False
-        '
-        'TipoMedicion
-        '
-        Me.TipoMedicion.DataPropertyName = "TipoMedicion"
-        Me.TipoMedicion.HeaderText = "MEDICION"
-        Me.TipoMedicion.Name = "TipoMedicion"
-        Me.TipoMedicion.ReadOnly = True
-        Me.TipoMedicion.Width = 120
-        '
-        'Tarifa
-        '
-        Me.Tarifa.DataPropertyName = "Tarifa"
-        Me.Tarifa.HeaderText = "TARIFA"
-        Me.Tarifa.Name = "Tarifa"
-        Me.Tarifa.ReadOnly = True
-        '
-        'EstadoActivo
-        '
-        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
-        Me.EstadoActivo.HeaderText = "ESTADO"
-        Me.EstadoActivo.Name = "EstadoActivo"
-        Me.EstadoActivo.ReadOnly = True
-        '
-        'IdEstadoActivo
-        '
-        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
-        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
-        Me.IdEstadoActivo.Name = "IdEstadoActivo"
-        Me.IdEstadoActivo.ReadOnly = True
-        Me.IdEstadoActivo.Visible = False
         '
         'btnEliminar
         '
@@ -584,6 +486,104 @@ Partial Class FormProveedor
         Me.txtIdProveedor.Symbol = Nothing
         Me.txtIdProveedor.TabIndex = 460
         Me.txtIdProveedor.Value = Nothing
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTextBoxColumn7.Width = 30
+        '
+        'IdProveedor
+        '
+        Me.IdProveedor.DataPropertyName = "IdProveedor"
+        Me.IdProveedor.HeaderText = "IdProveedor"
+        Me.IdProveedor.Name = "IdProveedor"
+        Me.IdProveedor.ReadOnly = True
+        Me.IdProveedor.Visible = False
+        '
+        'Documento
+        '
+        Me.Documento.DataPropertyName = "Documento"
+        Me.Documento.HeaderText = "Documento"
+        Me.Documento.Name = "Documento"
+        Me.Documento.ReadOnly = True
+        Me.Documento.Visible = False
+        '
+        'NombreComercial
+        '
+        Me.NombreComercial.DataPropertyName = "NombreComercial"
+        Me.NombreComercial.HeaderText = "NOMBRE COMERCIAL"
+        Me.NombreComercial.Name = "NombreComercial"
+        Me.NombreComercial.ReadOnly = True
+        Me.NombreComercial.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NombreComercial.Width = 328
+        '
+        'RazonSocial
+        '
+        Me.RazonSocial.DataPropertyName = "RazonSocial"
+        Me.RazonSocial.HeaderText = "RazonSocial"
+        Me.RazonSocial.Name = "RazonSocial"
+        Me.RazonSocial.ReadOnly = True
+        Me.RazonSocial.Visible = False
+        '
+        'NumeroContacto
+        '
+        Me.NumeroContacto.DataPropertyName = "NumeroContacto"
+        Me.NumeroContacto.HeaderText = "TELEFONO/CELULAR"
+        Me.NumeroContacto.Name = "NumeroContacto"
+        Me.NumeroContacto.ReadOnly = True
+        Me.NumeroContacto.Width = 120
+        '
+        'Correo
+        '
+        Me.Correo.DataPropertyName = "Correo"
+        Me.Correo.HeaderText = "Correo"
+        Me.Correo.Name = "Correo"
+        Me.Correo.ReadOnly = True
+        Me.Correo.Visible = False
+        '
+        'MedicionId
+        '
+        Me.MedicionId.DataPropertyName = "MedicionId"
+        Me.MedicionId.HeaderText = "MedicionId"
+        Me.MedicionId.Name = "MedicionId"
+        Me.MedicionId.ReadOnly = True
+        Me.MedicionId.Visible = False
+        '
+        'TipoMedicion
+        '
+        Me.TipoMedicion.DataPropertyName = "TipoMedicion"
+        Me.TipoMedicion.HeaderText = "MEDICION"
+        Me.TipoMedicion.Name = "TipoMedicion"
+        Me.TipoMedicion.ReadOnly = True
+        Me.TipoMedicion.Width = 120
+        '
+        'Tarifa
+        '
+        Me.Tarifa.DataPropertyName = "Tarifa"
+        Me.Tarifa.HeaderText = "TARIFA"
+        Me.Tarifa.Name = "Tarifa"
+        Me.Tarifa.ReadOnly = True
+        '
+        'EstadoActivo
+        '
+        Me.EstadoActivo.DataPropertyName = "EstadoActivo"
+        Me.EstadoActivo.HeaderText = "ESTADO"
+        Me.EstadoActivo.Name = "EstadoActivo"
+        Me.EstadoActivo.ReadOnly = True
+        '
+        'IdEstadoActivo
+        '
+        Me.IdEstadoActivo.DataPropertyName = "IdEstadoActivo"
+        Me.IdEstadoActivo.HeaderText = "IdEstadoActivo"
+        Me.IdEstadoActivo.Name = "IdEstadoActivo"
+        Me.IdEstadoActivo.ReadOnly = True
+        Me.IdEstadoActivo.Visible = False
         '
         'FormProveedor
         '

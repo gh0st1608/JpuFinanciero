@@ -94,7 +94,7 @@ Partial Class FormTipoCliente
         Me.dgvTipoCliente.RowTemplate.Height = 18
         Me.dgvTipoCliente.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvTipoCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTipoCliente.Size = New System.Drawing.Size(414, 200)
+        Me.dgvTipoCliente.Size = New System.Drawing.Size(414, 110)
         Me.dgvTipoCliente.TabIndex = 462
         Me.dgvTipoCliente.TabStop = False
         '
@@ -200,7 +200,7 @@ Partial Class FormTipoCliente
         Me.Panel.Controls.Add(Me.btnGuardar)
         Me.Panel.Controls.Add(Me.btnCancelar)
         Me.Panel.Controls.Add(Me.txtIdTipoCliente)
-        Me.Panel.Location = New System.Drawing.Point(11, 265)
+        Me.Panel.Location = New System.Drawing.Point(12, 175)
         Me.Panel.Name = "Panel"
         Me.Panel.Size = New System.Drawing.Size(414, 73)
         Me.Panel.TabIndex = 458
@@ -314,15 +314,15 @@ Partial Class FormTipoCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(437, 354)
+        Me.ClientSize = New System.Drawing.Size(437, 169)
         Me.Controls.Add(Me.dgvTipoCliente)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Panel)
         Me.KeyPreview = True
-        Me.MaximumSize = New System.Drawing.Size(453, 393)
-        Me.MinimumSize = New System.Drawing.Size(453, 300)
+        Me.MaximumSize = New System.Drawing.Size(453, 300)
+        Me.MinimumSize = New System.Drawing.Size(453, 208)
         Me.Name = "FormTipoCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tipo Cliente"

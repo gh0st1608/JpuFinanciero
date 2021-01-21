@@ -5,6 +5,10 @@
     Private VarClienteId As Integer
     Private VarComentario As String
     Private VarImporteProvision As Decimal
+    Private VarIgvProvision As Decimal
+    Private VarDetraccionProvision As Decimal
+    Private VarIngresoCuenta As Decimal
+    Private VarTotalProvision As Decimal
     Private VarDeuda As Decimal
     Private VarPeriodoId As Integer
     Private VarCliente As String
@@ -46,7 +50,6 @@
         End Set
     End Property
 
-
     Public Property Comentario As String
         Get
             Return VarComentario
@@ -56,12 +59,48 @@
         End Set
     End Property
 
+    Public Property IgvProvision As Decimal
+        Get
+            Return VarIgvProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarIgvProvision = value
+        End Set
+    End Property
+
+    Public Property DetraccionProvision As Decimal
+        Get
+            Return VarDetraccionProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarDetraccionProvision = value
+        End Set
+    End Property
+
+    Public Property TotalProvision As Decimal
+        Get
+            Return VarTotalProvision
+        End Get
+        Set(ByVal value As Decimal)
+            VarTotalProvision = value
+        End Set
+    End Property
+
     Public Property ImporteProvision As Decimal
         Get
             Return VarImporteProvision
         End Get
         Set(ByVal value As Decimal)
             VarImporteProvision = value
+        End Set
+    End Property
+
+    Public Property IngresoCuenta As Decimal
+        Get
+            Return VarIngresoCuenta
+        End Get
+        Set(ByVal value As Decimal)
+            VarIngresoCuenta = value
         End Set
     End Property
 

@@ -67,7 +67,7 @@ Partial Class FormCierre
         Me.dgvPeriodo.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvPeriodo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvPeriodo.EnableHeadersVisualStyles = False
-        Me.dgvPeriodo.Location = New System.Drawing.Point(10, 40)
+        Me.dgvPeriodo.Location = New System.Drawing.Point(11, 43)
         Me.dgvPeriodo.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvPeriodo.Name = "dgvPeriodo"
         Me.dgvPeriodo.ReadOnly = True
@@ -91,7 +91,7 @@ Partial Class FormCierre
         '
         'btnCerrar
         '
-        Me.btnCerrar.Location = New System.Drawing.Point(182, 9)
+        Me.btnCerrar.Location = New System.Drawing.Point(183, 12)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(75, 26)
         Me.btnCerrar.TabIndex = 467
@@ -107,7 +107,7 @@ Partial Class FormCierre
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
+        Me.DataGridViewTextBoxColumn7.Width = 32
         '
         'IdPeriodo
         '
@@ -126,7 +126,7 @@ Partial Class FormCierre
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.ReadOnly = True
         Me.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Descripcion.Width = 120
+        Me.Descripcion.Width = 110
         '
         'FechaInicio
         '
@@ -150,16 +150,18 @@ Partial Class FormCierre
         Me.Cierre.HeaderText = "ESTADO"
         Me.Cierre.Name = "Cierre"
         Me.Cierre.ReadOnly = True
+        Me.Cierre.Width = 85
         '
         'FormCierre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(263, 247)
+        Me.ClientSize = New System.Drawing.Size(274, 258)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.dgvPeriodo)
         Me.Name = "FormCierre"
-        Me.Text = "Cierre"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Cierre de periodo"
         CType(Me.dgvPeriodo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

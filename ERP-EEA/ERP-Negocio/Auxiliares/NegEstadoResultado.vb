@@ -14,7 +14,6 @@ Public Class NegEstadoResultado
             ObjEstadoResultadoEnt.Concepto = Convert.ToString(Dt.Rows(0).Item("Concepto"))
             ObjEstadoResultadoEnt.PeriodoId = Convert.ToInt32(Dt.Rows(0).Item("Periodo"))
             ObjEstadoResultadoEnt.Valor = Convert.ToDecimal(Dt.Rows(0).Item("Valor"))
-
         End If
         Return ObjEstadoResultadoEnt
     End Function
@@ -23,4 +22,9 @@ Public Class NegEstadoResultado
         Return ObjEstadoResultadoDat.CrearEstadoResultado(VarEstadoResultadooEnt)
     End Function
 
+    Public Function ObtenerTabla(ByVal IdPeriodo As Integer) As DataTable
+        Dim Dt As New DataTable
+        Dt = ObjEstadoResultadoDat.ObtenerEstadoResultado(IdPeriodo)
+        Return Dt
+    End Function
 End Class

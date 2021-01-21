@@ -25,7 +25,7 @@ Public Class DatPeriodo
         End Try
     End Function
 
-    Public Function LeerPeriodo(ByVal IdPeriodo As Integer, ByVal DescripcionPeriodo As String) As DataTable
+    Public Function LeerPeriodo(ByVal IdPeriodo As Integer, ByVal DescripcionPeriodo As String, ByVal Modo As Integer) As DataTable
         Try
             Dim resultadoDT As DataTable
             Dim resultadoDS As New DataSet
@@ -34,10 +34,10 @@ Public Class DatPeriodo
             command.CommandType = CommandType.StoredProcedure
             command.Parameters.Add("@DescripcionPeriodo", SqlDbType.VarChar, 10)
             command.Parameters.Add("@IdPeriodo", SqlDbType.Int)
-            'command.Parameters.Add("@Cierre", SqlDbType.Int)
+            command.Parameters.Add("@Modo", SqlDbType.Int)
             command.Parameters("@DescripcionPeriodo").Value = DescripcionPeriodo
             command.Parameters("@IdPeriodo").Value = IdPeriodo
-            'command.Parameters("@Cierre").Value = Cierre
+            command.Parameters("@Modo").Value = Modo
 
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)

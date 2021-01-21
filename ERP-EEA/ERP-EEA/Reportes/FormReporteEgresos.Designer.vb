@@ -23,7 +23,6 @@ Partial Class FormReporteEgresos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnGenerar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.ckbTotalFiltro = New System.Windows.Forms.CheckBox()
         Me.cboGrupoEgresoFiltro = New System.Windows.Forms.ComboBox()
         Me.lblGrupoEgreso = New System.Windows.Forms.Label()
@@ -41,22 +40,12 @@ Partial Class FormReporteEgresos
         '
         'btnGenerar
         '
-        Me.btnGenerar.Location = New System.Drawing.Point(328, 149)
+        Me.btnGenerar.Location = New System.Drawing.Point(328, 120)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(75, 23)
-        Me.btnGenerar.TabIndex = 512
+        Me.btnGenerar.TabIndex = 3
         Me.btnGenerar.Text = "Generar"
         Me.btnGenerar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(247, 149)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 511
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        Me.btnCancelar.Visible = False
         '
         'ckbTotalFiltro
         '
@@ -77,12 +66,12 @@ Partial Class FormReporteEgresos
         Me.cboGrupoEgresoFiltro.Location = New System.Drawing.Point(110, 12)
         Me.cboGrupoEgresoFiltro.Name = "cboGrupoEgresoFiltro"
         Me.cboGrupoEgresoFiltro.Size = New System.Drawing.Size(293, 21)
-        Me.cboGrupoEgresoFiltro.TabIndex = 507
+        Me.cboGrupoEgresoFiltro.TabIndex = 10
         '
         'lblGrupoEgreso
         '
         Me.lblGrupoEgreso.AutoSize = True
-        Me.lblGrupoEgreso.Location = New System.Drawing.Point(29, 15)
+        Me.lblGrupoEgreso.Location = New System.Drawing.Point(12, 15)
         Me.lblGrupoEgreso.Name = "lblGrupoEgreso"
         Me.lblGrupoEgreso.Size = New System.Drawing.Size(72, 13)
         Me.lblGrupoEgreso.TabIndex = 506
@@ -113,12 +102,12 @@ Partial Class FormReporteEgresos
         Me.cboProveedorFiltro.Location = New System.Drawing.Point(110, 66)
         Me.cboProveedorFiltro.Name = "cboProveedorFiltro"
         Me.cboProveedorFiltro.Size = New System.Drawing.Size(293, 21)
-        Me.cboProveedorFiltro.TabIndex = 503
+        Me.cboProveedorFiltro.TabIndex = 12
         '
         'lblProveedor
         '
         Me.lblProveedor.AutoSize = True
-        Me.lblProveedor.Location = New System.Drawing.Point(45, 69)
+        Me.lblProveedor.Location = New System.Drawing.Point(12, 69)
         Me.lblProveedor.Name = "lblProveedor"
         Me.lblProveedor.Size = New System.Drawing.Size(56, 13)
         Me.lblProveedor.TabIndex = 500
@@ -130,7 +119,7 @@ Partial Class FormReporteEgresos
         Me.cboSubGrupoEgresoFiltro.Location = New System.Drawing.Point(110, 39)
         Me.cboSubGrupoEgresoFiltro.Name = "cboSubGrupoEgresoFiltro"
         Me.cboSubGrupoEgresoFiltro.Size = New System.Drawing.Size(293, 21)
-        Me.cboSubGrupoEgresoFiltro.TabIndex = 514
+        Me.cboSubGrupoEgresoFiltro.TabIndex = 11
         '
         'lblSubGrupoEgresoFiltro
         '
@@ -144,10 +133,10 @@ Partial Class FormReporteEgresos
         'cboPeriodoFinalFiltro
         '
         Me.cboPeriodoFinalFiltro.FormattingEnabled = True
-        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(110, 118)
+        Me.cboPeriodoFinalFiltro.Location = New System.Drawing.Point(314, 93)
         Me.cboPeriodoFinalFiltro.Name = "cboPeriodoFinalFiltro"
         Me.cboPeriodoFinalFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoFinalFiltro.TabIndex = 518
+        Me.cboPeriodoFinalFiltro.TabIndex = 2
         '
         'cboPeriodoInicialFiltro
         '
@@ -155,31 +144,31 @@ Partial Class FormReporteEgresos
         Me.cboPeriodoInicialFiltro.Location = New System.Drawing.Point(110, 93)
         Me.cboPeriodoInicialFiltro.Name = "cboPeriodoInicialFiltro"
         Me.cboPeriodoInicialFiltro.Size = New System.Drawing.Size(89, 21)
-        Me.cboPeriodoInicialFiltro.TabIndex = 517
+        Me.cboPeriodoInicialFiltro.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(39, 118)
+        Me.Label1.Location = New System.Drawing.Point(233, 96)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 516
-        Me.Label1.Text = "Fecha Final"
+        Me.Label1.Text = "Periodo Fin"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(39, 96)
+        Me.Label17.Location = New System.Drawing.Point(12, 96)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(65, 13)
+        Me.Label17.Size = New System.Drawing.Size(71, 13)
         Me.Label17.TabIndex = 515
-        Me.Label17.Text = "Fecha Inicio"
+        Me.Label17.Text = "Periodo Inicio"
         '
         'FormReporteEgresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(416, 184)
+        Me.ClientSize = New System.Drawing.Size(416, 155)
         Me.Controls.Add(Me.cboPeriodoFinalFiltro)
         Me.Controls.Add(Me.cboPeriodoInicialFiltro)
         Me.Controls.Add(Me.Label1)
@@ -187,7 +176,6 @@ Partial Class FormReporteEgresos
         Me.Controls.Add(Me.cboSubGrupoEgresoFiltro)
         Me.Controls.Add(Me.lblSubGrupoEgresoFiltro)
         Me.Controls.Add(Me.btnGenerar)
-        Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.ckbTotalFiltro)
         Me.Controls.Add(Me.cboGrupoEgresoFiltro)
         Me.Controls.Add(Me.lblGrupoEgreso)
@@ -195,7 +183,12 @@ Partial Class FormReporteEgresos
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.cboProveedorFiltro)
         Me.Controls.Add(Me.lblProveedor)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(432, 194)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(432, 194)
         Me.Name = "FormReporteEgresos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Reporte de Egresos"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -203,7 +196,6 @@ Partial Class FormReporteEgresos
     End Sub
 
     Friend WithEvents btnGenerar As Button
-    Friend WithEvents btnCancelar As Button
     Friend WithEvents ckbTotalFiltro As CheckBox
     Friend WithEvents cboGrupoEgresoFiltro As ComboBox
     Friend WithEvents lblGrupoEgreso As Label

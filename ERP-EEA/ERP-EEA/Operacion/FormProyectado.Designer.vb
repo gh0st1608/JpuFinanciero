@@ -22,11 +22,11 @@ Partial Class FormProyectado
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvProyectado = New PersControlLibrary.ExtendedDataGridView()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -47,7 +47,7 @@ Partial Class FormProyectado
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.txtIdProyectado = New PersControlLibrary.ExtendedTextBox()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdEgreso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdProyectado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GrupoEgresoDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubGrupoEgresoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,39 +67,39 @@ Partial Class FormProyectado
         Me.dgvProyectado.AllowUserToResizeRows = False
         Me.dgvProyectado.BackgroundColor = System.Drawing.Color.White
         Me.dgvProyectado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProyectado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProyectado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProyectado.ColumnHeadersHeight = 20
         Me.dgvProyectado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvProyectado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdEgreso, Me.GrupoEgresoId, Me.GrupoEgresoDescripcion, Me.SubGrupoEgresoId, Me.SubGrupoEgresoDescripcion, Me.PeriodoId, Me.Periodo, Me.ImporteProvision})
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProyectado.DefaultCellStyle = DataGridViewCellStyle19
+        Me.dgvProyectado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.IdProyectado, Me.GrupoEgresoId, Me.GrupoEgresoDescripcion, Me.SubGrupoEgresoId, Me.SubGrupoEgresoDescripcion, Me.PeriodoId, Me.Periodo, Me.ImporteProvision})
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(114, Byte), Integer), CType(CType(195, Byte), Integer))
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(140, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(131, Byte), Integer))
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProyectado.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvProyectado.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvProyectado.EnableHeadersVisualStyles = False
         Me.dgvProyectado.Location = New System.Drawing.Point(11, 41)
         Me.dgvProyectado.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvProyectado.Name = "dgvProyectado"
         Me.dgvProyectado.ReadOnly = True
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.MintCream
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProyectado.RowHeadersDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MintCream
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProyectado.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgvProyectado.RowHeadersVisible = False
         Me.dgvProyectado.RowHeadersWidth = 22
         Me.dgvProyectado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -192,7 +192,7 @@ Partial Class FormProyectado
         Me.PanelEgreso.Controls.Add(Me.btnGuardar)
         Me.PanelEgreso.Controls.Add(Me.btnCancelar)
         Me.PanelEgreso.Controls.Add(Me.txtIdProyectado)
-        Me.PanelEgreso.Location = New System.Drawing.Point(11, 246)
+        Me.PanelEgreso.Location = New System.Drawing.Point(11, 257)
         Me.PanelEgreso.Name = "PanelEgreso"
         Me.PanelEgreso.Size = New System.Drawing.Size(486, 91)
         Me.PanelEgreso.TabIndex = 485
@@ -328,21 +328,21 @@ Partial Class FormProyectado
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "item"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn7.HeaderText = "N°"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         Me.DataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn7.Width = 25
+        Me.DataGridViewTextBoxColumn7.Width = 28
         '
-        'IdEgreso
+        'IdProyectado
         '
-        Me.IdEgreso.DataPropertyName = "IdEgreso"
-        Me.IdEgreso.HeaderText = "IdEgreso"
-        Me.IdEgreso.Name = "IdEgreso"
-        Me.IdEgreso.ReadOnly = True
-        Me.IdEgreso.Visible = False
+        Me.IdProyectado.DataPropertyName = "IdProyectado"
+        Me.IdProyectado.HeaderText = "IdProyectado"
+        Me.IdProyectado.Name = "IdProyectado"
+        Me.IdProyectado.ReadOnly = True
+        Me.IdProyectado.Visible = False
         '
         'GrupoEgresoId
         '
@@ -375,7 +375,7 @@ Partial Class FormProyectado
         Me.SubGrupoEgresoDescripcion.HeaderText = "ITEM EGRESO"
         Me.SubGrupoEgresoDescripcion.Name = "SubGrupoEgresoDescripcion"
         Me.SubGrupoEgresoDescripcion.ReadOnly = True
-        Me.SubGrupoEgresoDescripcion.Width = 180
+        Me.SubGrupoEgresoDescripcion.Width = 170
         '
         'PeriodoId
         '
@@ -391,24 +391,25 @@ Partial Class FormProyectado
         Me.Periodo.HeaderText = "PERIODO"
         Me.Periodo.Name = "Periodo"
         Me.Periodo.ReadOnly = True
+        Me.Periodo.Width = 80
         '
         'ImporteProvision
         '
         Me.ImporteProvision.DataPropertyName = "ImporteProvision"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle18.Format = "N2"
-        DataGridViewCellStyle18.NullValue = "0"
-        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ImporteProvision.DefaultCellStyle = DataGridViewCellStyle3
         Me.ImporteProvision.HeaderText = "SUBTOTAL"
         Me.ImporteProvision.Name = "ImporteProvision"
         Me.ImporteProvision.ReadOnly = True
-        Me.ImporteProvision.Width = 70
+        Me.ImporteProvision.Width = 80
         '
         'FormProyectado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 339)
+        Me.ClientSize = New System.Drawing.Size(509, 358)
         Me.Controls.Add(Me.PanelEgreso)
         Me.Controls.Add(Me.dgvProyectado)
         Me.Controls.Add(Me.btnModificar)
@@ -416,8 +417,11 @@ Partial Class FormProyectado
         Me.Controls.Add(Me.cbPeriodoFiltro)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.btnEliminar)
+        Me.MaximumSize = New System.Drawing.Size(525, 397)
+        Me.MinimumSize = New System.Drawing.Size(525, 290)
         Me.Name = "FormProyectado"
-        Me.Text = "FormProyectado"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Registro de egreso proyectado"
         CType(Me.dgvProyectado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelEgreso.ResumeLayout(False)
         Me.PanelEgreso.PerformLayout()
@@ -445,7 +449,7 @@ Partial Class FormProyectado
     Friend WithEvents btnCancelar As Button
     Friend WithEvents txtIdProyectado As PersControlLibrary.ExtendedTextBox
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents IdEgreso As DataGridViewTextBoxColumn
+    Friend WithEvents IdProyectado As DataGridViewTextBoxColumn
     Friend WithEvents GrupoEgresoId As DataGridViewTextBoxColumn
     Friend WithEvents GrupoEgresoDescripcion As DataGridViewTextBoxColumn
     Friend WithEvents SubGrupoEgresoId As DataGridViewTextBoxColumn

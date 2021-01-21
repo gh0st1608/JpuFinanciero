@@ -14,14 +14,12 @@ Public Class DatEstadoResultado
             Command.Parameters.Add("@Orden", SqlDbType.Int)
             command.Parameters.Add("@Concepto", SqlDbType.VarChar)
             command.Parameters.Add("@Valor", SqlDbType.Decimal)
-            Command.Parameters.Add("@PeriodoId", SqlDbType.Int)
-            command.Parameters.Add("@UsuarioCreacionId", SqlDbType.Int)
+            command.Parameters.Add("@PeriodoId", SqlDbType.Int)
             command.Parameters("@Orden").Value = objEstadoResultado.Orden
             command.Parameters("@Concepto").Value = objEstadoResultado.Concepto
             command.Parameters("@Valor").Value = objEstadoResultado.Valor
             command.Parameters("@PeriodoId").Value = objEstadoResultado.PeriodoId
-            Command.Parameters("@UsuarioCreacionId").Value = objEstadoResultado.UsuarioCreacionId
-            Command.ExecuteReader()
+            command.ExecuteReader()
             connection.Close()
             Return True
         Catch ex As Exception
@@ -45,6 +43,28 @@ Public Class DatEstadoResultado
             command.Parameters("@IdEstadoResultado").Value = IdEstadoResultado
             command.Parameters("@PeriodoId").Value = PeriodoId
             command.Parameters("@Orden").Value = Orden
+            adapter = New SqlDataAdapter(command)
+            adapter.Fill(resultadoDS)
+            resultadoDT = resultadoDS.Tables(0)
+            connection.Close()
+            Return resultadoDT
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error de consulta SQL para EstadoResultado")
+            connection.Close()
+            Return Nothing
+        End Try
+    End Function
+
+    Public Function ObtenerEstadoResultado(ByVal IdPeriodo As Integer) As DataTable
+        Dim resultadoDT As DataTable
+        Dim resultadoDS As New DataSet
+        Dim adapter As SqlDataAdapter
+        Try
+            connection.Open()
+            command = New SqlCommand("LeerEstadoResultadoCalculado", connection)
+            command.CommandType = CommandType.StoredProcedure
+            command.Parameters.Add("@IdPeriodo", SqlDbType.Int)
+            command.Parameters("@IdPeriodo").Value = IdPeriodo
             adapter = New SqlDataAdapter(command)
             adapter.Fill(resultadoDS)
             resultadoDT = resultadoDS.Tables(0)

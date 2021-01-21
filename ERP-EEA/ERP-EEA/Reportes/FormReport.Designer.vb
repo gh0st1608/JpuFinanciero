@@ -72,7 +72,7 @@ Partial Class FormReport
         Me.Controls.Add(Me.ReportViewer)
         Me.Name = "FormReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FormReport"
+        Me.Text = "Reporte"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DtReporteIngresoFiltroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsBDFinanciero, System.ComponentModel.ISupportInitialize).EndInit()

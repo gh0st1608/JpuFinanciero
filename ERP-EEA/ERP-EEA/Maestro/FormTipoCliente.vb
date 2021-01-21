@@ -11,7 +11,7 @@ Public Class FormTipoCliente
 
 #Region "Modos de ventana"
     Private Sub ModoInicial()
-        Me.Height = 300
+        Me.Height = 208
         operacion = False
         txtIdTipoCliente.Text = "0"
         txtDescripcion.Text = ""
@@ -23,7 +23,7 @@ Public Class FormTipoCliente
     End Sub
 
     Private Sub ModoRegistro()
-        Me.Height = 393
+        Me.Height = 300
         btnNuevo.Enabled = False
         btnModificar.Enabled = False
         btnEliminar.Enabled = False

@@ -10,16 +10,13 @@ Public Class FormReporteIngresos
     Dim negPeriodo As New NegPeriodo
     Dim entPeriodo As New EntPeriodo
     Dim dataSet As New DataSet
-    Dim verTotal = 0
     Dim columnaSeleccionada As New Boolean
+
     Private Sub modoInicial()
-        'Me.Height = 238
-        'Me.Width = 427
         cboClienteFiltro.SelectedValue = 0
         cboGrupoIngresoFiltro.SelectedValue = 0
         cboPeriodoInicialFiltro.SelectedIndex = 0
         cboPeriodoFinalFiltro.SelectedIndex = 0
-        ckbTotalFiltro.Checked = True
         columnaSeleccionada = False
     End Sub
 
@@ -34,11 +31,11 @@ Public Class FormReporteIngresos
 
         cboPeriodoInicialFiltro.ValueMember = "IdPeriodo"
         cboPeriodoInicialFiltro.DisplayMember = "DescripcionPeriodo"
-        cboPeriodoInicialFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cboPeriodoInicialFiltro.DataSource = negPeriodo.ObtenerLista(False, True, 1)
 
         cboPeriodoFinalFiltro.ValueMember = "IdPeriodo"
         cboPeriodoFinalFiltro.DisplayMember = "DescripcionPeriodo"
-        cboPeriodoFinalFiltro.DataSource = negPeriodo.ObtenerLista(True, False)
+        cboPeriodoFinalFiltro.DataSource = negPeriodo.ObtenerLista(False, True, 1)
 
     End Sub
 
@@ -48,19 +45,11 @@ Public Class FormReporteIngresos
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
-        columnaSeleccionada = False
-
-        If ckbTotalFiltro.Checked Then
-            verTotal = 1
-            columnaSeleccionada = True
+        If cboPeriodoInicialFiltro.SelectedValue = 0 Or cboPeriodoFinalFiltro.SelectedValue = 0 Or cboPeriodoFinalFiltro.SelectedValue < cboPeriodoInicialFiltro.SelectedValue Then
+            MsgBox("Escoger el periodo inicio y el periodo fin correctamente", MsgBoxStyle.Critical, "Validar campo")
+            Exit Sub
         Else
-            verTotal = 0
-        End If
-
-        If columnaSeleccionada Then
-            dataSet = negReporte.ObtenerReporteIngresos(cboGrupoIngresoFiltro.SelectedValue, cboClienteFiltro.SelectedValue, cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue, verTotal)
-
-
+            dataSet = negReporte.ObtenerReporteIngresos(cboGrupoIngresoFiltro.SelectedValue, cboClienteFiltro.SelectedValue, cboPeriodoInicialFiltro.SelectedValue, cboPeriodoFinalFiltro.SelectedValue)
             dataSet.Tables(0).TableName = "DtReporteIngresoFiltro"
             dataSet.Tables(1).TableName = "DtReporteIngresoData"
 
@@ -70,30 +59,28 @@ Public Class FormReporteIngresos
                 .Text = "Reporte de Ingresos",
                 .ObjParamList = New List(Of ReportParameter),
                 .PathReport = VariableGlobal.VGRutaReporteIngresos,
-                .ImageReport = True
+                .ImageReport = True,
+                .SubReport = False
             }
             objForm.Show()
-
-
         End If
-
     End Sub
 
 
-    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs)
         modoInicial()
     End Sub
 
     Private Sub cboPeriodoInicialFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoInicialFiltro.TextChanged
         If cboPeriodoInicialFiltro.Text.Length = 7 Then
-            EntPeriodo = negPeriodo.ObtenerData(0, cboPeriodoInicialFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoInicialFiltro.Text, 0)
             cboPeriodoInicialFiltro.SelectedValue = EntPeriodo.IdPeriodo
         End If
     End Sub
 
     Private Sub cboPeriodoFinalFiltro_TextChanged(sender As Object, e As EventArgs) Handles cboPeriodoFinalFiltro.TextChanged
         If cboPeriodoFinalFiltro.Text.Length = 7 Then
-            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoFinalFiltro.Text)
+            entPeriodo = negPeriodo.ObtenerData(0, cboPeriodoFinalFiltro.Text, 0)
             cboPeriodoFinalFiltro.SelectedValue = entPeriodo.IdPeriodo
         End If
     End Sub
